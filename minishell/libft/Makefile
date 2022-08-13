@@ -16,8 +16,8 @@ BONUS			=	ft_lstnew.c	ft_lstadd_front.c	ft_lstsize.c	ft_lstlast.c\
 					ft_lstmap.c
 BONUS_OBJS		= $(BONUS:.c=.o)
 
-CC				= gcc
-RM				= rm -f
+CC				= @gcc
+RM				= @rm -f
 CFLAGS			= -Wall -Wextra -Werror -I.
 
 NAME			= libft.a
@@ -25,7 +25,7 @@ NAME			= libft.a
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				ar rcs $(NAME) $(OBJS)
+				@ar rcs $(NAME) $(OBJS)
 
 clean:
 				$(RM) $(OBJS) $(BONUS_OBJS)

@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:06:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/13 15:20:35 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/13 18:09:58 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	builtin_command(char **parse)
 
 	if(ft_strcmp(parse[0], data.built_in_tkn[0]) == 0) // echo
 		ft_echo(parse);
-/* 	else if(ft_strcmp(parse[0], data.built_in_tkn[1]) == 0) // cd
+ 	else if(ft_strcmp(parse[0], data.built_in_tkn[1]) == 0) // cd
 		ft_cd(parse);
 	else if(ft_strcmp(parse[0], data.built_in_tkn[2]) == 0) // pwd
-		ft_pwd(parse);
-	else if(ft_strcmp(parse[0], data.built_in_tkn[3]) == 0) // export
+		ft_pwd();
+	/*else if(ft_strcmp(parse[0], data.built_in_tkn[3]) == 0) // export
 		ft_export(parse);
 	else if(ft_strcmp(parse[0], data.built_in_tkn[4]) == 0) // unset
 		ft_unset(parse);
@@ -41,6 +41,7 @@ void	builtin_or_smp_cmd_ctrl(char **parse)
 	i = 0;
 	builtin_ctrl = false;
 	parse = ft_implt_split(parse[0], ' ');
+	parse = quotes_purifyer(parse); // echo'nun $ ile alakalı kısmını burası bozuyor. dikkat!!!
 	while(parse[i])
 	{
 		x = 0;
