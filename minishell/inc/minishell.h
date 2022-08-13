@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/13 17:58:14 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/13 18:23:31 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,7 @@ void    prompt(void);
 // builtin commands
 void    ft_echo(char **parse);
 void    ft_pwd(void);
+void    ft_cd(char **parse);
+
 
 #endif
