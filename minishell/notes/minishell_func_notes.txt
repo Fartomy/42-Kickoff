@@ -1,0 +1,315 @@
+\_________________________________________________< /~\ [* M   I   N   I   S   H   E   L   L *] /~\ >________________________________________________/
+
+
+_< [-[ L E A R N E D   F U N C T I O N S ]-] >_
+
+-----------------------------------------------------------------------------------------------------------
+
+>_ FUNCTION 1 : [ - R E A D L I N E - ]
+
+$ Readline fonksiyonu kısaca, en azından minishell projesi için akabinde bir satırdan okunan değeri döner.
+$ GCC ile derleme yaparken '-lreadline' flag'ini eklemeyi unutmayın!
+
+_/√\_ PROTOTYPE :
+
+char *readline(const char *line);
+
+
+_\~/_ EXAMPLE (1) :
+
+1 int main()
+2 {
+3    char *str;
+4
+5    str = readline("Aldığı değeri -str- değişkenine döndürecek. Terminalde sizden bir girdi bekliyor: ");
+6    printf("%s\n", str);
+8 }
+
+-----------------------------------------------------------------------------------------------------------
+
+>_ FUNCTION 2 : [ - F O R K - ]
+
+$ Fork fonksiyonu, ana process'ten (parent) ayrı, bağımsız bir alt process (child) oluşturur (fork'lama yapar).
+$ Fork fonksiyonunun kullanıldığı satırdan sonra ki bütün satırlar, anında yeni üretilen child process için de geçerli olur.
+$ İki process'in yaptığı davranışları (işleri) şayet ayırmak isteniyorsa, bunlar 'if statement'leri ile ayrılabilir.
+$ Fork fonksiyonundan dönen değeri bir 'pid_t veya int' variable'a atarak bu ve 'if statement'ları kullanarak ayırmak mümkündür.
+$ Fork fonksiyonundan dönen değer eğer 0'dan büyük ise o koşulun altında çalışacak tüm kodlar ana process'e aittir.
+$ Fork fonksiyonundan dönen değer eğer 0'a eşit ise o koşulun altında çalışacak tüm kodlar alt process'e aittir.
+$ Ana process'in 0'dan büyük olduğu durumlarda çalışacak kod satırların birinde şayet 'wait(NULL)' fonksiyonu kullanılırsa, \
+  ana process alt process'in işi bitene kadar bekler. Ve sonrasında da kod satırı var ise çalıştırıp kendini öyle bitirir.
+$ Bu fonksiyonun en önemli özelliği ana process kendini çalıştırmayı sonlandırınca bile child process'in işi eğer henüz bitmediyse çalışmaya devam eder.
+
+
+_/√\_ PROTOTYPE :
+
+pid_t fork(void);
+
+
+_\~/_ EXAMPLE (1) :
+
+1 #include <stdio.h>
+2 #include <fcntl.h>
+3 #include <unistd.h>
+4
+5 int main()
+6 {
+7   pid_t pid;
+8
+9   pid = fork();
+10  printf("Her iki process'de bu satırı çalıştıracak. Yani iki tane bu çıktıdan alacağız.");
+11 }
+
+
+_\~/_ EXAMPLE (2) :
+
+1  #include <stdio.h>
+2  #include <fcntl.h>
+3  #include <unistd.h>
+4 
+5 int main()
+6 {
+7   pid_t pid;
+8
+9    pid = fork();
+10    if(pid > 0) //Parent process
+11      printf("Parent process'in çalıştıracak olduğu kod satırı.\n");
+12   if(pid == 0) //Child process
+13      printf("Child process'in çalıştıracak olduğu kod satırı.\n");
+14   if(pid < 0)
+15      printf("Hata durumunda, 'pid' değişkenine 0'dan küçük bir değer dönerse çalışacak kod satırı.\n");
+16 }
+
+
+_\~/_ EXAMPLE (3) :
+
+1 #include <stdio.h>
+2  #include <fcntl.h>
+3  #include <unistd.h>
+4
+5 int main()
+6 {
+7   pid_t pid;
+8
+9   pid = fork();
+10  if(pid > 0) //Parent process
+11    printf("Parent process'in çalıştıracak olduğu kod satırı.\n");
+12  if(pid == 0) //Child process
+13  {
+14    sleep(2);
+15     printf("Child process'in ana process bitmiş olsa dahi çalıştıracak olduğu kod satırı.\n \
+16             Yani ben ilk gördüğümde pek şaşırmıştım. Bir arkadaşla iddiaya girmiştik bu yazı çıkıcak çıkmayacak diye ben çıkmayacak diyen taraftım\n \
+17             bazı geçerli sebepler ve zannetmelerden ötürü, fakat gel gör ki o arkadaş (gdogan :d) iddiasında haklı çıkmış oldu. Kendisine buradan\n \
+18             selamlarımı iletiyorum. Bu yazıyı hala okuyosan sana da buradan teşekkür ediyorum (Tarih: 30/07/2022). Bu örneği deneyen varsa yanında PC'de\n \ 
+19             (gdogan) oturuyorsa selam söylesin. Hayatımda printf'e hiç bu kadar uzun metin yazmamıştım ve sende hala bu gereksiz şeyi okumaya devam ediyosun xd");
+20  }
+21 }
+
+-----------------------------------------------------------------------------------------------------------
+
+>_ FUNCTION 3 : [ - G E T E N V - ]
+
+$ Terminalinize 'env' komutunu yazarasanız bir sürü şey görecekseniz. En sol tarafta ki büyük harf ile yazılmış olan şeyler çevre değişkenlerin isimleridir.
+$ Getenv fonksiyonu çevre değişkenlerinin tuttuğu veriyi geri döndürür. Kısaca tutulan veriyi string olarak alırsınız.
+
+
+_/√\_ PROTOTYPE :
+
+char *getenv(const char *env_name);
+
+
+_\~/_ EXAMPLE (1) :
+
+1 #include <stdio.h>
+2 #include <fcntl.h>
+3 #include <unistd.h>
+4 
+5 int main()
+6 {
+7    printf("Kullanıcı isminizi (%s) 'USER' çevre değişkenini kullanarak içinde tuttuğu değeri almış oldunuz.", getenv("USER"));    
+8 }
+
+-----------------------------------------------------------------------------------------------------------
+
+>_ FUNCTION 4 : [ - D U P 2 - ]
+
+$ Dup2 fonksiyonu 'file descriptor'ın tanımladığı yeri (örneğin 0(input), 1(output) , 2(error)), \
+  farklı bir 'file descriptor' ile tanımlanmış yere ayarlar. 
+$ Kısaca örnek olarak std output(1), normalde çıktıyı terminalimize yazdırırken verdiği çıktıyı, başka bir dosyaya yazdırabiliyoruz \
+  ve çıktı artık varsayılan olarak terminalinizde gözükmeyecek. Çünkü varsayılan şeyi, dup2 fonksyionu ile dolaylı olarak değiştirmiş oluyorsunuz.
+
+
+_/√\_ PROTOTYPE :
+
+int dup2(int oldfd, int newfd);
+
+
+_\~/_ EXAMPLE (1) :
+
+1 #include <stdio.h>
+2 #include <fcntl.h>
+3 #include <unistd.h>
+4
+5 int main()
+6 {
+7    int fd;
+8    fd = open("test_dosyasi", O_CREAT | O_RDWR, 0777);
+9    dup2(fd, 1);
+10   printf("Normalde bu çıktıyı terminal ekranına yazması gerekirken, bu dizinde oluşturulan dosyanın içine bu çıktıyı yazdı.");
+11 }
+
+-----------------------------------------------------------------------------------------------------------
+
+>_ FUNCTION 5 : [ - E X E C V E - ]
+
+$ Execve fonksiyonu kısaca path'ini (yolunu) vermiş olduğunuz bir çalıştırılabilir dosyayı (programı) çalıştırma fonksiyonudur.
+$ Eğer dosyayı çalıştırabilirse herhangi bir değer döndürmez. Ama eğer çalıştıramazsa '-1' değerini geri döndürür.
+$ İlk parametresi verecek olduğumuz çalıştırılabilir dosyanın path'idir.
+$ İkinci parametresi çalıştırılabilir dosyamızın eğer ki kullanıyorsa opsiyonudur. Örnek olarak 'ls' programının '-la' opsiyonu vb.
+$ Üçüncü parametresi çevre değişkenleri (environment variables) ile alakalı. Çevre değişkeni kullanıyorsa program o argümanları giriyorsunuz.
+
+
+_/√\_ PROTOTYPE :
+
+int execve(const char *pathname, char *const argv[], char *const envp[]);
+
+
+_\~/_ EXAMPLE (1) :
+
+1 #include <unistd.h>
+2 #include <stdio.h>
+3
+4 int main()
+5 {
+6    char *args[] = {"ls", "-la", NULL};
+7    execve("/bin/ls", args, NULL);
+8 }
+
+-----------------------------------------------------------------------------------------------------------
+
+>_ FUNCTION 6 : [ - A C C E S S - ]
+
+$ Access fonksiyonu en azından minishell projesi için bir dosyanın varlığını veya erişebilirliğini sorgulamak için kullanılabilir.
+$ Eğer verdiğimiz path ile o dosyaya ulaşabiliyorsa '0' döndürür. Aksi halde '-1' değerini döndürür.
+$ İlk parametresi bir path (dosya yolu) alır.
+$ İkinci parametesi ise birden çok modu olsada en azından dosya sorgulaması yapmak için 'F_OK' değeri kullanılır.
+
+
+_/√\_ PROTOTYPE :
+
+int access(const char *pathname, int mode);
+
+
+_\~/_ EXAMPLE (1) :
+
+1 #include <unistd.h>
+2 #include <stdio.h>
+3
+4 int main()
+5 {
+6    int value;
+7
+8    value = access("/bin/ls", F_OK);
+9    printf("%d\n", value);
+10}
+
+-----------------------------------------------------------------------------------------------------------
+
+>_ FUNCTION 7 : [ - P E R R O R - ]
+
+$ Perror fonksiyonu, belirli bir hata prototipi olup verdiğiniz mesajı o kısma yerleştiren bir fonksiyondur.
+
+
+_/√\_ PROTOTYPE :
+
+void perror(const char *s);
+
+
+_\~/_ EXAMPLE (1) :
+
+1 #include <stdio.h>
+2
+3 int main()
+4 {
+5    perror("Bu mesajı en sola yerleştirecektir.");
+6 }
+
+-----------------------------------------------------------------------------------------------------------
+
+>_ FUNCTION 8 : [ - S T R E R R O R - ]
+
+$ Strerror fonksiyonu sistemde belirli olan hata kodunu parametre olarak alıp size o hata koduna dair bir mesaj döndüren fonksiyondur.
+$ Döndürdüğü değeri ekrana bastırmaz. Sadece o mesajı döndürür bu mesajı perror fonksiyonu veya ekrana bir şey basan fonksiyonlarda birilkte \
+  kullanabilirsiniz.
+$ Bazı hata numaralarını buradan (https://www.educative.io/answers/what-are-error-numbers-in-c) bulabilirsiniz. Veya kendiniz deneyerek \
+  bulabilirsiniz.
+
+_/√\_ PROTOTYPE :
+
+char *strerror(int errnum);
+
+_\~/_ EXAMPLE (1) :
+
+1 #include <stdio.h>
+2 #include <string.h>
+3
+4 int main()
+5 {
+6    char *err_msg;
+7
+8    err_msg = strerror(2);
+9    printf("Sistemde bulunan '2' numaralı hata kodu neyse mesajı bastıracak. -> (%s)\n", err_msg);
+10}
+
+-----------------------------------------------------------------------------------------------------------
+
+>_ FUNCTION 9 : [ - A D D _ H I S T O R Y - ]
+
+$ add_history() fonksiyonu minishell'de prompt kısmından bir satır okuyorsanız (readline) eski komutlarınıza yukarı aşağı yön tuşu oklarını \
+  kullanarak ekrana gelmesini sağlar.
+$ Aldığı parametre ise girdiğiniz komut string'leridir. Örneğin readline fonksiyonundan dönen değeri yazabilirsiniz.
+
+
+_/√\_ PROTOTYPE :
+
+void add_history(const char *string);
+
+
+_\~/_ EXAMPLE (1) :
+
+1 #include <stdio.h>
+2 #include <string.h>
+3 #include <readline/history.h>
+4
+5 int main()
+6 {
+7    char *str;
+8    while (1)
+9    {
+10       str = readline("(Rastgele bir şeyler girip yukarı aşağı yön oklarını deneyin)prompt: ");
+11       add_history(str);
+12   }
+13}
+
+-----------------------------------------------------------------------------------------------------------
+
+>_ FUNCTION 10 : [ - G E T C W D - ]
+
+$ getcwd() fonksiyonu bulunulan güncel dizini döndürür.
+
+
+_/√\_ PROTOTYPE :
+
+char *getcwd(char *buf, size_t size);
+
+
+_\~/_ EXAMPLE (1) :
+
+1 #include <unistd.h>
+2 #include <stdio.h>
+3
+4 int main()
+5 {
+6    char *str = NULL;
+7    str = getcwd(str, 0);
+8    printf("%s\n", str);
+9 }
