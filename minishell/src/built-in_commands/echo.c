@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:08:31 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/14 16:00:05 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/14 17:57:38 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,21 @@ static	void echo_printenv_helper(char **parse, int *i, int *x)
 	bool	env_found_ctrl;
 	
 	a = ++(*x);
-	len = a;
 	while (parse[*i][a])
 		a++;
+	len = a;
+	len--;
 	env = malloc(sizeof(char) * a);
 	env_found_ctrl = false;
 	a = 0;
-	while (parse[*i][*x] != 0)
+	while (parse[*i][*x] && parse[*i][*x] != '$')
 		env[a++] = parse[*i][(*x)++];
 	env[a] = 0;
 	a = -1;
 	while (data.env[++a])
 	{
-		if(ft_strncmp(data.env[a], env, len) == 0)
+		printf("%s\n", data.env[a]);
+		if(ft_strncmp(data.env[a], env, len) == 0) // 'len' değişkeni işi bozuyor düzelt!!!!
 		{
 			env_found_ctrl = true;
 			free(env);
@@ -85,7 +87,8 @@ void    ft_echo(char **parse) // '$'ın tırnak işi' için tekrardan dönülüc
 				{
 					dolar_ctrl = true;
 					echo_printenv_helper(parse, &i, &x);
-					break ;
+					/* if (parse[i] && parse[i + 1])
+						printf(" "); */
 				}
 			}
 			if(dolar_ctrl == false)
@@ -111,7 +114,8 @@ void    ft_echo(char **parse) // '$'ın tırnak işi' için tekrardan dönülüc
 				{
 					dolar_ctrl = true;
 					echo_printenv_helper(parse, &i, &x);
-					break ;
+					/* if (parse[i] && parse[i + 1])
+						printf(" "); */
 				}
 			}
 			if(dolar_ctrl == false)
