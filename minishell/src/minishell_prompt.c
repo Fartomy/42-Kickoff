@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:06:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/13 18:09:58 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/13 18:36:51 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	builtin_command(char **parse)
 		ft_cd(parse);
 	else if(ft_strcmp(parse[0], data.built_in_tkn[2]) == 0) // pwd
 		ft_pwd();
-	/*else if(ft_strcmp(parse[0], data.built_in_tkn[3]) == 0) // export
+	else if(ft_strcmp(parse[0], data.built_in_tkn[3]) == 0) // export
 		ft_export(parse);
-	else if(ft_strcmp(parse[0], data.built_in_tkn[4]) == 0) // unset
+	/*else if(ft_strcmp(parse[0], data.built_in_tkn[4]) == 0) // unset
 		ft_unset(parse);
 	else if(ft_strcmp(parse[0], data.built_in_tkn[5]) == 0) // env
 		ft_env(parse);
