@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:08:31 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/14 15:32:43 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/14 16:00:05 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,35 +73,53 @@ void    ft_echo(char **parse) // '$'ın tırnak işi' için tekrardan dönülüc
 	i = 1;
     if ((ft_strcmp(parse[1], "-n")) == 0) // -n varsa
 	{
+		bool dolar_ctrl;
+		
 		while (parse[++i])
 		{
+			dolar_ctrl = false;
 			x = -1;
 			while (parse[i][++x])
 			{
 				if(parse[i][x] == '$')
+				{
+					dolar_ctrl = true;
 					echo_printenv_helper(parse, &i, &x);
-				else
-					write(1, &parse[i][x], 1);
+					break ;
+				}
 			}
-			 /* if (parse[i] && parse[i + 1])
-				printf(" "); */ 
+			if(dolar_ctrl == false)
+			{
+				printf("%s", parse[i]);
+				if (parse[i] && parse[i + 1])
+					printf(" ");
+			}
 		}
 	}
 	else if (ft_strcmp(parse[1], "-n")) // -n yoksa
 	{
+		bool dolar_ctrl;
+		
 		i = 0;
 		while (parse[++i])
 		{
+			dolar_ctrl = false;
 			x = -1;
 			while (parse[i][++x])
 			{
 				if(parse[i][x] == '$')
+				{
+					dolar_ctrl = true;
 					echo_printenv_helper(parse, &i, &x);
-				else
-					write(1, &parse[i][x], 1);
+					break ;
+				}
 			}
-			/* if (parse[i] && parse[i + 1])
-				printf(" "); */
+			if(dolar_ctrl == false)
+			{
+				printf("%s", parse[i]);
+				if (parse[i] && parse[i + 1])
+					printf(" ");
+			}
 		}
 		printf("\n");
 	}
