@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:08:31 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/14 14:17:40 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/14 15:32:43 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char *echo_env_helper(char *str)
 	return (str);
 }
 
-static	void	echo_printenv_helper(char **parse, int *i, int *x)
+static	void echo_printenv_helper(char **parse, int *i, int *x)
 {
 	int 	a;
 	int 	len;
@@ -65,13 +65,13 @@ static	void	echo_printenv_helper(char **parse, int *i, int *x)
 		printf("\n");
 }
 
-void    ft_echo(char **parse) // '$' için tekrardan dönülücek
+void    ft_echo(char **parse) // '$'ın tırnak işi' için tekrardan dönülücek
 {
 	int i;
 	int x;
 	
 	i = 1;
-    if (!(ft_strcmp(parse[1], "-n"))) // -n varsa
+    if ((ft_strcmp(parse[1], "-n")) == 0) // -n varsa
 	{
 		while (parse[++i])
 		{
@@ -83,8 +83,8 @@ void    ft_echo(char **parse) // '$' için tekrardan dönülücek
 				else
 					write(1, &parse[i][x], 1);
 			}
-			 if (parse[i] && parse[i + 1])
-				printf(" "); 
+			 /* if (parse[i] && parse[i + 1])
+				printf(" "); */ 
 		}
 	}
 	else if (ft_strcmp(parse[1], "-n")) // -n yoksa
@@ -92,9 +92,16 @@ void    ft_echo(char **parse) // '$' için tekrardan dönülücek
 		i = 0;
 		while (parse[++i])
 		{
-			printf("%s", parse[i]);
-			if (parse[i] && parse[i + 1])
-				printf(" ");
+			x = -1;
+			while (parse[i][++x])
+			{
+				if(parse[i][x] == '$')
+					echo_printenv_helper(parse, &i, &x);
+				else
+					write(1, &parse[i][x], 1);
+			}
+			/* if (parse[i] && parse[i + 1])
+				printf(" "); */
 		}
 		printf("\n");
 	}
