@@ -6,13 +6,13 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:17:52 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/15 22:50:50 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/15 23:17:53 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void    ft_free(char **str)
+void    ft_free(void **str)
 {
     int i;
 
@@ -60,4 +60,12 @@ char *env_getter(char *str)
 	}
 	str[x] = 0;
 	return (str);
+}
+
+void	*ft_realloc(void *ptr, size_t size)
+{
+	free(ptr);
+	
+	ptr = malloc(size);
+	return (ptr);
 }
