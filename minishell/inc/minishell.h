@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/13 18:41:22 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/15 22:51:38 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ extern t_minidata data;
 void	set_builtin_token(char **bl_token);
 void	set_symbol_token(char **sy_token);
 void    ft_free(char **str);
+char    *env_getter(char *str);
 
 // implemented funcs
 int     ft_arglen(char **arg);

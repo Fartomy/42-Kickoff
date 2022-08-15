@@ -6,30 +6,11 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 17:53:58 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/14 10:36:11 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/15 22:52:30 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-static char *cd_env_helper(char *str)
-{
-	int i;
-	int x;
-	
-	x = 0;
-	i = 0;
-	while (str[i] != '=')
-		i++;
-	if(str[i] == '=')
-	{
-		i++;
-		while (str[i])
-			str[x++] = str[i++];
-	}
-	str[x] = 0;
-	return (str);
-}
 
 void    ft_cd(char **parse)
 {
@@ -45,7 +26,7 @@ void    ft_cd(char **parse)
 				char *home_value;
 				
 				home_value = ft_strdup(data.env[i]);
-				home_value = cd_env_helper(home_value);
+				home_value = env_getter(home_value);
 				chdir(home_value);
 				free(home_value);
 			}
@@ -64,7 +45,7 @@ void    ft_cd(char **parse)
 				char *oldpwd_value;
 
 				oldpwd_value = ft_strdup(data.env[i]);
-				oldpwd_value = cd_env_helper(oldpwd_value);
+				oldpwd_value = env_getter(oldpwd_value);
 				chdir(oldpwd_value);
 				printf("%s\n", oldpwd_value);
 				free(oldpwd_value);

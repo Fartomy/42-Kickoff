@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:17:52 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/12 19:56:39 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/15 22:50:50 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,23 @@ void	set_symbol_token(char **sy_token)
 	sy_token[2] = "<<";
 	sy_token[3] = ">>";
 	sy_token[4] = NULL;
+}
+
+char *env_getter(char *str)
+{
+	int i;
+	int x;
+	
+	x = 0;
+	i = 0;
+	while (str[i] != '=')
+		i++;
+	if(str[i] == '=')
+	{
+		i++;
+		while (str[i])
+			str[x++] = str[i++];
+	}
+	str[x] = 0;
+	return (str);
 }
