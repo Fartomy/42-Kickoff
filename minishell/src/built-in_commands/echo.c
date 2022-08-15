@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:08:31 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/14 17:57:38 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/15 20:48:17 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,12 @@ static	void echo_printenv_helper(char **parse, int *i, int *x)
 	int 	a;
 	int 	len;
 	char	*env;
-	bool	env_found_ctrl;
-	
+		
 	a = ++(*x);
-	while (parse[*i][a])
+	while (parse[*i][a] && parse[*i][*x] != '$')
 		a++;
-	len = a;
-	len--;
-	env = malloc(sizeof(char) * a);
-	env_found_ctrl = false;
+	len = --a;
+	env = ft_calloc(sizeof(char), a + 1);
 	a = 0;
 	while (parse[*i][*x] && parse[*i][*x] != '$')
 		env[a++] = parse[*i][(*x)++];
@@ -52,19 +49,20 @@ static	void echo_printenv_helper(char **parse, int *i, int *x)
 	a = -1;
 	while (data.env[++a])
 	{
-		printf("%s\n", data.env[a]);
-		if(ft_strncmp(data.env[a], env, len) == 0) // 'len' değişkeni işi bozuyor düzelt!!!!
+		if(ft_strncmp(data.env[a], env, len) == 0)
 		{
-			env_found_ctrl = true;
-			free(env);
-			env = strdup(data.env[a]);
-			env = echo_env_helper(env);
-			printf("%s", env);
-			free(env);
+			if(data.env[a][len] == '=')
+			{
+				free(env);
+				env = ft_strdup(data.env[a]);
+				env = echo_env_helper(env);
+				printf("%s", env);
+				free(env);
+			}
+			else
+				free(env);
 		}
 	}
-	if(env_found_ctrl == false)
-		printf("\n");
 }
 
 void    ft_echo(char **parse) // '$'ın tırnak işi' için tekrardan dönülücek

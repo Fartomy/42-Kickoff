@@ -6,12 +6,12 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 20:28:45 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/10 13:40:23 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/15 20:19:42 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// 24. Satırda bir problem yaşanırsa '\' sil
+
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t			t;
