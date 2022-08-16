@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 19:37:03 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/10 13:25:27 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/16 14:13:21 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strlcpy(&res[len_s1], s2, len_s2 + 1);
 	return (res);
 }
-/*int main()
-{
-    char a[] = "merhaba";
-    char b[] = "selam";
-    printf("%s", ft_strjoin(a, b));
-}*/

@@ -22,7 +22,7 @@ all:	$(NAME)
 
 $(NAME):	$(OBJS)
 			@echo "$(YELLOW)>- Compiling... [$(NAME)] $(RESET)"
-			$(CC) $(CFLAGS) $(OUT) $(OBJS) -ggdb
+			$(CC) $(CFLAGS) $(OUT) $(OBJS)
 			@echo "$(GREEN)>- Finished! $(RESET)"
 
 clean:

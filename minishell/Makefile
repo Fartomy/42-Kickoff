@@ -36,7 +36,7 @@ $(LIBFT):
 
 $(NAME): $(BIN)	$(LIBFT) $(OBJS) 
 			@echo "$(YELLOW)>- Compiling... [$(NAME)] $(RESET)"
-			$(CC) $(LRDL) $(CFLAGS) $(LIBFT) $(OUT) $(OBJS) -ggdb
+			$(CC) $(LRDL) $(CFLAGS) $(LIBFT) $(OUT) $(OBJS) # -ggdb -fsanitize=thread -g
 			@echo "$(GREEN)>- Finished! $(RESET)"
 
 $(BIN)%.o: src/%.c

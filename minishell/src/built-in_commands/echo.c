@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:08:31 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/16 00:36:56 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/16 16:29:20 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ static	char *env_searcher(char *bufenv, int buflen)
 		if(ft_strncmp(data.env[i], bufenv, buflen) == 0)
 		{
 			if(data.env[i][buflen] == '=')
-			{
-				bufenv = ft_realloc(bufenv, ft_strlen(env_getter(data.env[i])));
-				bufenv = env_getter(data.env[i]);
+			{	
+				free(bufenv);
+				bufenv = ft_strdup(env_getter(data.env[i]));
 				return(bufenv);
 			}
 		}
@@ -52,24 +52,20 @@ static	char *env_converter(char *str)
 			
 			len = 0;
 			a = i;
-			a++;
-			while (str[a] && str[a] != '$')
-			{
+			while (str[++a] && str[a] != '$')
 				len++;
-				a++;
-			}
 			buf = ft_calloc(sizeof(char), len + 1);
 			buflen = len;
 			a = i;
-			a++;
 			len = 0;
-			while (str[a] && str[a] != '$')
-				buf[len++] = str[a++];
+			while (str[++a] && str[a] != '$')
+				buf[len++] = str[a];
 			buf[len] = 0;
 			buf = env_searcher(buf, buflen);
 			len = 0;
-			while (buf[len])
-				s[x++] = buf[len++];
+			s[x] = 0;
+			s = ft_strjoin(s, buf);
+			x += ft_strlen(buf);
 			free(buf);
 			i += buflen;
 		}
@@ -89,6 +85,7 @@ void    ft_echo(char **parse)
 	{
 		while (parse[++i])
 		{
+			parse[i] = env_converter(parse[i]);
 			printf("%s", parse[i]);
 			if (parse[i] && parse[i + 1])
 				printf(" ");
@@ -99,6 +96,7 @@ void    ft_echo(char **parse)
 		i = 0;
 		while (parse[++i])
 		{
+			parse[i] = env_converter(parse[i]);
 			printf("%s", parse[i]);
 			if (parse[i] && parse[i + 1])
 				printf(" ");
