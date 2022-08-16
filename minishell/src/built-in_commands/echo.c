@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:08:31 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/16 16:49:02 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/16 18:09:42 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,36 @@ static	char *env_searcher(char *bufenv, int buflen)
 	return (NULL);
 }
 
+static char *env_cnv_helper(char *str, char *s, int *i, int *x)
+{
+	char *buf;
+	int a;
+	int len;
+	int buflen;
+	
+	len = 0;
+	a = *i;
+	while (str[++a] && str[a] != '$')
+		len++;
+	buf = ft_calloc(sizeof(char), len + 1);
+	buflen = len;
+	a = *i;
+	len = 0;
+	while (str[++a] && str[a] != '$')
+		buf[len++] = str[a];
+	buf[len] = 0;
+	buf = env_searcher(buf, buflen);
+	if(buf != 0)
+	{
+		s[*x] = 0;
+		s = ft_strjoin(s, buf);
+		*x += ft_strlen(buf);
+	}
+	free(buf);	
+	*i += buflen;
+	return(s);
+}
+
 static	char *env_converter(char *str)
 {
 	int i;
@@ -44,33 +74,7 @@ static	char *env_converter(char *str)
 	while (str[++i])
 	{
 		if(str[i] == '$')
-		{
-			char *buf;
-			int a;
-			int len;
-			int buflen;
-			
-			len = 0;
-			a = i;
-			while (str[++a] && str[a] != '$')
-				len++;
-			buf = ft_calloc(sizeof(char), len + 1);
-			buflen = len;
-			a = i;
-			len = 0;
-			while (str[++a] && str[a] != '$')
-				buf[len++] = str[a];
-			buf[len] = 0;
-			buf = env_searcher(buf, buflen);
-			if(buf != 0)
-			{
-				s[x] = 0;
-				s = ft_strjoin(s, buf);
-				x += ft_strlen(buf);
-			}
-			free(buf);	
-			i += buflen;
-		}
+			s = env_cnv_helper(str, s, &i, &x);
 		else
 			s[x++] = str[i];
 	}
