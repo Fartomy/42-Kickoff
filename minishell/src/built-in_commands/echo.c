@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:08:31 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/16 16:29:20 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/16 16:49:02 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,13 @@ static	char *env_converter(char *str)
 				buf[len++] = str[a];
 			buf[len] = 0;
 			buf = env_searcher(buf, buflen);
-			len = 0;
-			s[x] = 0;
-			s = ft_strjoin(s, buf);
-			x += ft_strlen(buf);
-			free(buf);
+			if(buf != 0)
+			{
+				s[x] = 0;
+				s = ft_strjoin(s, buf);
+				x += ft_strlen(buf);
+			}
+			free(buf);	
 			i += buflen;
 		}
 		else
