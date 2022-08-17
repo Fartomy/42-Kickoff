@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:17:52 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/16 14:17:49 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/17 17:08:45 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,25 +43,6 @@ void	set_symbol_token(char **sy_token)
 	sy_token[4] = NULL;
 }
 
-/* char *env_getter2(char *str)
-{
-	int i;
-	int x;
-	
-	x = 0;
-	i = 0;
-	while (str[i] != '=')
-		i++;
-	if(str[i] == '=')
-	{
-		i++;
-		while (str[i])
-			str[x++] = str[i++];
-	}
-	str[x] = 0;
-	return (str);
-} */
-
 void	*ft_realloc(void *ptr, size_t size)
 {
 	void *p;
@@ -70,32 +51,4 @@ void	*ft_realloc(void *ptr, size_t size)
 	
 	p = malloc(sizeof(ptr) * size);
 	return (p);
-}
-
-char *env_getter(char *str)
-{
-    int i;
-    int x;
-    int len;
-    int a;
-    char *temp;
-    
-	temp = NULL;
-    a = 0;
-    x = 0;
-    i = 0;
-    len = 0;
-    while (str[i] != '=')
-        i++;
-    if(str[i] == '=')
-    {
-        a = i++;
-        while(str[a++])
-          len++;
-        temp = malloc(len);
-        while (str[i])
-            temp[x++] = str[i++];
-    }
-    temp[x] = 0;
-    return (temp);
 }

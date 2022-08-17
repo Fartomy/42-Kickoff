@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/17 16:27:11 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/17 17:12:11 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ void	set_builtin_token(char **bl_token);
 void	set_symbol_token(char **sy_token);
 void    ft_free(char **str);
 void	*ft_realloc(void *ptr, size_t size);
+
+// env tools
+char    *env_cnv_helper(char *str, char *s, int *i, int *x);
+char    *env_converter(char *str);
+char    **export_sorter(char **envp);
 char    *env_getter(char *str);
 
 // implemented funcs
