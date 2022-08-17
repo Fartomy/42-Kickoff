@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/16 00:56:05 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/17 16:27:11 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 typedef struct s_minishell
 {
     char **env;
+    char **export;
     char **parse;
     char *symbol_tkn[6];
     char *built_in_tkn[8];
@@ -66,5 +67,6 @@ void    ft_echo(char **parse);
 void    ft_pwd(void);
 void    ft_cd(char **parse);
 void    ft_export(char **parse);
+void    ft_env(char **parse);
 
 #endif
