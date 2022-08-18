@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:17:52 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/17 17:08:45 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/18 23:24:07 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ void    ft_free(char **str)
     while(str[++i])
         free(str[i]);
     free(str);
+}
+
+int ft_arglen(char **arg)
+{
+    int i;
+
+    i = 0;
+    while(arg[i])
+        i++;
+    return (i);
 }
 
 void	set_builtin_token(char **bl_token)

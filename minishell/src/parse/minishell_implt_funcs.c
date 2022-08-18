@@ -6,21 +6,11 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 15:46:01 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/12 20:00:09 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/18 23:23:50 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-int ft_arglen(char **arg)
-{
-    int i;
-
-    i = 0;
-    while(arg[i])
-        i++;
-    return (i);
-}
 
 int	ft_strcmp(const char *s1, const char *s2)
 {

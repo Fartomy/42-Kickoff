@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:37:12 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/18 23:18:55 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/19 01:41:38 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void export_add_variable(char *var)
     }
     if(equal_ctrl == true)
     {
-        i = 0;
+        printf("xd");
     }
     else
     {
@@ -49,7 +49,7 @@ void    ft_export(char **parse)
     if(ft_strcmp(parse[i], "export") == 0 && !parse[i + 1])
     {
         while (data.export[i])
-            printf("declare -x %s\n", data.env[i++]);
+            printf("declare -x %s\n", data.export[i++]);
     }
     else if(ft_strcmp(parse[i], "export") == 0 && parse[i + 1])
     {
