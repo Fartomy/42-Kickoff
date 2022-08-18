@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:37:12 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/17 20:46:56 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/18 23:18:55 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void export_add_variable(char *var)
     }
     if(equal_ctrl == true)
     {
-        printf(":d");
+        i = 0;
     }
     else
     {
