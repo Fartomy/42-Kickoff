@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 12:08:59 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/08 19:58:55 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/19 15:08:03 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,3 @@ char	*ft_strdup(const char *s1)
 	str2[cnt] = '\0';
 	return (ft_memcpy(str2, str1, cnt));
 }
-
-/*int main()
-{
-	char a[] = "bilgisayar";
-	printf("%s", ft_strdup(a));
-}*/

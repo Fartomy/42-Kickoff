@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:37:36 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/19 11:05:38 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/19 15:58:14 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static	char	*exprt_quo_add_helper(char **expt, int *i, int *x)
 char    **export_quote_adder(char **export_envs)
 {
     int i;
-    int x;
+	int x;
 	int a;
 
     i = -1;

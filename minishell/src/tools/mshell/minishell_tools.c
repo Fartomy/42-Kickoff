@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:17:52 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/18 23:24:07 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/19 15:21:14 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,4 @@ void	set_symbol_token(char **sy_token)
 	sy_token[2] = "<<";
 	sy_token[3] = ">>";
 	sy_token[4] = NULL;
-}
-
-void	*ft_realloc(void *ptr, size_t size)
-{
-	void *p;
-	
-	free(ptr);
-	
-	p = malloc(sizeof(ptr) * size);
-	return (p);
 }
