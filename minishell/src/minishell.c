@@ -6,33 +6,13 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:37:36 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/19 01:15:04 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/19 11:05:38 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
 t_minidata data;
-
-char	**storage_and_copy(char **env)
-{
-	int i;
-	int x;
-	char **str;
-	
-	str = ft_calloc(sizeof(char *), ft_arglen(env) + 1);
-	i = -1;
-	while (env[++i])
-		str[i] = ft_calloc(sizeof(char), ft_strlen(env[i]) + 1);
-	i = -1;
-	while (env[++i])
-	{
-		x = -1;
-		while (env[i][++x])
-			str[i][x] = env[i][x];
-	}
-	return (str);
-}
 
 static	char	*exprt_quo_add_helper(char **expt, int *i, int *x)
 {

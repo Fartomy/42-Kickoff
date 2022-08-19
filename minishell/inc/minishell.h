@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/17 17:12:11 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/19 12:15:19 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,13 @@ typedef struct s_minishell
 extern t_minidata data;
 
 // tokens and tools
+void	*ft_realloc(void *ptr, size_t size);
 void	set_builtin_token(char **bl_token);
 void	set_symbol_token(char **sy_token);
 void    ft_free(char **str);
-void	*ft_realloc(void *ptr, size_t size);
+char	**storage_and_copy(char **env);
+int	    ft_strcmp(const char *s1, const char *s2);
+int     ft_arglen(char **arg);
 
 // env tools
 char    *env_cnv_helper(char *str, char *s, int *i, int *x);
@@ -53,8 +56,6 @@ char    **export_sorter(char **envp);
 char    *env_getter(char *str);
 
 // implemented funcs
-int     ft_arglen(char **arg);
-int	    ft_strcmp(const char *s1, const char *s2);
 char	**ft_big_implt_split(char const *s, char c);
 char	**ft_implt_split(char const *s, char c);
 char    **ft_pipe_split(char const *s, char c);

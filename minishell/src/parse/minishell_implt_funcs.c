@@ -6,29 +6,11 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 15:46:01 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/18 23:23:50 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/19 11:06:11 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	size_t			t;
-	unsigned char	*str1;
-	unsigned char	*str2;
-
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-    if (str2)
-    {
-        t = 0;
-        while (str1[t] != '\0' && str2[t] != '\0' && str1[t] == str2[t])
-            t++;
-        return (str1[t] - str2[t]);
-    }
-    return (1);
-}
 
 static	size_t	word_count(char const *s, char c) // Ayıracak olacağı her argümanın sayısı Örnek("aa "bbb" cccc") -> 2, 3, 4
 {

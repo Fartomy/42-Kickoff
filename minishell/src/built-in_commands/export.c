@@ -6,11 +6,50 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:37:12 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/19 01:41:38 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/19 12:20:24 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static int expt_is_it_same_var(char *var)
+{
+    int i;
+    int a;
+
+    i = 0;
+    while (var[i] != '=')
+        i++;
+    a = i;
+    if(var[i] == '=')
+    {
+        bool is_it;
+
+        is_it = false;
+        i = -1;
+        while (data.export[i])
+        {
+            if(ft_strncmp(data.env[i], var, i) == 0)
+            {
+                while (data.env[i][++a])
+                {
+                    if(data.env[i][a] != var[a])
+                    {
+                        data.env[i] = ft_realloc(var, ft_strlen(var));
+                        return (0);
+                    }
+                }
+                return (1); // değişken varsa ve değeride aynıysa
+            }
+            return (2); // değişken yoksa
+        }
+    }
+    else
+    {
+        // '=' yoksa
+    }
+    
+}
 
 static void export_add_variable(char *var)
 {
