@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:37:12 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/20 15:11:02 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/20 15:44:06 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,11 @@ static void export_add_variable(char *var)
                     if(ft_strcmp(env_name, temp) == 0)
                     {
                         free(env_name);
-                        free(temp);
                         break ;
                     }
                     free(env_name);
                 }
+                free(temp);
                 free(data.export[i]);
                 free(data.env[x]);
                 data.env[x] = ft_strdup(var);
@@ -88,8 +88,27 @@ static void export_add_variable(char *var)
             }
             else if(equal_finder(data.export[i]) == 1 && equal_finder(var) == 1)
             {
-                free(temp);
+                int x;
+
+                x = -1;
                 free(env_name);
+                while (data.env[++x])
+                {
+                    env_name = env_name_getter(data.env[x]);
+                    if(ft_strcmp(env_name, temp) == 0)
+                    {
+                        free(env_name);
+                        break ;
+                    }
+                    free(env_name);
+                }
+                free(temp);
+                free(data.export[i]);
+                free(data.env[x]);
+                data.env[x] = ft_strdup(var);
+                data.export[i] = ft_strdup(var);
+                data.export = export_sorter(data.export);
+                data.export = export_quote_adder(data.export);
                 return ;
             }
             else
@@ -101,7 +120,27 @@ static void export_add_variable(char *var)
         }
         free(env_name);
     }
-    // değişkenin export ve env'de hiç olmama durumu. <-
+    free(tmp);
+    if(equal_finder(var) == 1)
+    {
+        data.export[i] = ft_strdup(var);
+        data.export[i + 1] = 0;
+        data.export = export_add_variable(data.export);
+        data.export = export_quote_adder(data.export);
+        i = 0;
+        while (data.env[i])
+            i++;
+        data.env[i] = ft_strdup(var);
+        data.env[i + 1] = 0;
+    }
+    else
+    {
+        data.export[i] = ft_strdup(var);
+        data.export[i + 1] = 0;
+        data.export = export_add_variable(data.export);
+        data.export = export_quote_adder(data.export);
+    }
+    
 }
 
 void    ft_export(char **parse)
