@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/20 23:24:11 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/21 02:17:40 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,9 @@ int     ft_arglen(char **arg);
 char    *env_cnv_helper(char *str, char *s, int *i, int *x);
 char    *env_converter(char *str);
 char    *env_getter(char *str);
+char    *env_name_getter(char *var);
 char    **export_sorter(char **envp);
-char    **export_quote_adder(char **export_envs);
+int     equal_finder(char *var);
 
 // implemented funcs
 char	**ft_big_implt_split(char const *s, char c);

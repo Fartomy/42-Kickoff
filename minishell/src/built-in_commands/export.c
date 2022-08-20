@@ -6,40 +6,11 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:37:12 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/21 00:03:35 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/21 02:25:15 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-static int equal_finder(char *var)
-{
-    int i;
-
-    i = -1;
-    while (var[++i])
-    {
-        if(var[i] == '=')
-            return(1);
-    }
-    return(0);
-}
-
-static char *env_name_getter(char *var)
-{
-    int i;
-    char *name;
-    
-    i = 0;
-    while (var[i] != '=' && var[i])
-        i++;
-    name = ft_calloc(sizeof(char), (i + 1));
-    i = -1;
-    while (var[++i] != '=' && var[i])
-        name[i] = var[i];
-    name[i] = 0;
-    return(name);    
-}
 
 static void export_add_variable(char *var)
 {
@@ -115,7 +86,7 @@ static void export_add_variable(char *var)
                 free(tmp);
                 free(data.export[i]);
                 data.export[i] = ft_strdup(var);
-                if(env_ctrl == true)
+                if(env_ctrl == false)
                 {
                     data.env[x] = ft_strdup(var);
                     data.env[x + 1] = 0;
