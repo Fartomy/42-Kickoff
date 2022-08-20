@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 17:05:51 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/17 17:10:38 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/20 13:53:33 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char 	*env_getter(char *str)
     int len;
     int a;
     char *temp;
-    
+
 	temp = NULL;
     a = 0;
     x = 0;

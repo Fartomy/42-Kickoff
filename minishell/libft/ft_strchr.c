@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 18:04:21 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/12 20:28:38 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/20 13:53:19 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,3 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)(s + i));
 	return (0);
 }
-
-/*int main()
-{
-	printf("%s", ft_strchr("selam", 'h'));
-}*/
