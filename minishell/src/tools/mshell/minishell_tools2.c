@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 11:04:24 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/19 12:11:07 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/20 23:27:43 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	**storage_and_copy(char **env)
 	int i;
 	int x;
 	char **str;
-	
+
 	str = ft_calloc(sizeof(char *), ft_arglen(env) + 1);
 	i = -1;
 	while (env[++i])
@@ -58,4 +58,21 @@ void	*ft_realloc(void *ptr, size_t size)
 	ft_strlcpy(temp, ptr, ft_strlen(ptr) + 1);
 	free(ptr);
 	return (temp);
+}
+
+char     **ft_rrealloc(char **ptr, size_t size)
+{
+  char	**temp;
+  int 	i;
+  
+  i = -1;
+  temp = malloc(sizeof(char *) * size + 1);
+  while(ptr[++i])
+  {
+    temp[i] = malloc(sizeof(char) * (ft_strlen(ptr[i]) + 1));
+    temp[i] = ft_memcpy(temp[i], ptr[i], ft_strlen(ptr[i]) + 1);
+  }
+  temp[i] = 0;
+  ft_free(ptr);
+  return (temp);
 }

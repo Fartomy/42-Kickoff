@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:37:12 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/20 17:02:54 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/21 00:03:35 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void export_add_variable(char *var)
     char *tmp;
     char *env_name;
     
-    i = 0;
+    i = -1;
     tmp = env_name_getter(var);
     while (data.export[++i])
     {
@@ -63,7 +63,8 @@ static void export_add_variable(char *var)
             else if(equal_finder(data.export[i]) == 0 && equal_finder(var) == 1)
             {
                 int x;
-
+                bool env_ctrl = false;
+                
                 x = -1;
                 free(env_name);
                 while (data.env[++x])
@@ -72,23 +73,30 @@ static void export_add_variable(char *var)
                     if(ft_strcmp(env_name, tmp) == 0)
                     {
                         free(env_name);
+                        env_ctrl = true;
+                        free(data.env[x]);
+                        data.env[x] = ft_strdup(var);
                         break ;
                     }
                     free(env_name);
                 }
                 free(tmp);
                 free(data.export[i]);
-                free(data.env[x]);
-                data.env[x] = ft_strdup(var);
                 data.export[i] = ft_strdup(var);
-                //data.export = export_sorter(data.export);
-                //data.export = export_quote_adder(data.export);
+                if(env_ctrl == false)
+                {
+                    data.env = ft_rrealloc(data.env, ft_arglen(data.env) + 1);
+                    data.env[x] = ft_strdup(var);
+                    data.env[x + 1] = 0;
+                }
+                data.export = export_sorter(data.export);
                 return ;
             }
             else if(equal_finder(data.export[i]) == 1 && equal_finder(var) == 1)
             {
                 int x;
-
+                bool env_ctrl = false;
+                
                 x = -1;
                 free(env_name);
                 while (data.env[++x])
@@ -97,17 +105,22 @@ static void export_add_variable(char *var)
                     if(ft_strcmp(env_name, tmp) == 0)
                     {
                         free(env_name);
+                        free(data.env[x]);
+                        env_ctrl = true;
+                        data.env[x] = ft_strdup(var);
                         break ;
                     }
                     free(env_name);
                 }
                 free(tmp);
                 free(data.export[i]);
-                free(data.env[x]);
-                data.env[x] = ft_strdup(var);
                 data.export[i] = ft_strdup(var);
-                /* data.export = export_sorter(data.export);
-                data.export = export_quote_adder(data.export); */
+                if(env_ctrl == true)
+                {
+                    data.env[x] = ft_strdup(var);
+                    data.env[x + 1] = 0;
+                }
+                data.export = export_sorter(data.export);
                 return ;
             }
             else
@@ -122,22 +135,23 @@ static void export_add_variable(char *var)
     free(tmp);
     if(equal_finder(var) == 1)
     {
+        data.export = ft_rrealloc(data.export, ft_arglen(data.export) + 1);
         data.export[i] = ft_strdup(var);
         data.export[i + 1] = 0;
-/*         data.export = export_sorter(data.export);
-        data.export = export_quote_adder(data.export); */
+        data.export = export_sorter(data.export);
         i = 0;
         while (data.env[i])
             i++;
+        data.env = ft_rrealloc(data.env, ft_arglen(data.env) + 1);
         data.env[i] = ft_strdup(var);
         data.env[i + 1] = 0;
     }
-    else
+    else 
     {
+        data.export = ft_rrealloc(data.export, ft_arglen(data.export) + 1);
         data.export[i] = ft_strdup(var);
         data.export[i + 1] = 0;
-/*         data.export = export_sorter(data.export);
-        data.export = export_quote_adder(data.export); */
+        data.export = export_sorter(data.export);
     }
 }
 
@@ -149,7 +163,22 @@ void    ft_export(char **parse)
     if(ft_strcmp(parse[i], "export") == 0 && !parse[i + 1])
     {
         while (data.export[i])
-            printf("declare -x %s\n", data.export[i++]);   
+        {
+            if(equal_finder(data.export[i]) == 1)
+            {
+                char *env_name;
+                char *value;
+
+                env_name = env_name_getter(data.export[i]);
+                value = env_getter(data.export[i]);                
+                printf("declare -x %s=\"%s\"\n", env_name, value);
+                free(env_name);
+                free(value);
+            }
+            else
+                printf("declare -x %s\n", data.export[i]);
+            i++;
+        } 
     }
     else if(ft_strcmp(parse[i], "export") == 0 && parse[i + 1])
     {
