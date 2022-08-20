@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 18:37:12 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/20 15:44:06 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:02:54 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static char *env_name_getter(char *var)
     i = 0;
     while (var[i] != '=' && var[i])
         i++;
-    name = ft_calloc(sizeof(char) * (i + 1));
+    name = ft_calloc(sizeof(char), (i + 1));
     i = -1;
     while (var[++i] != '=' && var[i])
         name[i] = var[i];
@@ -44,7 +44,6 @@ static char *env_name_getter(char *var)
 static void export_add_variable(char *var)
 {
     int i;
-    int x;
     char *tmp;
     char *env_name;
     
@@ -52,13 +51,13 @@ static void export_add_variable(char *var)
     tmp = env_name_getter(var);
     while (data.export[++i])
     {
-        env_name = data.export[i];
+        env_name = env_name_getter(data.export[i]);
         if(ft_strcmp(env_name, tmp) == 0)
         {
             if(equal_finder(data.export[i]) == 1 && equal_finder(var) == 0)
             {
                 free(env_name);
-                free(temp);
+                free(tmp);
                 return ;
             }
             else if(equal_finder(data.export[i]) == 0 && equal_finder(var) == 1)
@@ -70,20 +69,20 @@ static void export_add_variable(char *var)
                 while (data.env[++x])
                 {
                     env_name = env_name_getter(data.env[x]);
-                    if(ft_strcmp(env_name, temp) == 0)
+                    if(ft_strcmp(env_name, tmp) == 0)
                     {
                         free(env_name);
                         break ;
                     }
                     free(env_name);
                 }
-                free(temp);
+                free(tmp);
                 free(data.export[i]);
                 free(data.env[x]);
                 data.env[x] = ft_strdup(var);
                 data.export[i] = ft_strdup(var);
-                data.export = export_sorter(data.export);
-                data.export = export_quote_adder(data.export);
+                //data.export = export_sorter(data.export);
+                //data.export = export_quote_adder(data.export);
                 return ;
             }
             else if(equal_finder(data.export[i]) == 1 && equal_finder(var) == 1)
@@ -95,26 +94,26 @@ static void export_add_variable(char *var)
                 while (data.env[++x])
                 {
                     env_name = env_name_getter(data.env[x]);
-                    if(ft_strcmp(env_name, temp) == 0)
+                    if(ft_strcmp(env_name, tmp) == 0)
                     {
                         free(env_name);
                         break ;
                     }
                     free(env_name);
                 }
-                free(temp);
+                free(tmp);
                 free(data.export[i]);
                 free(data.env[x]);
                 data.env[x] = ft_strdup(var);
                 data.export[i] = ft_strdup(var);
-                data.export = export_sorter(data.export);
-                data.export = export_quote_adder(data.export);
+                /* data.export = export_sorter(data.export);
+                data.export = export_quote_adder(data.export); */
                 return ;
             }
             else
             {
                 free(env_name);
-                free(temp);
+                free(tmp);
                 return ;
             }
         }
@@ -125,8 +124,8 @@ static void export_add_variable(char *var)
     {
         data.export[i] = ft_strdup(var);
         data.export[i + 1] = 0;
-        data.export = export_add_variable(data.export);
-        data.export = export_quote_adder(data.export);
+/*         data.export = export_sorter(data.export);
+        data.export = export_quote_adder(data.export); */
         i = 0;
         while (data.env[i])
             i++;
@@ -137,10 +136,9 @@ static void export_add_variable(char *var)
     {
         data.export[i] = ft_strdup(var);
         data.export[i + 1] = 0;
-        data.export = export_add_variable(data.export);
-        data.export = export_quote_adder(data.export);
+/*         data.export = export_sorter(data.export);
+        data.export = export_quote_adder(data.export); */
     }
-    
 }
 
 void    ft_export(char **parse)
@@ -161,7 +159,7 @@ void    ft_export(char **parse)
             if(parse[i][0] == '_' && (parse[i][1] == 0 || parse[i][1] == '='))
                 printf("");
             else if((parse[i][0] == '_' && parse[i][1] != 0) || ft_isalpha(parse[i][0]))
-                //export_add_variable(parse[i]);
+                export_add_variable(parse[i]);
             else
                 printf("minishell: %s: `%s': not a valid identifier\n", parse[0], parse[i]);
             i++;
