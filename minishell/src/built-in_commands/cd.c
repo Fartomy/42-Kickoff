@@ -6,11 +6,67 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 17:53:58 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/15 22:52:30 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/21 12:52:51 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static void update_pwd(void)
+{
+	int i;
+	char *pwd;
+	
+	i = -1;
+	pwd = "PWD=";
+	while (data.env[++i])
+	{
+		if (ft_strncmp(data.env[i], "PWD", 3) == 0)
+		{
+			free(data.env[i]);
+			data.env[i] = ft_strjoin(pwd, getcwd(NULL, 0));
+			break ;
+		}
+	}
+	i = -1;
+	while (data.export[++i])
+	{
+		if(ft_strncmp(data.export[i], "PWD", 3) == 0)
+		{
+			free(data.export[i]);
+			data.export[i] = ft_strjoin(pwd, getcwd(NULL, 0));
+			break ;
+		}
+	}
+}
+
+static void	update_old_pwd(void)
+{
+	int i;
+	char *oldpwd;
+
+	oldpwd = "OLDPWD=";
+	i = -1;
+	while (data.env[++i])
+	{
+		if(ft_strncmp(data.env[i], "OLDPWD", 6) == 0)
+		{
+			free(data.env[i]);
+			data.env[i] = ft_strjoin(oldpwd, getcwd(NULL, 0));
+			break ;
+		}	
+	}
+	i = -1;
+	while (data.export[++i])
+	{
+		if (ft_strncmp(data.export[i], "OLDPWD", 6) == 0)
+		{
+			free(data.export[i]);
+			data.export[i] = ft_strjoin(oldpwd, getcwd(NULL, 0));
+			break ;
+		}
+	}
+}
 
 void    ft_cd(char **parse)
 {
@@ -27,13 +83,15 @@ void    ft_cd(char **parse)
 				
 				home_value = ft_strdup(data.env[i]);
 				home_value = env_getter(home_value);
+				update_old_pwd();
 				chdir(home_value);
+				update_pwd();
 				free(home_value);
 			}
 			i++;
 		}
 	}
-	else if(ft_strcmp(parse[1], "-") == 0) // OLDPWD değeri güncellenmeli ve OLDPWD program ilk açıldığında set edilemeyeceğinden bu hata verilmeli: "bash: cd: OLDPWD not set"
+	else if(ft_strcmp(parse[1], "-") == 0)
 	{
 		int i;
 
@@ -47,19 +105,19 @@ void    ft_cd(char **parse)
 				oldpwd_value = ft_strdup(data.env[i]);
 				oldpwd_value = env_getter(oldpwd_value);
 				chdir(oldpwd_value);
+				update_pwd();
 				printf("%s\n", oldpwd_value);
 				free(oldpwd_value);
 			}
 			i++;
 		}
-		
 	}
 	else
 	{
-		int i;
-		
-		i = chdir(parse[1]);
-		if(i == -1)
+		update_old_pwd();
+		if(chdir(parse[1]) == -1)
 			printf("minishell: %s: %s: No such file or directory\n", parse[0], parse[1]);
+		else
+			update_pwd();
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:43:57 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/05/12 20:43:59 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/21 02:57:06 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,3 @@ int	main(int ac, char **av)
 		write(1, "Error\nWrong Argument or Wrong File Extension!", 46);
 	exit(1);
 }
-
-// 1- window exit button event (OK)
-// 2- leak hataları (OK)
-// 3- norm controls (OK)
-// 4- map.ber boşken hata vermiyor düzelt (OK)
-// 5- ft_prntf'i at (OK)
-// 6- fotoları değiştir (sarma yatak)
