@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:06:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/22 17:25:34 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/22 19:09:06 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	builtin_command(char **parse)
 {
-
 	if(ft_strcmp(parse[0], data.built_in_tkn[0]) == 0)
 		ft_echo(parse);
  	else if(ft_strcmp(parse[0], data.built_in_tkn[1]) == 0)
@@ -37,10 +36,13 @@ void	builtin_or_smp_cmd_ctrl(char **parse)
 	int 	x;
 	bool	builtin_ctrl;
 	
-	i = 0;
+	i = -1;
 	builtin_ctrl = false;
 	parse = ft_implt_split(parse[0], ' ');
 	parse = quotes_purifyer(parse);
+	while (parse[++i])
+		parse[i] = env_converter(parse[i]);
+	i = 0;
 	while(parse[i])
 	{
 		x = 0;
@@ -85,6 +87,7 @@ void	simple_cmd(char **parse)
 	if(symbol_ctrl == false)
 		builtin_or_smp_cmd_ctrl(parse);
 	ft_free(parse);
+	//pause();
 }
 
 void	cmd_router(char **parse)

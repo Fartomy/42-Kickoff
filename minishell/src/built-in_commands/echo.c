@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:08:31 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/17 17:10:31 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/22 18:32:14 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void    ft_echo(char **parse)
 	{
 		while (parse[++i])
 		{
-			parse[i] = env_converter(parse[i]);
 			printf("%s", parse[i]);
 			if (parse[i] && parse[i + 1])
 				printf(" ");
@@ -32,7 +31,6 @@ void    ft_echo(char **parse)
 		i = 0;
 		while (parse[++i])
 		{
-			parse[i] = env_converter(parse[i]);
 			printf("%s", parse[i]);
 			if (parse[i] && parse[i + 1])
 				printf(" ");
