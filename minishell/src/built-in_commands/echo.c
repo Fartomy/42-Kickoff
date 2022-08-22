@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:08:31 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/22 18:32:14 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/22 19:27:59 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ void    ft_echo(char **parse)
 	int i;
 	
 	i = 1;
-    if ((ft_strcmp(parse[1], "-n")) == 0) // -n varsa
+	if(!parse[1])
+		printf("\n");
+    else if ((ft_strcmp(parse[1], "-n")) == 0) // -n varsa
 	{
 		while (parse[++i])
 		{
