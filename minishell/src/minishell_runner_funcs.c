@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:01:49 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/13 14:02:40 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/22 17:13:30 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ static char	**env_add_slash(char **paths)
 static char	**path_sptr(void)
 {
 	int i;
-	char *env_path = NULL;
+	char *env_path;
 	char **paths;
 
-	i = 0;
-	while(data.env[i])
+	env_path = NULL;
+	i = -1;
+	while(data.env[++i])
 	{
 		if(ft_strncmp(data.env[i], "PATH", 4) == 0)
 		{
 			env_path = data.env[i];
 			break ;
 		}
-		i++;
 	}
 	i = -1;
 	while(env_path[++i] != '='){}
@@ -65,7 +65,6 @@ static	void cmd_runner(char *path, char **opt)
 			exit(0);
 		exit(0);
 	}
-	free(opt);
 }
 
 void	cmd_finder(char **parse)
@@ -79,20 +78,23 @@ void	cmd_finder(char **parse)
 	
 	parse = quotes_purifyer(parse);
 	ctrl = false;
-	paths = path_sptr(); //freeeeeeeeee
-	opt = ft_calloc(sizeof(char *), 40); //freeeeeeeee
+	paths = path_sptr(); //freeeeeeee (OK)
+	opt = ft_calloc(sizeof(char *), 42); //freeeeeeeee
 	i = -1;
 	while(paths[++i])
 	{
-		join = ft_strjoin(paths[i], parse[0]); //freeeeeeee
+		join = ft_strjoin(paths[i], parse[0]); //freeeeeee
 		if(access(join, F_OK) == 0)
 		{
 			ctrl = true;
 			x = -1;
 			while(parse[++x])
-				opt[x] = parse[x];
-			opt[x] = 0;
+			{
+				opt[x] = ft_calloc(sizeof(char *), 42);
+				opt[x] = ft_strcpy(opt[x], parse[x]);
+			}
 			cmd_runner(join, opt);
+			free(join);
 			break ;
 		}
 		else if(access(parse[0], F_OK) == 0)
@@ -100,15 +102,20 @@ void	cmd_finder(char **parse)
 			ctrl = true;
 			x = -1;
 			while(parse[++x])
-				opt[x] = parse[x];
-			opt[x] = 0;
+			{
+				opt[x] = ft_calloc(sizeof(char *), 42);
+				opt[x] = ft_strcpy(opt[x], parse[x]);
+			}
 			cmd_runner(parse[0], opt);
+			free(join);
 			break ;
 		}
+		free(join);
 	}
 	if(ctrl == false)
 		printf("minishell: %s: command not found\n", parse[0]);
 	ft_free(paths);
-	free(join);
-	
+	ft_free(parse);
+	if(opt)
+		ft_free(opt);
 }

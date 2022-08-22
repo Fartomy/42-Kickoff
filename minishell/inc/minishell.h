@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/21 16:50:43 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/22 17:02:58 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void    ft_free(char **str);
 char	**storage_and_copy(char **env);
 int	    ft_strcmp(const char *s1, const char *s2);
 int     ft_arglen(char **arg);
+char	*ft_strcpy(char *dst, const char *src);
 
 // env tools
 char    *env_cnv_helper(char *str, char *s, int *i, int *x);

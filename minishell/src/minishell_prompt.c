@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:06:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/21 16:50:53 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/22 17:25:34 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 void	builtin_command(char **parse)
 {
 
-	if(ft_strcmp(parse[0], data.built_in_tkn[0]) == 0) // echo
+	if(ft_strcmp(parse[0], data.built_in_tkn[0]) == 0)
 		ft_echo(parse);
- 	else if(ft_strcmp(parse[0], data.built_in_tkn[1]) == 0) // cd
+ 	else if(ft_strcmp(parse[0], data.built_in_tkn[1]) == 0)
 		ft_cd(parse);
-	else if(ft_strcmp(parse[0], data.built_in_tkn[2]) == 0) // pwd
+	else if(ft_strcmp(parse[0], data.built_in_tkn[2]) == 0)
 		ft_pwd();
-	else if(ft_strcmp(parse[0], data.built_in_tkn[3]) == 0) // export
+	else if(ft_strcmp(parse[0], data.built_in_tkn[3]) == 0)
 		ft_export(parse);
-	else if(ft_strcmp(parse[0], data.built_in_tkn[5]) == 0) // env
+	else if(ft_strcmp(parse[0], data.built_in_tkn[5]) == 0)
 		ft_env(parse);
-	else if(ft_strcmp(parse[0], data.built_in_tkn[4]) == 0) // unset
+	else if(ft_strcmp(parse[0], data.built_in_tkn[4]) == 0)
 		ft_unset(parse);
-	else if(ft_strcmp(parse[0], data.built_in_tkn[6]) == 0) // exit
+	else if(ft_strcmp(parse[0], data.built_in_tkn[6]) == 0)
 		ft_exit(parse);
 }
 
@@ -40,7 +40,7 @@ void	builtin_or_smp_cmd_ctrl(char **parse)
 	i = 0;
 	builtin_ctrl = false;
 	parse = ft_implt_split(parse[0], ' ');
-	parse = quotes_purifyer(parse); // echo'nun $ ile alakalı kısmını burası bozuyor. dikkat!!!
+	parse = quotes_purifyer(parse);
 	while(parse[i])
 	{
 		x = 0;
@@ -67,7 +67,7 @@ void	simple_cmd(char **parse)
 	// redirections command control ↓
 	i = 0;
 	symbol_ctrl = false;
-	parse = ft_symbol_split(parse[0]);
+	parse = ft_symbol_split(parse[0]); // FREEEEEEEEEEEEEEEEEEEEEEEEEEE
 	while (parse[i])
 	{
 		x = 0;
@@ -84,6 +84,7 @@ void	simple_cmd(char **parse)
 	// built-in or simple command control ↓
 	if(symbol_ctrl == false)
 		builtin_or_smp_cmd_ctrl(parse);
+	ft_free(parse);
 }
 
 void	cmd_router(char **parse)
@@ -128,7 +129,6 @@ static char *get_username(void)
 		}
 		str++;			
 	}
-	prompt[i] = 0;
 	return (prompt);
 }
 
@@ -140,12 +140,12 @@ void	prompt(void)
 		
     while(1)
 	{
-		usr_name = get_username();
-		cmd = readline(usr_name);
+		usr_name = get_username(); //FREEEEEEEEEEEEEEEEEEE (OK)
+		cmd = readline(usr_name); // FREEEEEEEEEEEEEEEEEEE (OK)
 		if((unsigned char)*cmd >= 32 && (unsigned char)*cmd < 255)
 		{
 			add_history(cmd);
-			prs = ft_pipe_split(cmd, '|');
+			prs = ft_pipe_split(cmd, '|'); //FREEEEEEEEEEEEEEEEEEE (OK)
 			cmd_router(prs);
 			ft_free(prs);
 			free(cmd);

@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 11:04:24 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/20 23:27:43 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/22 17:02:42 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,15 @@ char     **ft_rrealloc(char **ptr, size_t size)
   temp[i] = 0;
   ft_free(ptr);
   return (temp);
+}
+
+char	*ft_strcpy(char *dst, const char *src)
+{
+	int	i;
+
+	i = -1;
+	while (src[++i])
+		dst[i] = src[i];
+	dst[i] = '\0';
+	return (dst);
 }
