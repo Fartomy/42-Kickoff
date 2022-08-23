@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 18:42:21 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/12 18:42:30 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/23 18:22:25 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static	size_t	len_word(char const *s, char c) // Girilen karakter(char c) harici
             if(*s != 0)
                 len += 1;
         }
-		else if (*s != c)
+		else if (*s != c && (s[1] == '\0' || s[1] == c))
 			len++;
 		s++;
 	}
@@ -84,13 +84,13 @@ char	**ft_implt_split(char const *s, char c)
 	int	    word_len;
 
 	word_len = len_word(s, c);
-	res = (char **)calloc(sizeof(char *), word_len + 1);
+	res = (char **)ft_calloc(sizeof(char *), word_len + 1);
 	index = -1;
 	while (++index < word_len && *s != 0)
 	{
 		while (*s == c && *s != '\0')
 			s++;
-		res[index] = (char *)calloc(sizeof(char), word_count(s, c) + 1);
+		res[index] = (char *)ft_calloc(sizeof(char), word_count(s, c) + 1);
 		two_index = 0;
         if(*s == 34 && *s != 0)
         {
@@ -110,8 +110,6 @@ char	**ft_implt_split(char const *s, char c)
         }
 		while (*s != c && *s != '\0')
 			res[index][two_index++] = *s++;
-		res[index][two_index] = '\0';
 	}
-	res[index] = 0;
 	return (res);
 }

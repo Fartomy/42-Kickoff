@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:06:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/22 19:26:44 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/23 15:21:24 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,18 @@ static char *get_username(void)
 	return (prompt);
 }
 
+int		cmd_space_ctrl(char *cmd)
+{
+	while (*cmd)
+	{
+		if(*cmd != ' ')
+			return (0);
+		cmd++;
+	}
+	return(1);
+	
+}
+
 void	prompt(void)
 {
 	char **prs;
@@ -145,7 +157,7 @@ void	prompt(void)
 	{
 		usr_name = get_username(); //FREEEEEEEEEEEEEEEEEEE (OK)
 		cmd = readline(usr_name); // FREEEEEEEEEEEEEEEEEEE (OK)
-		if((unsigned char)*cmd >= 32 && (unsigned char)*cmd < 255)
+		if((unsigned char)*cmd >= 32 && (unsigned char)*cmd < 255 && !cmd_space_ctrl(cmd))
 		{
 			add_history(cmd);
 			prs = ft_pipe_split(cmd, '|'); //FREEEEEEEEEEEEEEEEEEE (OK)
