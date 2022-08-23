@@ -6,21 +6,12 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:17:52 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/22 14:49:07 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/24 00:23:49 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void    ft_free(char **str)
-{
-    int i;
-
-    i = -1;
-    while(str[++i])
-        free(str[i]);
-    free(str);
-}
 
 int ft_arglen(char **arg)
 {
@@ -30,6 +21,27 @@ int ft_arglen(char **arg)
     while(arg[i])
         i++;
     return (i);
+}
+
+int	cmd_space_ctrl(char *cmd)
+{
+	while (*cmd)
+	{
+		if(*cmd != ' ')
+			return (0);
+		cmd++;
+	}
+	return(1);
+}
+
+void    ft_free(char **str)
+{
+    int i;
+
+    i = -1;
+    while(str[++i])
+        free(str[i]);
+    free(str);
 }
 
 void	set_builtin_token(char **bl_token)

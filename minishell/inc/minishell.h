@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/23 22:08:40 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/24 00:29:43 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,16 @@ typedef struct s_minishell
 extern t_minidata data;
 
 // tokens and tools
-void	*ft_realloc(void *ptr, size_t size);
+char	**storage_and_copy(char **env);
 char 	**ft_rrealloc(char **ptr, size_t size);
+char	*ft_strcpy(char *dst, const char *src);
+void	*ft_realloc(void *ptr, size_t size);
 void	set_builtin_token(char **bl_token);
 void	set_symbol_token(char **sy_token);
 void    ft_free(char **str);
-char	**storage_and_copy(char **env);
 int	    ft_strcmp(const char *s1, const char *s2);
 int     ft_arglen(char **arg);
-char	*ft_strcpy(char *dst, const char *src);
+int	    cmd_space_ctrl(char *cmd);
 
 // env tools
 char    *env_converter(char *str);
@@ -68,8 +69,12 @@ char    **quotes_purifyer(char **parse);
 // runner funcs
 void	cmd_finder(char **parse);
 
-//prompts
+// prompts operations funcs
 void    prompt(void);
+void	builtin_command(char **parse);
+void	builtin_or_smp_cmd_ctrl(char **parse);
+void	simple_cmd(char **parse);
+void	cmd_router(char **parse);
 
 // builtin commands
 void    ft_echo(char **parse);
