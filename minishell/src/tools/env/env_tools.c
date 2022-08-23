@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 17:05:51 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/22 19:03:55 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/23 22:08:51 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static	char *env_searcher(char *buf, int buflen)
 	return (NULL);
 }
 
-char *env_cnv_helper(char *str, char *s, int *i, int *x)
+static	char *env_cnv_helper(char *str, char *s, int *i, int *x)
 {
 	char *buf;
 	int a;
@@ -109,7 +109,7 @@ char *env_cnv_helper(char *str, char *s, int *i, int *x)
 	return(s);
 }
 
-char *env_converter(char *str)
+char	*env_converter(char *str)
 {
 	int i;
 	int x;

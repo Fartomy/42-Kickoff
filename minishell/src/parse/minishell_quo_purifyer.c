@@ -6,11 +6,35 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:13:41 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/22 15:45:52 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/24 00:12:02 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static void quo_transformer(char **parse, char **prs, int *i, int *i2, int *x)
+{
+	parse[*i][*i2] = 0;
+	char *tmp;
+	char *env_var;
+	int b;
+
+	b = 0;
+	while (parse[*i][b] == 34)
+		b++;
+	tmp = ft_calloc(sizeof(char), ft_strlen(parse[*i]) - b);
+	tmp = ft_strcpy(tmp, &(parse[*i][b]));
+	parse[*i][*i2] = '$';
+	env_var = ft_calloc(sizeof(char), ft_strlen(&(parse[*i][*i2])) - 1);
+	b = 0;
+	while (parse[*i][*i2] != 34 && parse[*i][*i2])
+		env_var[b++] = parse[*i][(*i2)++];
+	env_var = env_converter(env_var);
+	free(prs[*x]);
+	prs[*x] = ft_strjoin(tmp, env_var);
+	free(env_var);
+	free(tmp);
+}
 
 static int quo_finder(char *s)
 {
@@ -19,9 +43,9 @@ static int quo_finder(char *s)
 	i = 0;
 	while (s[i])
 	{
-		if(s[i] == 34)
+		if (s[i] == 34)
 			return (2);
-		else if(s[i] == 39)
+		else if (s[i] == 39)
 			return (1);
 		i++;
 	}
@@ -33,13 +57,13 @@ static int dbl_quo_cnt(char *s)
 	int cnt;
 
 	cnt = 0;
-	while(*s)
+	while (*s)
 	{
-		if(*s == '"')
+		if (*s == '"')
 			cnt++;
 		s++;
 	}
-	return(cnt);
+	return (cnt);
 }
 
 char **quotes_purifyer(char **parse)
@@ -49,30 +73,32 @@ char **quotes_purifyer(char **parse)
 	int x;
 	int x2;
 	char **prs;
-	
+
 	i = 0;
 	x = 0;
 	prs = ft_calloc(sizeof(char *), ft_arglen(parse) + 1);
-	while(parse[i])
+	while (parse[i])
 	{
 		i2 = 0;
 		x2 = 0;
 		prs[x] = ft_calloc(sizeof(char), (ft_strlen(parse[i]) - dbl_quo_cnt(parse[i]) + 1));
-		if(quo_finder(parse[i]) == 2)
-		{	
-			while(parse[i][i2])
+		if (quo_finder(parse[i]) == 2)
+		{
+			while (parse[i][i2])
 			{
-				if(parse[i][i2] != 34)
+				if (parse[i][i2] != 34 && parse[i][i2] != '$')
 					prs[x][x2++] = parse[i][i2++];
+				else if (parse[i][i2] != 34 && parse[i][i2] == '$')
+					quo_transformer(parse, prs, &i, &i2, &x);
 				else
 					i2++;
 			}
 		}
-		else if(quo_finder(parse[i]) == 1)
+		else if (quo_finder(parse[i]) == 1)
 		{
-			while(parse[i][i2])
+			while (parse[i][i2])
 			{
-				if(parse[i][i2] != 39)
+				if (parse[i][i2] != 39)
 					prs[x][x2++] = parse[i][i2++];
 				else
 					i2++;
@@ -80,12 +106,12 @@ char **quotes_purifyer(char **parse)
 		}
 		else
 		{
-			while(parse[i][i2])
+			while (parse[i][i2])
 				prs[x][x2++] = parse[i][i2++];
 		}
 		x++;
 		i++;
 	}
 	ft_free(parse);
-	return(prs);
+	return (prs);
 }

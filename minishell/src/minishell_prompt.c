@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:06:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/23 18:25:30 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/24 00:15:56 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,9 @@ void	simple_cmd(char **parse)
 		}
 		i++;
 	}
-	// built-in or simple command control ↓
 	if(symbol_ctrl == false)
 		builtin_or_smp_cmd_ctrl(parse);
 	ft_free(parse);
-	//pause();
 }
 
 void	cmd_router(char **parse)
@@ -117,8 +115,8 @@ static char *get_username(void)
 	int i;
 	
 	i = 0;
-	prompt = ft_calloc(sizeof(char), 30);
-	str = "\033[0;32mminishell@ >_ ";
+	prompt = ft_calloc(sizeof(char), 50);
+	str = "[minishell@] >_ ";
 	usr_env = getenv("USER");
 	while (*str)
 	{
@@ -142,7 +140,6 @@ int		cmd_space_ctrl(char *cmd)
 		cmd++;
 	}
 	return(1);
-	
 }
 
 void	prompt(void)
@@ -155,6 +152,8 @@ void	prompt(void)
 	{
 		usr_name = get_username(); //FREEEEEEEEEEEEEEEEEEE (OK)
 		cmd = readline(usr_name); // FREEEEEEEEEEEEEEEEEEE (OK)
+		if (!cmd)
+			exit(0);
 		if((unsigned char)*cmd >= 32 && (unsigned char)*cmd < 255 && !cmd_space_ctrl(cmd))
 		{
 			add_history(cmd);
@@ -165,6 +164,6 @@ void	prompt(void)
 		if (cmd)
 			free(cmd);
 		if (usr_name)
-			free(usr_name); 
+			free(usr_name);
 	}
 }

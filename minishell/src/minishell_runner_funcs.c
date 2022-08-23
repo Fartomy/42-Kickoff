@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:01:49 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/23 18:37:38 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/23 22:37:34 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ void	cmd_finder(char **parse)
 	int x;
 	bool ctrl;
 	
-	parse = quotes_purifyer(parse);
 	ctrl = false;
 	paths = path_sptr(); //freeeeeeee (OK)
 	opt = ft_calloc(sizeof(char *), 42); //freeeeeeeee
