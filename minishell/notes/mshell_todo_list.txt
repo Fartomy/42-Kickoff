@@ -1,4 +1,4 @@
-1-) Boşluk kontrolü yapılacak. "ls " vb. ------> (NOK) 
+1-) Boşluk kontrolü yapılacak. "ls " vb. ------> (OK) 
 
 2-) Bulunulan dizinde builtin olmayan dosyalar bulunduğunda, normal 'ls, cat, vb.' komutlar çalışmıyor. Düzeltilmeli. ------> (NOK) 
 

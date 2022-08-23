@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:06:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/23 15:21:24 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/23 18:25:30 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ void	builtin_or_smp_cmd_ctrl(char **parse)
 	builtin_ctrl = false;
 	parse = ft_implt_split(parse[0], ' ');
 	parse = quotes_purifyer(parse);
-	while (parse[++i])
-		parse[i] = env_converter(parse[i]);
 	i = 0;
 	while(parse[i])
 	{
