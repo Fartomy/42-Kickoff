@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:01:49 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/22 18:26:05 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/23 18:37:38 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,36 +81,39 @@ void	cmd_finder(char **parse)
 	paths = path_sptr(); //freeeeeeee (OK)
 	opt = ft_calloc(sizeof(char *), 42); //freeeeeeeee
 	i = -1;
-	while(paths[++i])
+	if (ft_strncmp(parse[0], "./", 2))
 	{
-		join = ft_strjoin(paths[i], parse[0]); //freeeeeee
-		if(access(join, F_OK) == 0)
+		while(paths[++i])
 		{
-			ctrl = true;
-			x = -1;
-			while(parse[++x])
+			join = ft_strjoin(paths[i], parse[0]); //freeeeeee
+			if(access(join, F_OK) == 0)
 			{
-				opt[x] = ft_calloc(sizeof(char *), 42);
-				opt[x] = ft_strcpy(opt[x], parse[x]);
+				ctrl = true;
+				x = -1;
+				while(parse[++x])
+				{
+					opt[x] = ft_calloc(sizeof(char *), 42);
+					opt[x] = ft_strcpy(opt[x], parse[x]);
+				}
+				cmd_runner(join, opt);
+				free(join);
+				break ;
 			}
-			cmd_runner(join, opt);
-			free(join);
-			break ;
-		}
-		else if(access(parse[0], F_OK) == 0)
-		{
-			ctrl = true;
-			x = -1;
-			while(parse[++x])
+			else if(access(parse[0], F_OK) == 0)
 			{
-				opt[x] = ft_calloc(sizeof(char *), 42);
-				opt[x] = ft_strcpy(opt[x], parse[x]);
+				ctrl = true;
+				x = -1;
+				while(parse[++x])
+				{
+					opt[x] = ft_calloc(sizeof(char *), 42);
+					opt[x] = ft_strcpy(opt[x], parse[x]);
+				}
+				cmd_runner(parse[0], opt);
+				free(join);
+				break ;
 			}
-			cmd_runner(parse[0], opt);
 			free(join);
-			break ;
 		}
-		free(join);
 	}
 	if(ctrl == false)
 		printf("minishell: %s: command not found\n", parse[0]);

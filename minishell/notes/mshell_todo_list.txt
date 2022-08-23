@@ -1,7 +1,5 @@
-1-) Boşluk kontrolü yapılacak. "ls " vb. ------> (OK) 
 
-2-) Bulunulan dizinde builtin olmayan dosyalar bulunduğunda, normal 'ls, cat, vb.' komutlar çalışmıyor. Düzeltilmeli. ------> (NOK) 
 
-3-)Leaks olmamalı. ------> (NOK) 
+1-)Leaks olmamalı. ------> (NOK) 
 
-4-)Norminette düzeltilmeli ------> (NOK) 
+2-)Norminette düzeltilmeli ------> (NOK) 
