@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:06:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/24 16:57:18 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/24 19:19:44 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ static char *get_username(void)
 	prompt = ft_calloc(sizeof(char), 50);
 	str = "[minishell@] >_ ";
 	usr_env = getenv("USER");
+	if (!usr_env)
+	{
+		printf("USER not found. Please fix to export\n");
+		exit (1);
+	}
 	while (*str)
 	{
 		prompt[i++] = *str;

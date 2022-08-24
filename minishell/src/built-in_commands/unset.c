@@ -6,13 +6,13 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:08:53 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/21 16:22:54 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/24 18:21:31 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	ft_unset(char **parse)
+void	ft_unset( char **parse)
 {
 	int i;
 
@@ -45,11 +45,13 @@ void	ft_unset(char **parse)
 					}
 					if(data.env[x + 1] == 0)
 					{
+						free(data.env[x]);
 						data.env[x] = 0;
 						data.env = ft_rrealloc(data.env, ft_arglen(data.env));
 						break;
 					}
 				}
+				free(name);
 			}
 			x = -1;
 			while (data.export[++x])
@@ -67,11 +69,13 @@ void	ft_unset(char **parse)
 					}
 					if(data.export[x + 1] == 0)
 					{
+						free(data.export[x]);
 						data.export[x] = 0;
 						data.export = ft_rrealloc(data.export, ft_arglen(data.export));
 						break;
 					}
 				}
+				free(name);
 			}
 		}
 		else
