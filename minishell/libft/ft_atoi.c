@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 14:14:51 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/10 12:07:25 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/24 12:44:10 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,3 @@ int	ft_atoi(const char *s)
 	}
 	return (tmp);
 }
-
-/*int main()
-{
-	printf("%d", ft_atoi("   -12"));
-	return(0);
-}*/
