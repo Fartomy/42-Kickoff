@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:13:41 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/24 00:12:02 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/24 14:59:55 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,27 @@ static void quo_transformer(char **parse, char **prs, int *i, int *i2, int *x)
 	env_var = ft_calloc(sizeof(char), ft_strlen(&(parse[*i][*i2])) - 1);
 	b = 0;
 	while (parse[*i][*i2] != 34 && parse[*i][*i2])
+		env_var[b++] = parse[*i][(*i2)++];
+	env_var = env_converter(env_var);
+	free(prs[*x]);
+	prs[*x] = ft_strjoin(tmp, env_var);
+	free(env_var);
+	free(tmp);
+}
+
+static void transformer(char **parse, char **prs, int *i, int *i2, int *x)
+{
+	parse[*i][*i2] = 0;
+	char *tmp;
+	char *env_var;
+	int b;
+
+	b = 0;
+	tmp = ft_calloc(sizeof(char), ft_strlen(parse[*i]));
+	tmp = ft_strcpy(tmp, parse[*i]);
+	parse[*i][*i2] = '$';
+	env_var = ft_calloc(sizeof(char), ft_strlen(&(parse[*i][*i2])));
+	while (parse[*i][*i2])
 		env_var[b++] = parse[*i][(*i2)++];
 	env_var = env_converter(env_var);
 	free(prs[*x]);
@@ -107,7 +128,14 @@ char **quotes_purifyer(char **parse)
 		else
 		{
 			while (parse[i][i2])
-				prs[x][x2++] = parse[i][i2++];
+			{
+				if (parse[i][i2] != '$')
+					prs[x][x2++] = parse[i][i2++];
+				else if (parse[i][i2] == '$')
+					transformer(parse, prs, &i, &i2, &x);
+				else
+					i2++;
+			}
 		}
 		x++;
 		i++;

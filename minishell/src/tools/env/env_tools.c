@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 17:05:51 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/23 22:08:51 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/24 14:47:11 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,9 +100,14 @@ static	char *env_cnv_helper(char *str, char *s, int *i, int *x)
 	buf = env_searcher(buf, buflen);
 	if(buf != 0)
 	{
+		char *st;
 		s[*x] = 0;
-		s = ft_strjoin(s, buf);
-		*x += ft_strlen(buf);
+		st = ft_calloc(sizeof(char), ft_strlen(s));
+		st = ft_strcpy(st, s);
+		free(s);
+		s = ft_strjoin(st, buf);
+		free(st);
+		*x += strlen(buf);
 	}
 	free(buf);
 	*i += buflen;
