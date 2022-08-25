@@ -6,13 +6,19 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 17:46:47 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/14 10:34:55 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/25 20:40:42 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void    ft_pwd(void)
+void    ft_pwd(char **parse)
 {
-    printf("%s\n", getcwd(NULL, 0));
+    int i;
+
+    i = 0;
+    if(parse[i + 1])
+        printf("pwd: too many arguments\n");
+    else
+        printf("%s\n", getcwd(NULL, 0));
 }

@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:01:49 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/25 17:38:05 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/25 20:28:52 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ static char **path_sptr(void)
 		if (ft_strncmp(data.env[i], "PATH", 4) == 0)
 		{
 			env_path = data.env[i];
-			break;
+			break ;
 		}
 	}
 	i = 0;
 	if (env_path == NULL)
-		return NULL;
+		return (NULL);
 	while (env_path[i] != '=')
 		i++;
 	env_path += i + 1;
@@ -70,7 +70,7 @@ static void cmd_runner(char *path, char **opt)
 	}
 }
 
-void cmd_finder(char **parse)
+void	cmd_finder(char **parse)
 {
 	char **paths;
 	char **opt;
@@ -98,8 +98,8 @@ void cmd_finder(char **parse)
 		}
 		else
 		{
-			printf("minishell: %s: command not found\n", parse[0]);
 			free(opt);
+			printf("minishell: %s: command not found\n", parse[0]);
 		}
 		return ;
 	}
