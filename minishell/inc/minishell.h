@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/24 00:29:43 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/25 16:15:46 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define RED "\033[0;31m"
 # define YLW "\033[0;33m"
 
+# include <stdbool.h>
 # include <stdio.h>
 # include <readline/readline.h>
 # include <readline/history.h>
@@ -26,7 +27,6 @@
 # include <fcntl.h>
 # include <signal.h>
 # include <sys/wait.h>
-# include <stdbool.h>
 # include "../libft/libft.h"
 
 typedef struct s_minishell
