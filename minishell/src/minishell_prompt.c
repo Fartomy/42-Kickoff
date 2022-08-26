@@ -6,11 +6,24 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:06:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/25 18:26:33 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/26 21:19:04 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+# include <readline/readline.h>
+# include <readline/history.h>
+
+void	ctrl_c(int sig)
+{
+	if(sig == SIGINT)
+	{
+		printf("\n");
+		rl_on_new_line();
+		rl_redisplay();
+		rl_clear_history();
+	}	
+}
 
 static char *get_username(void)
 {
@@ -50,6 +63,7 @@ void	prompt(void)
 		
     while(1)
 	{
+		signal(SIGINT, ctrl_c);
 		usr_name = get_username(); //FREEEEEEEEEEEEEEEEEEE (OK)
 		cmd = readline(usr_name); // FREEEEEEEEEEEEEEEEEEE (OK)
 		if (!cmd)
