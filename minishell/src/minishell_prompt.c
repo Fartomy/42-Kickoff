@@ -6,37 +6,11 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:06:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/26 23:49:36 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/26 23:53:24 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-#include <readline/readline.h>
-#include <readline/history.h>
-
-void	ctrl_d(void)
-{
-	printf("exit\n");
-	exit(1);
-}
-
-void	ctrl_backslash(int sig)
-{
-	if (sig == SIGQUIT)
-		rl_replace_line("", 0);
-}
-
-void	ctrl_c(int sig)
-{
-	if(sig == SIGINT)
-	{
-		printf("\n");
-		rl_on_new_line();
-		rl_replace_line("", 0);
-		rl_redisplay();
-	}	
-}
 
 static char *get_username(void)
 {
