@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 17:05:51 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/24 14:47:11 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/26 15:57:25 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ char 	*env_getter(char *str)
         while (str[i])
             temp[x++] = str[i++];
     }
+	//free(str);
     return (temp);
 }
 

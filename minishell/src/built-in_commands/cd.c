@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 17:53:58 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/21 12:52:51 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/26 16:03:18 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,7 @@ void    ft_cd(char **parse)
 			{
 				char *home_value;
 				
-				home_value = ft_strdup(data.env[i]);
-				home_value = env_getter(home_value);
+				home_value = env_getter(data.env[i]);
 				update_old_pwd();
 				chdir(home_value);
 				update_pwd();
@@ -102,8 +101,7 @@ void    ft_cd(char **parse)
 			{
 				char *oldpwd_value;
 
-				oldpwd_value = ft_strdup(data.env[i]);
-				oldpwd_value = env_getter(oldpwd_value);
+				oldpwd_value = env_getter(data.env[i]);
 				chdir(oldpwd_value);
 				update_pwd();
 				printf("%s\n", oldpwd_value);

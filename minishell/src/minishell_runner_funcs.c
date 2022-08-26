@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:01:49 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/25 20:28:52 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/26 16:14:12 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,14 @@ void	cmd_finder(char **parse)
 				opt[x] = ft_strcpy(opt[x], parse[x]);
 			}
 			cmd_runner(parse[0], opt);
+			ft_free(parse);
 			ft_free(opt);
 		}
 		else
 		{
 			free(opt);
 			printf("minishell: %s: command not found\n", parse[0]);
+			ft_free(parse);
 		}
 		return ;
 	}
