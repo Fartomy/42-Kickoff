@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 00:27:01 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/25 20:38:56 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/27 00:08:27 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,9 @@ void	simple_cmd(char **parse)
 	int 	i;
 	int		x;
 
-	// redirections command control ↓
 	i = 0;
 	symbol_ctrl = false;
-	parse = ft_symbol_split(parse[0]); // FREEEEEEEEEEEEEEEEEEEEEEEEEEE
+	parse = ft_symbol_split(parse[0]);
 	while (parse[i])
 	{
 		x = 0;

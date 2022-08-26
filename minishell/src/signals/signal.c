@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 23:53:02 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/27 00:01:03 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/27 00:05:55 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	ctrl_d(void)
 
 void	ctrl_backslash(int sig)
 {
-	if (sig == SIGQUIT)
-		prompt();	
+	if(sig == SIGQUIT)
+		prompt();
 }
 
 void	ctrl_c(int sig)

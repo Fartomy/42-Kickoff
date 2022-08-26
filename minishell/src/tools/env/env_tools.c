@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 17:05:51 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/26 15:57:25 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/27 00:13:46 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ static	char *env_cnv_helper(char *str, char *s, int *i, int *x)
 	a = *i;
 	while (str[++a] && str[a] != '$')
 		len++;
-	buf = ft_calloc(sizeof(char), len + 1); //FREEEEEEEEEEEEEEE
+	buf = ft_calloc(sizeof(char), len + 1);
 	buflen = len;
 	a = *i;
 	len = 0;
@@ -121,7 +121,7 @@ char	*env_converter(char *str)
 	int x;
 	char *s;
 
-	s = ft_calloc(sizeof(char), ft_strlen(str) + 1); //FREEEEEEEEEEE
+	s = ft_calloc(sizeof(char), ft_strlen(str) + 1);
 	i = -1;
 	x = 0;
 	while (str[++i])

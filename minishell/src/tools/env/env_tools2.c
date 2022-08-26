@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 02:15:48 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/21 02:17:23 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/27 00:13:56 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int equal_finder(char *var)
     return(0);
 }
 
-char *env_name_getter(char *var)
+char    *env_name_getter(char *var)
 {
     int i;
     char *name;

@@ -6,12 +6,11 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:17:52 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/24 00:23:49 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/27 00:14:02 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
 
 int ft_arglen(char **arg)
 {
