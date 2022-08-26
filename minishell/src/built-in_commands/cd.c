@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 17:53:58 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/26 16:03:18 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/26 16:41:00 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static void update_pwd(void)
 {
 	int i;
 	char *pwd;
+	char *bufpwd;
 	
 	i = -1;
 	pwd = "PWD=";
@@ -24,7 +25,9 @@ static void update_pwd(void)
 		if (ft_strncmp(data.env[i], "PWD", 3) == 0)
 		{
 			free(data.env[i]);
-			data.env[i] = ft_strjoin(pwd, getcwd(NULL, 0));
+			bufpwd = getcwd(NULL, 0);
+			data.env[i] = ft_strjoin(pwd, bufpwd);
+			free(bufpwd);
 			break ;
 		}
 	}
@@ -34,7 +37,9 @@ static void update_pwd(void)
 		if(ft_strncmp(data.export[i], "PWD", 3) == 0)
 		{
 			free(data.export[i]);
-			data.export[i] = ft_strjoin(pwd, getcwd(NULL, 0));
+			bufpwd = getcwd(NULL, 0);
+			data.export[i] = ft_strjoin(pwd, bufpwd);
+			free(bufpwd);
 			break ;
 		}
 	}
@@ -44,6 +49,7 @@ static void	update_old_pwd(void)
 {
 	int i;
 	char *oldpwd;
+	char *bufpwd;
 
 	oldpwd = "OLDPWD=";
 	i = -1;
@@ -52,7 +58,9 @@ static void	update_old_pwd(void)
 		if(ft_strncmp(data.env[i], "OLDPWD", 6) == 0)
 		{
 			free(data.env[i]);
-			data.env[i] = ft_strjoin(oldpwd, getcwd(NULL, 0));
+			bufpwd = getcwd(NULL, 0);
+			data.env[i] = ft_strjoin(oldpwd, bufpwd);
+			free(bufpwd);
 			break ;
 		}	
 	}
@@ -62,7 +70,9 @@ static void	update_old_pwd(void)
 		if (ft_strncmp(data.export[i], "OLDPWD", 6) == 0)
 		{
 			free(data.export[i]);
-			data.export[i] = ft_strjoin(oldpwd, getcwd(NULL, 0));
+			bufpwd = getcwd(NULL, 0);
+			data.export[i] = ft_strjoin(oldpwd, bufpwd);
+			free(bufpwd);
 			break ;
 		}
 	}
