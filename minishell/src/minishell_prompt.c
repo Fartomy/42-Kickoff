@@ -6,16 +6,25 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:06:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/26 23:41:25 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/26 23:49:36 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
+#include <readline/readline.h>
+#include <readline/history.h>
+
 void	ctrl_d(void)
 {
 	printf("exit\n");
 	exit(1);
+}
+
+void	ctrl_backslash(int sig)
+{
+	if (sig == SIGQUIT)
+		rl_replace_line("", 0);
 }
 
 void	ctrl_c(int sig)
@@ -24,6 +33,7 @@ void	ctrl_c(int sig)
 	{
 		printf("\n");
 		rl_on_new_line();
+		rl_replace_line("", 0);
 		rl_redisplay();
 	}	
 }
@@ -67,6 +77,7 @@ void	prompt(void)
     while(1)
 	{
 		signal(SIGINT, ctrl_c);
+		signal(SIGQUIT, ctrl_backslash);
 		usr_name = get_username(); //FREEEEEEEEEEEEEEEEEEE (OK)
 		cmd = readline(usr_name); // FREEEEEEEEEEEEEEEEEEE (OK)
 		if (!cmd)
