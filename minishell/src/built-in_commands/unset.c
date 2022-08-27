@@ -6,13 +6,13 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:08:53 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/25 16:06:16 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/27 14:02:29 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	ft_unset( char **parse)
+void	ft_unset(char **parse)
 {
 	int i;
 

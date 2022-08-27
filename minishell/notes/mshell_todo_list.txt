@@ -1,5 +1,5 @@
 
 
-1-)Leaks olmamalı. ------> (NOK) 
+1-)Leaks olmamalı. ------> (OK - FOR NOW) 
 
 2-)Norminette düzeltilmeli ------> (NOK) 

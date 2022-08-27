@@ -132,7 +132,7 @@ _\~/_ EXAMPLE (1) :
 
 >_ FUNCTION 4 : [ - D U P 2 - ]
 
-$ Dup2 fonksiyonu 'file descriptor'ın tanımladığı yeri (örneğin 0(input), 1(output) , 2(error)), \
+$ Dup2 fonksiyonu 'file descriptor'ın tanımladığı yeri (örneğin 0(input), 1(output), 2(error)), \
   farklı bir 'file descriptor' ile tanımlanmış yere ayarlar. 
 $ Kısaca örnek olarak std output(1), normalde çıktıyı terminalimize yazdırırken verdiği çıktıyı, başka bir dosyaya yazdırabiliyoruz \
   ve çıktı artık varsayılan olarak terminalinizde gözükmeyecek. Çünkü varsayılan şeyi, dup2 fonksyionu ile dolaylı olarak değiştirmiş oluyorsunuz.
@@ -313,3 +313,28 @@ _\~/_ EXAMPLE (1) :
 7    str = getcwd(str, 0);
 8    printf("%s\n", str);
 9 }
+
+>_ FUNCTION 11: [ - C H D I R - ]
+
+$ chdir() fonksiyonu parametre olarak gitmek istenilen 'path' değerini alır ve oraya gider.
+$ Dönüş değerleri, eğer girilen 'path' yolu var ise '0' değerini döndürür. Aksi halde '-1' döndürür.
+$ Not: Fonksiyonu denerken çalıştıracak olacağınız program, belirtilen konuma gidecektir. \
+  Ancak program bitiminde programı çalıştırmış olduğunuz terminalin konumu hala aynı olacaktır. \
+  Bunun sebebi 'chdir()' fonksiyonunu denediğiniz program ayrı bir program, bu programı çalıştırdığınız \
+  terminal ayrı bir program olduğundan mütevellit konum değişikliği sadece kendi denemiş olduğunuz \
+  program da etkisini gösterecektir. (Sanki eczacıyımda size verdiğim ilacın yan etkilerinden bahsediyorum. asdsad)  
+
+
+_/√\_ PROTOTYPE :
+
+int  chdir(const char *path);
+
+
+_\~/_ EXAMPLE (1) :
+
+1 int main()
+2 {
+3    chdir("../../"); // İki geriye gittik.
+4    printf("%s\n", getcwd(NULL, 0));
+5    return (0);   
+6 }

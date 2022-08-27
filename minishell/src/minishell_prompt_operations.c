@@ -6,11 +6,23 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 00:27:01 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/27 00:08:27 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/27 18:18:38 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void	ft_redirecton(char **parse)
+{
+	if(!redirct_err_ctrl_for_output(parse))
+		return ;
+	if(!redirct_err_ctrl_for_input(parse))
+		return ;
+	if(!redirct_err_ctrl_for_append(parse))
+		return ;
+	if(!redirct_err_ctrl_for_heredoc(parse))
+		return ;
+}
 
 void	builtin_command(char **parse)
 {
@@ -76,7 +88,7 @@ void	simple_cmd(char **parse)
 		if(ft_strcmp(parse[i], data.symbol_tkn[x]) == 0)
 		{
 			symbol_ctrl = true;
-			//func
+			ft_redirecton(parse);
 			break;
 		}
 		i++;

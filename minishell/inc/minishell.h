@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/26 23:54:14 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/27 17:33:29 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,12 @@ char	**ft_implt_split(char const *s, char c);
 char    **ft_pipe_split(char const *s, char c);
 char	**ft_symbol_split(char *s);
 char    **quotes_purifyer(char **parse);
+
+// redirections
+int    redirct_err_ctrl_for_output(char **parse);
+int    redirct_err_ctrl_for_input(char **parse);
+int    redirct_err_ctrl_for_append(char **parse);
+int    redirct_err_ctrl_for_heredoc(char **parse);
 
 // signals
 void	ctrl_backslash(int sig);
