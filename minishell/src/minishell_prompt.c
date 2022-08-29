@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:06:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/27 00:35:02 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/29 19:41:37 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	prompt(void)
 	char **parse;
 	char *cmd;
 	char *usr_name;
-		
+	
     while(1)
 	{
 		signal(SIGINT, ctrl_c);
