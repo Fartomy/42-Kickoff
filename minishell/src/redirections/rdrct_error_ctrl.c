@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 17:23:04 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/27 18:32:52 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/29 14:07:09 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,26 @@ int redirct_err_ctrl_for_heredoc(char **parse)
 			return (0);
 		}
 		i++;
+	}
+	return (1);
+}
+
+int redirct_err_ctrl(char **parse)
+{
+	int i;
+	int x;
+
+	i = 0;
+	x = 0;
+	while(parse[i])
+		i++;
+	while (data.symbol_tkn[x])
+	{
+		if(ft_strcmp(parse[i - 1], data.symbol_tkn[x++]) == 0)
+		{
+			printf("minishell: syntax error near unexpected token `newline'\n");
+			return (0);
+		}
 	}
 	return (1);
 }

@@ -6,23 +6,11 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 00:27:01 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/27 19:56:39 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/29 14:10:43 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-void	ft_redirecton(char **parse)
-{
-	if(!redirct_err_ctrl_for_output(parse))
-		return ;
-	if(!redirct_err_ctrl_for_input(parse))
-		return ;
-	if(!redirct_err_ctrl_for_append(parse))
-		return ;
-	if(!redirct_err_ctrl_for_heredoc(parse))
-		return ;
-}
 
 void	builtin_command(char **parse)
 {
