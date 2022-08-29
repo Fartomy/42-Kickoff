@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/29 19:32:54 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/29 19:46:37 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_minishell
     char **parse;
     char *symbol_tkn[6];
     char *built_in_tkn[8];
+    int    fd;
 }              t_minidata;
 
 extern t_minidata data;

@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 11:40:50 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/12 18:50:39 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/29 20:52:23 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (ft_calloc(1, 1));
 	return (ft_substr(s1, set_idx_start, (set_idx_fin - set_idx_start + 1)));
 }
-
-/*int main()
-{
-	printf("%s", ft_strtrim("Merhaba Dunya", "aerMy"));
-}*/
