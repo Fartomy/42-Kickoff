@@ -1,7 +1,7 @@
 NAME	=	minishell
 LIBFT	= 	libft/libft.a
 INC		= ./inc/
-INC_LT	= ./libft -I./lib/lib/readline/include
+INC_LT	= ./libft -I./lib/readline/include
 
 
 RESET	=	\033[0m
@@ -14,19 +14,19 @@ RED		=	\033[31m
 SRCS	= $(shell find src -type f -name "*.c")
 OBJS	= $(SRCS:src/%.c=src/bin/%.o)
 BIN		= ./src/bin
-LIB		= ./lib/.readline_lib
+LIB		= ./lib/.rdl
 
 
 CC		=	@gcc
 RM		=	@rm -rf 
 OUT		=	-o minishell
 CFLAGS	=	-Wall -Werror -Wextra
-LRDL	= 	-lreadline
+LRDL	= 	-lreadline -L./lib/readline/lib
 
 all: $(LIB)	$(LIBFT) $(NAME)
 
 $(LIB):
-	make -C ./lib
+	make -C  ./lib
 
 $(BIN):
 	@mkdir $(BIN)
@@ -36,7 +36,7 @@ $(LIBFT):
 
 $(NAME): $(BIN)	$(LIBFT) $(OBJS) 
 			@echo "$(YELLOW)>- Compiling... [$(NAME)] $(RESET)"
-			$(CC) $(LRDL) -L./lib/lib/readline/lib -lreadline $(CFLAGS) $(LIBFT) $(OUT) $(OBJS) # -fsanitize=address -g
+			$(CC) $(LRDL) $(CFLAGS) $(LIBFT) $(OUT) $(OBJS) # -fsanitize=address -g
 			@echo "$(GREEN)>- Finished! $(RESET)"
 
 $(BIN)%.o: src/%.c

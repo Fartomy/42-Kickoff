@@ -17,20 +17,11 @@ RM				= rm -rf
 
 # Directories
 
-NAME				= ./.readline_lib
+NAME				= ./.rdl
 
 # Rules
 
 all : $(NAME)
-
-fclean : 
-	@echo $(RED)">- Deleting readline..." $(END)
-	@$(RM) ./readline $(NAME)
-	@$(RM) ./lib $(NAME)
-	@echo $(BLUE)">- Successfully! [$(NAME)]" $(END)
-
-re : fclean all
-
 
 $(NAME):
 	@curl -O http://ftp.gnu.org/gnu/readline/readline-8.2-rc1.tar.gz
@@ -40,5 +31,12 @@ $(NAME):
 	make install -C readline
 	@rm -f readline-8.2-rc1.tar.gz
 	@mkdir $(NAME)
+
+fclean : 
+	@echo $(RED)">- Deleting readline..." $(END)
+	@$(RM) ./readline $(NAME)
+	@echo $(BLUE)">- Successfully! [$(NAME)]" $(END)
+
+re : fclean all
 
 .PHONY: all  fclean re
