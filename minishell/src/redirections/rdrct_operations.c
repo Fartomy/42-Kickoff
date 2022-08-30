@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 14:08:33 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/29 21:00:16 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/30 13:25:37 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void rdr_runner(char **parse, int x)
 	}
 }
 
-void rdr_actuator(char *prs, int ctrl)
+int rdr_actuator(char *prs, int ctrl)
 {
 	data.fd = 0;
 	if (ctrl == 1)
@@ -55,7 +55,7 @@ void rdr_actuator(char *prs, int ctrl)
 		if (data.fd == -1)
 		{
 			printf("minishell: %s: No such file or directory\n", prs);
-			return;
+			return (0);
 		}
 		read(data.fd, buff, 777);
 	}
@@ -65,12 +65,15 @@ void rdr_actuator(char *prs, int ctrl)
 	{
 
 	}*/
+
+	return (1);
 }
 
 void rdr_stream(char **parse)
 {
 	int x;
 	char *str;
+	int ctrl;
 
 	x = 0;
 	while (data.symbol_tkn[x])
@@ -85,13 +88,14 @@ void rdr_stream(char **parse)
 		if (ft_strcmp(parse[x], ">") == 0)
 			rdr_actuator(parse[x + 1], 1);
 		else if (ft_strcmp(parse[x], "<") == 0)
-			rdr_actuator(parse[x + 1], 2);
+			ctrl = rdr_actuator(parse[x + 1], 2);
 		else if (ft_strcmp(parse[x], ">>") == 0)
 			rdr_actuator(parse[x + 1], 3);
 		else if (ft_strcmp(parse[x], "<<") == 0)
 			rdr_actuator(parse[x + 1], 4);
 	}
-	rdr_runner(parse, x);
+	if(ctrl != 0)
+		rdr_runner(parse, x);
 }
 
 void ft_redirecton(char **parse)
