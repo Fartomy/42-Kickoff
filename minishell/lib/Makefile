@@ -8,7 +8,6 @@ CYAN			=	"\033[0;35m"
 BLUE			=	"\033[0;34m"
 WHITE			=	"\033[0;37m"
 END				=	"\033[0;0m"
-
 # Files
 
 DIR				= $(shell echo $(PWD))
@@ -27,10 +26,11 @@ $(NAME):
 	@curl -O http://ftp.gnu.org/gnu/readline/readline-8.2-rc1.tar.gz
 	@gunzip -c readline-8.2-rc1.tar.gz | tar xopf -
 	@mv readline-8.2-rc1 readline
-	/bin/sh -c "cd readline && sh ./configure --prefix=$(DIR)/lib/readline"
-	make install -C readline
+	@/bin/sh -c "cd readline && sh ./configure --prefix=$(DIR)/lib/readline"
+	@make install -C readline
 	@rm -f readline-8.2-rc1.tar.gz
 	@mkdir $(NAME)
+	@clear
 
 fclean : 
 	@echo $(RED)">- Deleting readline..." $(END)

@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 14:08:33 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/30 15:52:54 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/30 17:50:37 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void rdr_runner(char **parse, int x)
 				if (ft_strcmp(str, parse[x]) == 0)
 					break ;
 			}
-			//printf("str")
 			dup2(data.fd, 0);
 			close(data.fd);
 		}
