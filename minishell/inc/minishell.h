@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/30 18:44:18 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/31 16:07:25 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	ft_redirecton(char **parse);
 
 // signals
 void	ctrl_backslash(int sig);
+void    heredc_ctrl_c(int sig);
 void	ctrl_c(int sig);
 void	ctrl_d(void);
 

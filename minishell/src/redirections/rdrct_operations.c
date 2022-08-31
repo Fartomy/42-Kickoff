@@ -6,16 +6,40 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 14:08:33 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/31 15:30:43 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/31 16:07:07 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	heredc_ctrlc(int sig)
+void heredoc_oprt(char **parse, int x)
 {
-	if(sig == SIGINT)
+	int pid2;
+
+	pipe(data.fd2);
+	pid2 = fork();
+	if (pid2 > 0)
+	{
+		close(data.fd2[1]);
+		wait(NULL);
+		dup2(data.fd2[0], 0);
+		close(data.fd2[0]);
+	}
+	wait(NULL);
+	if (pid2 == 0)
+	{
+		char *str;
+		signal(SIGINT, heredc_ctrl_c);
+		while (1)
+		{
+			str = readline(">_ ");
+			if (ft_strcmp(parse[x], str) == 0)
+				break;
+			str = ft_strjoin(str, "\n");
+			write(data.fd2[1], str, ft_strlen(str));
+		}
 		exit(0);
+	}
 }
 
 void rdr_runner(char **parse, int x)
@@ -43,34 +67,7 @@ void rdr_runner(char **parse, int x)
 			close(data.fd);
 		}
 		else if (ft_strcmp(parse[x - 1], "<<") == 0)
-		{
-			int pid2;
-			
-			pipe(data.fd2);
-			pid2 = fork();
-			if(pid2 > 0)
-			{
-				close(data.fd2[1]);
-				wait(NULL);
-				dup2(data.fd2[0], 0);
-				close(data.fd2[0]);
-			}
-				wait(NULL);
-			if(pid2 == 0)
-			{
-				char *str;
-				signal(SIGINT, heredc_ctrlc);
-				while (1)
-				{
-					str = readline(">_ ");
-					if(ft_strcmp(parse[x], str) == 0)
-						break ;
-					str = ft_strjoin(str, "\n");
-					write(data.fd2[1], str, ft_strlen(str));
-				}
-				exit(0);
-			}
-		}
+			heredoc_oprt(parse, x);
 		builtin_or_smp_cmd_ctrl(parse);
 		exit(0);
 	}

@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 23:53:02 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/27 11:44:51 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/31 16:07:11 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,10 @@ void	ctrl_c(int sig)
 		rl_replace_line("", 0);
 		rl_redisplay();
 	}	
+}
+
+void heredc_ctrl_c(int sig)
+{
+	if (sig == SIGINT)
+		exit(0);
 }
