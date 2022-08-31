@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/31 16:07:25 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/31 16:40:14 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,17 @@ char	**ft_symbol_split(char *s);
 char    **quotes_purifyer(char **parse);
 
 // redirections
-int    redirct_err_ctrl_for_output(char **parse);
-int    redirct_err_ctrl_for_input(char **parse);
-int    redirct_err_ctrl_for_append(char **parse);
-int    redirct_err_ctrl_for_heredoc(char **parse);
+void    ft_redirecton(char **parse);
+void    rdr_stream(char **parse);
+void    first_argis_symbol(char **parse);
+void    rdr_runner(char **parse, int x);
+void    heredoc_oprt(char **parse, int x);
+int     redirct_err_ctrl_for_output(char **parse);
+int     redirct_err_ctrl_for_input(char **parse);
+int     redirct_err_ctrl_for_append(char **parse);
+int     redirct_err_ctrl_for_heredoc(char **parse);
 int     redirct_err_ctrl(char **parse);
-void	ft_redirecton(char **parse);
+int     rdr_actuator(char *prs, int ctrl);
 
 // signals
 void	ctrl_backslash(int sig);

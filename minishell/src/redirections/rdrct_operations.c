@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 14:08:33 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/31 16:20:16 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/31 17:26:37 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,8 +106,14 @@ void rdr_stream(char **parse)
 
 	x = 0;
 	while (data.symbol_tkn[x])
-		if (ft_strcmp(parse[0], data.symbol_tkn[x++]) == 0)
-			return;
+	{
+		if (ft_strncmp(parse[0], data.symbol_tkn[x], ft_strlen(data.symbol_tkn[x])) == 0)
+		{
+			first_argis_symbol(parse);
+			return ;
+		}
+		x++;
+	}
 	x = 0;
 	while (parse[++x] && parse[x + 1] != 0)
 	{
