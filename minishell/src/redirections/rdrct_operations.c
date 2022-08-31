@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 14:08:33 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/30 17:50:37 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/31 15:04:32 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,32 @@ void rdr_runner(char **parse, int x)
 		}
 		else if (ft_strcmp(parse[x - 1], "<<") == 0)
 		{
-			char *str;
+			int pid2;
 			
-			while (1)
+			pipe(data.fd2);
+			pid2 = fork();
+			if(pid2 > 0)
 			{
-				str = readline("> ");
-				if (ft_strcmp(str, parse[x]) == 0)
-					break ;
+				close(data.fd2[1]);
+				wait(NULL);
+				dup2(data.fd2[0], 0);
+				close(data.fd2[0]);
 			}
-			dup2(data.fd, 0);
-			close(data.fd);
+				wait(NULL);
+			if(pid2 == 0)
+			{
+				char *str;
+				//signal(SIGINT, )
+				while (1)
+				{
+					str = readline(">_ ");
+					if(ft_strcmp(parse[x], str) == 0)
+						break ;
+					str = ft_strjoin(str, "\n");
+					write(data.fd2[1], str, ft_strlen(str));
+				}
+				exit(0);
+			}
 		}
 		builtin_or_smp_cmd_ctrl(parse);
 		exit(0);
@@ -74,6 +90,8 @@ int rdr_actuator(char *prs, int ctrl)
 	}
 	else if (ctrl == 3)
 		data.fd = open(prs, O_RDWR | O_CREAT | O_APPEND, 0777);
+	else if (ctrl == 4)
+		pipe(data.fd2);
 	return (1);
 }
 
@@ -99,8 +117,10 @@ void rdr_stream(char **parse)
 			ctrl = rdr_actuator(parse[x + 1], 2);
 		else if (ft_strcmp(parse[x], ">>") == 0)
 			rdr_actuator(parse[x + 1], 3);
+		else if (ft_strcmp(parse[x], "<<") == 0)
+			rdr_actuator(parse[x + 1], 4);
 	}
-	if(ctrl != 0)
+	if (ctrl != 0)
 		rdr_runner(parse, x);
 }
 

@@ -314,6 +314,8 @@ _\~/_ EXAMPLE (1) :
 8    printf("%s\n", str);
 9 }
 
+-----------------------------------------------------------------------------------------------------------
+
 >_ FUNCTION 11: [ - C H D I R - ]
 
 $ chdir() fonksiyonu parametre olarak gitmek istenilen 'path' değerini alır ve oraya gider.
