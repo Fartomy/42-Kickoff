@@ -6,11 +6,17 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 14:08:33 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/31 15:04:32 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/31 15:30:43 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void	heredc_ctrlc(int sig)
+{
+	if(sig == SIGINT)
+		exit(0);
+}
 
 void rdr_runner(char **parse, int x)
 {
@@ -53,7 +59,7 @@ void rdr_runner(char **parse, int x)
 			if(pid2 == 0)
 			{
 				char *str;
-				//signal(SIGINT, )
+				signal(SIGINT, heredc_ctrlc);
 				while (1)
 				{
 					str = readline(">_ ");
