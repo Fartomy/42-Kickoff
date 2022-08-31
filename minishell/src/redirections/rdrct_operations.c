@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 14:08:33 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/31 16:07:07 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/31 16:20:16 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,12 @@ void rdr_runner(char **parse, int x)
 			dup2(data.fd, 0);
 			close(data.fd);
 		}
-		else if (ft_strcmp(parse[x - 1], ">>") == 0)
+		else if (ft_strncmp(parse[x - 1], ">>", 2) == 0)
 		{
 			dup2(data.fd, 1);
 			close(data.fd);
 		}
-		else if (ft_strcmp(parse[x - 1], "<<") == 0)
+		else if (ft_strncmp(parse[x - 1], "<<", 2) == 0)
 			heredoc_oprt(parse, x);
 		builtin_or_smp_cmd_ctrl(parse);
 		exit(0);
@@ -83,7 +83,7 @@ int rdr_actuator(char *prs, int ctrl)
 		char *buff;
 
 		buff = NULL;
-		data.fd = open(prs, O_RDONLY, 0777);
+		data.fd = open(prs, O_RDWR, 0777);
 		if (data.fd == -1)
 		{
 			printf("minishell: %s: No such file or directory\n", prs);
@@ -118,9 +118,9 @@ void rdr_stream(char **parse)
 			rdr_actuator(parse[x + 1], 1);
 		else if (ft_strcmp(parse[x], "<") == 0)
 			ctrl = rdr_actuator(parse[x + 1], 2);
-		else if (ft_strcmp(parse[x], ">>") == 0)
+		else if (ft_strncmp(parse[x], ">>", 2) == 0)
 			rdr_actuator(parse[x + 1], 3);
-		else if (ft_strcmp(parse[x], "<<") == 0)
+		else if (ft_strncmp(parse[x], "<<", 2) == 0)
 			rdr_actuator(parse[x + 1], 4);
 	}
 	if (ctrl != 0)
