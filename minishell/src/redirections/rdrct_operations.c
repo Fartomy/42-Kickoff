@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 14:08:33 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/01 18:14:57 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/01 18:41:07 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,11 +102,15 @@ void rdr_stream(char **parse)
 		if (ft_strcmp(parse[x], ">") == 0)
 			rdr_actuator(parse[x + 1], 1);
 		else if (ft_strcmp(parse[x], "<") == 0)
+		{
 			ctrl = rdr_actuator(parse[x + 1], 2);
+			if(ctrl == 0)
+				break ;
+		}
 		else if (ft_strncmp(parse[x], ">>", 2) == 0)
 			rdr_actuator(parse[x + 1], 3);
 	}
-	if (ctrl != 0)
+	if(ctrl != 0)
 		rdr_runner(parse, x);
 }
 
