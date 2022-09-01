@@ -6,11 +6,55 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 16:41:11 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/31 17:29:13 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/01 17:31:58 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void	rdr_input(int ctrl)
+{
+	if(ctrl == 0)
+	{
+		dup2(data.fd, 0);
+		close(data.fd);
+	}
+	else if(ctrl == 1)
+	{
+		dup2(data.fd2, 0);
+		close(data.fd2);
+	}
+}
+
+void	heredoc_oprt(char *prs, int *fd2)
+{
+	int pid2;
+
+	pipe(fd2);
+	pid2 = fork();
+	if (pid2 > 0)
+	{
+		close(fd2[1]);
+		wait(NULL);
+		dup2(fd2[0], 0);
+		close(fd2[0]);
+	}
+	if (pid2 == 0)
+	{
+		char *str;
+		
+		signal(SIGINT, heredc_ctrl_c);
+		while (1)
+		{
+			str = readline(">_ ");
+			if (ft_strcmp(prs, str) == 0)
+				break;
+			str = ft_strjoin(str, "\n");
+			write(fd2[1], str, ft_strlen(str));
+		}
+		exit(0);
+	}
+}
 
 static void rdr_runner_for_first_arg(char **parse, int x)
 {
@@ -23,6 +67,13 @@ static void rdr_runner_for_first_arg(char **parse, int x)
 	{
 		if (ft_strcmp(parse[x - 1], ">") == 0)
 		{
+			if(ft_strncmp(parse[0], "<<", 2) == 0)
+			{
+				int fd2[2];
+				heredoc_oprt(parse[1], fd2);
+			}
+			else if(ft_strcmp(parse[0], "<") == 0)
+				rdr_input(1);
 			dup2(data.fd, 1);
 			close(data.fd);
 		}
@@ -33,11 +84,21 @@ static void rdr_runner_for_first_arg(char **parse, int x)
 		}
 		else if (ft_strncmp(parse[x - 1], ">>", 2) == 0)
 		{
+			if(ft_strncmp(parse[0], "<<", 2) == 0)
+			{
+				int fd2[2];
+				heredoc_oprt(parse[1], fd2);
+			}
+			else if(ft_strcmp(parse[0], "<") == 0)
+				rdr_input(1);
 			dup2(data.fd, 1);
 			close(data.fd);
 		}
 		else if (ft_strncmp(parse[x - 1], "<<", 2) == 0)
-			heredoc_oprt(parse, x);
+		{
+			int fd2[2];
+			heredoc_oprt(parse[x], fd2);
+		}
 		exit(0);
 	}
 }

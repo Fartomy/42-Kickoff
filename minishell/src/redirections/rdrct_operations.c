@@ -6,41 +6,11 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 14:08:33 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/31 17:26:37 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/01 17:29:33 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-void heredoc_oprt(char **parse, int x)
-{
-	int pid2;
-
-	pipe(data.fd2);
-	pid2 = fork();
-	if (pid2 > 0)
-	{
-		close(data.fd2[1]);
-		wait(NULL);
-		dup2(data.fd2[0], 0);
-		close(data.fd2[0]);
-	}
-	wait(NULL);
-	if (pid2 == 0)
-	{
-		char *str;
-		signal(SIGINT, heredc_ctrl_c);
-		while (1)
-		{
-			str = readline(">_ ");
-			if (ft_strcmp(parse[x], str) == 0)
-				break;
-			str = ft_strjoin(str, "\n");
-			write(data.fd2[1], str, ft_strlen(str));
-		}
-		exit(0);
-	}
-}
 
 void rdr_runner(char **parse, int x)
 {
@@ -53,21 +23,35 @@ void rdr_runner(char **parse, int x)
 	{
 		if (ft_strcmp(parse[x - 1], ">") == 0)
 		{
+			if(ft_strncmp(parse[1], "<<", 2) == 0)
+			{
+				int fd2[2];
+				heredoc_oprt(parse[2], fd2);
+			}
+			else if(ft_strcmp(parse[1], "<") == 0)
+				rdr_input(1);
 			dup2(data.fd, 1);
 			close(data.fd);
 		}
 		else if (ft_strcmp(parse[x - 1], "<") == 0)
-		{
-			dup2(data.fd, 0);
-			close(data.fd);
-		}
+			rdr_input(0);
 		else if (ft_strncmp(parse[x - 1], ">>", 2) == 0)
 		{
+			if(ft_strncmp(parse[1], "<<", 2) == 0)
+			{
+				int fd2[2];
+				heredoc_oprt(parse[2], fd2);
+			}
+			else if(ft_strcmp(parse[1], "<") == 0)
+				rdr_input(1);
 			dup2(data.fd, 1);
 			close(data.fd);
 		}
 		else if (ft_strncmp(parse[x - 1], "<<", 2) == 0)
-			heredoc_oprt(parse, x);
+		{
+			int fd2[2];
+			heredoc_oprt(parse[x], fd2);
+		}
 		builtin_or_smp_cmd_ctrl(parse);
 		exit(0);
 	}
@@ -80,21 +64,16 @@ int rdr_actuator(char *prs, int ctrl)
 		data.fd = open(prs, O_RDWR | O_CREAT, 0777);
 	else if (ctrl == 2)
 	{
-		char *buff;
-
-		buff = NULL;
-		data.fd = open(prs, O_RDWR, 0777);
+		data.fd = open(prs, O_RDWR);
+		data.fd2 = dup(data.fd);
 		if (data.fd == -1)
 		{
 			printf("minishell: %s: No such file or directory\n", prs);
 			return (0);
 		}
-		read(data.fd, buff, 777);
 	}
 	else if (ctrl == 3)
 		data.fd = open(prs, O_RDWR | O_CREAT | O_APPEND, 0777);
-	else if (ctrl == 4)
-		pipe(data.fd2);
 	return (1);
 }
 
@@ -126,8 +105,6 @@ void rdr_stream(char **parse)
 			ctrl = rdr_actuator(parse[x + 1], 2);
 		else if (ft_strncmp(parse[x], ">>", 2) == 0)
 			rdr_actuator(parse[x + 1], 3);
-		else if (ft_strncmp(parse[x], "<<", 2) == 0)
-			rdr_actuator(parse[x + 1], 4);
 	}
 	if (ctrl != 0)
 		rdr_runner(parse, x);

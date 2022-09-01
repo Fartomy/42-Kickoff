@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/31 16:40:14 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/01 17:30:11 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_minishell
     char *symbol_tkn[6];
     char *built_in_tkn[8];
     int  fd;
-    int  fd2[2];
+    int  fd2;
 }              t_minidata;
 
 extern t_minidata data;
@@ -73,13 +73,14 @@ void    ft_redirecton(char **parse);
 void    rdr_stream(char **parse);
 void    first_argis_symbol(char **parse);
 void    rdr_runner(char **parse, int x);
-void    heredoc_oprt(char **parse, int x);
+void    heredoc_oprt(char *prs, int *fd2);
 int     redirct_err_ctrl_for_output(char **parse);
 int     redirct_err_ctrl_for_input(char **parse);
 int     redirct_err_ctrl_for_append(char **parse);
 int     redirct_err_ctrl_for_heredoc(char **parse);
 int     redirct_err_ctrl(char **parse);
 int     rdr_actuator(char *prs, int ctrl);
+void	rdr_input(int ctrl);
 
 // signals
 void	ctrl_backslash(int sig);
