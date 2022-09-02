@@ -16,10 +16,10 @@ void	die_check(t_phdata *ph_data)
 {
 	while (1)
 	{
-		pthread_mutex_lock(ph_data->lock);
+	//	pthread_mutex_lock(ph_data->lock);
 		if (*ph_data->is_dead)
 			return ;
-		pthread_mutex_unlock(ph_data->lock);
+	//	pthread_mutex_unlock(ph_data->lock);
 		usleep(10);
 	}
 }

@@ -6,11 +6,16 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 00:27:01 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/29 14:10:43 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/02 01:45:42 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void	piped_command(char **parse)
+{
+	pipe_err_ctrl(parse);
+}
 
 void	builtin_command(char **parse)
 {
@@ -98,7 +103,7 @@ void	cmd_router(char **parse)
 		if(ft_strcmp(parse[i], "|") == 0)
 		{
 			simple_cmd_ctrl = true;
-			//piped_cmd(parse);
+			piped_command(parse);
 			break ;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/01 17:30:11 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/02 12:17:11 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,12 @@ int     equal_finder(char *var);
 // implemented funcs
 char	**ft_big_implt_split(char const *s, char c);
 char	**ft_implt_split(char const *s, char c);
-char    **ft_pipe_split(char const *s, char c);
+char    **ft_pipe_split(char *s, char c);
 char	**ft_symbol_split(char *s);
 char    **quotes_purifyer(char **parse);
+
+// pipes
+int pipe_err_ctrl(char **parse);
 
 // redirections
 void    ft_redirecton(char **parse);
