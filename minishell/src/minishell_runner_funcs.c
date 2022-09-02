@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:01:49 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/01 21:15:37 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/02 15:34:06 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void cmd_runner(char *path, char **opt)
 
 	pid = fork();
 	if (pid > 0)
-		wait(NULL);
+		waitpid(pid, &data.status, 0);
 	if (pid == 0)
 	{
 		if (execve(path, opt, data.env) == -1)

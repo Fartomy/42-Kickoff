@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:06:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/01 21:20:21 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/02 15:44:08 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char *get_username(void)
 	char *usr_env;
 	char *prompt;
 	int i;
-	
+
 	i = 0;
 	prompt = ft_calloc(sizeof(char), 50);
 	str = "[minishell@] >_ ";
@@ -27,28 +27,28 @@ static char *get_username(void)
 	{
 		printf("USER not found! Please fix to export.\n");
 		free(prompt);
-		exit (1);
+		exit(1);
 	}
 	while (*str)
 	{
 		prompt[i++] = *str;
-		if(*str == '@')
+		if (*str == '@')
 		{
 			while (*usr_env)
 				prompt[i++] = *usr_env++;
 		}
-		str++;			
+		str++;
 	}
 	return (prompt);
 }
 
-void	prompt(void)
+void prompt(void)
 {
 	char **parse;
 	char *cmd;
 	char *usr_name;
-	
-    while(1)
+
+	while (1)
 	{
 		signal(SIGINT, ctrl_c);
 		signal(SIGQUIT, ctrl_backslash);
@@ -56,7 +56,7 @@ void	prompt(void)
 		cmd = readline(usr_name);
 		if (!cmd)
 			ctrl_d();
-		if((unsigned char)*cmd >= 32 && (unsigned char)*cmd < 255 && !cmd_space_ctrl(cmd))
+		if ((unsigned char)*cmd >= 32 && (unsigned char)*cmd < 255 && !cmd_space_ctrl(cmd))
 		{
 			add_history(cmd);
 			parse = ft_pipe_split(cmd, '|');
