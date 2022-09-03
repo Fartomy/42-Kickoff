@@ -6,46 +6,11 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 00:27:01 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/03 13:45:34 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/03 14:42:44 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-/*
-	int fd[2];
-	int *pids;
-	pipe(fd);
-	pids = mallo(100);
-
-		pids[i] = fork();
-		if (pids[i] == 0)
-		{
-			if (i == 0)
-			{
-				dup2(fd[1],1);
-				close(1);
-				close(fd[1]);
-			}
-			else if (i + 1 != 3)
-			{
-				dup2(fd[0], 0);
-				dup2(fd[1], 1);
-				close(fd[1]);
-				close(fd[0]);
-			}
-			else if (i + 1 == 3)
-			{
-				dup2(fd[0], 0);
-			}
-			run_func();
-			exit(0);
-		}
-		else
-			wait(NULL);
-		close(fd[1]);
-		close(fd[0]);
-*/
 
 static int pipe_cnt(char **s)
 {
@@ -119,9 +84,7 @@ void piped_command(char **parse)
 	}
 	p = -1;
 	while(++p < i)
-	{
 		wait(NULL);
-	}
 }
 
 void builtin_command(char **parse)
