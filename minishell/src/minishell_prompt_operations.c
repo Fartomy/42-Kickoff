@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 00:27:01 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/02 20:28:29 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/03 13:45:34 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,29 +95,32 @@ void piped_command(char **parse)
 			if (p == 0)
 			{
 				dup2(pfd[p + 1][1], 1);
-				simple_cmd(&parse[x]);
-				close(pfd[p + 1][1]);
+				close(pfd[p][1]);
+				close(pfd[p][0]);
 			}
 			else if (p + 1 != i)
 			{
 				dup2(pfd[p][0], 0);
-				dup2(pfd[p][1], 1);
-				simple_cmd(&parse[x]);
+				dup2(pfd[p + 1][1], 1);
 				close(pfd[p][1]);
 				close(pfd[p][0]);
 			}
 			else if (p + 1 == i)
 			{
 				dup2(pfd[p][0], 0);
-				simple_cmd(&parse[x]);
+				close(pfd[p][1]);
 				close(pfd[p][0]);
 			}
+			simple_cmd(&parse[x]);
 			exit(0);
 		}
-		else
-			wait(NULL);
 		close(pfd[p][1]);
 		close(pfd[p][0]);
+	}
+	p = -1;
+	while(++p < i)
+	{
+		wait(NULL);
 	}
 }
 
@@ -173,7 +176,7 @@ void simple_cmd(char **parse)
 	bool symbol_ctrl;
 	int i;
 	int x;
-
+	
 	i = 0;
 	symbol_ctrl = false;
 	parse = ft_symbol_split(parse[0]);

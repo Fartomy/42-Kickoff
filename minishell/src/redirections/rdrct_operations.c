@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 14:08:33 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/01 18:41:07 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/03 12:49:28 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void rdr_runner(char **parse, int x)
 			int fd2[2];
 			heredoc_oprt(parse[x], fd2);
 		}
-		builtin_or_smp_cmd_ctrl(parse);
+		builtin_or_smp_cmd_ctrl(&parse[0]);
 		exit(0);
 	}
 }
