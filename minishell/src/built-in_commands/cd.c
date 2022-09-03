@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 17:53:58 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/26 16:41:00 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/03 16:46:30 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,10 @@ void    ft_cd(char **parse)
 	{
 		update_old_pwd();
 		if(chdir(parse[1]) == -1)
+		{
+			data.status = 1;
 			printf("minishell: %s: %s: No such file or directory\n", parse[0], parse[1]);
+		}
 		else
 			update_pwd();
 	}

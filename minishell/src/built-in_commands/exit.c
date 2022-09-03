@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:39:25 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/23 23:08:50 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/03 16:48:31 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	ft_exit(char **parse)
 			{
 				if(ft_isalpha(parse[i][x]))
 				{
-					printf("minishell: exit: %s: numeric argument required\n", parse[i]); 
+					printf("minishell: exit: %s: numeric argument required\n", parse[i]);
+					data.status = 255;
 					exit(255);
 				}
 			}
@@ -48,10 +49,12 @@ void	ft_exit(char **parse)
 				if(ft_isalpha(parse[i][x]))
 				{
 					printf("minishell: exit: %s: numeric argument required\n", parse[i]); 
+					data.status = 255;
 					exit(255);
 				}
 			}
 			printf("minishell: exit: too many arguments\n");
+			data.status = 1;
 			exit(1);
 		}
 	}

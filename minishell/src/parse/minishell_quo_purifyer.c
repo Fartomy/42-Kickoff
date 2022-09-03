@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:13:41 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/24 14:59:55 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/03 18:14:03 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ static void quo_transformer(char **parse, char **prs, int *i, int *i2, int *x)
 	char *tmp;
 	char *env_var;
 	int b;
+	bool ctrl;
 
 	b = 0;
+	ctrl = false;
 	while (parse[*i][b] == 34)
 		b++;
 	tmp = ft_calloc(sizeof(char), ft_strlen(parse[*i]) - b);
@@ -27,9 +29,24 @@ static void quo_transformer(char **parse, char **prs, int *i, int *i2, int *x)
 	parse[*i][*i2] = '$';
 	env_var = ft_calloc(sizeof(char), ft_strlen(&(parse[*i][*i2])) - 1);
 	b = 0;
+	if(parse[*i][*i2 + 1] == '?')
+	{
+		char *str;
+		
+		ctrl = true;
+		str = ft_itoa(data.status);
+		while (str[b])
+		{
+			env_var[b] = str[b];
+			b++;
+		}
+		free(str);
+		*i2 += 2;
+	}
 	while (parse[*i][*i2] != 34 && parse[*i][*i2])
 		env_var[b++] = parse[*i][(*i2)++];
-	env_var = env_converter(env_var);
+	if(ctrl == false)
+		env_var = env_converter(env_var);
 	free(prs[*x]);
 	prs[*x] = ft_strjoin(tmp, env_var);
 	free(env_var);
@@ -42,15 +59,32 @@ static void transformer(char **parse, char **prs, int *i, int *i2, int *x)
 	char *tmp;
 	char *env_var;
 	int b;
+	bool ctrl;
 
 	b = 0;
+	ctrl = false;
 	tmp = ft_calloc(sizeof(char), ft_strlen(parse[*i]));
 	tmp = ft_strcpy(tmp, parse[*i]);
 	parse[*i][*i2] = '$';
 	env_var = ft_calloc(sizeof(char), ft_strlen(&(parse[*i][*i2])));
+	if(parse[*i][*i2 + 1] == '?')
+	{
+		char *str;
+		
+		ctrl = true;
+		str = ft_itoa(data.status);
+		while (str[b])
+		{
+			env_var[b] = str[b];
+			b++;
+		}
+		free(str);
+		*i2 += 2;
+	}
 	while (parse[*i][*i2])
 		env_var[b++] = parse[*i][(*i2)++];
-	env_var = env_converter(env_var);
+	if(ctrl == false)
+		env_var = env_converter(env_var);
 	free(prs[*x]);
 	prs[*x] = ft_strjoin(tmp, env_var);
 	free(env_var);

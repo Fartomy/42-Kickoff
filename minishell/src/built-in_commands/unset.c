@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:08:53 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/27 14:02:29 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/03 16:55:26 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,10 @@ void	ft_unset(char **parse)
 			}
 		}
 		else
+		{
+			data.status = 1;
 			printf("minishell: %s: `%s': not a valid identifier\n", parse[0], parse[i]);
+		}
 		i++;
 	}
 	

@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 14:08:33 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/03 12:49:28 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/03 17:01:14 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int rdr_actuator(char *prs, int ctrl)
 		if (data.fd == -1)
 		{
 			printf("minishell: %s: No such file or directory\n", prs);
+			data.status = 1;
 			return (0);
 		}
 	}
