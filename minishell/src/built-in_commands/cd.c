@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 17:53:58 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/03 16:46:30 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/03 19:03:07 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ void    ft_cd(char **parse)
 			}
 			i++;
 		}
+		data.status = 0;
 	}
 	else if(ft_strcmp(parse[1], "-") == 0)
 	{
@@ -119,6 +120,7 @@ void    ft_cd(char **parse)
 			}
 			i++;
 		}
+		data.status = 0;
 	}
 	else
 	{
@@ -130,5 +132,6 @@ void    ft_cd(char **parse)
 		}
 		else
 			update_pwd();
+		data.status = 0;
 	}
 }

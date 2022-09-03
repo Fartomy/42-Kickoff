@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 16:21:08 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/03 16:47:44 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/03 19:04:57 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void    ft_env(char **parse)
     {
         while (data.env[i])
             printf("%s\n", data.env[i++]);
+        data.status = 0;
     }
     else if(ft_strcmp(parse[i], "env") == 0 && parse[i + 1])
     {

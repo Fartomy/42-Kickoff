@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:08:31 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/22 19:27:59 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/03 19:04:22 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ void    ft_echo(char **parse)
 	
 	i = 1;
 	if(!parse[1])
+	{
 		printf("\n");
+		data.status = 0;
+	}
     else if ((ft_strcmp(parse[1], "-n")) == 0) // -n varsa
 	{
 		while (parse[++i])
@@ -27,6 +30,7 @@ void    ft_echo(char **parse)
 			if (parse[i] && parse[i + 1])
 				printf(" ");
 		}
+		data.status = 0;
 	}
 	else if (ft_strcmp(parse[1], "-n")) // -n yoksa
 	{	
@@ -38,5 +42,6 @@ void    ft_echo(char **parse)
 				printf(" ");
 		}
 		printf("\n");
+		data.status = 0;
 	}
 }
