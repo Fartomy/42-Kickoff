@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/02 15:26:00 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/03 14:54:45 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ char	**ft_symbol_split(char *s);
 char    **quotes_purifyer(char **parse);
 
 // pipes
-int pipe_err_ctrl(char **parse);
+void    piped_command(char **parse);
+int     pipe_err_ctrl(char **parse);
 
 // redirections
 void    ft_redirecton(char **parse);
