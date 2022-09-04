@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 14:52:06 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/03 16:19:15 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/04 17:16:44 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ void piped_command(char **parse)
 	if (ctrl == 0)
 		return;
 	i = pipe_cnt(parse) + 1;
-	pfd = malloc(sizeof(int *) * i);
+	pfd = ft_calloc(sizeof(int *), i);
 	x = -1;
 	while (++x < i)
-		pfd[x] = malloc(sizeof(int) * 2);
+		pfd[x] = ft_calloc(sizeof(int), 2);
 	x = -1;
 	while (++x < i)
 		pipe(pfd[x]);
@@ -85,4 +85,9 @@ void piped_command(char **parse)
 	p = -1;
 	while(++p < i)
 		wait(NULL);
+	int	a = -1;
+	while (i > ++a)
+		free(pfd[a]);
+	free(pfd);
+	free(pids);
 }
