@@ -6,29 +6,17 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:06:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/03 17:03:54 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/05 16:39:55 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static char *get_username(void)
+static void	get_usrnm_helper(char *prompt, char *usr_env, char *str)
 {
-	char *str;
-	char *usr_env;
-	char *prompt;
-	int i;
+	int	i;
 
 	i = 0;
-	prompt = ft_calloc(sizeof(char), 50);
-	str = "[minishell@] >_ ";
-	usr_env = getenv("USER");
-	if (!usr_env)
-	{
-		printf("USER not found! Please fix to export.\n");
-		free(prompt);
-		exit(1);
-	}
 	while (*str)
 	{
 		prompt[i++] = *str;
@@ -39,14 +27,32 @@ static char *get_username(void)
 		}
 		str++;
 	}
+}
+
+static char	*get_username(void)
+{
+	char	*str;
+	char	*usr_env;
+	char	*prompt;
+
+	prompt = ft_calloc(sizeof(char), 50);
+	str = "[minishell@] >_ ";
+	usr_env = getenv("USER");
+	if (!usr_env)
+	{
+		printf("USER not found! Please fix to export.\n");
+		free(prompt);
+		exit(1);
+	}
+	get_usrnm_helper(prompt, usr_env, str);
 	return (prompt);
 }
 
-void prompt(void)
+void	prompt(void)
 {
-	char **parse;
-	char *cmd;
-	char *usr_name;
+	char	**parse;
+	char	*cmd;
+	char	*usr_name;
 
 	while (1)
 	{
@@ -56,7 +62,8 @@ void prompt(void)
 		cmd = readline(usr_name);
 		if (!cmd)
 			ctrl_d();
-		if ((unsigned char)*cmd >= 32 && (unsigned char)*cmd < 255 && !cmd_space_ctrl(cmd))
+		if ((unsigned char)*cmd >= 32 && (unsigned char)*cmd < 255 \
+			&& !cmd_space_ctrl(cmd))
 		{
 			add_history(cmd);
 			parse = ft_pipe_split(cmd, '|');

@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:17:52 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/04 16:06:14 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/04 19:32:00 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ int	cmd_space_ctrl(char *cmd)
 {
 	while (*cmd)
 	{
-		if(*cmd != ' ')
+		if (*cmd != ' ')
 			return (0);
 		cmd++;
 	}
-	return(1);
+	return (1);
 }
 
 void    ft_free(char **str)

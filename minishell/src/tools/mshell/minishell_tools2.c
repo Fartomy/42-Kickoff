@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 11:04:24 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/24 17:59:23 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/04 19:24:05 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	**storage_and_copy(char **env)
 {
-	int i;
-	int x;
-	char **str;
+	int		i;
+	int		x;
+	char	**str;
 
 	str = ft_calloc(sizeof(char *), ft_arglen(env) + 1);
 	i = -1;
