@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 17:14:32 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/05 18:46:08 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/05 20:31:16 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int	word_count(char *s, char c)
 	return (cnt);
 }
 
-static int len_word(char *s)
+static int	len_word(char *s)
 {
 	size_t len;
 
@@ -81,7 +81,7 @@ static int len_word(char *s)
 	return (len);
 }
 
-char **ft_pipe_split(char *s, char c)
+char	**ft_pipe_split(char *s, char c)
 {
 	t_pipe_split_vars	psp;
 

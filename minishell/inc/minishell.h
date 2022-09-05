@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/05 18:47:44 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/05 23:05:25 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,17 @@ typedef struct s_pipe_split_vars
 	int		i;
 }	t_pipe_split_vars;
 
+typedef struct	s_pipe_command_vars
+{
+	int	ctrl;
+	int	i;
+	int	p;
+	int	x;
+	int	**pfd;
+	int	*pids;
+	int	a;
+}	t_pipe_command_vars;
+
 // tokens and tools
 char	**storage_and_copy(char **env);
 char	**ft_rrealloc(char **ptr, size_t size);
@@ -77,10 +88,15 @@ char	**ft_implt_split(char const *s, char c);
 char	**ft_symbol_split(char *s);
 char	**quotes_purifyer(char **parse);
 
-// parse help funcs
+// helped funcs
+	// ft_pipe_split_help_funcs
 void	ft_pipe_sp_helper(t_pipe_split_vars *ps, char *s);
 void	ft_pipe_sp_helper2(t_pipe_split_vars *ps, char *s);
 void	ft_pipe_sp_helper3(t_pipe_split_vars *ps, char *s, char c);
+	//pipe_command_help_funcs
+void	pipe_cmd_first_command(t_pipe_command_vars *pcm);
+void	pipe_cmd_betw_command(t_pipe_command_vars *pcm);
+void	pipe_cmd_last_command(t_pipe_command_vars *pcm);
 
 // pipes
 void	piped_command(char **parse);
