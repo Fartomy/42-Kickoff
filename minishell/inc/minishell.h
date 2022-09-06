@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/06 15:03:14 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/06 17:20:11 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,15 @@ char	**quotes_purifyer(char **parse);
 void	pipe_spl_helper(char **s, char *res, int *two_index, char c);
 void	pipe_spl_helper2(char **s, char *res, int *two_index, char c);
 void	pipe_spl_helper3(char ***s, char *res, int **two_index);
+	// pipe_command_help_funcs
+void	pipe_cmd_body(int **pfd, char **parse, int *p, int i);
+void	pipe_cmd_first_arg(int **pfd, int *p);
+void	pipe_cmd_betw_arg(int **pfd, int *p);
+void	pipe_cmd_last_arg(int **pfd, int *p);
+void	pipe_cmd_close(int **pfd, int p);
+void	pipe_cmd_wait(int i);
+void	pipe_cmd_free(int i, int *pids, int **pfd);
+void	pipe_cmd_storage(int ***pfd, int **pids, int i, int *p);
 
 // pipes
 void	piped_command(char **parse);
