@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 16:57:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/06 12:43:26 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/06 12:53:51 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,19 @@ static int word_count(char *s)
 	return (cnt);
 }
 
+static void	len_world_helper(char **s, size_t *len)
+{
+	(*len)++;
+	(*s)++;
+	while (**s != 34 && **s != 0)
+	{
+		len++;
+		(*s)++;
+	}
+	if (**s != 0)
+		(*len)++;
+}
+
 static int len_word(char *s)
 {
 	size_t len;
@@ -61,17 +74,7 @@ static int len_word(char *s)
 	while (*s != '\0')
 	{
 		if (*s == 34 && *s != 0)
-		{
-			len++;
-			s++;
-			while (*s != 34 && *s != 0)
-			{
-				len++;
-				s++;
-			}
-			if (*s != 0)
-				len++;
-		}
+			len_world_helper(&s, &len);
 		else if (*s == 39 && *s != 0)
 		{
 			len++;
@@ -113,7 +116,7 @@ static void symbol_spl_helper2(t_symbol_spl_vars *sp, char *s)
 		sp->res[sp->index][sp->two_index++] = s[sp->i++];
 }
 
-static void	symbol_spl_helper3(t_symbol_spl_vars *sp, char *s)
+static void symbol_spl_helper3(t_symbol_spl_vars *sp, char *s)
 {
 	if (s[sp->i] == '>' && s[sp->i + 1] == '>')
 	{
@@ -129,7 +132,7 @@ static void	symbol_spl_helper3(t_symbol_spl_vars *sp, char *s)
 		sp->res[sp->index][sp->two_index++] = s[sp->i++];
 }
 
-static void	symbol_spl_helper4(t_symbol_spl_vars *sp, char *s)
+static void symbol_spl_helper4(t_symbol_spl_vars *sp, char *s)
 {
 	while (s[sp->i] && s[sp->i] != '>' && s[sp->i] != '<')
 	{
