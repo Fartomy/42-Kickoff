@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:37:36 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/06 19:24:24 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/06 20:45:29 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 t_minidata data;
 
-//EXIT STATUS'LERİ UNUTMA!!!!!!!!!!!!!!!
 int	main(int argc, char **argv, char **envp)
 {
 	(void)argc;
