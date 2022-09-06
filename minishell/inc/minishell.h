@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/05 23:05:25 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/06 12:22:49 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,15 @@ typedef struct	s_pipe_command_vars
 	int	*pids;
 	int	a;
 }	t_pipe_command_vars;
+
+typedef	struct s_symbol_spl_vars
+{
+	int two_index;
+	char **res;
+	int index;
+	int word_len;
+	int	i;
+}	t_symbol_spl_vars;
 
 // tokens and tools
 char	**storage_and_copy(char **env);
