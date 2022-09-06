@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 23:53:02 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/06 13:50:05 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/06 20:32:02 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ctrl_c(int sig)
 {
 	if (sig == SIGINT)
 	{
+		data.status = 1;
 		printf("\n");
 		rl_on_new_line();
 		rl_replace_line("", 0);

@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:01:49 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/03 16:44:11 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/06 20:40:25 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,16 @@ static char **path_sptr(void)
 	return (paths);
 }
 
-static void cmd_runner(char *path, char **opt)
+static void	cmd_runner(char *path, char **opt)
 {
-	pid_t pid;
+	pid_t	pid;
 
 	pid = fork();
 	if (pid > 0)
+	{
 		waitpid(pid, &data.status, 0);
+		data.status %= 255;
+	}
 	if (pid == 0)
 	{
 		if (execve(path, opt, data.env) == -1)
@@ -111,7 +114,7 @@ void	cmd_finder(char **parse)
 	{
 		while (paths[++i])
 		{
-			join = ft_strjoin(paths[i], parse[0]); // freeeeeee
+			join = ft_strjoin(paths[i], parse[0]);
 			if (access(join, F_OK) == 0)
 			{
 				ctrl = true;
