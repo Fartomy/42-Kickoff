@@ -6,11 +6,27 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 16:57:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/06 12:53:51 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/06 12:59:09 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static	void	word_count_helper(char *s, size_t *cnt)
+{
+	if (s[*cnt] == '>' && s[*cnt + 1] == '>')
+	{
+		while (s[*cnt] == '>')
+			(*cnt)++;
+	}
+	else if (s[*cnt] == '<' && s[*cnt + 1] == '<')
+	{
+		while (s[*cnt] == '<')
+			(*cnt)++;
+	}
+	else
+		(*cnt)++;
+}
 
 static int word_count(char *s)
 {
@@ -34,20 +50,7 @@ static int word_count(char *s)
 			cnt++;
 	}
 	else if ((s[cnt] == '>' || s[cnt] == '<') && s[cnt] != 0)
-	{
-		if (s[cnt] == '>' && s[cnt + 1] == '>')
-		{
-			while (s[cnt] == '>')
-				cnt++;
-		}
-		else if (s[cnt] == '<' && s[cnt + 1] == '<')
-		{
-			while (s[cnt] == '<')
-				cnt++;
-		}
-		else
-			cnt++;
-	}
+		word_count_helper(s, &cnt);
 	while (s[cnt] != '\0')
 		cnt++;
 	return (cnt);
