@@ -6,13 +6,13 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 00:27:01 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/03 14:52:22 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/06 15:20:42 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void builtin_command(char **parse)
+void	builtin_command(char **parse)
 {
 	if (ft_strcmp(parse[0], data.built_in_tkn[0]) == 0)
 		ft_echo(parse);
@@ -31,11 +31,11 @@ void builtin_command(char **parse)
 	ft_free(parse);
 }
 
-void builtin_or_smp_cmd_ctrl(char **parse)
+void	builtin_or_smp_cmd_ctrl(char **parse)
 {
-	int i;
-	int x;
-	bool builtin_ctrl;
+	int		i;
+	int		x;
+	bool	builtin_ctrl;
 
 	i = -1;
 	builtin_ctrl = false;
@@ -45,13 +45,14 @@ void builtin_or_smp_cmd_ctrl(char **parse)
 	while (parse[i])
 	{
 		x = 0;
-		while (ft_strcmp(parse[i], data.built_in_tkn[x]) != 0 && data.built_in_tkn[x])
+		while (ft_strcmp(parse[i], data.built_in_tkn[x]) != 0 \
+				&& data.built_in_tkn[x])
 			x++;
 		if (ft_strcmp(parse[i], data.built_in_tkn[x]) == 0)
 		{
 			builtin_ctrl = true;
 			builtin_command(parse);
-			break;
+			break ;
 		}
 		i++;
 	}
@@ -59,25 +60,26 @@ void builtin_or_smp_cmd_ctrl(char **parse)
 		cmd_finder(parse);
 }
 
-void simple_cmd(char **parse)
+void	simple_cmd(char **parse)
 {
-	bool symbol_ctrl;
-	int i;
-	int x;
-	
+	bool	symbol_ctrl;
+	int		i;
+	int		x;
+
 	i = 0;
 	symbol_ctrl = false;
 	parse = ft_symbol_split(parse[0]);
 	while (parse[i])
 	{
 		x = 0;
-		while (ft_strcmp(parse[i], data.symbol_tkn[x]) != 0 && data.symbol_tkn[x])
+		while (ft_strcmp(parse[i], data.symbol_tkn[x]) != 0 \
+				&& data.symbol_tkn[x])
 			x++;
 		if (ft_strcmp(parse[i], data.symbol_tkn[x]) == 0)
 		{
 			symbol_ctrl = true;
 			ft_redirecton(parse);
-			break;
+			break ;
 		}
 		i++;
 	}
@@ -86,10 +88,10 @@ void simple_cmd(char **parse)
 	ft_free(parse);
 }
 
-void cmd_router(char **parse)
+void	cmd_router(char **parse)
 {
-	int i;
-	bool simple_cmd_ctrl;
+	int		i;
+	bool	simple_cmd_ctrl;
 
 	i = 0;
 	simple_cmd_ctrl = false;
@@ -99,7 +101,7 @@ void cmd_router(char **parse)
 		{
 			simple_cmd_ctrl = true;
 			piped_command(parse);
-			break;
+			break ;
 		}
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 14:52:06 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/06 13:41:45 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/06 15:22:57 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int pipe_cnt(char **s)
 	return (cnt);
 }
 
-void piped_command(char **parse)
+void	piped_command(char **parse)
 {
 	int ctrl;
 	int i;
