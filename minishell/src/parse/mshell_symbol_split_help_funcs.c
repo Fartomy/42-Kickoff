@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 18:50:13 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/06 18:51:01 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/06 20:11:08 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	symbol_spl_helper(char **s, char *res, int *two_index, int c)
 
 void	symbol_spl_helper2(char **s, char *res, int *two_index)
 {
-	if (**s == '>' && **(s + 1) == '>')
+	if (**s == '>' && *(*s + 1) == '>')
 	{
 		while (**s == '>')
 		{
@@ -43,7 +43,7 @@ void	symbol_spl_helper2(char **s, char *res, int *two_index)
 			(*s)++;
 		}
 	}
-	else if (**s == '<' && **(s + 1) == '<')
+	else if (**s == '<' && *(*s + 1) == '<')
 	{
 		while (**s == '<')
 		{
