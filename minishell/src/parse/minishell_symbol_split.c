@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 16:57:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/06 12:29:29 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/06 12:43:26 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,72 @@ static int len_word(char *s)
 	return (len);
 }
 
+static void symbol_spl_helper(t_symbol_spl_vars *sp, char *s)
+{
+	sp->res[sp->index][sp->two_index++] = s[sp->i++];
+	while (s[sp->i] != 34 && s[sp->i])
+		sp->res[sp->index][sp->two_index++] = s[sp->i++];
+	if (s[sp->i] == 34 && s[sp->i])
+		sp->res[sp->index][sp->two_index++] = s[sp->i++];
+	while (s[sp->i] != '\0')
+		sp->res[sp->index][sp->two_index++] = s[sp->i++];
+}
+
+static void symbol_spl_helper2(t_symbol_spl_vars *sp, char *s)
+{
+	sp->res[sp->index][sp->two_index++] = s[sp->i++];
+	while (s[sp->i] != 39 && s[sp->i])
+		sp->res[sp->index][sp->two_index++] = s[sp->i++];
+	if (s[sp->i] == 39 && s[sp->i])
+		sp->res[sp->index][sp->two_index++] = s[sp->i++];
+	while (s[sp->i])
+		sp->res[sp->index][sp->two_index++] = s[sp->i++];
+}
+
+static void	symbol_spl_helper3(t_symbol_spl_vars *sp, char *s)
+{
+	if (s[sp->i] == '>' && s[sp->i + 1] == '>')
+	{
+		while (s[sp->i] == '>')
+			sp->res[sp->index][sp->two_index++] = s[sp->i++];
+	}
+	else if (s[sp->i] == '<' && s[sp->i + 1] == '<')
+	{
+		while (s[sp->i] == '<')
+			sp->res[sp->index][sp->two_index++] = s[sp->i++];
+	}
+	else
+		sp->res[sp->index][sp->two_index++] = s[sp->i++];
+}
+
+static void	symbol_spl_helper4(t_symbol_spl_vars *sp, char *s)
+{
+	while (s[sp->i] && s[sp->i] != '>' && s[sp->i] != '<')
+	{
+		if (s[sp->i] == 34)
+		{
+			sp->res[sp->index][sp->two_index++] = s[sp->i++];
+			while (s[sp->i] != 34 && s[sp->i])
+				sp->res[sp->index][sp->two_index++] = s[sp->i++];
+			if (s[sp->i] == 34)
+				sp->res[sp->index][sp->two_index++] = s[sp->i++];
+		}
+		else if (s[sp->i] == 39)
+		{
+			sp->res[sp->index][sp->two_index++] = s[sp->i++];
+			while (s[sp->i] != 39 && s[sp->i])
+				sp->res[sp->index][sp->two_index++] = s[sp->i++];
+			if (s[sp->i] == 39)
+				sp->res[sp->index][sp->two_index++] = s[sp->i++];
+		}
+		else
+			sp->res[sp->index][sp->two_index++] = s[sp->i++];
+	}
+}
+
 char **ft_symbol_split(char *s)
 {
-	t_symbol_spl_vars	spv;
+	t_symbol_spl_vars spv;
 
 	spv.i = 0;
 	spv.word_len = len_word(s);
@@ -104,64 +167,13 @@ char **ft_symbol_split(char *s)
 		spv.res[spv.index] = (char *)ft_calloc(sizeof(char), word_count(s) + 1);
 		spv.two_index = 0;
 		if (s[spv.i] == 34 && s[spv.i] != 0)
-		{
-			spv.res[spv.index][spv.two_index++] = s[spv.i++];
-			while (s[spv.i] != 34 && s[spv.i])
-				spv.res[spv.index][spv.two_index++] = s[spv.i++];
-			if (s[spv.i] == 34 && s[spv.i])
-				spv.res[spv.index][spv.two_index++] = s[spv.i++];
-			while (s[spv.i] != '\0')
-				spv.res[spv.index][spv.two_index++] = s[spv.i++];
-		}
+			symbol_spl_helper(&spv, s);
 		else if (s[spv.i] == 39 && s[spv.i])
-		{
-			spv.res[spv.index][spv.two_index++] = s[spv.i++];
-			while (s[spv.i] != 39 && s[spv.i])
-				spv.res[spv.index][spv.two_index++] = s[spv.i++];
-			if (s[spv.i] == 39 && s[spv.i])
-				spv.res[spv.index][spv.two_index++] = s[spv.i++];
-			while (s[spv.i])
-				spv.res[spv.index][spv.two_index++] = s[spv.i++];
-		}
+			symbol_spl_helper2(&spv, s);
 		else if ((s[spv.i] == '>' || s[spv.i] == '<'))
-		{
-			if (s[spv.i] == '>' && s[spv.i + 1] == '>')
-			{
-				while (s[spv.i] == '>')
-					spv.res[spv.index][spv.two_index++] = s[spv.i++];
-			}
-			else if (s[spv.i] == '<' && s[spv.i + 1] == '<')
-			{
-				while (s[spv.i] == '<')
-					spv.res[spv.index][spv.two_index++] = s[spv.i++];
-			}
-			else
-				spv.res[spv.index][spv.two_index++] = s[spv.i++];
-		}
+			symbol_spl_helper3(&spv, s);
 		else
-		{
-			while (s[spv.i] && s[spv.i] != '>' && s[spv.i] != '<')
-			{
-				if (s[spv.i] == 34)
-				{
-					spv.res[spv.index][spv.two_index++] = s[spv.i++];
-					while (s[spv.i] != 34 && s[spv.i])
-						spv.res[spv.index][spv.two_index++] = s[spv.i++];
-					if (s[spv.i] == 34)
-						spv.res[spv.index][spv.two_index++] = s[spv.i++];
-				}
-				else if (s[spv.i] == 39)
-				{
-					spv.res[spv.index][spv.two_index++] = s[spv.i++];
-					while (s[spv.i] != 39 && s[spv.i])
-						spv.res[spv.index][spv.two_index++] = s[spv.i++];
-					if (s[spv.i] == 39)
-						spv.res[spv.index][spv.two_index++] = s[spv.i++];
-				}
-				else
-					spv.res[spv.index][spv.two_index++] = s[spv.i++];
-			}
-		}
+			symbol_spl_helper4(&spv, s);
 	}
 	return (spv.res);
 }
