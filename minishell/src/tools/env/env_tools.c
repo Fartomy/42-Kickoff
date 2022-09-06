@@ -6,26 +6,26 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 17:05:51 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/08/27 00:13:46 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/06 13:49:12 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char**	export_sorter(char **envp)
+char	**export_sorter(char **envp)
 {
-	int i;
-	char *tmp;
-	
+	int		i;
+	char	*tmp;
+
 	i = 0;
 	while (envp[i])
 	{
-		if(envp[i + 1] && (envp[i][0] > envp[i + 1][0]))
+		if (envp[i + 1] && (envp[i][0] > envp[i + 1][0]))
 		{
 			tmp = envp[i];
 			envp[i] = envp[i + 1];
 			envp[i + 1] = tmp;
-			i = -1;	
+			i = -1;
 		}
 		i++;
 	}
