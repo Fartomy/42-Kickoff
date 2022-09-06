@@ -6,78 +6,63 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:13:41 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/06 23:46:01 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/07 01:49:50 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static void	status_oprt(char **env_var, int *b, int *i2, int *ctrl)
-{
-	char	*str;
-
-	*ctrl = 1;
-	str = ft_itoa(data.status);
-	while (str[*b])
-	{
-		(*env_var)[*b] = str[*b];
-		(*b)++;
-	}
-	free(str);
-	*i2 += 2;
-}
-
-static void	quo_transformer(char **parse, char *prs, int *i, int *i2)
+void	quo_transformer(char **parse, t_quo_prfy_vars *pf)
 {
 	char	*tmp;
 	char	*env_var;
 	int		b;
 	int		ctrl;
 
-	parse[*i][*i2] = 0;
 	b = 0;
+	parse[pf->i][pf->i2] = 0;
 	ctrl = false;
-	while (parse[*i][b] == 34)
+	while (parse[pf->i][b] == 34)
 		b++;
-	tmp = ft_calloc(sizeof(char), ft_strlen(parse[*i]) - b);
-	tmp = ft_strcpy(tmp, &(parse[*i][b]));
-	parse[*i][*i2] = '$';
-	env_var = ft_calloc(sizeof(char), ft_strlen(&(parse[*i][*i2])) - 1);
+	tmp = ft_calloc(sizeof(char), ft_strlen(parse[pf->i]) - b);
+	tmp = ft_strcpy(tmp, &(parse[pf->i][b]));
+	parse[pf->i][pf->i2] = '$';
+	env_var = ft_calloc(sizeof(char), ft_strlen(&(parse[pf->i][pf->i2])) - 1);
 	b = 0;
-	if (parse[*i][*i2 + 1] == '?')
-		status_oprt(&env_var, &b, i2, &ctrl);
-	while (parse[*i][*i2] != 34 && parse[*i][*i2])
-		env_var[b++] = parse[*i][(*i2)++];
+	if (parse[pf->i][pf->i2 + 1] == '?')
+		status_oprt(&env_var, &b, &ctrl, pf);
+	while (parse[pf->i][pf->i2] != 34 && parse[pf->i][pf->i2])
+		env_var[b++] = parse[pf->i][pf->i2++];
 	if (ctrl == 0)
 		env_var = env_converter(env_var);
-	free(prs);
-	prs = ft_strjoin(tmp, env_var);
+	free(pf->prs[pf->x]);
+	pf->prs[pf->x] = ft_strjoin(tmp, env_var);
 	free(env_var);
 	free(tmp);
 }
 
-static void	transformer(char **parse, char *prs, int *i, int *i2)
+void	transformer(char **parse, t_quo_prfy_vars *pf)
 {
 	char	*tmp;
 	char	*env_var;
 	int		b;
 	int		ctrl;
 
-	parse[*i][*i2] = 0;
+	parse[pf->i][pf->i2] = 0;
 	b = 0;
 	ctrl = false;
-	tmp = ft_calloc(sizeof(char), ft_strlen(parse[*i]));
-	tmp = ft_strcpy(tmp, parse[*i]);
-	parse[*i][*i2] = '$';
-	env_var = ft_calloc(sizeof(char), ft_strlen(&(parse[*i][*i2])));
-	if (parse[*i][*i2 + 1] == '?')
-		status_oprt(&env_var, &b, i2, &ctrl);
-	while (parse[*i][*i2])
-		env_var[b++] = parse[*i][(*i2)++];
-	if (ctrl == 0)
+	tmp = ft_calloc(sizeof(char), ft_strlen(parse[pf->i]));
+	tmp = ft_strcpy(tmp, parse[pf->i]);
+	parse[pf->i][pf->i2] = '$';
+	env_var = ft_calloc(sizeof(char), ft_strlen(&(parse[pf->i][pf->i2])));
+	if (parse[pf->i][pf->i2 + 1] == '?')
+		status_oprt(&env_var, &b, &ctrl, pf);
+	while (parse[pf->i][pf->i2])
+		env_var[b++] = parse[pf->i][pf->i2++];
+	if (ctrl == false)
 		env_var = env_converter(env_var);
-	free(prs);
-	prs = ft_strjoin(tmp, env_var);
+	free(pf->prs[pf->x]);
+	pf->prs[pf->x] = ft_strjoin(tmp, env_var);
 	free(env_var);
 	free(tmp);
 }
@@ -112,60 +97,28 @@ static int	dbl_quo_cnt(char *s)
 	return (cnt);
 }
 
-char **quotes_purifyer(char **parse)
+char	**quotes_purifyer(char **parse)
 {
-	int		i;
-	int		i2;
-	int		x;
-	int		x2;
-	char	**prs;
+	t_quo_prfy_vars	pf;
 
-	i = 0;
-	x = 0;
-	prs = ft_calloc(sizeof(char *), ft_arglen(parse) + 1);
-	while (parse[i])
+	pf.i = 0;
+	pf.x = 0;
+	pf.prs = ft_calloc(sizeof(char *), ft_arglen(parse) + 1);
+	while (parse[pf.i])
 	{
-		i2 = 0;
-		x2 = 0;
-		prs[x] = ft_calloc(sizeof(char), \
-				(ft_strlen(parse[i]) - dbl_quo_cnt(parse[i]) + 1));
-		if (quo_finder(parse[i]) == 2)
-		{
-			while (parse[i][i2])
-			{
-				if (parse[i][i2] != 34 && parse[i][i2] != '$')
-					prs[x][x2++] = parse[i][i2++];
-				else if (parse[i][i2] != 34 && parse[i][i2] == '$')
-					quo_transformer(parse, prs[x], &i, &i2);
-				else
-					i2++;
-			}
-		}
-		else if (quo_finder(parse[i]) == 1)
-		{
-			while (parse[i][i2])
-			{
-				if (parse[i][i2] != 39)
-					prs[x][x2++] = parse[i][i2++];
-				else
-					i2++;
-			}
-		}
+		pf.i2 = 0;
+		pf.x2 = 0;
+		pf.prs[pf.x] = ft_calloc(sizeof(char), \
+				(ft_strlen(parse[pf.i]) - dbl_quo_cnt(parse[pf.i]) + 1));
+		if (quo_finder(parse[pf.i]) == 2)
+			quo_prf_helper(parse, &pf);
+		else if (quo_finder(parse[pf.i]) == 1)
+			quo_prf_helper3(parse, &pf);
 		else
-		{
-			while (parse[i][i2])
-			{
-				if (parse[i][i2] != '$')
-					prs[x][x2++] = parse[i][i2++];
-				else if (parse[i][i2] == '$')
-					transformer(parse, prs[x], &i, &i2);
-				else
-					i2++;
-			}
-		}
-		x++;
-		i++;
+			quo_prf_helper2(parse, &pf);
+		pf.x++;
+		pf.i++;
 	}
 	ft_free(parse);
-	return (prs);
+	return (pf.prs);
 }

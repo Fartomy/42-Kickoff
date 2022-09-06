@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/06 22:09:44 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/07 01:50:01 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,15 @@ typedef struct s_minishell
 	int		fd2;
 	int		status;
 }	t_minidata;
+
+typedef struct s_quo_prfy_vars
+{
+	int		i;
+	int		i2;
+	int		x;
+	int		x2;
+	char	**prs;
+}	t_quo_prfy_vars;
 
 extern t_minidata data;
 
@@ -87,11 +96,18 @@ void	symbol_spl_helper(char **s, char *res, int *two_index, int c);
 void	symbol_spl_helper2(char **s, char *res, int *two_index);
 void	symbol_spl_helper4(char ***s, char *res, int **two_index);
 void	symbol_spl_helper3(char **s, char *res, int *two_index);
-	//redirect_operations_help_funcs
+	//	redirect_operations_help_funcs
 void	rdr_runner_helper(char **parse, int *fd2);
 char	*rdr_stream_mini_helper(char **parse, int x);
 int		rdr_stream_helper(char **parse, int *ctrl, int x);
-	//
+	//	quotes_purifyer_help_funcs
+void	status_oprt(char **env_var, int *b, int *ctrl, t_quo_prfy_vars *pf);
+void	quo_prf_helper(char **parse, t_quo_prfy_vars *pf);
+void	quo_prf_helper2(char **parse, t_quo_prfy_vars *pf);
+void	quo_prf_helper3(char **parse, t_quo_prfy_vars *pf);
+void	quo_transformer(char **parse, t_quo_prfy_vars *pf);
+void	transformer(char **parse, t_quo_prfy_vars *pf);
+	//	
 
 // pipes
 void	piped_command(char **parse);
