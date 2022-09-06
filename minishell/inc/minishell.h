@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/06 12:22:49 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/03 14:54:45 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,103 +31,65 @@
 
 typedef struct s_minishell
 {
-	char	**env;
-	char	**export;
-	char	**parse;
-	char	*symbol_tkn[6];
-	char	*built_in_tkn[8];
-	int		fd;
-	int		fd2;
-	int		status;
-}	t_minidata;
+    char **env;
+    char **export;
+    char **parse;
+    char *symbol_tkn[6];
+    char *built_in_tkn[8];
+    int  fd;
+    int  fd2;
+    int  status;
+}              t_minidata;
 
-extern t_minidata	data;
-
-typedef struct s_pipe_split_vars
-{
-	int		two_index;
-	char	**res;
-	int		index;
-	int		word_len;
-	int		i;
-}	t_pipe_split_vars;
-
-typedef struct	s_pipe_command_vars
-{
-	int	ctrl;
-	int	i;
-	int	p;
-	int	x;
-	int	**pfd;
-	int	*pids;
-	int	a;
-}	t_pipe_command_vars;
-
-typedef	struct s_symbol_spl_vars
-{
-	int two_index;
-	char **res;
-	int index;
-	int word_len;
-	int	i;
-}	t_symbol_spl_vars;
+extern t_minidata data;
 
 // tokens and tools
 char	**storage_and_copy(char **env);
-char	**ft_rrealloc(char **ptr, size_t size);
+char 	**ft_rrealloc(char **ptr, size_t size);
 char	*ft_strcpy(char *dst, const char *src);
 void	*ft_realloc(void *ptr, size_t size);
 void	set_builtin_token(char **bl_token);
 void	set_symbol_token(char **sy_token);
-void	ft_free(char **str);
-int		ft_strcmp(const char *s1, const char *s2);
-int		ft_arglen(char **arg);
-int		cmd_space_ctrl(char *cmd);
+void    ft_free(char **str);
+int	    ft_strcmp(const char *s1, const char *s2);
+int     ft_arglen(char **arg);
+int	    cmd_space_ctrl(char *cmd);
 
 // env tools
-char	*env_converter(char *str);
-char	*env_getter(char *str);
-char	*env_name_getter(char *var);
-char	**export_sorter(char **envp);
-int		equal_finder(char *var);
+char    *env_converter(char *str);
+char    *env_getter(char *str);
+char    *env_name_getter(char *var);
+char    **export_sorter(char **envp);
+int     equal_finder(char *var);
 
-// parse funcs
-char	**ft_pipe_split(char *s, char c);
+// implemented funcs
+char	**ft_big_implt_split(char const *s, char c);
 char	**ft_implt_split(char const *s, char c);
+char    **ft_pipe_split(char *s, char c);
 char	**ft_symbol_split(char *s);
-char	**quotes_purifyer(char **parse);
-
-// helped funcs
-	// ft_pipe_split_help_funcs
-void	ft_pipe_sp_helper(t_pipe_split_vars *ps, char *s);
-void	ft_pipe_sp_helper2(t_pipe_split_vars *ps, char *s);
-void	ft_pipe_sp_helper3(t_pipe_split_vars *ps, char *s, char c);
-	//pipe_command_help_funcs
-void	pipe_cmd_first_command(t_pipe_command_vars *pcm);
-void	pipe_cmd_betw_command(t_pipe_command_vars *pcm);
-void	pipe_cmd_last_command(t_pipe_command_vars *pcm);
+char    **quotes_purifyer(char **parse);
 
 // pipes
-void	piped_command(char **parse);
-int		pipe_err_ctrl(char **parse);
+void    piped_command(char **parse);
+int     pipe_err_ctrl(char **parse);
 
 // redirections
-void	ft_redirecton(char **parse);
-void	rdr_stream(char **parse);
-void	first_argis_symbol(char **parse);
-void	rdr_runner(char **parse, int x);
-void	heredoc_oprt(char *prs, int *fd2);
-int		redirct_err_ctrl_for_output(char **parse);
-int		redirct_err_ctrl_for_input(char **parse);
-int		redirct_err_ctrl_for_append(char **parse);
-int		redirct_err_ctrl_for_heredoc(char **parse);
-int		redirct_err_ctrl(char **parse);
-int		rdr_actuator(char *prs, int ctrl);
+void    ft_redirecton(char **parse);
+void    rdr_stream(char **parse);
+void    first_argis_symbol(char **parse);
+void    rdr_runner(char **parse, int x);
+void    heredoc_oprt(char *prs, int *fd2);
+int     redirct_err_ctrl_for_output(char **parse);
+int     redirct_err_ctrl_for_input(char **parse);
+int     redirct_err_ctrl_for_append(char **parse);
+int     redirct_err_ctrl_for_heredoc(char **parse);
+int     redirct_err_ctrl(char **parse);
+int     rdr_actuator(char *prs, int ctrl);
 void	rdr_input(int ctrl);
 
 // signals
 void	ctrl_backslash(int sig);
-void	heredc_ctrl_c(int sig);
+void    heredc_ctrl_c(int sig);
 void	ctrl_c(int sig);
 void	ctrl_d(void);
 
@@ -135,18 +97,18 @@ void	ctrl_d(void);
 void	cmd_finder(char **parse);
 
 // prompts operations funcs
-void	prompt(void);
+void    prompt(void);
 void	builtin_command(char **parse);
 void	builtin_or_smp_cmd_ctrl(char **parse);
 void	simple_cmd(char **parse);
 void	cmd_router(char **parse);
 
 // builtin commands
-void	ft_echo(char **parse);
-void	ft_pwd(char **parse);
-void	ft_cd(char **parse);
-void	ft_export(char **parse);
-void	ft_env(char **parse);
+void    ft_echo(char **parse);
+void    ft_pwd(char **parse);
+void    ft_cd(char **parse);
+void    ft_export(char **parse);
+void    ft_env(char **parse);
 void	ft_unset(char **parse);
 void	ft_exit(char **parse);
 

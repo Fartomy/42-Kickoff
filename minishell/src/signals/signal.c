@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 23:53:02 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/05 19:09:27 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/31 16:07:11 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,14 @@ void	ctrl_d(void)
 
 void	ctrl_backslash(int sig)
 {
-	if (sig == SIGQUIT)
+	if(sig == SIGQUIT)
 		prompt();
 }
 
 void	ctrl_c(int sig)
 {
-	if (sig == SIGINT)
+	if(sig == SIGINT)
 	{
-		data.status = 1;
 		printf("\n");
 		rl_on_new_line();
 		rl_replace_line("", 0);
@@ -36,7 +35,7 @@ void	ctrl_c(int sig)
 	}	
 }
 
-void	heredc_ctrl_c(int sig)
+void heredc_ctrl_c(int sig)
 {
 	if (sig == SIGINT)
 		exit(0);

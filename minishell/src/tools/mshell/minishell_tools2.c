@@ -6,13 +6,13 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 11:04:24 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/05 20:34:01 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/08/24 17:59:23 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char **storage_and_copy(char **env)
+char	**storage_and_copy(char **env)
 {
 	int i;
 	int x;
@@ -40,17 +40,17 @@ int	ft_strcmp(const char *s1, const char *s2)
 
 	str1 = (unsigned char *)s1;
 	str2 = (unsigned char *)s2;
-	if (str2)
-	{
-		t = 0;
-		while (str1[t] != '\0' && str2[t] != '\0' && str1[t] == str2[t])
-			t++;
-		return (str1[t] - str2[t]);
-	}
-	return (1);
+    if (str2)
+    {
+        t = 0;
+        while (str1[t] != '\0' && str2[t] != '\0' && str1[t] == str2[t])
+            t++;
+        return (str1[t] - str2[t]);
+    }
+    return (1);
 }
 
-void *ft_realloc(void *ptr, size_t size)
+void	*ft_realloc(void *ptr, size_t size)
 {
 	void *temp;
 
@@ -60,26 +60,26 @@ void *ft_realloc(void *ptr, size_t size)
 	return (temp);
 }
 
-char **ft_rrealloc(char **ptr, size_t size)
+char     **ft_rrealloc(char **ptr, size_t size)
 {
-	char **temp;
-	int i;
-
-	i = -1;
-	temp = malloc(sizeof(char *) * size + 1);
-	while (ptr[++i])
-	{
-		temp[i] = malloc(sizeof(char) * (ft_strlen(ptr[i]) + 1));
-		temp[i] = ft_memcpy(temp[i], ptr[i], ft_strlen(ptr[i]) + 1);
-	}
-	temp[i] = 0;
-	ft_free(ptr);
-	return (temp);
+  char	**temp;
+  int 	i;
+  
+  i = -1;
+  temp = malloc(sizeof(char *) * size + 1);
+  while(ptr[++i])
+  {
+    temp[i] = malloc(sizeof(char) * (ft_strlen(ptr[i]) + 1));
+    temp[i] = ft_memcpy(temp[i], ptr[i], ft_strlen(ptr[i]) + 1);
+  }
+  temp[i] = 0;
+  ft_free(ptr);
+  return (temp);
 }
 
-char *ft_strcpy(char *dst, const char *src)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (src[++i])
