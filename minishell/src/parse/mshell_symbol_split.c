@@ -6,15 +6,31 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 16:57:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/06 18:58:23 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/06 19:16:48 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static int word_count(char *s)
+static void	word_count_helper(char *s, size_t *cnt)
 {
-	size_t cnt;
+	if (s[*cnt] == '>' && s[*cnt + 1] == '>')
+	{
+		while (s[*cnt] == '>')
+			(*cnt)++;
+	}
+	else if (s[*cnt] == '<' && s[*cnt + 1] == '<')
+	{
+		while (s[*cnt] == '<')
+			(*cnt)++;
+	}
+	else
+		(*cnt)++;
+}
+
+static int	word_count(char *s)
+{
+	size_t	cnt;
 
 	cnt = 0;
 	if (s[cnt] == 34 && s[cnt] != 0)
@@ -33,21 +49,8 @@ static int word_count(char *s)
 		if (s[cnt] != 0)
 			cnt++;
 	}
-	else if ((s[cnt] == '>' || s[cnt] == '<') && s[cnt] != 0)
-	{
-		if (s[cnt] == '>' && s[cnt + 1] == '>')
-		{
-			while (s[cnt] == '>')
-				cnt++;
-		}
-		else if (s[cnt] == '<' && s[cnt + 1] == '<')
-		{
-			while (s[cnt] == '<')
-				cnt++;
-		}
-		else
-			cnt++;
-	}
+	else if ((s[cnt] == '>' || s[cnt] == '<') && s[cnt] != 0)	
+		word_count_helper(s, &cnt);
 	while (s[cnt] != '\0')
 		cnt++;
 	return (cnt);
@@ -94,12 +97,12 @@ static int	len_word(char *s)
 	return (len);
 }
 
-char **ft_symbol_split(char *s)
+char	**ft_symbol_split(char *s)
 {
-	int two_index;
-	char **res;
-	int index;
-	int word_len;
+	int		two_index;
+	char	**res;
+	int		index;
+	int		word_len;
 
 	word_len = len_word(s);
 	res = (char **)ft_calloc(sizeof(char *), word_len + 1);
