@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:39:25 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/03 16:48:31 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/07 02:57:18 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_exit(char **parse)
 {
 	printf("exit\n");
-	
+
 	int i;
 	int x;
 

@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/07 01:50:01 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/07 04:01:56 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,11 @@ void	quo_prf_helper2(char **parse, t_quo_prfy_vars *pf);
 void	quo_prf_helper3(char **parse, t_quo_prfy_vars *pf);
 void	quo_transformer(char **parse, t_quo_prfy_vars *pf);
 void	transformer(char **parse, t_quo_prfy_vars *pf);
-	//	
+	//	ft_cd_hel_funcs
+void	uptd_old_pwd_env(void);
+void	uptd_old_pwd_export(void);
+void	uptd_pwd_env(void);
+void	uptd_pwd_export(void);
 
 // pipes
 void	piped_command(char **parse);
