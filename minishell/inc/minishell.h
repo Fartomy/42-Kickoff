@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/07 04:01:56 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/07 12:24:13 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,13 @@ typedef struct s_quo_prfy_vars
 	int		x2;
 	char	**prs;
 }	t_quo_prfy_vars;
+
+typedef	struct s_export_vars
+{
+	int		i;
+	char	*tmp;
+	char	*env_name;
+}		t_export_vars;
 
 extern t_minidata data;
 
@@ -107,11 +114,19 @@ void	quo_prf_helper2(char **parse, t_quo_prfy_vars *pf);
 void	quo_prf_helper3(char **parse, t_quo_prfy_vars *pf);
 void	quo_transformer(char **parse, t_quo_prfy_vars *pf);
 void	transformer(char **parse, t_quo_prfy_vars *pf);
-	//	ft_cd_hel_funcs
+	//	ft_cd_help_funcs
 void	uptd_old_pwd_env(void);
 void	uptd_old_pwd_export(void);
 void	uptd_pwd_env(void);
 void	uptd_pwd_export(void);
+	//	ft_export_help_funcs
+void	exprt_addvar_mini_help(t_export_vars *exp, int *env_ctrl, \
+									int *x, char *var);
+int		export_add_var_helper(t_export_vars *exp, char *var);
+int		export_add_var_helper2(t_export_vars *exp, char *var);
+int		export_add_var_body_helper(t_export_vars *exp, char *var);
+void	export_add_var_equal(t_export_vars *exp, char *var);
+	//	
 
 // pipes
 void	piped_command(char **parse);

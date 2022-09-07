@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:08:53 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/03 19:10:15 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/07 04:56:13 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_unset(char **parse)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	if(!parse[++i])
+	if (!parse[++i])
 	{
 		printf("");
 		data.status = 0;
@@ -25,7 +25,7 @@ void	ft_unset(char **parse)
 	}
 	while (parse[i])
 	{
-		if(equal_finder(parse[i]) == 0)
+		if (equal_finder(parse[i]) == 0)
 		{
 			int x;
 			char *name;
@@ -34,50 +34,51 @@ void	ft_unset(char **parse)
 			while (data.env[++x])
 			{
 				name = env_name_getter(data.env[x]);	
-				if(ft_strcmp(name, parse[i]) == 0)
+				if (ft_strcmp(name, parse[i]) == 0)
 				{
-					free(name);
 					char *tmp;
+					free(name);
 					while (data.env[x] && data.env[x + 1])
 					{
 						tmp = data.env[x + 1];
 						data.env[x + 1] = data.env[x];
 						data.env[x++] = tmp;
 					}
-					if(data.env[x + 1] == 0)
+					if (data.env[x + 1] == 0)
 					{
 						free(data.env[x]);
 						data.env[x] = 0;
 						data.env = ft_rrealloc(data.env, ft_arglen(data.env));
-						break;
+						break ;
 					}
 				}
-				if(name)
+				if (name)
 					free(name);
 			}
 			x = -1;
 			while (data.export[++x])
 			{
 				name = env_name_getter(data.export[x]);	
-				if(ft_strcmp(name, parse[i]) == 0)
+				if (ft_strcmp(name, parse[i]) == 0)
 				{
-					free(name);
 					char *tmp;
+					free(name);
 					while (data.export[x] && data.export[x + 1])
 					{
 						tmp = data.export[x + 1];
 						data.export[x + 1] = data.export[x];
 						data.export[x++] = tmp;
 					}
-					if(data.export[x + 1] == 0)
+					if (data.export[x + 1] == 0)
 					{
 						free(data.export[x]);
 						data.export[x] = 0;
-						data.export = ft_rrealloc(data.export, ft_arglen(data.export));
-						break;
+						data.export = ft_rrealloc(data.export, \
+										ft_arglen(data.export));
+						break ;
 					}
 				}
-				if(name)
+				if (name)
 					free(name);
 			}
 			data.status = 0;
@@ -85,9 +86,10 @@ void	ft_unset(char **parse)
 		else
 		{
 			data.status = 1;
-			printf("minishell: %s: `%s': not a valid identifier\n", parse[0], parse[i]);
+			printf("minishell: %s: `%s': not a valid identifier\n", \
+					parse[0], parse[i]);
 		}
 		i++;
 	}
-	
+
 }
