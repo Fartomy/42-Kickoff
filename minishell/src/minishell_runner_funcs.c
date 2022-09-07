@@ -6,16 +6,16 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:01:49 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/06 20:40:25 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/07 15:02:44 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static char **env_add_slash(char **paths)
+static char	**env_add_slash(char **paths)
 {
-	int i;
-	int len;
+	int	i;
+	int	len;
 
 	i = 0;
 	while (paths[i])
@@ -28,11 +28,11 @@ static char **env_add_slash(char **paths)
 	return (paths);
 }
 
-static char **path_sptr(void)
+static char	**path_sptr(void)
 {
-	int i;
-	char *env_path;
-	char **paths;
+	int		i;
+	char	*env_path;
+	char	**paths;
 
 	env_path = NULL;
 	i = -1;
@@ -55,7 +55,7 @@ static char **path_sptr(void)
 	return (paths);
 }
 
-static void	cmd_runner(char *path, char **opt)
+void	cmd_runner(char *path, char **opt)
 {
 	pid_t	pid;
 
@@ -75,82 +75,22 @@ static void	cmd_runner(char *path, char **opt)
 
 void	cmd_finder(char **parse)
 {
-	char **paths;
-	char **opt;
-	char *join;
-	int i;
-	int x;
-	bool ctrl;
+	t_cmd_finder_vars	cmf;
 
-	ctrl = false;
-	paths = path_sptr();
-	opt = ft_calloc(sizeof(char *), 42);
-	if (!paths)
-	{
-		if (access(parse[0], F_OK) == 0)
-		{
-			ctrl = true;
-			x = -1;
-			while (parse[++x])
-			{
-				opt[x] = ft_calloc(sizeof(char *), 42);
-				opt[x] = ft_strcpy(opt[x], parse[x]);
-			}
-			cmd_runner(parse[0], opt);
-			ft_free(parse);
-			ft_free(opt);
-		}
-		else
-		{
-			free(opt);
-			data.status = 127;
-			printf("minishell: %s: command not found\n", parse[0]);
-			ft_free(parse);
-		}
+	cmf.i = -1;
+	cmf.ctrl = false;
+	cmf.paths = path_sptr();
+	cmf.opt = ft_calloc(sizeof(char *), 42);
+	if (cmd_fdr_ifnot_path(&cmf, parse))
 		return ;
-	}
-	i = -1;
-	if (ft_strncmp(parse[0], "./", 2))
-	{
-		while (paths[++i])
-		{
-			join = ft_strjoin(paths[i], parse[0]);
-			if (access(join, F_OK) == 0)
-			{
-				ctrl = true;
-				x = -1;
-				while (parse[++x])
-				{
-					opt[x] = ft_calloc(sizeof(char *), 42);
-					opt[x] = ft_strcpy(opt[x], parse[x]);
-				}
-				cmd_runner(join, opt);
-				free(join);
-				break;
-			}
-			else if (access(parse[0], F_OK) == 0)
-			{
-				ctrl = true;
-				x = -1;
-				while (parse[++x])
-				{
-					opt[x] = ft_calloc(sizeof(char *), 42);
-					opt[x] = ft_strcpy(opt[x], parse[x]);
-				}
-				cmd_runner(parse[0], opt);
-				free(join);
-				break;
-			}
-			free(join);
-		}
-	}
-	if (ctrl == false)
+	cmd_fdr_if_path(&cmf, parse);
+	if (cmf.ctrl == false)
 	{
 		data.status = 127;
 		printf("minishell: %s: command not found\n", parse[0]);
 	}
-	ft_free(paths);
+	ft_free(cmf.paths);
 	ft_free(parse);
-	if (opt)
-		ft_free(opt);
+	if (cmf.opt)
+		ft_free(cmf.opt);
 }

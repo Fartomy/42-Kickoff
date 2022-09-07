@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 17:05:51 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/06 13:49:12 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/07 14:07:37 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,48 +32,47 @@ char	**export_sorter(char **envp)
 	return (envp);
 }
 
-char 	*env_getter(char *str)
+char	*env_getter(char *str)
 {
-    int i;
-    int x;
-    int len;
-    int a;
-    char *temp;
+	int		i;
+	int		x;
+	int		len;
+	int		a;
+	char	*temp;
 
 	temp = NULL;
-    a = 0;
-    x = 0;
-    i = 0;
-    len = 0;
-    while (str[i] != '=')
-        i++;
-    if(str[i] == '=')
-    {
-        a = i++;
-        while(str[a++])
-          len++;
-        temp = ft_calloc(sizeof(char), len);
-        while (str[i])
-            temp[x++] = str[i++];
-    }
-	//free(str);
-    return (temp);
+	a = 0;
+	x = 0;
+	i = 0;
+	len = 0;
+	while (str[i] != '=')
+		i++;
+	if (str[i] == '=')
+	{
+		a = i++;
+		while (str[a++])
+			len++;
+		temp = ft_calloc(sizeof(char), len);
+		while (str[i])
+			temp[x++] = str[i++];
+	}
+	return (temp);
 }
 
-static	char *env_searcher(char *buf, int buflen)
+static char	*env_searcher(char *buf, int buflen)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (data.env[++i])
 	{
-		if(ft_strncmp(data.env[i], buf, buflen) == 0)
+		if (ft_strncmp(data.env[i], buf, buflen) == 0)
 		{
-			if(data.env[i][buflen] == '=')
+			if (data.env[i][buflen] == '=')
 			{	
 				free(buf);
 				buf = env_getter(data.env[i]);
-				return(buf);
+				return (buf);
 			}
 		}
 	}
@@ -83,11 +82,11 @@ static	char *env_searcher(char *buf, int buflen)
 
 static	char *env_cnv_helper(char *str, char *s, int *i, int *x)
 {
-	char *buf;
-	int a;
-	int len;
-	int buflen;
-	
+	char	*buf;
+	int		a;
+	int		len;
+	int		buflen;
+
 	len = 0;
 	a = *i;
 	while (str[++a] && str[a] != '$')
@@ -99,9 +98,10 @@ static	char *env_cnv_helper(char *str, char *s, int *i, int *x)
 	while (str[++a] && str[a] != '$')
 		buf[len++] = str[a];
 	buf = env_searcher(buf, buflen);
-	if(buf != 0)
+	if (buf != 0)
 	{
 		char *st;
+
 		s[*x] = 0;
 		st = ft_calloc(sizeof(char), ft_strlen(s));
 		st = ft_strcpy(st, s);
@@ -112,21 +112,21 @@ static	char *env_cnv_helper(char *str, char *s, int *i, int *x)
 	}
 	free(buf);
 	*i += buflen;
-	return(s);
+	return (s);
 }
 
 char	*env_converter(char *str)
 {
-	int i;
-	int x;
-	char *s;
+	int		i;
+	int		x;
+	char	*s;
 
 	s = ft_calloc(sizeof(char), ft_strlen(str) + 1);
 	i = -1;
 	x = 0;
 	while (str[++i])
 	{
-		if(str[i] == '$')
+		if (str[i] == '$')
 			s = env_cnv_helper(str, s, &i, &x);
 		else
 			s[x++] = str[i];

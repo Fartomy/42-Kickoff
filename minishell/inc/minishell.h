@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/07 14:01:36 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/07 15:02:52 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,22 @@ typedef struct s_quo_prfy_vars
 	char	**prs;
 }	t_quo_prfy_vars;
 
-typedef	struct s_export_vars
+typedef struct s_export_vars
 {
 	int		i;
 	char	*tmp;
 	char	*env_name;
 }		t_export_vars;
+
+typedef struct s_cmd_finder_vars
+{
+	char	**paths;
+	char	**opt;
+	char	*join;
+	int		i;
+	int		x;
+	bool	ctrl;
+}	t_cmd_finder_vars;
 
 extern t_minidata data;
 
@@ -84,12 +94,13 @@ char	**ft_pipe_split(char *s, char c);
 char	**ft_symbol_split(char *s);
 char	**quotes_purifyer(char **parse);
 
-// helped funcs
-	// pipe_split_help_funcs
+//	helped funcs
+
+//pipe_split_help_funcs
 void	pipe_spl_helper(char **s, char *res, int *two_index, char c);
 void	pipe_spl_helper2(char **s, char *res, int *two_index, char c);
 void	pipe_spl_helper3(char ***s, char *res, int **two_index);
-	// pipe_command_help_funcs
+//pipe_command_help_funcs
 void	pipe_cmd_body(int **pfd, char **parse, int *p, int i);
 void	pipe_cmd_first_arg(int **pfd, int *p);
 void	pipe_cmd_betw_arg(int **pfd, int *p);
@@ -98,38 +109,44 @@ void	pipe_cmd_close(int **pfd, int p);
 void	pipe_cmd_wait(int i);
 void	pipe_cmd_free(int i, int *pids, int **pfd);
 void	pipe_cmd_storage(int ***pfd, int **pids, int i, int *p);
-	//	symbol_split_help_funcs
+//symbol_split_help_funcs
 void	symbol_spl_helper(char **s, char *res, int *two_index, int c);
 void	symbol_spl_helper2(char **s, char *res, int *two_index);
 void	symbol_spl_helper4(char ***s, char *res, int **two_index);
 void	symbol_spl_helper3(char **s, char *res, int *two_index);
-	//	redirect_operations_help_funcs
+//redirect_operations_help_funcs
 void	rdr_runner_helper(char **parse, int *fd2);
 char	*rdr_stream_mini_helper(char **parse, int x);
 int		rdr_stream_helper(char **parse, int *ctrl, int x);
-	//	quotes_purifyer_help_funcs
+//quotes_purifyer_help_funcs
 void	status_oprt(char **env_var, int *b, int *ctrl, t_quo_prfy_vars *pf);
 void	quo_prf_helper(char **parse, t_quo_prfy_vars *pf);
 void	quo_prf_helper2(char **parse, t_quo_prfy_vars *pf);
 void	quo_prf_helper3(char **parse, t_quo_prfy_vars *pf);
 void	quo_transformer(char **parse, t_quo_prfy_vars *pf);
 void	transformer(char **parse, t_quo_prfy_vars *pf);
-	//	ft_cd_help_funcs
+//ft_cd_help_funcs
 void	uptd_old_pwd_env(void);
 void	uptd_old_pwd_export(void);
 void	uptd_pwd_env(void);
 void	uptd_pwd_export(void);
-	//	ft_export_help_funcs
+//ft_export_help_funcs
 void	exprt_addvar_mini_help(t_export_vars *exp, int *env_ctrl, \
 									int *x, char *var);
 int		export_add_var_helper(t_export_vars *exp, char *var);
 int		export_add_var_helper2(t_export_vars *exp, char *var);
 int		export_add_var_body_helper(t_export_vars *exp, char *var);
 void	export_add_var_equal(t_export_vars *exp, char *var);
-	//	ft_unset_help_funcs
+//ft_unset_help_funcs
 int		unset_env_helper(int x);
 int		unset_export_helper(int x);
 void	unset_error(char **parse, int i);
+//cmd_finder_help_funcs
+int		cmd_fdr_ifnot_path(t_cmd_finder_vars *cmf, char **parse);
+int		cmd_fdr_ifpt_helper(t_cmd_finder_vars *cmf, char **parse);
+int		cmd_fdr_ifpt_helper2(t_cmd_finder_vars *cmf, char **parse);
+void	cmd_fdr_if_path(t_cmd_finder_vars *cmf, char **parse);
+	//	
 
 // pipes
 void	piped_command(char **parse);
@@ -157,6 +174,7 @@ void	ctrl_d(void);
 
 // runner funcs
 void	cmd_finder(char **parse);
+void	cmd_runner(char *path, char **opt);
 
 // prompts operations funcs
 void	prompt(void);
