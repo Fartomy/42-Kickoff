@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/07 12:24:13 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/07 14:01:36 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,10 @@ int		export_add_var_helper(t_export_vars *exp, char *var);
 int		export_add_var_helper2(t_export_vars *exp, char *var);
 int		export_add_var_body_helper(t_export_vars *exp, char *var);
 void	export_add_var_equal(t_export_vars *exp, char *var);
-	//	
+	//	ft_unset_help_funcs
+int		unset_env_helper(int x);
+int		unset_export_helper(int x);
+void	unset_error(char **parse, int i);
 
 // pipes
 void	piped_command(char **parse);
