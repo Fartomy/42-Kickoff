@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/07 15:02:52 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/07 17:55:21 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,9 @@ int		cmd_fdr_ifnot_path(t_cmd_finder_vars *cmf, char **parse);
 int		cmd_fdr_ifpt_helper(t_cmd_finder_vars *cmf, char **parse);
 int		cmd_fdr_ifpt_helper2(t_cmd_finder_vars *cmf, char **parse);
 void	cmd_fdr_if_path(t_cmd_finder_vars *cmf, char **parse);
-	//	
+//redirections_help_funcs
+int		rdr_err_helper(void);
+void	heredoc_oprt_helper(char *prs, int *fd2);
 
 // pipes
 void	piped_command(char **parse);
