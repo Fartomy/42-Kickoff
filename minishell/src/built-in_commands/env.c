@@ -6,26 +6,26 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 16:21:08 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/03 19:04:57 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/07 04:27:53 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void    ft_env(char **parse)
+void	ft_env(char **parse)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if(ft_strcmp(parse[i], "env") == 0 && !parse[i + 1])
-    {
-        while (data.env[i])
-            printf("%s\n", data.env[i++]);
-        data.status = 0;
-    }
-    else if(ft_strcmp(parse[i], "env") == 0 && parse[i + 1])
-    {
-        data.status = 127;
-        printf("%s: %s: No such file or directory\n", parse[i], parse[i + 1]);
-    }
+	i = 0;
+	if (ft_strcmp(parse[i], "env") == 0 && !parse[i + 1])
+	{
+		while (data.env[i])
+			printf("%s\n", data.env[i++]);
+		data.status = 0;
+	}
+	else if (ft_strcmp(parse[i], "env") == 0 && parse[i + 1])
+	{
+		data.status = 127;
+		printf("%s: %s: No such file or directory\n", parse[i], parse[i + 1]);
+	}
 }
