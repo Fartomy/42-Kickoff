@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 16:57:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/06 19:16:48 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/08 15:01:10 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	word_count(char *s)
 		if (s[cnt] != 0)
 			cnt++;
 	}
-	else if ((s[cnt] == '>' || s[cnt] == '<') && s[cnt] != 0)	
+	else if ((s[cnt] == '>' || s[cnt] == '<') && s[cnt] != 0)
 		word_count_helper(s, &cnt);
 	while (s[cnt] != '\0')
 		cnt++;

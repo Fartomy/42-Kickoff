@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 14:08:33 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/06 21:24:00 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/08 14:38:11 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,22 @@ void	rdr_runner(char **parse, int x)
 
 int	rdr_actuator(char *prs, int ctrl)
 {
-	data.fd = 0;
+	g_dt.fd = 0;
 	if (ctrl == 1)
-		data.fd = open(prs, O_RDWR | O_CREAT, 0777);
+		g_dt.fd = open(prs, O_RDWR | O_CREAT, 0777);
 	else if (ctrl == 2)
 	{
-		data.fd = open(prs, O_RDWR);
-		data.fd2 = dup(data.fd);
-		if (data.fd == -1)
+		g_dt.fd = open(prs, O_RDWR);
+		g_dt.fd2 = dup(g_dt.fd);
+		if (g_dt.fd == -1)
 		{
 			printf("minishell: %s: No such file or directory\n", prs);
-			data.status = 1;
+			g_dt.status = 1;
 			return (0);
 		}
 	}
 	else if (ctrl == 3)
-		data.fd = open(prs, O_RDWR | O_CREAT | O_APPEND, 0777);
+		g_dt.fd = open(prs, O_RDWR | O_CREAT | O_APPEND, 0777);
 	return (1);
 }
 
@@ -62,10 +62,10 @@ void	rdr_stream(char **parse)
 	int		ctrl;
 
 	x = 0;
-	while (data.symbol_tkn[x])
+	while (g_dt.symbol_tkn[x])
 	{
-		if (ft_strncmp(parse[0], data.symbol_tkn[x], \
-			ft_strlen(data.symbol_tkn[x])) == 0)
+		if (ft_strncmp(parse[0], g_dt.symbol_tkn[x], \
+			ft_strlen(g_dt.symbol_tkn[x])) == 0)
 		{
 			first_argis_symbol(parse);
 			return ;

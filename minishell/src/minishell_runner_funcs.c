@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:01:49 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/07 15:02:44 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/08 14:38:11 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ static char	**path_sptr(void)
 
 	env_path = NULL;
 	i = -1;
-	while (data.env[++i])
+	while (g_dt.env[++i])
 	{
-		if (ft_strncmp(data.env[i], "PATH", 4) == 0)
+		if (ft_strncmp(g_dt.env[i], "PATH", 4) == 0)
 		{
-			env_path = data.env[i];
+			env_path = g_dt.env[i];
 			break ;
 		}
 	}
@@ -62,12 +62,12 @@ void	cmd_runner(char *path, char **opt)
 	pid = fork();
 	if (pid > 0)
 	{
-		waitpid(pid, &data.status, 0);
-		data.status %= 255;
+		waitpid(pid, &g_dt.status, 0);
+		g_dt.status %= 255;
 	}
 	if (pid == 0)
 	{
-		if (execve(path, opt, data.env) == -1)
+		if (execve(path, opt, g_dt.env) == -1)
 			exit(0);
 		exit(0);
 	}
@@ -86,7 +86,7 @@ void	cmd_finder(char **parse)
 	cmd_fdr_if_path(&cmf, parse);
 	if (cmf.ctrl == false)
 	{
-		data.status = 127;
+		g_dt.status = 127;
 		printf("minishell: %s: command not found\n", parse[0]);
 	}
 	ft_free(cmf.paths);

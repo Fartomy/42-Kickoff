@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 17:14:32 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/06 15:04:12 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/08 14:28:06 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,24 +106,3 @@ char	**ft_pipe_split(char *s, char c)
 	}
 	return (res);
 }
-
-/*static	void	pipe_spl_helper(char **s, char **res, int *index, int *two_index)
-{
-	res[*index][(*two_index)++] = **s;
-	(*s)++;
-	while (**s != 34 && **s)
-	{
-		res[*index][(*two_index)++] = **s;
-		(*s)++;
-	}
-	if (**s == 34 && **s)
-	{
-		res[*index][(*two_index)++] = **s;
-		(*s)++;
-	}
-	while (**s != '\0')
-	{
-		res[*index][(*two_index)++] = **s;
-		(*s)++;
-	}
-}*/

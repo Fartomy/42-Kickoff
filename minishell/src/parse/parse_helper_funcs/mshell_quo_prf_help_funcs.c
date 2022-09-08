@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 01:47:03 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/07 01:52:13 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/08 14:38:11 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	status_oprt(char **env_var, int *b, int *ctrl, t_quo_prfy_vars *pf)
 	char	*str;
 
 	*ctrl = 1;
-	str = ft_itoa(data.status);
+	str = ft_itoa(g_dt.status);
 	while (str[*b])
 	{
 		(*env_var)[*b] = str[*b];

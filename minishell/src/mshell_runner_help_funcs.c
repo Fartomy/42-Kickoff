@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:58:59 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/07 14:59:48 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/08 14:38:11 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	cmd_fdr_ifnot_path(t_cmd_finder_vars *cmf, char **parse)
 		else
 		{
 			free(cmf->opt);
-			data.status = 127;
+			g_dt.status = 127;
 			printf("minishell: %s: command not found\n", parse[0]);
 			ft_free(parse);
 		}

@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 21:23:33 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/06 21:25:34 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/08 14:38:11 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	rdr_runner_helper(char **parse, int *fd2)
 		heredoc_oprt(parse[2], fd2);
 	else if (ft_strcmp(parse[1], "<") == 0)
 		rdr_input(1);
-	dup2(data.fd, 1);
-	close(data.fd);
+	dup2(g_dt.fd, 1);
+	close(g_dt.fd);
 }
 
 int	rdr_stream_helper(char **parse, int *ctrl, int x)

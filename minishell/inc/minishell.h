@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:40:55 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/07 17:55:21 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/08 14:58:43 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ typedef struct s_cmd_finder_vars
 	bool	ctrl;
 }	t_cmd_finder_vars;
 
-extern t_minidata data;
+extern t_minidata	g_dt;
 
 // tokens and tools
 char	**storage_and_copy(char **env);

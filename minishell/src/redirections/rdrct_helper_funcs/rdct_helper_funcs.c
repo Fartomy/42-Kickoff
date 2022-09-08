@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 17:08:25 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/07 17:55:02 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/08 14:38:11 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	rdr_err_helper(void)
 {
 	printf("minishell: syntax error near unexpected token `newline'\n");
-	data.status = 258;
+	g_dt.status = 258;
 	return (1);
 }
 

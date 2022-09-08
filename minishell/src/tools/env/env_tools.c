@@ -6,31 +6,11 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 17:05:51 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/07 14:07:37 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/08 14:57:28 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-char	**export_sorter(char **envp)
-{
-	int		i;
-	char	*tmp;
-
-	i = 0;
-	while (envp[i])
-	{
-		if (envp[i + 1] && (envp[i][0] > envp[i + 1][0]))
-		{
-			tmp = envp[i];
-			envp[i] = envp[i + 1];
-			envp[i + 1] = tmp;
-			i = -1;
-		}
-		i++;
-	}
-	return (envp);
-}
 
 char	*env_getter(char *str)
 {
@@ -64,14 +44,14 @@ static char	*env_searcher(char *buf, int buflen)
 	int	i;
 
 	i = -1;
-	while (data.env[++i])
+	while (g_dt.env[++i])
 	{
-		if (ft_strncmp(data.env[i], buf, buflen) == 0)
+		if (ft_strncmp(g_dt.env[i], buf, buflen) == 0)
 		{
-			if (data.env[i][buflen] == '=')
+			if (g_dt.env[i][buflen] == '=')
 			{	
 				free(buf);
-				buf = env_getter(data.env[i]);
+				buf = env_getter(g_dt.env[i]);
 				return (buf);
 			}
 		}
@@ -80,7 +60,20 @@ static char	*env_searcher(char *buf, int buflen)
 	return (NULL);
 }
 
-static	char *env_cnv_helper(char *str, char *s, int *i, int *x)
+static void	env_cnv_mini_helper(char **s, int **x, char *buf)
+{
+	char	*st;
+
+	*s[**x] = 0;
+	st = ft_calloc(sizeof(char), ft_strlen(*s));
+	st = ft_strcpy(st, *s);
+	free(*s);
+	*s = ft_strjoin(st, buf);
+	free(st);
+	**x += ft_strlen(buf);
+}
+
+static char	*env_cnv_helper(char *str, char *s, int *i, int *x)
 {
 	char	*buf;
 	int		a;
@@ -99,17 +92,7 @@ static	char *env_cnv_helper(char *str, char *s, int *i, int *x)
 		buf[len++] = str[a];
 	buf = env_searcher(buf, buflen);
 	if (buf != 0)
-	{
-		char *st;
-
-		s[*x] = 0;
-		st = ft_calloc(sizeof(char), ft_strlen(s));
-		st = ft_strcpy(st, s);
-		free(s);
-		s = ft_strjoin(st, buf);
-		free(st);
-		*x += strlen(buf);
-	}
+		env_cnv_mini_helper(&s, &x, buf);
 	free(buf);
 	*i += buflen;
 	return (s);

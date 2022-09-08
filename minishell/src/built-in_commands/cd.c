@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 17:53:58 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/07 04:00:37 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/08 14:38:11 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ static void	ft_cd_home(void)
 	char	*home_value;
 
 	i = 0;
-	while (data.env[i])
+	while (g_dt.env[i])
 	{
-		if (ft_strncmp(data.env[i], "HOME", 4) == 0)
+		if (ft_strncmp(g_dt.env[i], "HOME", 4) == 0)
 		{
-			home_value = env_getter(data.env[i]);
+			home_value = env_getter(g_dt.env[i]);
 			update_old_pwd();
 			chdir(home_value);
 			update_pwd();
@@ -42,7 +42,7 @@ static void	ft_cd_home(void)
 		}
 		i++;
 	}
-	data.status = 0;
+	g_dt.status = 0;
 }
 
 static void	ft_cd_oldpwd(void)
@@ -51,11 +51,11 @@ static void	ft_cd_oldpwd(void)
 	char	*oldpwd_value;
 
 	i = 0;
-	while (data.env[i])
+	while (g_dt.env[i])
 	{
-		if (ft_strncmp(data.env[i], "OLDPWD", 6) == 0)
+		if (ft_strncmp(g_dt.env[i], "OLDPWD", 6) == 0)
 		{
-			oldpwd_value = env_getter(data.env[i]);
+			oldpwd_value = env_getter(g_dt.env[i]);
 			chdir(oldpwd_value);
 			update_pwd();
 			printf("%s\n", oldpwd_value);
@@ -63,7 +63,7 @@ static void	ft_cd_oldpwd(void)
 		}
 		i++;
 	}
-	data.status = 0;
+	g_dt.status = 0;
 }
 
 void	ft_cd(char **parse)
@@ -77,12 +77,12 @@ void	ft_cd(char **parse)
 		update_old_pwd();
 		if (chdir(parse[1]) == -1)
 		{
-			data.status = 1;
+			g_dt.status = 1;
 			printf("minishell: %s: %s: No such file or directory\n", \
 					parse[0], parse[1]);
 		}
 		else
 			update_pwd();
-		data.status = 0;
+		g_dt.status = 0;
 	}
 }

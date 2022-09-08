@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 02:15:48 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/07 14:09:17 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/08 14:57:36 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,24 @@ char	*env_name_getter(char *var)
 		name[i] = var[i];
 	name[i] = 0;
 	return (name);
+}
+
+char	**export_sorter(char **envp)
+{
+	int		i;
+	char	*tmp;
+
+	i = 0;
+	while (envp[i])
+	{
+		if (envp[i + 1] && (envp[i][0] > envp[i + 1][0]))
+		{
+			tmp = envp[i];
+			envp[i] = envp[i + 1];
+			envp[i + 1] = tmp;
+			i = -1;
+		}
+		i++;
+	}
+	return (envp);
 }

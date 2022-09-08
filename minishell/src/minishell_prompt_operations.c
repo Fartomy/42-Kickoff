@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 00:27:01 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/06 20:11:47 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/08 14:38:11 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 void	builtin_command(char **parse)
 {
-	if (ft_strcmp(parse[0], data.built_in_tkn[0]) == 0)
+	if (ft_strcmp(parse[0], g_dt.built_in_tkn[0]) == 0)
 		ft_echo(parse);
-	else if (ft_strcmp(parse[0], data.built_in_tkn[1]) == 0)
+	else if (ft_strcmp(parse[0], g_dt.built_in_tkn[1]) == 0)
 		ft_cd(parse);
-	else if (ft_strcmp(parse[0], data.built_in_tkn[2]) == 0)
+	else if (ft_strcmp(parse[0], g_dt.built_in_tkn[2]) == 0)
 		ft_pwd(parse);
-	else if (ft_strcmp(parse[0], data.built_in_tkn[3]) == 0)
+	else if (ft_strcmp(parse[0], g_dt.built_in_tkn[3]) == 0)
 		ft_export(parse);
-	else if (ft_strcmp(parse[0], data.built_in_tkn[5]) == 0)
+	else if (ft_strcmp(parse[0], g_dt.built_in_tkn[5]) == 0)
 		ft_env(parse);
-	else if (ft_strcmp(parse[0], data.built_in_tkn[4]) == 0)
+	else if (ft_strcmp(parse[0], g_dt.built_in_tkn[4]) == 0)
 		ft_unset(parse);
-	else if (ft_strcmp(parse[0], data.built_in_tkn[6]) == 0)
+	else if (ft_strcmp(parse[0], g_dt.built_in_tkn[6]) == 0)
 		ft_exit(parse);
 	ft_free(parse);
 }
@@ -45,10 +45,10 @@ void	builtin_or_smp_cmd_ctrl(char **parse)
 	while (parse[i])
 	{
 		x = 0;
-		while (ft_strcmp(parse[i], data.built_in_tkn[x]) != 0 \
-				&& data.built_in_tkn[x])
+		while (ft_strcmp(parse[i], g_dt.built_in_tkn[x]) != 0 \
+				&& g_dt.built_in_tkn[x])
 			x++;
-		if (ft_strcmp(parse[i], data.built_in_tkn[x]) == 0)
+		if (ft_strcmp(parse[i], g_dt.built_in_tkn[x]) == 0)
 		{
 			builtin_ctrl = true;
 			builtin_command(parse);
@@ -72,10 +72,10 @@ void	simple_cmd(char **parse)
 	while (parse[i])
 	{
 		x = 0;
-		while (ft_strcmp(parse[i], data.symbol_tkn[x]) != 0 \
-				&& data.symbol_tkn[x])
+		while (ft_strcmp(parse[i], g_dt.symbol_tkn[x]) != 0 \
+				&& g_dt.symbol_tkn[x])
 			x++;
-		if (ft_strcmp(parse[i], data.symbol_tkn[x]) == 0)
+		if (ft_strcmp(parse[i], g_dt.symbol_tkn[x]) == 0)
 		{
 			symbol_ctrl = true;
 			ft_redirecton(parse);

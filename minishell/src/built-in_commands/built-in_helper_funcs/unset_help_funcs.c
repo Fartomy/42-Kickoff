@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 13:59:04 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/07 14:01:10 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/08 14:38:11 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 int	unset_env_helper(int x)
 {
-	free(data.env[x]);
-	data.env[x] = 0;
-	data.env = ft_rrealloc(data.env, ft_arglen(data.env));
+	free(g_dt.env[x]);
+	g_dt.env[x] = 0;
+	g_dt.env = ft_rrealloc(g_dt.env, ft_arglen(g_dt.env));
 	return (1);
 }
 
 int	unset_export_helper(int x)
 {
-	free(data.export[x]);
-	data.export[x] = 0;
-	data.export = ft_rrealloc(data.export, \
-					ft_arglen(data.export));
+	free(g_dt.export[x]);
+	g_dt.export[x] = 0;
+	g_dt.export = ft_rrealloc(g_dt.export, \
+					ft_arglen(g_dt.export));
 	return (1);
 }
 
 void	unset_error(char **parse, int i)
 {
-	data.status = 1;
+	g_dt.status = 1;
 	printf("minishell: unset: `%s': not a valid identifier\n", parse[i]);
 }
