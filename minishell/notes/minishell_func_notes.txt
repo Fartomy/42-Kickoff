@@ -340,3 +340,47 @@ _\~/_ EXAMPLE (1) :
 4    printf("%s\n", getcwd(NULL, 0));
 5    return (0);   
 6 }
+
+-----------------------------------------------------------------------------------------------------------
+
+>_ FUNCTION 12: [ - P I P E - ]
+
+$ pipe() fonksiyonu genel itibariyle giriş çıkış işlemleri için boru işlevi oluşturur
+$ Bir programdan başka bir programa input veya output vermek için kullanılabilir.
+
+
+_/√\_ PROTOTYPE :
+
+int  pipe(int fildes[2]);
+
+
+_\~/_ EXAMPLE (1) :
+
+1 int main(void)
+2 {
+3 int fd[2];
+4 int pid;
+5 
+6 pipe(fd);
+7 pid = fork();
+8 if(pid > 0) //PARENT PROCESS
+9 {
+10       close(fd[1]);
+11       wait(NULL);
+12       int y;
+13       read(fd[0], &y, sizeof(int));
+14       printf("Child process'de oluşturulan ve değeri atanan x\'in değerini, 
+15       pipe fonksiyounun oluşturmuş olduğu output'a verip 
+16       \nParent process'de yine pipe fonksiyonunun oluşturduğu input'tan okuyup parent process'de yazdırdık --> [%d]\n", y);
+17       close(fd[0]);
+18 }
+19 if(pid == 0) //CHILD PROCESS
+20 {
+21       close(fd[0]);
+22       int x = 42;
+23       write(fd[1], &x, sizeof(int));
+24       close(fd[0]);
+25       exit(0);
+26 }
+27    return (0);
+28 }
