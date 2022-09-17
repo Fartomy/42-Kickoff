@@ -1,4 +1,4 @@
-NAME			= cub3d
+NAME			= cub3D
 LIBFT			= libft/libft.a
 
 RESET			=	\033[0m

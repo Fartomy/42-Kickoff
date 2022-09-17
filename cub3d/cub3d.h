@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 14:35:07 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/17 18:18:05 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/17 20:14:55 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 
 # define WIDTH 1920
 # define HEIGHT 1080
+
+# define NORTH	"NO"
+# define SOUTH	"SO"
+# define WEST	"WE"
+# define EAST	"EA"
+
+# define FLOOR	'F'
+# define CEIL	'C'
+
 
 # include "mlx/mlx.h"
 # include "../libft/libft.h"
