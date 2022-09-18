@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 15:44:51 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/17 23:54:10 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/18 11:05:59 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,33 @@ void	set_value(t_data *data)
 	data->move_speed = 0.05;
 	data->rot_speed = 0.05;
 	data->nw_cnt = 1;
+}
+
+char	*ft_strcpy(char *dst, const char *src)
+{
+	int	i;
+
+	i = -1;
+	while (src[++i])
+		dst[i] = src[i];
+	dst[i] = '\0';
+	return (dst);
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t			t;
+	unsigned char	*str1;
+	unsigned char	*str2;
+
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	if (str2)
+	{
+		t = 0;
+		while (str1[t] != '\0' && str2[t] != '\0' && str1[t] == str2[t])
+			t++;
+		return (str1[t] - str2[t]);
+	}
+	return (1);
 }

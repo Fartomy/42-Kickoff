@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 15:32:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/18 02:32:42 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/18 12:12:44 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,49 @@ int	map_format_check(char *av)
 		return (0);
 }
 
+static int identifer_check(char *str, int i)
+{
+		if (str[i] == 'N' && str[i + 1] == 'O')
+			return (1);
+		else if (str[i] == 'S' && str[i + 1] == 'O')
+			return (1);
+		else if (str[i] == 'W' && str[i + 1] == 'E')
+			return (1);
+		else if (str[i] == 'E' && str[i + 1] == 'A')
+			return (1);
+		else if (str[i] == 'F')
+			return (1);
+		else if (str[i] == 'C')
+			return (1);
+		else
+			return (0);
+}
+
 static int	identifer_ctrl(char *str)
 {
-	int		i;
-	int		cnt;
+	int	i;
+	int x;
+	int	cnt;
 
-	i = 0;
+	i = -1;
 	cnt = 0;
-	while(str[i])
+	while(str[++i])
 	{
-		if(str[i] == ' ' || str[i] == '\t')
+		while((str[i] == ' ' || str[i] == '\t') && str[i])
 			i++;
-		else if(ft_isalpha(str[i]))
+		if(ft_isalpha(str[i]))
 		{
-			if(str[i] != ' ' && str[i])
+			x = i;
+			while(str[x] != ' ' && str[x])
+			{
+				cnt++;
+				x++;
+			}
+			if(cnt > 2)
+				return (0);
+			else
+				return(identifer_check(str, i));
 		}
-			//
 		else
 			return(0);
 	}
@@ -55,10 +82,20 @@ int map_features_check(t_data *data)
 {
 	int i;
 
-	i = 0;
-	while (i < 6)
+	i = -1;
+	while (++i < 6)
 	{
-		
+		if(identifer_ctrl(data->map_and_ftrs[i]) == 0)
+		{
+			write(2, "Error\nMap or Map Features is Wrong!", 35);
+			exit(1);
+		}
+		if(identifer_ctrl(data->map_and_ftrs[i]) == 1)
+		{
+			data->map_ftrs[i] = ft_calloc(ft_strlen(data->map_and_ftrs[i]), sizeof(char) + 1);
+			ft_strcpy(data->map_ftrs[i], data->map_and_ftrs[i]);
+			printf("%s\n", data->map_ftrs[i]);
+		}
 	}
-	
+	return(1);
 }

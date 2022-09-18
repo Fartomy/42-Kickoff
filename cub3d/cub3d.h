@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 14:35:07 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/18 02:14:36 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/18 12:08:13 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ typedef struct s_data
 	void	*mlx_ptr;
 	void	*mlx_win_ptr;
 
-	char	**map_ftrs;
+	char	**map_and_ftrs;
+	char	*map_ftrs[6];
+	char	**map;
 
 	int		row_len;
 	int		row_cnt;
@@ -62,6 +64,8 @@ void	map_oprt(t_data *data, char *arv);
 
 int		map_format_check(char *av);
 int		map_features_check(t_data *data);
+
+char	*ft_strcpy(char *dst, const char *src);
 
 char	**ft_map_split(char const *s, char c, t_data *data);
 
