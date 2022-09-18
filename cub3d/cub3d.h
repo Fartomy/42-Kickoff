@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 14:35:07 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/18 12:08:13 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/18 13:04:30 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	set_value(t_data *data);
 void	map_oprt(t_data *data, char *arv);
 
 int		map_format_check(char *av);
-int		map_features_check(t_data *data);
+void	map_features_check(t_data *data);
 
 char	*ft_strcpy(char *dst, const char *src);
 

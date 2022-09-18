@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 15:32:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/18 12:12:44 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/18 18:22:02 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,15 @@ int	map_format_check(char *av)
 		return (1);
 	else
 		return (0);
+}
+
+static void	map_ftrs_free(t_data *data, int i)
+{
+	int x;
+
+	x = 0;
+	while(x < i)
+		free(data->map_ftrs[x++]);
 }
 
 static int identifer_check(char *str, int i)
@@ -78,24 +87,27 @@ static int	identifer_ctrl(char *str)
 	return (0);
 }
 
-int map_features_check(t_data *data)
+void	map_features_check(t_data *data)
 {
 	int i;
+	char *str;
 
 	i = -1;
 	while (++i < 6)
 	{
 		if(identifer_ctrl(data->map_and_ftrs[i]) == 0)
 		{
-			write(2, "Error\nMap or Map Features is Wrong!", 35);
+			write(2, "Error\nMap Features is Wrong!", 28);
+			map_ftrs_free(data, i);
 			exit(1);
 		}
 		if(identifer_ctrl(data->map_and_ftrs[i]) == 1)
 		{
-			data->map_ftrs[i] = ft_calloc(ft_strlen(data->map_and_ftrs[i]), sizeof(char) + 1);
-			ft_strcpy(data->map_ftrs[i], data->map_and_ftrs[i]);
+			str = ft_calloc(ft_strlen(data->map_and_ftrs[i]), sizeof(char) + 1);
+			ft_strcpy(str, data->map_and_ftrs[i]);
+			data->map_ftrs[i] = ft_strtrim(str, " ");
+			free(str);
 			printf("%s\n", data->map_ftrs[i]);
 		}
 	}
-	return(1);
 }
