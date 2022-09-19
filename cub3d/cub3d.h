@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 14:35:07 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/18 13:04:30 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/19 13:32:41 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,14 @@ typedef struct s_data
 
 void	set_value(t_data *data);
 void	map_oprt(t_data *data, char *arv);
+void	map_features_check(t_data *data);
+void	map_ftrs_is_same_check(t_data *data);
+void	idf_f_ctrl(t_data *data);
+void	idf_c_ctrl(t_data *data);
 
 int		map_format_check(char *av);
-void	map_features_check(t_data *data);
 
 char	*ft_strcpy(char *dst, const char *src);
-
 char	**ft_map_split(char const *s, char c, t_data *data);
 
 #endif

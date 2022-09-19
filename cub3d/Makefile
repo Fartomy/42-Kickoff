@@ -7,7 +7,7 @@ YELLOW			=	\033[33m
 BLUE			=	\033[34m
 RED				=	\033[31m
 
-SRCS			=	cub3d.c		cub3d_utils.c	cub3d_map_read.c	cub3d_checks.c	cub3d_parse.c
+SRCS			=	cub3d.c		cub3d_utils.c	cub3d_map_read.c	cub3d_checks.c	cub3d_checks2.c	cub3d_checks3.c	cub3d_parse.c
 
 OBJS			= $(SRCS:.c=.o)
 
