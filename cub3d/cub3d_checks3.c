@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:28:07 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/19 13:29:07 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/19 14:42:29 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,23 @@ void	idf_c_ctrl(t_data *data)
 			exit(1);
 		}
 	}	
+}
+
+void	map_ftrs_element_check(t_data *data)
+{
+	char **str;
+	int i;
+
+	i = -1;
+	while(data->map_ftrs[++i])
+	{
+		str = ft_split(data->map_ftrs[i], ' ');
+		if(ft_arglen(str) != 2)
+		{
+			write(2, "Error\nToo Much Arguments!", 25);
+			//free
+			exit(1);			
+		}
+		ft_arg_free(str);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 15:44:51 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/18 11:05:59 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/19 14:02:31 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,24 @@ int	ft_strcmp(const char *s1, const char *s2)
 		return (str1[t] - str2[t]);
 	}
 	return (1);
+}
+
+int	ft_arglen(char **arg)
+{
+	int	i;
+
+	i = 0;
+	while (arg[i])
+		i++;
+	return (i);
+}
+
+void	ft_arg_free(char **str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		free(str[i]);
+	free(str);
 }
