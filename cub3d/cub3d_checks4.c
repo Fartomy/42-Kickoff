@@ -6,11 +6,19 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 13:05:45 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/21 14:46:00 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/21 16:45:37 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+/*static void rgb_storage(char *str)
+{
+	char **s;
+
+	s = ft_split(str, ',');
+	printf("%s\n", s[1]);
+}*/
 
 static int	number_control(char *str)
 {
@@ -18,6 +26,7 @@ static int	number_control(char *str)
 	int dgt_cnt;
 
 	i = -1;
+	dgt_cnt = 0;
 	while(str[++i])
 	{
 		if(ft_isdigit(str[i]) && str[i] != ',')
@@ -65,7 +74,9 @@ void	map_ftrs_rgb_check(t_data *data, int i)
 		}
 		else
 		{
-			printf("storage\n");
+			printf("aloha!");
+			//rgb_storage(str[1]);
+			//ft_arglen(str);	
 		}
 	}
 }

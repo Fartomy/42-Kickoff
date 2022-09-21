@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 14:35:07 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/21 13:45:26 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:38:15 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ typedef struct s_data
 	char	*map_ftrs[6];
 	char	**map;
 
+	int		floor[3];
+	int		ceil[3];
+	
 	int		row_len;
 	int		row_cnt;
 	int		nw_cnt;

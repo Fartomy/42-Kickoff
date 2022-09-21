@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 15:32:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/19 17:23:23 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:40:26 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ void	map_features_check(t_data *data)
 			free(str);
 		}
 	}
+	data->map_ftrs[i] = 0;
 	map_ftrs_is_same_check(data);
 	map_ftrs_element_check(data);
 	map_ftrs_path_check(data);
