@@ -12,7 +12,7 @@ SRCS			=	cub3d.c		cub3d_utils.c	cub3d_map_read.c	cub3d_checks.c	cub3d_checks2.c	
 
 OBJS			= $(SRCS:.c=.o)
 
-CC				= gcc -ggdb
+CC				= gcc #-ggdb
 RM				= rm -f
 CFLAGS			= -Wall -Wextra -Werror
 

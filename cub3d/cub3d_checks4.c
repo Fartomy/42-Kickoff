@@ -6,19 +6,60 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 13:05:45 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/21 16:45:37 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/21 18:51:10 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-/*static void rgb_storage(char *str)
+static void	rgb_value_check(t_data *data, char *idf)
+{
+	int i;
+
+	i = -1;
+	if(ft_strncmp(idf, "F", 1) == 0)
+	{	
+		while (++i < 3)
+		{
+			if(data->floor[i] > 255)
+			{
+				write(2, "Error\nColor Number Greater Than 255!", 36);
+				exit(1);
+			}
+		}
+	}
+	else if(ft_strncmp(idf, "C", 1) == 0)
+	{
+		while (++i < 3)
+		{
+			if(data->ceil[i] > 255)
+			{
+				write(2, "Error\nColor Number Greater Than 255!", 36);
+				exit(1);
+			}
+		}
+	}
+}
+
+static void rgb_storage(t_data *data, char *idf, char *rgb)
 {
 	char **s;
-
-	s = ft_split(str, ',');
-	printf("%s\n", s[1]);
-}*/
+	int i;
+	
+	i = -1;
+	s = ft_split(rgb, ',');
+	if(ft_strncmp(idf, "F", 1) == 0)
+	{
+		while (++i < 3)
+			data->floor[i] = ft_atoi(s[i]);
+	}
+	else if(ft_strncmp(idf, "C", 1) == 0)
+	{
+		while (++i < 3)
+			data->ceil[i] = ft_atoi(s[i]);
+	}
+	ft_arg_free(s);
+}
 
 static int	number_control(char *str)
 {
@@ -59,24 +100,28 @@ static int	virgule_counter(char *str)
 void	map_ftrs_rgb_check(t_data *data, int i)
 {
 	char **str;
+	
 	while(data->map_ftrs[i])
 	{
 		str = ft_split(data->map_ftrs[i++], ' ');
 		if(virgule_counter(str[1]) > 2)
 		{
 			write(2, "Error\nRGB Color Code is Wrong!", 30);
+			//
 			exit(1);
 		}
 		if(number_control(str[1]) == 0)
 		{
 			write(2, "Error\nRGB Color Code is Wrong!", 30);
+			//
 			exit(1);
 		}
-		else
-		{
-			printf("aloha!");
-			//rgb_storage(str[1]);
-			//ft_arglen(str);	
-		}
+		rgb_storage(data, str[0], str[1]);
+		rgb_value_check(data, str[0]);
+		ft_arglen(str);	
 	}
+	data->floor_rgb = (data->floor[0] * 65536) + \
+						(data->floor[1] * 256) + data->floor[2];
+	data->ceil_rgb = (data->ceil[0] * 65536) + \
+						(data->ceil[1] * 256) + data->ceil[2];
 }
