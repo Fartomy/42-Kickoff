@@ -1,7 +1,7 @@
-NO ./assets/path_to_the_north_texture
-SO ./assets/path_to_the_south_texture
-WE ./assets/path_to_the_west_texture
-EA ./assets/path_to_the_east_texture
+NO ./assets/brick.png
+SO ./assets/diomand.png
+WE ./assets/emerald.png
+EA ./assets/grass.png
 
 F 220,100,0
 C 225,30,0
