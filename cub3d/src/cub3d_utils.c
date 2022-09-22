@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 15:44:51 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/22 14:37:20 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:49:53 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ void	set_value(t_data *data)
 	data->move_speed = 0.05;
 	data->rot_speed = 0.05;
 	data->nw_cnt = 1;
+	data->ltr_arg = 0;
+	data->ltr_idx = 0;
+	data->n_cnt = 0;
+	data->s_cnt = 0;
+	data->e_cnt = 0;
+	data->w_cnt = 0;
 }
 
 char	*ft_strcpy(char *dst, const char *src)

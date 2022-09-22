@@ -6,37 +6,112 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 14:42:42 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/22 15:15:37 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/22 19:39:14 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
-void	map_check(t_data *data, int i)
+static void	map_pos_check(t_data *data)
 {
-	int a;
-	int y;
-
-	y = 0;
-	a = i;
-	if(data->map_and_ftrs[a] != 0)
+	data->pos_cnt = 0;
+	data->ltr_arg = 0;
+	while (data->map[data->ltr_arg])
 	{
-		while (data->map_and_ftrs[a++])
-			y++;
-		data->map = ft_calloc(y, sizeof(char *) + 1);
-		y = 0;
-		while (data->map_and_ftrs[i])
+		data->ltr_idx = 0;
+		while (data->map[data->ltr_arg][data->ltr_idx])
 		{
-			data->map[y] = ft_calloc(ft_strlen(data->map_and_ftrs[i]), sizeof(char) + 1);
-			ft_strcpy(data->map[y++], data->map_and_ftrs[i++]);
+			if (data->map[data->ltr_arg] \
+				[data->ltr_idx] == 'N')
+					data->pos_cnt++;
+			else if (data->map[data->ltr_arg] \
+					[data->ltr_idx] == 'S')
+					data->pos_cnt++;
+			else if (data->map[data->ltr_arg] \
+					[data->ltr_idx] == 'E')
+					data->pos_cnt++;
+			else if (data->map[data->ltr_arg]\
+					[data->ltr_idx] == 'W')
+					data->pos_cnt++;
+			data->ltr_idx++;
 		}
-		data->map[y] = 0;
-		ft_arg_free(data->map_and_ftrs);
+		data->ltr_arg++;
 	}
-	else
+}
+
+static void	map_ltr_check(t_data *data)
+{
+	bool pos_ctrl;
+
+	pos_ctrl = false;
+	if (data->n_cnt == 0 && data->s_cnt == 0 && \
+		data->e_cnt == 0 && data->w_cnt == 0)
 	{
-		write(2, "Error\nMap Not Found!", 20);
-		//free?
+		write(1, "Error\nStarting Position Not Found!", 34);
 		exit(1);
+	}
+	if(data->n_cnt > 1 || data->s_cnt > 1 || \
+		data->e_cnt > 1 || data->w_cnt > 1)
+	{
+		write(1, "Error\nMore Than One Starting Position!", 38);
+		exit(1);
+	}
+	map_pos_check(data);
+	if(data->pos_cnt > 1)
+	{
+		write(1, "Error\nMore Than One Starting Position!", 38);
+		exit(1);
+	}
+}
+
+void	map_ltr_cnt(t_data *data)
+{
+	while (data->map[data->ltr_arg])
+	{
+		data->ltr_idx = 0;
+		while (data->map[data->ltr_arg][data->ltr_idx])
+		{
+			if (data->map[data->ltr_arg] \
+				[data->ltr_idx] == 'N')
+				data->n_cnt++;
+			else if (data->map[data->ltr_arg] \
+					[data->ltr_idx] == 'S')
+				data->s_cnt++;
+			else if (data->map[data->ltr_arg] \
+					[data->ltr_idx] == 'E')
+				data->e_cnt++;
+			else if (data->map[data->ltr_arg]\
+					[data->ltr_idx] == 'W')
+				data->w_cnt++;
+			data->ltr_idx++;
+		}
+		data->ltr_arg++;
+	}
+	map_ltr_check(data);
+}
+
+static int	row_cnt(char *row)
+{
+	int	i;
+
+	i = 0;
+	while (row[i])
+		i++;
+	return (i);
+}
+
+void	map_is_correct_check(t_data *data)
+{
+	int	arg;
+
+	arg = 1;
+	while (data->map[arg])
+	{
+		if (row_cnt(data->map[0]) != row_cnt(data->map[arg]))
+		{
+			write(1, "Error\nMap is Not Correct!", 25);
+			exit(1);
+		}
+		arg++;
 	}
 }

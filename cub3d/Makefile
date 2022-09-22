@@ -13,7 +13,7 @@ OBJS			= $(SRCS:src/%.c=src/bin/%.o)
 BIN				= ./src/bin
 LIB				= ./mlx/libmlx.a
 
-CC				= @gcc #-ggdb
+CC				= @gcc -ggdb
 RM				= @rm -rf
 CFLAGS			= -Wall -Wextra -Werror
 

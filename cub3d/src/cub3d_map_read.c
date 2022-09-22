@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 17:34:48 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/22 14:37:01 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:56:19 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,4 @@ void	map_oprt(t_data *data, char *arv)
 	close(fd);
 	data->map_and_ftrs = ft_map_split(map_s, '\n', data);
 	free(map_s);
-	
-	int i = 0;
-	while(data->map_ftrs[i])
-		printf("%s\n", data->map_ftrs[i++]);
 }
