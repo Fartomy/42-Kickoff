@@ -6,11 +6,11 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 13:05:45 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/21 18:51:10 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:05:26 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../inc/cub3d.h"
 
 static void	rgb_value_check(t_data *data, char *idf)
 {
@@ -118,7 +118,7 @@ void	map_ftrs_rgb_check(t_data *data, int i)
 		}
 		rgb_storage(data, str[0], str[1]);
 		rgb_value_check(data, str[0]);
-		ft_arglen(str);	
+		ft_arg_free(str);	
 	}
 	data->floor_rgb = (data->floor[0] * 65536) + \
 						(data->floor[1] * 256) + data->floor[2];

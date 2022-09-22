@@ -6,11 +6,11 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 17:34:48 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/18 11:04:19 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/22 14:37:01 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../inc/cub3d.h"
 
 void	*map_get_free(void *f)
 {

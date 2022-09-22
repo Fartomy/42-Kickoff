@@ -1,4 +1,5 @@
 NAME			= cub3D
+INC				= ./inc/
 LIBFT			= libft/libft.a
 
 RESET			=	\033[0m
@@ -7,26 +8,27 @@ YELLOW			=	\033[33m
 BLUE			=	\033[34m
 RED				=	\033[31m
 
-SRCS			=	cub3d.c		cub3d_utils.c	cub3d_map_read.c	cub3d_checks.c	cub3d_checks2.c	cub3d_checks3.c	cub3d_checks4.c \
-					cub3d_parse.c
-
-OBJS			= $(SRCS:.c=.o)
-
-CC				= gcc #-ggdb
-RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror
-
+SRCS			= $(shell find src -type f -name "*.c")
+OBJS			= $(SRCS:src/%.c=src/bin/%.o)
+BIN				= ./src/bin
 LIB				= ./mlx/libmlx.a
+
+CC				= @gcc #-ggdb
+RM				= @rm -rf
+CFLAGS			= -Wall -Wextra -Werror
 
 all:			$(LIB) $(LIBFT) $(NAME)
 
 $(LIB) : 
 		make -C ./mlx
 
+$(BIN):
+	@mkdir $(BIN)
+
 $(LIBFT):
 	@make -C libft/
 
-$(NAME):	$(LIBFT) $(OBJS)
+$(NAME):	$(BIN) $(LIBFT) $(OBJS)
 			@echo "$(YELLOW)>- Compiling... [$(NAME)] $(RESET)"
 			@$(CC) $(CFLAGS) $(LIBFT) $(OBJS) -framework OpenGL -framework AppKit -o $(NAME) $(LIB)
 			@echo "$(GREEN)>- Finished! $(RESET)"
@@ -34,6 +36,7 @@ $(NAME):	$(LIBFT) $(OBJS)
 clean:
 			@echo "$(RED)>- Deleting... [$(NAME)] $(RESET)"
 			@$(RM) $(OBJS)
+			@$(RM) $(BIN)
 			@make clean -C libft/
 			@echo "$(BLUE)>- Successfully! $(RESET)"
 
@@ -43,8 +46,9 @@ fclean:			clean
 
 re:				fclean $(NAME)
 
-%.o: %.c
-	 @$(CC) $(CFLAGS) -I./mlx -c $< -o $@
+$(BIN)%.o: src/%.c
+	@mkdir -p $(shell dirname $@)
+	@$(CC) $(CFLAGS) -c $< -o $@ -I$(INC)
 
 norm:			
 				norminette *.[ch]

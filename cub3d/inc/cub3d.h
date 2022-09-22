@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 14:35:07 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/21 18:22:26 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:02:35 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define CEIL	'C'
 
 
-# include "mlx/mlx.h"
+# include "../mlx/mlx.h"
 # include "../libft/libft.h"
 # include <stdbool.h>
 # include <stdio.h>
@@ -72,11 +72,11 @@ void	map_ftrs_is_same_check(t_data *data);
 void	map_ftrs_element_check(t_data *data);
 void	map_ftrs_path_check(t_data *data);
 void	map_ftrs_rgb_check(t_data *data, int i);
+void	map_check(t_data *data, int i);
 void	idf_f_ctrl(t_data *data);
 void	idf_c_ctrl(t_data *data);
-void	ft_arg_free(char **str);
-
 int		map_format_check(char *av);
+void	ft_arg_free(char **str);
 int		ft_arglen(char **arg);
 
 char	*ft_strcpy(char *dst, const char *src);

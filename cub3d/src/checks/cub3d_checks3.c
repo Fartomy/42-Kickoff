@@ -6,11 +6,11 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:28:07 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/21 13:45:32 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/22 14:36:43 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../inc/cub3d.h"
 
 void	idf_f_ctrl(t_data *data)
 {

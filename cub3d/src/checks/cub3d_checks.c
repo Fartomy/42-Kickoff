@@ -6,11 +6,11 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 15:32:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/21 17:40:26 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:02:50 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../inc/cub3d.h"
 
 int	map_format_check(char *av)
 {
@@ -113,4 +113,5 @@ void	map_features_check(t_data *data)
 	map_ftrs_is_same_check(data);
 	map_ftrs_element_check(data);
 	map_ftrs_path_check(data);
+	map_check(data, i);
 }

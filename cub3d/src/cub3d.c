@@ -6,11 +6,11 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 17:31:44 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/19 17:13:19 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/22 14:38:01 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../inc/cub3d.h"
 
 int main(int arc, char **arv)
 {

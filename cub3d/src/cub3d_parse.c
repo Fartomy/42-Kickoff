@@ -6,11 +6,11 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 23:51:53 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/21 17:29:55 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/22 14:37:10 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../inc/cub3d.h"
 
 static	size_t	word_count(char const *str, char chr)
 {
