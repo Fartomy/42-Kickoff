@@ -1,5 +1,5 @@
 ARCH=$(uname -a)
-PCPU=$(cat /proc/cpuinfo | grep cpu\ cores | uniq | wc -l)
+PCPU=$(cat /proc/cpuinfo | grep cpu\ cores | uniq | awk '{print($4)}')
 VCPU=$(cat /proc/cpuinfo | grep processor | wc -l)
 CPUUSG=$(top -b -n1 | grep "Cpu(s)" | awk '{print($4)"%"}')
 LASTBOOT=$(who -b | awk '{print $3,$4}')
