@@ -6,11 +6,32 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 13:05:45 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/22 15:05:26 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/27 13:41:35 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
+
+static void	rgb_nbr_empty_check(char *str)
+{
+	int i;
+	
+	i = -1;
+	if(str[0] == ',')
+	{
+		write(2, "Error\nRGB Color Code is Empty!", 30);
+		exit(1);
+	}
+	while(str[++i])
+	{
+		if((str[i] == ',' && str[i + 1] == ',') \
+			|| (str[i] == ',' && str[i + 1] == 0))
+		{
+			write(2, "Error\nRGB Color Code is Empty!", 30);
+			exit(1);
+		}
+	}
+}
 
 static void	rgb_value_check(t_data *data, char *idf)
 {
@@ -107,15 +128,14 @@ void	map_ftrs_rgb_check(t_data *data, int i)
 		if(virgule_counter(str[1]) > 2)
 		{
 			write(2, "Error\nRGB Color Code is Wrong!", 30);
-			//
 			exit(1);
 		}
 		if(number_control(str[1]) == 0)
 		{
 			write(2, "Error\nRGB Color Code is Wrong!", 30);
-			//
 			exit(1);
 		}
+		rgb_nbr_empty_check(str[1]);
 		rgb_storage(data, str[0], str[1]);
 		rgb_value_check(data, str[0]);
 		ft_arg_free(str);	

@@ -3,8 +3,8 @@ SO ./assets/diomand.png
 WE ./assets/emerald.png
 EA ./assets/grass.png
 
-F 215,255,251
-C 251,221,252
+F 215,255,2
+C 251,224,2
 
 111111
 100001

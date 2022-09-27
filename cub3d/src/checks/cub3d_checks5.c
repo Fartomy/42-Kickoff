@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 14:42:42 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/22 19:39:14 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/27 13:19:18 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,30 +88,4 @@ void	map_ltr_cnt(t_data *data)
 		data->ltr_arg++;
 	}
 	map_ltr_check(data);
-}
-
-static int	row_cnt(char *row)
-{
-	int	i;
-
-	i = 0;
-	while (row[i])
-		i++;
-	return (i);
-}
-
-void	map_is_correct_check(t_data *data)
-{
-	int	arg;
-
-	arg = 1;
-	while (data->map[arg])
-	{
-		if (row_cnt(data->map[0]) != row_cnt(data->map[arg]))
-		{
-			write(1, "Error\nMap is Not Correct!", 25);
-			exit(1);
-		}
-		arg++;
-	}
 }
