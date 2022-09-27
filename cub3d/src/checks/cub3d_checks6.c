@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 14:22:42 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/27 15:40:28 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/28 00:09:50 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,51 @@ static void	top_horizontal_check(t_data *data)
 	}
 }
 
+static void	is_wall_open(int i, char *big_line)
+{
+	while (big_line[i])
+	{
+		if(big_line[i] == '0')
+		{
+			write(2, "Error\nRight Vertical Wall is Wrong!", 35);
+			exit(1);
+		}
+		i++;
+	}
+}
+
+static void	right_vertical_check(t_data *data)
+{
+	int size_sml;
+	
+	data->wal_chk_arg = -1;
+	while (data->map[++data->wal_chk_arg] && data->map[data->wal_chk_arg + 1])
+	{
+		if(ft_strlen(data->map[data->wal_chk_arg]) > ft_strlen(data->map[data->wal_chk_arg + 1]))
+		{
+			size_sml = ft_strlen(data->map[data->wal_chk_arg + 1]);
+			is_wall_open(size_sml, data->map[data->wal_chk_arg]);
+		}
+		else if(ft_strlen(data->map[data->wal_chk_arg]) < ft_strlen(data->map[data->wal_chk_arg + 1]))
+		{
+			size_sml = ft_strlen(data->map[data->wal_chk_arg]);
+			is_wall_open(size_sml, data->map[data->wal_chk_arg + 1]);
+		}
+		else
+		{
+			if((data->map[data->wal_chk_arg][data->wal_chk_arg] != 1 || data->map[data->wal_chk_arg + 1][data->wal_chk_arg] != 1))
+			{
+				write(2, "Error\nRight Vertical Wall is Wrong!", 35);
+				exit(1);
+			}
+		}
+	}
+}
+
 void	map_wall_check(t_data *data)
 {
 	left_vertical_check(data);
 	top_horizontal_check(data);
 	bottom_horizontal_check(data);
+	right_vertical_check(data);
 }

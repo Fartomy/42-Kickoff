@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d_checks6.c                                    :+:      :+:    :+:   */
+/*   cub3d_checks5.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 19:05:16 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/27 14:30:41 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/28 00:13:39 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ void	map_check(t_data *data, int i)
 	{
 		while (data->map_and_ftrs[a++])
 			y++;
-		data->map = ft_calloc(y, sizeof(char *) + 1);
+		data->map = ft_calloc(y + 1, sizeof(char *));
 		y = 0;
 		while (data->map_and_ftrs[i])
 		{
-			data->map[y] = ft_calloc(ft_strlen(data->map_and_ftrs[i]), sizeof(char) + 1);
+			data->map[y] = ft_calloc(ft_strlen(data->map_and_ftrs[i]) + 1, sizeof(char));
 			ft_strcpy(data->map[y++], data->map_and_ftrs[i++]);
 		}
 		data->map[y] = 0;
@@ -47,7 +47,7 @@ void	map_all_check(t_data *data)
 
 	arg = 0;
 	idx = 0;
-	while (arg < ft_arglen(data->map))
+	while (data->map[arg])
 	{
 		idx = 0;
 		while (data->map[arg][idx])
@@ -58,7 +58,7 @@ void	map_all_check(t_data *data)
 					idx++;
 			else
 			{
-				write(1, "Error\nUndefined Character!\n", 28);
+				write(2, "Error\nUndefined Character!\n", 28);
 				printf("Arg: %d\nIdx: %d\n", arg, idx);
 				exit(1);
 			}

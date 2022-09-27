@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 14:35:07 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/27 15:33:57 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/28 00:19:26 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,6 @@ typedef struct s_data
 	int		e_cnt;
 	int		w_cnt;
 	int		pos_cnt;
-	
-	int		row_len;
-	int		row_cnt;
-	int		nw_cnt;
-	
 }	t_data;
 
 
@@ -93,6 +88,5 @@ void	map_wall_check(t_data *data);
 int		map_format_check(char *av);
 int		ft_arglen(char **arg);
 char	*ft_strcpy(char *dst, const char *src);
-char	**ft_map_split(char const *s, char c, t_data *data);
 
 #endif

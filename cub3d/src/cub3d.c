@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 17:31:44 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/27 15:45:09 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/27 23:50:21 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int main(int arc, char **arv)
 		map_features_check(&data);
 		map_ltr_cnt(&data);
 		map_all_check(&data);
-		map_wall_check(&data);
-		
+		map_wall_check(&data);	
 	}
 	else
 		write(2, "Error\nWrong Argument or Wrong Map Format!", 41);

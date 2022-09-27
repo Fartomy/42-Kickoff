@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 15:44:51 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/27 15:31:07 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/28 00:18:52 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	set_value(t_data *data)
 	data->ground_y = 0.66;
 	data->move_speed = 0.05;
 	data->rot_speed = 0.05;
-	data->nw_cnt = 1;
 	data->ltr_arg = 0;
 	data->ltr_idx = 0;
 	data->n_cnt = 0;
