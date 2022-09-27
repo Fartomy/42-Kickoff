@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 14:35:07 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/27 13:19:57 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/27 15:33:57 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,11 @@ typedef struct s_data
 	int		floor_rgb;
 	int		ceil_rgb;
 	
+	int		wal_chk_idx;
+	int		wal_chk_arg;
 	int		ltr_arg;
 	int		ltr_idx;
-
+	
 	int		n_cnt;
 	int		s_cnt;
 	int		e_cnt;
@@ -87,10 +89,9 @@ void	map_all_check(t_data *data);
 void	idf_f_ctrl(t_data *data);
 void	idf_c_ctrl(t_data *data);
 void	ft_arg_free(char **str);
-
+void	map_wall_check(t_data *data);
 int		map_format_check(char *av);
 int		ft_arglen(char **arg);
-
 char	*ft_strcpy(char *dst, const char *src);
 char	**ft_map_split(char const *s, char c, t_data *data);
 
