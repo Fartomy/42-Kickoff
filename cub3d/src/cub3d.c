@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 17:31:44 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/27 23:50:21 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/28 00:20:34 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,3 @@ int main(int arc, char **arv)
 	else
 		write(2, "Error\nWrong Argument or Wrong Map Format!", 41);
 }
-
-/*
-row_len, row_cnt ve nw_cnt sadece haritanın değerleri değil, bütün .cub dosyasının row_len'i ve row_cnt'si ve nw_cnt'si!!!!!1
-*/
