@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 14:22:42 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/28 00:09:50 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/28 01:13:31 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,8 @@ static void	right_vertical_check(t_data *data)
 		}
 		else
 		{
-			if((data->map[data->wal_chk_arg][data->wal_chk_arg] != 1 || data->map[data->wal_chk_arg + 1][data->wal_chk_arg] != 1))
+			size_sml = ft_strlen(data->map[data->wal_chk_arg]);
+			if(data->map[data->wal_chk_arg][size_sml - 1] != '1' || data->map[data->wal_chk_arg + 1][size_sml - 1] != '1')
 			{
 				write(2, "Error\nRight Vertical Wall is Wrong!", 35);
 				exit(1);
