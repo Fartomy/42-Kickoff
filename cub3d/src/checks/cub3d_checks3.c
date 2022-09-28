@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:28:07 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/22 14:36:43 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/28 11:37:34 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,19 +86,23 @@ void	map_ftrs_path_check(t_data *data)
 	int i;
 	
 	i = -1;
-	while (++i < 4)
+	while (data->map_ftrs[++i])
 	{
-		str = ft_split(data->map_ftrs[i], ' ');
-		if(open(str[1], O_RDWR, 0777) == -1)
+		if(!ft_strncmp(data->map_ftrs[i], "NO", 2) || !ft_strncmp(data->map_ftrs[i], "SO", 2) || \
+			!ft_strncmp(data->map_ftrs[i], "WE", 2) || !ft_strncmp(data->map_ftrs[i], "EA", 2))
 		{
-			write(2, "Error\nPath is Wrong!", 20);
+			str = ft_split(data->map_ftrs[i], ' ');
+			if(open(str[1], O_RDWR, 0777) == -1)
+			{
+				write(2, "Error\nPath is Wrong!", 20);
+				ft_arg_free(str);
+				paths_free(data, i);
+				exit(1);
+			}
+			data->paths[i] = ft_calloc(ft_strlen(str[1]), sizeof(char));
+			ft_strcpy(data->paths[i], str[1]);
 			ft_arg_free(str);
-			paths_free(data, i);
-			exit(1);
 		}
-		data->paths[i] = ft_calloc(ft_strlen(str[1]), sizeof(char));
-		ft_strcpy(data->paths[i], str[1]);
-		ft_arg_free(str);
 	}
 	map_ftrs_rgb_check(data, i);
 }

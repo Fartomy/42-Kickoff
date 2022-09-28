@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 13:05:45 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/27 13:41:35 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/28 13:38:24 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,26 +122,31 @@ void	map_ftrs_rgb_check(t_data *data, int i)
 {
 	char **str;
 	
-	while(data->map_ftrs[i])
+	i = -1;
+	while(data->map_ftrs[++i])
 	{
-		str = ft_split(data->map_ftrs[i++], ' ');
-		if(virgule_counter(str[1]) > 2)
+		if(!ft_strncmp(data->map_ftrs[i], "F", 1) || \
+			!ft_strncmp(data->map_ftrs[i], "C", 1))
 		{
-			write(2, "Error\nRGB Color Code is Wrong!", 30);
-			exit(1);
+			str = ft_split(data->map_ftrs[i], ' ');
+			if(virgule_counter(str[1]) > 2)
+			{
+				write(2, "Error\nRGB Color Code is Wrong!", 30);
+				exit(1);
+			}
+			if(number_control(str[1]) == 0)
+			{
+				write(2, "Error\nRGB Color Code is Wrong!", 30);
+				exit(1);
+			}
+			rgb_nbr_empty_check(str[1]);
+			rgb_storage(data, str[0], str[1]);
+			rgb_value_check(data, str[0]);
+			ft_arg_free(str);	
+			data->floor_rgb = (data->floor[0] * 65536) + \
+								(data->floor[1] * 256) + data->floor[2];
+			data->ceil_rgb = (data->ceil[0] * 65536) + \
+								(data->ceil[1] * 256) + data->ceil[2];	
 		}
-		if(number_control(str[1]) == 0)
-		{
-			write(2, "Error\nRGB Color Code is Wrong!", 30);
-			exit(1);
-		}
-		rgb_nbr_empty_check(str[1]);
-		rgb_storage(data, str[0], str[1]);
-		rgb_value_check(data, str[0]);
-		ft_arg_free(str);	
 	}
-	data->floor_rgb = (data->floor[0] * 65536) + \
-						(data->floor[1] * 256) + data->floor[2];
-	data->ceil_rgb = (data->ceil[0] * 65536) + \
-						(data->ceil[1] * 256) + data->ceil[2];
 }
