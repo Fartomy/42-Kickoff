@@ -6,21 +6,17 @@
 class PhoneBook
 {
     public:
-    std::string		first_name;
-    std::string		last_name;
+    std::string	first_name;
+    std::string	last_name;
 
-    int				phone_number;
-    
-    void			add_contact(PhoneBook *contacts);
-	void			search_contact();
-
+    int			phone_number;
 	/*Encapsulation*/
 	void	set_darkest_secret(std::string str)
 	{
 		darkest_secret = str;
 	}
 
-	std::string get_darkest_secret()
+	std::string	get_darkest_secret()
 	{
 		return (darkest_secret);
 	}
@@ -31,6 +27,6 @@ class PhoneBook
 };
 
 void	add_contact(PhoneBook *contacts);
-void	search_contact();
+/*void	search_contact();*/
 
 #endif

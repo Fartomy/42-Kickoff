@@ -1,25 +1,6 @@
 #include "phonebook.hpp"
 
-void	welcome_to_phonebook(PhoneBook *contacts)
-{
-	std::string cmd;
-
-	std::cout << "Please Type Command:\n1-ADD\n2-SEARCH\n3-EXIT" << std::endl;
-	std::cin >> cmd;
-	if (cmd == "ADD")
-		add_contact(contacts);
-    else if (cmd == "SEARCH")
-		search_contact();
-    else if (cmd == "EXIT")
-		exit(1);
-    else
-	{
-		std::cout << "Wrong Command Please Retype." << std::endl;
-		welcome_to_phonebook(contacts);
-	}
-}
-
-void	PhoneBook::add_contact(PhoneBook *contacts)
+void	add_contact(PhoneBook *contacts)
 {
 	int i = -1;
 	std::string secret_msg;
@@ -59,7 +40,28 @@ void	PhoneBook::add_contact(PhoneBook *contacts)
 	
 }
 
-int main()
+void	welcome_to_phonebook(PhoneBook *contacts)
+{
+	std::string cmd;
+
+	std::cout << "Please Type Command:\n1-ADD\n2-SEARCH\n3-EXIT" << std::endl;
+	std::cin >> cmd;
+	if (cmd == "ADD")
+		add_contact(contacts);
+/*    else if (cmd == "SEARCH")
+		search_contact();*/
+    else if (cmd == "EXIT")
+		exit(1);
+    else
+	{
+		std::cout << "Wrong Command! Please Retype.." << std::endl;
+		welcome_to_phonebook(contacts);
+	}
+}
+
+
+
+int main(void)
 {
 	PhoneBook contacts[8];
 
