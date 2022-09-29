@@ -20,11 +20,8 @@ int main(void)
 {
 	PhoneBook contacts[8];
 
+	cout << "*/ WELCOME TO THE PHONEBOOK-V1.2 \\*\n" << endl;
 	while (1)
 		welcome_to_phonebook(contacts);
 	return (0);
 }
-
-/* 
-	1- search kısmında kişi bilgisi 10 karakteri geçiyorsa 10. harften sonra nokta (.) koy.
-*/
