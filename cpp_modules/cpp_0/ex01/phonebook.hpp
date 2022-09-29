@@ -12,7 +12,8 @@ using std::endl;
 
 class PhoneBook
 {
-    public:
+public:
+
     string	first_name;
 	string	nick_name;
     string	last_name;
@@ -31,7 +32,8 @@ class PhoneBook
 		return (darkest_secret);
 	}
 	/*Encapsulation*/
-    private:
+private:
+
     string darkest_secret;
 
 };
