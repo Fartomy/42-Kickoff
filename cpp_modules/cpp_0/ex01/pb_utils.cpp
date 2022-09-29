@@ -11,10 +11,33 @@ bool	isNumber(string nbr)
 	return (true);
 }
 
+string	shortener(string st)
+{
+	char str[11];
+	int x = -1;
+
+	if(st.length() > 10)
+	{
+		while (++x <= 9)
+		{
+			if(x == 9)
+			{
+				str[x++] = '.';
+				str[x] = 0;
+				break ;
+			}
+			str[x] = st[x];
+		}
+		return (str);
+	}
+	else
+		return (st);
+}
+
 void	display_contact(PhoneBook *contacts, int i)
 {
-	cout << contacts[i].index << " | " << contacts[i].first_name << \
-		" | " << contacts[i].last_name << " | " << contacts[i].nick_name << endl;
+	cout << contacts[i].index << " | " << shortener(contacts[i].first_name) << \
+			" | " << shortener(contacts[i].last_name) << " | " << shortener(contacts[i].nick_name) << endl;
 }
 
 void	search_contact(PhoneBook *contacts)

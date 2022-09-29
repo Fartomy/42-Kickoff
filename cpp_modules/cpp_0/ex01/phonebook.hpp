@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include <unistd.h>
 
 using std::cout;
 using std::cin;

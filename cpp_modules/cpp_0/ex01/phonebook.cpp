@@ -18,7 +18,7 @@ void	welcome_to_phonebook(PhoneBook *contacts)
 
 int main(void)
 {
-	PhoneBook contacts[100];
+	PhoneBook contacts[8];
 
 	while (1)
 		welcome_to_phonebook(contacts);
