@@ -50,6 +50,9 @@ void	search_contact(PhoneBook *contacts)
 		cout << "No saved contacts! Please some save contact." << endl;
 		return ;
 	}
+	while (++i < contacts->add_cnt)
+		display_contact(contacts, i);
+	i = -1;
 	cout << "Please search a contact name, last name or nickname:" << endl;
 	cin >> str;
 	while (++i < contacts->add_cnt)
