@@ -2,31 +2,42 @@
 #define PHONEBOOK_H
 
 #include <iostream>
+#include <stdlib.h>
+
+using std::cout;
+using std::cin;
+using std::string;
+using std::endl;
 
 class PhoneBook
 {
     public:
-    std::string	first_name;
-    std::string	last_name;
+    string	first_name;
+	string	nick_name;
+    string	last_name;
+    string	phone_number;
 
-    int			phone_number;
+	int		index;
+	int		add_cnt;
 	/*Encapsulation*/
 	void	set_darkest_secret(std::string str)
 	{
 		darkest_secret = str;
 	}
 
-	std::string	get_darkest_secret()
+	string	get_darkest_secret()
 	{
 		return (darkest_secret);
 	}
 	/*Encapsulation*/
     private:
-    std::string darkest_secret;
+    string darkest_secret;
 
 };
 
+bool	isNumber(string nbr);
 void	add_contact(PhoneBook *contacts);
-/*void	search_contact();*/
+void	search_contact(PhoneBook *contacts);
+void	display_contact(PhoneBook *contacts, int i);
 
 #endif
