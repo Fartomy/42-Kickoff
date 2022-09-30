@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:17:01 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/30 16:17:02 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/30 19:56:59 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ string	shortener(string st)
 {
 	char str[11];
 	int x = -1;
+	int len;
 
 	if(st.length() > 10)
 	{
@@ -43,7 +44,16 @@ string	shortener(string st)
 		return (str);
 	}
 	else
-		return (st);
+	{
+		len = st.length();
+		len = 10 - len;
+		while (st[++x])
+			str[x] = st[x];
+		while (len--)
+			str[x++] = ' ';
+		str[x] = 0;
+		return (str);
+	}
 }
 
 void	display_contact(PhoneBook *contacts, int i)
@@ -54,7 +64,7 @@ void	display_contact(PhoneBook *contacts, int i)
 
 void	search_contact(PhoneBook *contacts)
 {
-	string str;
+	int idx;
 	int i = -1;
 
 	if(contacts->add_cnt == 0)
@@ -65,21 +75,11 @@ void	search_contact(PhoneBook *contacts)
 	while (++i < contacts->add_cnt)
 		display_contact(contacts, i);
 	i = -1;
-	cout << "Please search a contact name, last name or nickname:" << endl;
-	cin >> str;
+	cout << "Please search contact index number:" << endl;
+	cin >> idx;
 	while (++i < contacts->add_cnt)
 	{
-		if(str == contacts[i].first_name)
-		{
-			display_contact(contacts, i);
-			return ;
-		}
-		else if(str == contacts[i].last_name)
-		{
-			display_contact(contacts, i);
-			return ;
-		}
-		else if(str == contacts[i].nick_name)
+		if(idx == contacts[i].index)
 		{
 			display_contact(contacts, i);
 			return ;
