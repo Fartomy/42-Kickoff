@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 19:05:16 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/28 00:13:39 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/30 14:45:37 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	map_check(t_data *data, int i)
 {
-	int a;
-	int y;
+	int	a;
+	int	y;
 
 	y = 0;
 	a = i;
-	if(data->map_and_ftrs[a] != 0)
+	if (data->map_and_ftrs[a] != 0)
 	{
 		while (data->map_and_ftrs[a++])
 			y++;
@@ -27,7 +27,8 @@ void	map_check(t_data *data, int i)
 		y = 0;
 		while (data->map_and_ftrs[i])
 		{
-			data->map[y] = ft_calloc(ft_strlen(data->map_and_ftrs[i]) + 1, sizeof(char));
+			data->map[y] = ft_calloc(ft_strlen(data->map_and_ftrs[i]) + 1, \
+							sizeof(char));
 			ft_strcpy(data->map[y++], data->map_and_ftrs[i++]);
 		}
 		data->map[y] = 0;
@@ -85,7 +86,7 @@ static void	map_pos_check(t_data *data)
 			else if (data->map[data->ltr_arg] \
 					[data->ltr_idx] == 'E')
 					data->pos_cnt++;
-			else if (data->map[data->ltr_arg]\
+			else if (data->map[data->ltr_arg] \
 					[data->ltr_idx] == 'W')
 					data->pos_cnt++;
 			data->ltr_idx++;
@@ -96,7 +97,7 @@ static void	map_pos_check(t_data *data)
 
 static void	map_ltr_check(t_data *data)
 {
-	bool pos_ctrl;
+	bool	pos_ctrl;
 
 	pos_ctrl = false;
 	if (data->n_cnt == 0 && data->s_cnt == 0 && \
@@ -105,14 +106,14 @@ static void	map_ltr_check(t_data *data)
 		write(1, "Error\nStarting Position Not Found!", 34);
 		exit(1);
 	}
-	if(data->n_cnt > 1 || data->s_cnt > 1 || \
+	if (data->n_cnt > 1 || data->s_cnt > 1 || \
 		data->e_cnt > 1 || data->w_cnt > 1)
 	{
 		write(1, "Error\nMore Than One Starting Position!", 38);
 		exit(1);
 	}
 	map_pos_check(data);
-	if(data->pos_cnt > 1)
+	if (data->pos_cnt > 1)
 	{
 		write(1, "Error\nMore Than One Starting Position!", 38);
 		exit(1);
@@ -135,7 +136,7 @@ void	map_ltr_cnt(t_data *data)
 			else if (data->map[data->ltr_arg] \
 					[data->ltr_idx] == 'E')
 				data->e_cnt++;
-			else if (data->map[data->ltr_arg]\
+			else if (data->map[data->ltr_arg] \
 					[data->ltr_idx] == 'W')
 				data->w_cnt++;
 			data->ltr_idx++;

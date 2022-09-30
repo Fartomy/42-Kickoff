@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 14:35:07 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/28 00:19:26 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/30 14:56:14 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,12 @@ void	idf_f_ctrl(t_data *data);
 void	idf_c_ctrl(t_data *data);
 void	ft_arg_free(char **str);
 void	map_wall_check(t_data *data);
+void	right_vertical_check(t_data *data);
+void	rgb_storage(t_data *data, char *idf, char *rgb);
+
 int		map_format_check(char *av);
 int		ft_arglen(char **arg);
+
 char	*ft_strcpy(char *dst, const char *src);
 
 #endif

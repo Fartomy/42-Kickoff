@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:00:22 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/22 14:36:40 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/30 14:40:31 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	idf_ea_ctrl(t_data *data)
 {
-	int i;
-	int cnt;
+	int	i;
+	int	cnt;
 
 	i = -1;
 	cnt = 0;
@@ -23,19 +23,18 @@ static void	idf_ea_ctrl(t_data *data)
 	{
 		if (ft_strncmp(data->map_ftrs[i], "EA", 2) == 0)
 			cnt++;
-		if(cnt > 1)
+		if (cnt > 1)
 		{
 			write(2, "Error\nSame identifer detected!", 30);
-			//free
 			exit(1);
 		}
-	}	
+	}
 }
 
 static void	idf_we_ctrl(t_data *data)
 {
-	int i;
-	int cnt;
+	int	i;
+	int	cnt;
 
 	i = -1;
 	cnt = 0;
@@ -43,19 +42,18 @@ static void	idf_we_ctrl(t_data *data)
 	{
 		if (ft_strncmp(data->map_ftrs[i], "WE", 2) == 0)
 			cnt++;
-		if(cnt > 1)
+		if (cnt > 1)
 		{
 			write(2, "Error\nSame identifer detected!", 30);
-			//free
 			exit(1);
 		}
-	}	
+	}
 }
 
 static void	idf_so_ctrl(t_data *data)
 {
-	int i;
-	int cnt;
+	int	i;
+	int	cnt;
 
 	i = -1;
 	cnt = 0;
@@ -63,10 +61,9 @@ static void	idf_so_ctrl(t_data *data)
 	{
 		if (ft_strncmp(data->map_ftrs[i], "SO", 2) == 0)
 			cnt++;
-		if(cnt > 1)
+		if (cnt > 1)
 		{
 			write(2, "Error\nSame identifer detected!", 30);
-			//free
 			exit(1);
 		}
 	}	
@@ -74,8 +71,8 @@ static void	idf_so_ctrl(t_data *data)
 
 static void	idf_no_ctrl(t_data *data)
 {
-	int i;
-	int cnt;
+	int	i;
+	int	cnt;
 
 	i = -1;
 	cnt = 0;
@@ -83,10 +80,9 @@ static void	idf_no_ctrl(t_data *data)
 	{
 		if (ft_strncmp(data->map_ftrs[i], "NO", 2) == 0)
 			cnt++;
-		if(cnt > 1)
+		if (cnt > 1)
 		{
 			write(2, "Error\nSame identifer detected!", 30);
-			//free
 			exit(1);
 		}
 	}	
