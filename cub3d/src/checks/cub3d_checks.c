@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 15:32:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/30 14:59:11 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/30 15:11:40 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,8 @@ static int	identifer_ctrl(char *str)
 		if (ft_isalpha(str[i]))
 		{
 			x = i;
-			while (str[x] != ' ' && str[x])
-			{
+			while (str[x] != ' ' && str[x++])
 				cnt++;
-				x++;
-			}
 			if (cnt > 2)
 				return (0);
 			else

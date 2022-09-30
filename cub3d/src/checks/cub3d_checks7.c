@@ -6,11 +6,17 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 14:53:23 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/30 15:00:42 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/30 15:17:41 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
+
+void	rgb_clr_code_err_msg(void)
+{
+	write(2, "Error\nRGB Color Code is Wrong!", 30);
+	exit(1);
+}
 
 void	rgb_storage(t_data *data, char *idf, char *rgb)
 {

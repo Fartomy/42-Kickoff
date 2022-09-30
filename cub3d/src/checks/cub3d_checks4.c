@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 13:05:45 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/30 14:55:32 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/30 15:18:29 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,15 +110,9 @@ void	map_ftrs_rgb_check(t_data *data, int i)
 		{
 			str = ft_split(data->map_ftrs[i], ' ');
 			if (virgule_counter(str[1]) > 2)
-			{
-				write(2, "Error\nRGB Color Code is Wrong!", 30);
-				exit(1);
-			}
+				rgb_clr_code_err_msg();
 			if (number_control(str[1]) == 0)
-			{
-				write(2, "Error\nRGB Color Code is Wrong!", 30);
-				exit(1);
-			}
+				rgb_clr_code_err_msg();
 			rgb_nbr_empty_check(str[1]);
 			rgb_storage(data, str[0], str[1]);
 			rgb_value_check(data, str[0]);
