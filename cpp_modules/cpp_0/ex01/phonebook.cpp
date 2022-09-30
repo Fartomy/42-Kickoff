@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:11:25 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/30 16:11:26 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/09/30 16:25:50 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	welcome_to_phonebook(PhoneBook *contacts)
 int main(void)
 {
 	PhoneBook contacts[8];
-
+	
+	contacts->add_cnt = 0;
 	cout << "*/ WELCOME TO THE PHONEBOOK-V1.2 \\*\n" << endl;
 	while (1)
 		welcome_to_phonebook(contacts);
