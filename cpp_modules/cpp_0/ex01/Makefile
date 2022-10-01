@@ -1,11 +1,11 @@
 NAME			=	phonebook
 
-SRCS			=	phonebook.cpp	pb_utils.cpp
-LIB				=	phonebook.hpp
+SRCS			=	PhoneBook.cpp	pb_utils.cpp
+LIB				=	PhoneBook.hpp
 					
 OBJS			=	$(SRCS:%.cpp=%.o)
 
-CC				= 	g++
+CC				= 	c++
 RM				= 	rm -rf
 CPPFLAGS		= 	-Wall -Wextra -Werror -std=c++98
 

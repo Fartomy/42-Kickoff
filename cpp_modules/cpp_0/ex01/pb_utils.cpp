@@ -6,39 +6,11 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:17:01 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/01 14:56:02 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/01 17:04:33 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
-
-char	*ft_itoa(int n)
-{
-	char	*str;
-	int		temp;
-	int		idx;
-
-	temp = n;
-	idx = 1;
-	while (temp && idx++)
-		temp /= 10;
-	str = (char *)malloc((sizeof(char)) * (n <= 0) + idx);
-	if (!str)
-		return (0);
-	str += (n < 0) + idx - 1 + (n == 0);
-	*str = '\0';
-	if (n == 0)
-		*(--str) = '0';
-	idx = (n >= 0) * 2 - 1;
-	while (n)
-	{
-		*(--str) = (n % (10 * idx) * idx + '0');
-		n /= 10;
-	}
-	if (idx < 0)
-		*(--str) = '-';
-	return (str);
-}
+#include "PhoneBook.hpp"
 
 bool	isNumber(string nbr)
 {
@@ -84,81 +56,67 @@ string	shortener(string st)
 	}
 }
 
-void	display_contact(PhoneBook *contacts, int i)
+void	display_contact(PhoneBook *ph, int i)
 {
-	cout << contacts[i].index << " | " << shortener(contacts[i].first_name) << \
-			" | " << shortener(contacts[i].last_name) << " | " << shortener(contacts[i].nick_name) << endl;
+	cout << i + 1 << " | " << shortener(ph->get_contact(i).get_first_name()) << \
+			" | " << shortener(ph->get_contact(i).get_last_name()) << " | " << shortener(ph->get_contact(i).get_nick_name()) << endl;
 }
 
-void	search_contact(PhoneBook *contacts)
+void	PhoneBook::search_contact(void)
 {
 	string idx;
 	int i = -1;
 
-	if(contacts->add_cnt == 0)
+	if(add_cnt == 0)
 	{
 		cout << "No saved contacts! Please some save contact." << endl;
 		return ;
 	}
-	while (++i < contacts->add_cnt)
-		display_contact(contacts, i);
+	while (++i < add_cnt)
+		display_contact(this, i);
 	i = -1;
 	cout << "Please search contact index number:" << endl;
 	cin >> idx;
-	while (++i < contacts->add_cnt)
+	while (++i < add_cnt)
 	{
-		if(idx == ft_itoa(contacts[i].index))
+		if(std::atoi(idx.c_str()) == contact[i].get_index())
 		{
-			display_contact(contacts, i);
+			display_contact(this, i);
 			return ;
 		}
 	}
 	cout << "The contact not found!" << endl;
 }
 
-void	add_contact(PhoneBook *contacts)
+void	PhoneBook::add_contact(void)
 {
 	static int i = 0;
-	string secret_msg;
+	string str;
 
     if(i >= 8)
-    {
-        cout << i + 1 << '-' << "Enter a Name:" << endl;
-        cin >> contacts[(i - contacts->add_cnt)].first_name;
-        cout << i + 1 << '-' << "Enter a Last Name:" << endl;
-        cin >> contacts[(i - contacts->add_cnt)].last_name;
-        cout << i + 1 << '-' << "Enter a Nick Name:" << endl;
-        cin >> contacts[(i - contacts->add_cnt)].nick_name;
-        cout << i + 1 << '-' << "Enter a Phone Number:" << endl;
-        cin >> contacts[(i - contacts->add_cnt)].phone_number;
-        while (!isNumber(contacts[i - contacts->add_cnt].phone_number))
-	    {
-		    cout << "Please type a number!\nEnter a Phone Number: ";
-		    cin >> contacts[i - contacts->add_cnt].phone_number;
-	    }
-        cout << i + 1 << '-' << " Enter a Darkest Secret:" << endl;
-	    cin >> secret_msg;
-	    contacts[i - contacts->add_cnt].set_darkest_secret(secret_msg);
-        contacts[i - contacts->add_cnt].index = (i - contacts->add_cnt) + 1;
-        return ;
-    }
+		i = 0;
+	if(add_cnt < 8)
+		add_cnt++;
 	cout << i + 1 << '-' << " Enter a Name:" << endl;
-	cin >> contacts[i].first_name;
+	cin >> str;
+	contact[i].set_first_name(str);
 	cout << i + 1 << '-' << " Enter a Last Name:" << endl;
-	cin >> contacts[i].last_name;
+	cin >> str;
+	contact[i].set_last_name(str);
 	cout << i + 1 << '-' << " Enter a Nick Name:" << endl;
-	cin >> contacts[i].nick_name;
+	cin >> str;
+	contact[i].set_nick_name(str);
 	cout << i + 1 << '-' << " Enter a Phone Number:" << endl;
-	cin >> contacts[i].phone_number;
-	while (!isNumber(contacts[i].phone_number))
+	cin >> str;
+	while (!isNumber(str))
 	{
 		cout << "Please type a number!\nEnter a Phone Number: ";
-		cin >> contacts[i].phone_number;
+		cin >> str;
 	}
+	contact[i].set_phone_number(str);
 	cout << i + 1 << '-' << " Enter a Darkest Secret:" << endl;
-	cin >> secret_msg;
-	contacts[i].set_darkest_secret(secret_msg);
-	contacts[i].index = i + 1;
-	contacts->add_cnt = i + 1;
+	cin >> str;
+	contact[i].set_darkest_secret(str);
+	contact[i].set_index(i + 1);
 	i++;
 }

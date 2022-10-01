@@ -6,22 +6,22 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:11:25 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/30 16:25:50 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/01 16:51:45 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
-void	welcome_to_phonebook(PhoneBook *contacts)
+void	welcome_to_phonebook(PhoneBook &obj)
 {
 	string cmd;
 
 	cout << "Please Type Command:\n1-ADD\n2-SEARCH\n3-EXIT" << endl;
 	cin >> cmd;
 	if (cmd == "ADD")
-		add_contact(contacts);
+		obj.add_contact();
     else if (cmd == "SEARCH")
-		search_contact(contacts);
+		obj.search_contact();
     else if (cmd == "EXIT")
 		exit(1);
     else
@@ -30,11 +30,10 @@ void	welcome_to_phonebook(PhoneBook *contacts)
 
 int main(void)
 {
-	PhoneBook contacts[8];
+	PhoneBook obj;
 	
-	contacts->add_cnt = 0;
 	cout << "*/ WELCOME TO THE PHONEBOOK-V1.2 \\*\n" << endl;
 	while (1)
-		welcome_to_phonebook(contacts);
+		welcome_to_phonebook(obj);
 	return (0);
 }
