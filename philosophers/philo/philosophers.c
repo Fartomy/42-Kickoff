@@ -16,10 +16,10 @@ void	die_check(t_phdata *ph_data)
 {
 	while (1)
 	{
-	//	pthread_mutex_lock(ph_data->lock);
+		pthread_mutex_lock(ph_data->lock);
 		if (*ph_data->is_dead)
 			return ;
-	//	pthread_mutex_unlock(ph_data->lock);
+		pthread_mutex_unlock(ph_data->lock);
 		usleep(10);
 	}
 }
@@ -52,7 +52,9 @@ void	*snuggle_up(void *data)
 int	main(int ac, char **av)
 {
 	t_phdata	*ph_data;
+	int			i;
 
+	i = 0;
 	if ((ac == 5 || ac == 6) && arg_check(av))
 	{
 		ph_data = (t_phdata *)malloc(sizeof(t_phdata) * ft_atoi(av[1]));

@@ -106,7 +106,7 @@ void	create_philo(t_phdata *ph_data)
 	{
 		pthread_create(&ph_data[i].thread, NULL, \
 		(void *)snuggle_up, &ph_data[i]);
-		//pthread_detach(ph_data[i].thread);
+		pthread_detach(ph_data[i].thread);
 		i += 2;
 	}
 	i = 1;
@@ -115,7 +115,7 @@ void	create_philo(t_phdata *ph_data)
 	{
 		pthread_create(&ph_data[i].thread, NULL, \
 		(void *)snuggle_up, &ph_data[i]);
-		//pthread_detach(ph_data[i].thread);
+		pthread_detach(ph_data[i].thread);
 		i += 2;
 	}
 }
