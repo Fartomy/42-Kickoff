@@ -6,11 +6,39 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:17:01 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/30 19:56:59 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/01 14:56:02 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		temp;
+	int		idx;
+
+	temp = n;
+	idx = 1;
+	while (temp && idx++)
+		temp /= 10;
+	str = (char *)malloc((sizeof(char)) * (n <= 0) + idx);
+	if (!str)
+		return (0);
+	str += (n < 0) + idx - 1 + (n == 0);
+	*str = '\0';
+	if (n == 0)
+		*(--str) = '0';
+	idx = (n >= 0) * 2 - 1;
+	while (n)
+	{
+		*(--str) = (n % (10 * idx) * idx + '0');
+		n /= 10;
+	}
+	if (idx < 0)
+		*(--str) = '-';
+	return (str);
+}
 
 bool	isNumber(string nbr)
 {
@@ -64,7 +92,7 @@ void	display_contact(PhoneBook *contacts, int i)
 
 void	search_contact(PhoneBook *contacts)
 {
-	int idx;
+	string idx;
 	int i = -1;
 
 	if(contacts->add_cnt == 0)
@@ -79,7 +107,7 @@ void	search_contact(PhoneBook *contacts)
 	cin >> idx;
 	while (++i < contacts->add_cnt)
 	{
-		if(idx == contacts[i].index)
+		if(idx == ft_itoa(contacts[i].index))
 		{
 			display_contact(contacts, i);
 			return ;
