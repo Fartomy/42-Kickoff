@@ -1,6 +1,7 @@
-NAME			=	brain
+NAME			=	violence
 
-SRCS			=	main.cpp
+SRCS			=	main.cpp	HumanA.cpp	HumanB.cpp	Weapon.cpp
+LIB				=	Weapon.hpp	HumanA.hpp	HumanB.hpp
 
 OBJS			=	$(SRCS:%.cpp=%.o)
 
@@ -10,7 +11,7 @@ CPPFLAGS		= 	-Wall -Wextra -Werror -std=c++98
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS)
+$(NAME):		$(OBJS) $(LIB)
 				$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
 
 clean:
