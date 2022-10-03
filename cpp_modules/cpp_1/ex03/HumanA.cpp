@@ -14,5 +14,5 @@
 
 void	HumanA::attack(void)
 {
-	cout << name << " attacks with their " << wpn.getType() << endl;
+	cout << name << " attacks with their " << wpn->getType() << endl;
 }

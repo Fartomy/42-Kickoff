@@ -22,5 +22,12 @@ int main(void)
 	bob.attack();
 	club.setType("Elwerici");
 	bob.attack();
+
+	HumanB jim("Jim");
+	jim.setWeapon(club);
+	jim.attack();
+	club.setType("Famas Gold");
+	jim.attack();
+
 	return (0);
 }

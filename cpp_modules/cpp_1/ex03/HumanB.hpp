@@ -35,9 +35,9 @@ public:
 	{
 		name = nm;
 	}
-	void	setWeapon(Weapon wp)
+	void	setWeapon(Weapon &wp)
 	{
-		wpn = wp;
+		wpn = &wp;
 	}
 
 	string	getName(void)
@@ -46,11 +46,11 @@ public:
 	}
 	string	getWeapon(void)
 	{
-		return (wpn.getType());
+		return (wpn->getType());
 	}
 private:
-	string name;
-	Weapon wpn;
+	string	name;
+	Weapon* wpn;
 };
 
 #endif

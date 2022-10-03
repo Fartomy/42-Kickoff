@@ -11,3 +11,13 @@
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
+
+void	Weapon::setType(string typ)
+{
+	type = typ;
+}
+
+const string& Weapon::getType(void)
+{
+	return (type);
+}

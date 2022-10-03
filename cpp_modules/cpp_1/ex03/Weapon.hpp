@@ -27,14 +27,9 @@ public:
 	{
 		setType(nm);
 	};
-	void	setType(string typ)
-	{
-		type = typ;
-	}
-	const string& getType(void)
-	{
-		return(type);
-	}
+
+	void			setType(string nm);
+	const string&	getType(void);
 private:
 	string type;
 };
