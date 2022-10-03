@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 17:05:10 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/01 17:05:11 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/10/02 12:59:10 by ftekdrmi          #+#    #+#             */
+/*   Updated: 2022/10/02 12:59:11 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,23 @@ public:
 	{
 		name = str;
 	}
-	string	get_name(void)
+	string	get_name()
 	{
 		return (name);
 	}
-	Zombie(){}; // Default Constrctr
+	Zombie(){};
 	Zombie(string name)
 	{
 		this->name = name;
 	};
 	~Zombie()
 	{
-		cout << name << " destroyed" << endl;
-	};
-
+		cout << name << ": Destroyed!" << endl;
+	}
 private:
-	string	name;
+	string name;
 };
 
-Zombie	*newZombie(string name);
-void	randomChump(string name);
+Zombie	*zombieHorde( int N, std::string name );
 
 #endif

@@ -10,3 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Zombie.hpp"
+
+
+int main(void)
+{
+	Zombie z_obj("Foo");
+	z_obj.announce();
+
+	Zombie *z_ptr = newZombie("Foo_ptr");
+	randomChump("Soo_Foo");
+	delete z_ptr;
+
+	return (0);
+}

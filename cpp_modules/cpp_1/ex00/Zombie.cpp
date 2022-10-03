@@ -10,3 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Zombie.hpp"
+
+void	Zombie::announce(void)
+{
+	cout << name << ": BraiiiiiiinnnzzzZ..." << endl;
+}

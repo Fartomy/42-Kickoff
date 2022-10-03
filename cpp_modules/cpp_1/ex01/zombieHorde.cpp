@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 17:05:03 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/01 17:05:04 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/10/02 12:59:13 by ftekdrmi          #+#    #+#             */
+/*   Updated: 2022/10/02 12:59:16 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void	randomChump(string name)
+Zombie*	zombieHorde(int N, string name)
 {
-	Zombie zombie(name);
-	zombie.announce();
+	Zombie *z_ptr;
+
+	z_ptr = new Zombie[N];
+	for (int i = 0; i < N; ++i)
+		z_ptr[i].set_name(name);
+	return (z_ptr);
 }

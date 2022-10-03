@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 17:05:03 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/01 17:05:04 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/10/02 12:59:07 by ftekdrmi          #+#    #+#             */
+/*   Updated: 2022/10/02 12:59:08 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void	randomChump(string name)
+void	Zombie::announce(void)
 {
-	Zombie zombie(name);
-	zombie.announce();
+	cout << name << ": BraiiiiiiinnnzzzZ..." << endl;
 }
