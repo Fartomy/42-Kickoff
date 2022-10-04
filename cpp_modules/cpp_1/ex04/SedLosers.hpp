@@ -14,6 +14,10 @@ using std::fstream;
 class SedLosers
 {
 public:
+
+	ofstream fot;
+	ifstream fin;
+
 	void	setFilename(string fn)
 	{
 		fileName = fn;
@@ -44,8 +48,6 @@ private:
 	string fileName;
 	string s1;
 	string s2;
-	ofstream fot;
-	ifstream fin;
 };
 
 
