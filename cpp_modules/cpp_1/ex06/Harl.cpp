@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 23:19:36 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/06 23:19:37 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/10/06 23:19:50 by ftekdrmi          #+#    #+#             */
+/*   Updated: 2022/10/06 23:19:51 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	Harl::info(void)
 void	Harl::warning(void)
 {
 	cout << "[ WARNING ]" << endl;
-	cout << "I think I deserve to have some extra bacon for free. I’ve been coming for"
+	cout << "I think I deserve to have some extra bacon for free.\nI’ve been coming for"
 			"years whereas you started working here since last month." << endl;
 }
 
@@ -58,17 +58,23 @@ void	Harl::complain(string level)
 	{
 		case 0 :
 			(this->*fncPtr[0])();
+			(this->*fncPtr[1])();
+			(this->*fncPtr[2])();
+			(this->*fncPtr[3])();
 			break;
 		case 1 :
 			(this->*fncPtr[1])();
+			(this->*fncPtr[2])();
+			(this->*fncPtr[3])();
 			break;
 		case 2 :
 			(this->*fncPtr[2])();
+			(this->*fncPtr[3])();
 			break;
 		case 3 :
 			(this->*fncPtr[3])();
 			break;
 		default :
-			cout << "Harl says: Wrong Choice!" << endl;
+			cout << "[ Probably complaining about insignificant problems ]" << endl;
 	}
 }

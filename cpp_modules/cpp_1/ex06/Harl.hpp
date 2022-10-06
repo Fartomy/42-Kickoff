@@ -1,21 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 23:19:40 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/06 23:19:41 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/10/06 23:19:52 by ftekdrmi          #+#    #+#             */
+/*   Updated: 2022/10/06 23:19:53 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#include <iostream>
 
-int main(void)
+using std::cout;
+using std::endl;
+using std::string;
+
+class Harl
 {
-	Harl	obj;
+public:
+	Harl()
+	{
+		fncPtr[0] = &Harl::debug;
+		fncPtr[1] = &Harl::info;
+		fncPtr[2] = &Harl::warning;
+		fncPtr[3] = &Harl::error;
+	};
+	void	complain(string level);
 
-	obj.complain("asd");
-	return (0);
-}
+private:
+	void	(Harl::*fncPtr[4])();
+	void	debug(void);
+	void	info(void);
+	void	warning(void);
+	void	error(void);
+};
