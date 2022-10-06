@@ -14,13 +14,32 @@
 
 int main(int ac, char **av)
 {
-	if(ac == 4)
+	if (ac == 4)
 	{
-		SedLosers	fn;
+		SedLosers		sl;
+		string			allFile;
+		size_t			nb;
 
-		fn.setFilename(char[1]);
-		fn.setS1(char[2]);
-		fn.setS2(char[3]);
+		sl.setFilename(av[1]);
+		sl.setS1(av[2]);
+		sl.setS2(av[3]);
+
+		if(!sedLoserCheck(sl.getS1(), sl.getS2()))
+		{
+			cout << "Same Words!" << endl;
+			return (1);
+		}
+		allFile = copyFileContent(sl);
+		while ((nb = allFile.find(sl.getS1())) != string::npos)
+		{
+			allFile.erase(nb, sl.getS1().length());
+			allFile.insert(nb, sl.getS2());
+		}
+		sl.fin.close();
+		sl.setFilename(sl.getFilename() + ".replace");
+		sl.fot.open(sl.getFilename());
+		sl.fot << allFile << endl;
+		sl.fot.close();
 	}
 	else
 		cout << "Wrong Number of Arguments!" << endl;

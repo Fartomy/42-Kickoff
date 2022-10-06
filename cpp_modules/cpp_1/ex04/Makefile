@@ -1,7 +1,7 @@
 NAME			=	sedlosers
 
-SRCS			=	main.cpp
-LIB				=	#
+SRCS			=	main.cpp	setGetFuncs.cpp	sedlosersUtils.cpp
+LIB				=	SedLosers.hpp
 
 OBJS			=	$(SRCS:%.cpp=%.o)
 

@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   SedLosers.hpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/06 18:40:58 by ftekdrmi          #+#    #+#             */
+/*   Updated: 2022/10/06 18:40:59 by ftekdrmi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SEDLOSERS_HPP
 #define SEDLOSERS_HPP
 
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 using std::string;
 using std::cout;
@@ -10,6 +23,7 @@ using std::endl;
 using std::ifstream;
 using std::ofstream;
 using std::fstream;
+using std::stringstream;
 
 class SedLosers
 {
@@ -18,31 +32,13 @@ public:
 	ofstream fot;
 	ifstream fin;
 
-	void	setFilename(string fn)
-	{
-		fileName = fn;
-	}
-	void	setS1(string s)
-	{
-		s1 = s;
-	}
-	void	setS2(string s)
-	{
-		s2 = s;
-	}
+	void	setFilename(string fn);
+	void	setS1(string s);
+	void	setS2(string s);
 
-	string	getFilename(void)
-	{
-		return (fileName);
-	}
-	string getS1(void)
-	{
-		return (s1);
-	}
-	string getS2(void)
-	{
-		return (s2);
-	}
+	string	getFilename(void);
+	string&	getS1(void);
+	string&	getS2(void);
 
 private:
 	string fileName;
@@ -50,5 +46,7 @@ private:
 	string s2;
 };
 
+string	copyFileContent(SedLosers& fn);
+bool	sedLoserCheck(string& s1, string& s2);
 
 #endif
