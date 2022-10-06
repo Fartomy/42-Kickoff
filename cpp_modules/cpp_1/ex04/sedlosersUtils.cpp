@@ -40,3 +40,24 @@ bool	sedLoserCheck(string& s1, string& s2)
 	return (true);
 }
 
+void	pasteFileContent(SedLosers& fn, string& alFl)
+{
+	fn.setFilename(fn.getFilename() + ".replace");
+	fn.fot.open(fn.getFilename());
+	fn.fot << alFl << endl;
+	fn.fot.close();
+}
+
+string&	changeFileContent(SedLosers& fn, string& alFl)
+{
+	size_t nb;
+
+	while ((nb = alFl.find(fn.getS1())) != string::npos)
+	{
+		alFl.erase(nb, fn.getS1().length());
+		alFl.insert(nb, fn.getS2());
+	}
+	fn.fin.close();
+
+	return (alFl);
+}

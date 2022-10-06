@@ -48,5 +48,7 @@ private:
 
 string	copyFileContent(SedLosers& fn);
 bool	sedLoserCheck(string& s1, string& s2);
+void	pasteFileContent(SedLosers& fn, string& alFl);
+string&	changeFileContent(SedLosers& fn, string& alFl);
 
 #endif

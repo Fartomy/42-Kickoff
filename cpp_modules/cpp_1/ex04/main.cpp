@@ -18,7 +18,6 @@ int main(int ac, char **av)
 	{
 		SedLosers		sl;
 		string			allFile;
-		size_t			nb;
 
 		sl.setFilename(av[1]);
 		sl.setS1(av[2]);
@@ -30,16 +29,8 @@ int main(int ac, char **av)
 			return (1);
 		}
 		allFile = copyFileContent(sl);
-		while ((nb = allFile.find(sl.getS1())) != string::npos)
-		{
-			allFile.erase(nb, sl.getS1().length());
-			allFile.insert(nb, sl.getS2());
-		}
-		sl.fin.close();
-		sl.setFilename(sl.getFilename() + ".replace");
-		sl.fot.open(sl.getFilename());
-		sl.fot << allFile << endl;
-		sl.fot.close();
+		allFile = changeFileContent(sl, allFile);
+		pasteFileContent(sl, allFile);
 	}
 	else
 		cout << "Wrong Number of Arguments!" << endl;
