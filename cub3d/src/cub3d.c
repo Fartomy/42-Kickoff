@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 17:31:44 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/30 14:37:09 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/07 17:30:56 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ int	main(int arc, char **arv)
 		map_ltr_cnt(&data);
 		map_all_check(&data);
 		map_wall_check(&data);
+		int i = 0;
+		while (data.paths[i])
+			printf("%s\n", data.paths[i++]);
 	}
 	else
 		write(2, "Error\nWrong Argument or Wrong Map Format!", 41);

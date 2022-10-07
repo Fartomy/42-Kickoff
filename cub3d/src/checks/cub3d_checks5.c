@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 19:05:16 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/30 14:45:37 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/07 17:03:01 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	map_check(t_data *data, int i)
 	{
 		while (data->map_and_ftrs[a++])
 			y++;
-		data->map = ft_calloc(y + 1, sizeof(char *));
+		data->map = (char **)ft_calloc(y + 1, sizeof(char *));
 		y = 0;
 		while (data->map_and_ftrs[i])
 		{

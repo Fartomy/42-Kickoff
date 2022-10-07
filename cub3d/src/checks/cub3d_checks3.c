@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:28:07 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/30 14:50:22 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/07 17:27:33 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,9 @@ void	map_ftrs_path_check(t_data *data)
 {
 	char	**str;
 	int		i;
+	int		x;
 
+	x = 0;
 	i = -1;
 	while (data->map_ftrs[++i])
 	{
@@ -98,10 +100,12 @@ void	map_ftrs_path_check(t_data *data)
 				paths_free(data, i);
 				exit(1);
 			}
-			data->paths[i] = ft_calloc(ft_strlen(str[1]), sizeof(char));
-			ft_strcpy(data->paths[i], str[1]);
+			data->paths[x] = ft_calloc(ft_strlen(str[1]), sizeof(char));
+			ft_strcpy(data->paths[x], str[1]);
 			ft_arg_free(str);
+			x++;
 		}
 	}
+	data->paths[x] = 0;
 	map_ftrs_rgb_check(data, i);
 }
