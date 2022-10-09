@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:28:07 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/07 17:27:33 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/09 14:43:20 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,32 @@ void	map_ftrs_element_check(t_data *data)
 	}
 }
 
-static void	paths_free(t_data *data, int i)
+static void	path_storage(t_data *data,	char **str)
 {
-	int	x;
-
-	x = 0;
-	while (x < i)
-		free(data->paths[x++]);
+	if(!ft_strncmp(str[0], "NO", 2))
+	{
+		data->no[0] = ft_strdup(str[0]);
+		data->no[1] = ft_strdup(str[1]);
+		data->no[2] = 0;
+	}
+	else if(!ft_strncmp(str[0], "SO", 2))
+	{
+		data->so[0] = ft_strdup(str[0]);
+		data->so[1] = ft_strdup(str[1]);
+		data->so[2] = 0;
+	}
+	else if(!ft_strncmp(str[0], "WE", 2))
+	{
+		data->we[0] = ft_strdup(str[0]);
+		data->we[1] = ft_strdup(str[1]);
+		data->we[2] = 0;
+	}
+	else if(!ft_strncmp(str[0], "EA", 2))
+	{
+		data->ea[0] = ft_strdup(str[0]);
+		data->ea[1] = ft_strdup(str[1]);
+		data->ea[2] = 0;
+	}
 }
 
 void	map_ftrs_path_check(t_data *data)
@@ -97,15 +116,12 @@ void	map_ftrs_path_check(t_data *data)
 			{
 				write(2, "Error\nPath is Wrong!", 20);
 				ft_arg_free(str);
-				paths_free(data, i);
 				exit(1);
 			}
-			data->paths[x] = ft_calloc(ft_strlen(str[1]), sizeof(char));
-			ft_strcpy(data->paths[x], str[1]);
+			path_storage(data, str);
 			ft_arg_free(str);
 			x++;
 		}
 	}
-	data->paths[x] = 0;
 	map_ftrs_rgb_check(data, i);
 }

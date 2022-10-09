@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 14:35:07 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/30 15:27:22 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/09 14:38:33 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,12 @@ typedef struct s_data
 	void	*mlx_win_ptr;
 
 	char	**map_and_ftrs;
-	char	*paths[4];
+	//char	*paths[4];
+	char 	*no[3];
+	char	*so[3];
+	char	*we[3];
+	char	*ea[3];
+	
 	char	*map_ftrs[6];
 	char	**map;
 

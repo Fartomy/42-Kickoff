@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:55:05 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/14 17:35:55 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/09 14:02:12 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,16 +64,3 @@ char	**ft_split(char const *s, char c)
 	res[index] = NULL;
 	return (res);
 }
-
-//int main()
-//{
-//	char *test = "merhaba nasılsın";
-//	char **test2 = ft_split(test, ' ');
-//	int i = 0;
-
-//	while (test2[i])
-//	{
-//		printf("%s\n", test2[i]);
-//		i++; 
-//	}
-//}
