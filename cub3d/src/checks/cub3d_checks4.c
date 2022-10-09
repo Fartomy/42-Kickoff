@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 13:05:45 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/09 14:44:45 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/09 15:19:22 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	map_ftrs_rgb_check(t_data *data, int i)
 			rgb_nbr_empty_check(str[1]);
 			rgb_storage(data, str[0], str[1]);
 			rgb_value_check(data, str[0]);
-			ft_arg_free(str);			
+			ft_arg_free(str);
 		}
 	}
 	data->floor_rgb = (data->floor[0] * 65536) + \

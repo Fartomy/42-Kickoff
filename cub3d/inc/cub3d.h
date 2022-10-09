@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 14:35:07 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/09 14:38:33 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/09 15:21:20 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,18 @@
 
 typedef struct s_data
 {
-	double	ground_x;
-	double	ground_y;
 	double	pos_x;
 	double	pos_y;
-	double	dir_x;
-	double	dir_y;
-	double	move_speed;
-	double	rot_speed;
 
 	void	*mlx_ptr;
 	void	*mlx_win_ptr;
 
 	char	**map_and_ftrs;
-	//char	*paths[4];
-	char 	*no[3];
+	char	*no[3];
 	char	*so[3];
 	char	*we[3];
 	char	*ea[3];
-	
+
 	char	*map_ftrs[6];
 	char	**map;
 

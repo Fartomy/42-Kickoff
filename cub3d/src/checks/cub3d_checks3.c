@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:28:07 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/09 14:43:20 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/09 15:23:57 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,25 +70,25 @@ void	map_ftrs_element_check(t_data *data)
 
 static void	path_storage(t_data *data,	char **str)
 {
-	if(!ft_strncmp(str[0], "NO", 2))
+	if (!ft_strncmp(str[0], "NO", 2))
 	{
 		data->no[0] = ft_strdup(str[0]);
 		data->no[1] = ft_strdup(str[1]);
 		data->no[2] = 0;
 	}
-	else if(!ft_strncmp(str[0], "SO", 2))
+	else if (!ft_strncmp(str[0], "SO", 2))
 	{
 		data->so[0] = ft_strdup(str[0]);
 		data->so[1] = ft_strdup(str[1]);
 		data->so[2] = 0;
 	}
-	else if(!ft_strncmp(str[0], "WE", 2))
+	else if (!ft_strncmp(str[0], "WE", 2))
 	{
 		data->we[0] = ft_strdup(str[0]);
 		data->we[1] = ft_strdup(str[1]);
 		data->we[2] = 0;
 	}
-	else if(!ft_strncmp(str[0], "EA", 2))
+	else if (!ft_strncmp(str[0], "EA", 2))
 	{
 		data->ea[0] = ft_strdup(str[0]);
 		data->ea[1] = ft_strdup(str[1]);
@@ -100,9 +100,7 @@ void	map_ftrs_path_check(t_data *data)
 {
 	char	**str;
 	int		i;
-	int		x;
 
-	x = 0;
 	i = -1;
 	while (data->map_ftrs[++i])
 	{
@@ -120,7 +118,6 @@ void	map_ftrs_path_check(t_data *data)
 			}
 			path_storage(data, str);
 			ft_arg_free(str);
-			x++;
 		}
 	}
 	map_ftrs_rgb_check(data, i);
