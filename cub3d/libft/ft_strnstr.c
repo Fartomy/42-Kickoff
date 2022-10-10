@@ -3,41 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/04 11:22:47 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/18 00:39:12 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/01/13 02:57:25 by syildiri          #+#    #+#             */
+/*   Updated: 2022/01/13 03:08:15 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *str1, const char *str2, size_t n)
 {
-	size_t	i;
-	size_t	x;
-	char	*hystck;
+	size_t		i;
+	size_t		j;
 
-	hystck = (char *)haystack;
-	x = 0;
 	i = 0;
-	if (ft_strlen(needle) == 0)
-		return (hystck);
-	while (hystck[x] != '\0' && len >= ft_strlen(needle))
+	if (*str2 == '\0' || str2 == NULL)
+		return ((char *) str1);
+	while (str1[i] != '\0' && i < n)
 	{
-		while (hystck[i + x] == needle[i] && \
-			hystck[i + x] != '\0' && needle[i] != '\0')
+		j = 0;
+		while (str2[j] == str1[i + j] && i + j < n)
+		{
+			if (str2[j + 1] == '\0')
+			{
+				return ((char *)str1 + i);
+			}
+			j++;
+		}
 		i++;
-		if (needle[i] == '\0')
-			return (&hystck[x]);
-		x++;
-		len--;
 	}
-	return (0);
+	return (NULL);
 }
-
-/*int main()
-{
-	printf("%s", ft_strnstr("merhaba", "hab", 3));
-	return(0);
-}*/

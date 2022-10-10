@@ -3,64 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/10 17:55:05 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/09 14:02:12 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/01/13 02:56:58 by syildiri          #+#    #+#             */
+/*   Updated: 2022/01/13 02:59:48 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
-static	size_t	word_count(char const *str, char chr)
+static size_t	w_l(char const *s, char c)
 {
-	size_t	cnt;
+	size_t	r;
 
-	cnt = 0;
-	while (str[cnt] != '\0' && str[cnt] != chr)
-		cnt++;
-	return (cnt);
+	r = 0;
+	while (s[r] != '\0' && s[r] != c)
+		r++;
+	return (r);
 }
 
-static	size_t	len_word(char const *s, char c)
+static size_t	w_c(char const *s, char c)
 {
-	size_t	len;
+	size_t	r;
 
-	len = 0;
+	r = 0;
 	while (*s != '\0')
 	{
 		if (*s != c && (s[1] == '\0' || s[1] == c))
-			len++;
+			r++;
 		s++;
 	}
-	return (len);
+	return (r);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**res;
-	size_t	index;
-	size_t	two_index;
-	size_t	word_len;
+	char	**r;
+	size_t	i;
+	size_t	l;
+	size_t	w_i;
 
 	if (!s)
 		return (NULL);
-	word_len = len_word(s, c);
-	res = (char **)malloc(sizeof(char *) * word_len + 1);
-	if (res == NULL)
+	l = w_c(s, c);
+	r = (char **)malloc(sizeof(char *) * l + 1);
+	if (r == NULL)
 		return (NULL);
-	index = 0;
-	while (index < word_len)
+	i = 0;
+	while (i < l)
 	{
 		while (*s == c && *s != '\0')
 			s++;
-		res[index] = (char *)malloc(sizeof(char) * word_count(s, c) + 1);
-		two_index = 0;
+		r[i] = (char *)malloc(sizeof(char) * w_l(s, c) + 1);
+		w_i = 0;
 		while (*s != c && *s != '\0')
-			res[index][two_index++] = *s++;
-		res[index][two_index] = '\0';
-		index++;
+			r[i][w_i++] = *s++;
+		r[i][w_i] = '\0';
+		i++;
 	}
-	res[index] = NULL;
-	return (res);
+	r[i] = NULL;
+	return (r);
 }

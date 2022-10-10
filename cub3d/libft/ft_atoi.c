@@ -3,45 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/04 14:14:51 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/10 12:07:25 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/01/13 02:55:05 by syildiri          #+#    #+#             */
+/*   Updated: 2022/01/13 03:10:07 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *s)
+int	ft_atoi(const char *str)
 {
-	int				nm;
-	long long int	tmp;
+	int		neg_value;
+	int		i;
+	long	value;
 
-	nm = 1;
-	tmp = 0;
-	while (*s == ' ' || *s == '\n' || *s == '\t' || *s == '\v' \
-			|| *s == '\f' || *s == '\r')
-		s++;
-	if (*s == '-' || *s == '+')
+	i = 0;
+	neg_value = 1;
+	value = 0;
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
+		|| str[i] == '\f' || str[i] == '\r')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (*s == '-')
-			nm = -1;
-		s++;
+		if (str[i++] == '-')
+			neg_value *= -1;
 	}
-	while (*s >= '0' && *s <= '9')
+	while (str[i] >= 48 && str[i] <= 57)
 	{
-		tmp = (tmp * 10) + (*s - '0') * nm;
-		s++;
-		if (tmp > 2147483647)
-			return (-1);
-		if (tmp < -2147483648)
+		value = value * 10 + (str[i++] - 48);
+		if ((value * neg_value) < -2147483648)
 			return (0);
+		if ((value * neg_value) > 2147483647)
+			return (-1);
 	}
-	return (tmp);
+	return (value * neg_value);
 }
-
-/*int main()
-{
-	printf("%d", ft_atoi("   -12"));
-	return(0);
-}*/

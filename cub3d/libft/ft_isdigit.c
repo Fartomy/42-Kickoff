@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 11:30:00 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/08 19:40:36 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/01/13 02:55:20 by syildiri          #+#    #+#             */
+/*   Updated: 2022/01/13 02:55:21 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isdigit(int c)
 {
-	if (c >= '0' && c <= '9')
+	if (c >= 48 && c <= 57)
 		return (1);
 	return (0);
 }

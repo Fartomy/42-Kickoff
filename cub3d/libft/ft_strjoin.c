@@ -3,35 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 19:37:03 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/10 13:25:27 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/01/13 02:57:08 by syildiri          #+#    #+#             */
+/*   Updated: 2022/01/13 02:57:09 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	len_s1;
-	size_t	len_s2;
-	char	*res;
+	size_t	len1;
+	size_t	len2;
+	char	*str;
+	int		i;
 
-	if (!s1 || !s2)
+	i = 0;
+	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	len_s1 = (ft_strlen((char *)s1));
-	len_s2 = (ft_strlen((char *)s2));
-	res = (char *)malloc((len_s1 + len_s2 + 1) * sizeof(char));
-	if (res == NULL)
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	str = (char *)malloc(len1 + len2 +2);
+	if ((str) == NULL)
 		return (NULL);
-	ft_strlcpy(res, s1, len_s1 + 1);
-	ft_strlcpy(&res[len_s1], s2, len_s2 + 1);
-	return (res);
+	while (s1[i] != '\0')
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	while (s2[i - len1] != '\0')
+	{
+		str[i] = s2[i - len1];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
-/*int main()
-{
-    char a[] = "merhaba";
-    char b[] = "selam";
-    printf("%s", ft_strjoin(a, b));
-}*/

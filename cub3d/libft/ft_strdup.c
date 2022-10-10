@@ -3,32 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 12:08:59 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/08 19:58:55 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/01/13 02:57:03 by syildiri          #+#    #+#             */
+/*   Updated: 2022/01/13 03:07:56 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup(const char *str)
 {
-	char	*str1;
-	char	*str2;
-	size_t	cnt;
+	char	*new_str;
+	int		i ;
 
-	str1 = (char *)s1;
-	cnt = ft_strlen(str1);
-	str2 = malloc(sizeof(char) * (cnt + 1));
-	if (!str2)
-		return (0);
-	str2[cnt] = '\0';
-	return (ft_memcpy(str2, str1, cnt));
+	i = 0;
+	new_str = (char *)malloc(ft_strlen((const char *) str) + 1);
+	if (new_str == NULL)
+		return (NULL);
+	while (str[i])
+	{
+		new_str[i] = str[i];
+		i++;
+	}
+	new_str[i] = '\0';
+	return (new_str);
 }
-
-/*int main()
-{
-	char a[] = "bilgisayar";
-	printf("%s", ft_strdup(a));
-}*/

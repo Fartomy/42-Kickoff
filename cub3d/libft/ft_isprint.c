@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 12:53:26 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/08 19:41:22 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/01/13 02:55:22 by syildiri          #+#    #+#             */
+/*   Updated: 2022/01/13 02:55:24 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
 int	ft_isprint(int c)
 {
-	if (c >= 32 && c < 127)
-		return (1);
+	if ((c >= 32 && c <= 126))
+	{
+		return (c);
+	}
 	return (0);
 }

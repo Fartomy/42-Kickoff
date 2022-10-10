@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_checks5.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 19:05:16 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/07 17:03:01 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:00:46 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
+#include"../../inc/cub3d.h"
 
-void	map_check(t_data *data, int i)
+void	map_check(t_data2 *data, int i)
 {
 	int	a;
 	int	y;
@@ -41,7 +41,7 @@ void	map_check(t_data *data, int i)
 	}
 }
 
-void	map_all_check(t_data *data)
+void	map_all_check(t_data2 *data)
 {
 	int	arg;
 	int	idx;
@@ -68,7 +68,7 @@ void	map_all_check(t_data *data)
 	}
 }
 
-static void	map_pos_check(t_data *data)
+static void	map_pos_check(t_data2 *data)
 {
 	data->pos_cnt = 0;
 	data->ltr_arg = 0;
@@ -95,7 +95,7 @@ static void	map_pos_check(t_data *data)
 	}
 }
 
-static void	map_ltr_check(t_data *data)
+static void	map_ltr_check(t_data2 *data)
 {
 	bool	pos_ctrl;
 
@@ -120,7 +120,7 @@ static void	map_ltr_check(t_data *data)
 	}
 }
 
-void	map_ltr_cnt(t_data *data)
+void	map_ltr_cnt(t_data2 *data)
 {
 	while (data->map[data->ltr_arg])
 	{

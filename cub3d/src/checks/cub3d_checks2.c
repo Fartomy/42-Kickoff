@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_checks2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:00:22 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/07 16:57:14 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:00:46 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
+#include"../../inc/cub3d.h"
 
-static void	idf_ea_ctrl(t_data *data)
+static void	idf_ea_ctrl(t_data2 *data)
 {
 	int	i;
 	int	cnt;
@@ -31,7 +31,7 @@ static void	idf_ea_ctrl(t_data *data)
 	}
 }
 
-static void	idf_we_ctrl(t_data *data)
+static void	idf_we_ctrl(t_data2 *data)
 {
 	int	i;
 	int	cnt;
@@ -50,7 +50,7 @@ static void	idf_we_ctrl(t_data *data)
 	}
 }
 
-static void	idf_so_ctrl(t_data *data)
+static void	idf_so_ctrl(t_data2 *data)
 {
 	int	i;
 	int	cnt;
@@ -69,7 +69,7 @@ static void	idf_so_ctrl(t_data *data)
 	}	
 }
 
-static void	idf_no_ctrl(t_data *data)
+static void	idf_no_ctrl(t_data2 *data)
 {
 	int	i;
 	int	cnt;
@@ -88,7 +88,7 @@ static void	idf_no_ctrl(t_data *data)
 	}	
 }
 
-void	map_ftrs_is_same_check(t_data *data)
+void	map_ftrs_is_same_check(t_data2 *data)
 {
 	idf_no_ctrl(data);
 	idf_so_ctrl(data);

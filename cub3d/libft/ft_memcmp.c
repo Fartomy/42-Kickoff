@@ -3,41 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/04 12:23:13 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/10 12:36:48 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/01/13 02:56:36 by syildiri          #+#    #+#             */
+/*   Updated: 2022/01/13 03:04:19 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
 {
-	size_t			i;
-	unsigned char	*str1;
-	unsigned char	*str2;
+	const unsigned char	*k;
+	const unsigned char	*j;
+	size_t				i ;
 
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
 	i = 0;
-	while (i < n)
+	k = (const unsigned char *)ptr1;
+	j = (const unsigned char *)ptr2;
+	while (n--)
 	{
-		if (str1[i] != str2[i])
-			return (str1[i] - str2[i]);
-		i++;
+		if (k[i] == j[i])
+		{
+			i++;
+		}
+		else
+			return (-(j[i] - k[i]));
 	}
 	return (0);
 }
-
-// int main()
-// {
-// 	char a[] = "furkan";
-// 	char b[] = "fyrkan";
-
-// 	char a1[] = "furkan";
-// 	char b1[] = "fyrkan";
-
-// 	printf("%d\n", ft_memcmp(a,b,3));
-// 	printf("%d", memcmp(a1, b1, 3));
-// }

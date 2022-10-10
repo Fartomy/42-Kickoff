@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_checks7.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 14:53:23 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/30 15:17:41 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:00:46 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
+#include"../../inc/cub3d.h"
 
 void	rgb_clr_code_err_msg(void)
 {
@@ -18,7 +18,7 @@ void	rgb_clr_code_err_msg(void)
 	exit(1);
 }
 
-void	rgb_storage(t_data *data, char *idf, char *rgb)
+void	rgb_storage(t_data2 *data, char *idf, char *rgb)
 {
 	char	**s;
 	int		i;
@@ -57,7 +57,7 @@ static void	rght_wll_err_msg(void)
 	exit(1);
 }
 
-void	right_vertical_check(t_data *data)
+void	right_vertical_check(t_data2 *data)
 {
 	int	size_sml;
 

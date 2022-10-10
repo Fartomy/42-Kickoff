@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_checks.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 15:32:38 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/09 13:17:58 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:00:46 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
+#include"../../inc/cub3d.h"
 
 int	map_format_check(char *av)
 {
@@ -29,7 +29,7 @@ int	map_format_check(char *av)
 		return (0);
 }
 
-static void	map_ftrs_free(t_data *data, int i)
+static void	map_ftrs_free(t_data2 *data, int i)
 {
 	int	x;
 
@@ -84,7 +84,7 @@ static int	identifer_ctrl(char *str)
 	return (0);
 }
 
-void	map_features_check(t_data *data)
+void	map_features_check(t_data2 *data)
 {
 	int		i;
 	char	*str;

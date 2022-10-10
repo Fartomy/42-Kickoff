@@ -1,15 +1,15 @@
-NO ./assets/brick.png
-SO ./assets/diomand.png
-WE ./assets/emerald.png
-EA ./assets/grass.png
+NO ./images/wall_no.xpm
+SO ./images/emerald.xpm
+WE ./images/grass.xpm
+EA ./images/brick.xpm
 
-C 231,23,2
-F 23,12,23
+C 127,166,252
+F 75,101,75
 
 111111111
 10000000011111
 1000000000001111
-1000000000000001
+1000000100000001
 1000000000000001
 100000000000001
 1000N00000000001111

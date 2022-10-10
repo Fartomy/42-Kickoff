@@ -3,32 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 13:10:52 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/10 13:20:22 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/01/13 02:56:44 by syildiri          #+#    #+#             */
+/*   Updated: 2022/01/13 03:07:19 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned char	*str;
+	unsigned char	*temp;
+	size_t			i;
 
-	str = (unsigned char *)s;
-	while (n-- > 0)
+	temp = (unsigned char *)s;
+	i = 0;
+	while (i < n)
 	{
-		str[n] = (unsigned char )c;
+		temp[i] = c;
+		i++;
 	}
-	return (str);
+	return (s);
 }
-
-/*int main()
-{
-	char a[] = "selam";
-	printf("%s\n", ft_memset(a, 'x', 2));
-
-	char a1[] = "selam";
-	printf("%s", memset(a1, 'x', 2));
-}*/

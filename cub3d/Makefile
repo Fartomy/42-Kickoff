@@ -11,16 +11,16 @@ RED				=	\033[31m
 SRCS			= $(shell find src -type f -name "*.c")
 OBJS			= $(SRCS:src/%.c=src/bin/%.o)
 BIN				= ./src/bin
-LIB				= ./mlx/libmlx.a
+LIB				= ./minilibx_macos/libmlx.a
 
-CC				= @gcc -ggdb
+CC				= @gcc #-ggdb
 RM				= @rm -rf
 CFLAGS			= -Wall -Wextra -Werror
 
 all:			$(LIB) $(LIBFT) $(NAME)
 
 $(LIB) : 
-		make -C ./mlx
+		@make -C ./mlx
 
 $(BIN):
 	@mkdir $(BIN)

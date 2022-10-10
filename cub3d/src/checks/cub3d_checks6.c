@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_checks6.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 14:22:42 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/30 15:00:35 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:00:46 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
+#include"../../inc/cub3d.h"
 
-static void	bottom_horizontal_check(t_data *data)
+static void	bottom_horizontal_check(t_data2 *data)
 {
 	data->wal_chk_arg -= 1;
 	data->wal_chk_idx = 0;
@@ -28,7 +28,7 @@ static void	bottom_horizontal_check(t_data *data)
 	}
 }
 
-static void	left_vertical_check(t_data *data)
+static void	left_vertical_check(t_data2 *data)
 {
 	while (data->map[data->wal_chk_arg])
 	{
@@ -41,7 +41,7 @@ static void	left_vertical_check(t_data *data)
 	}
 }
 
-static void	top_horizontal_check(t_data *data)
+static void	top_horizontal_check(t_data2 *data)
 {
 	while (data->map[0][data->wal_chk_idx])
 	{
@@ -54,7 +54,7 @@ static void	top_horizontal_check(t_data *data)
 	}
 }
 
-void	map_wall_check(t_data *data)
+void	map_wall_check(t_data2 *data)
 {
 	left_vertical_check(data);
 	top_horizontal_check(data);

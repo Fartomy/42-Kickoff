@@ -3,36 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 15:48:14 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/08 20:06:59 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/01/13 02:57:13 by syildiri          #+#    #+#             */
+/*   Updated: 2022/01/13 02:57:14 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 
 	i = 0;
-	if (size != 0)
+	if (dstsize == 0)
 	{
-		while (src[i] != '\0' && i < (size - 1))
-		{
-			dst[i] = src[i];
+		while (src[i])
 			i++;
-		}
-		dst[i] = '\0';
+		return (i);
 	}
-	return (ft_strlen(src));
+	while (i < dstsize - 1 && src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	if (i < dstsize)
+		dst[i] = '\0';
+	while (src[i] != '\0')
+		i++;
+	return (i);
 }
-
-/*int main()
-{
-	char a[50] = "";
-	char b[50] = "selam";
-	printf("%zu\n", ft_strlcpy(a, b, 2));
-	printf("%zu", strlcpy(a,b,2));
-}*/

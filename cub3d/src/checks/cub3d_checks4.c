@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_checks4.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 13:05:45 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/09 15:19:22 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:01:54 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
+#include"../../inc/cub3d.h"
 
 static void	rgb_nbr_empty_check(char *str)
 {
@@ -33,7 +33,7 @@ static void	rgb_nbr_empty_check(char *str)
 	}
 }
 
-static void	rgb_value_check(t_data *data, char *idf)
+static void	rgb_value_check(t_data2 *data, char *idf)
 {
 	int	i;
 
@@ -98,7 +98,7 @@ static int	virgule_counter(char *str)
 	return (cnt);
 }
 
-void	map_ftrs_rgb_check(t_data *data, int i)
+void	map_ftrs_rgb_check(t_data2 *data, int i)
 {
 	char	**str;
 

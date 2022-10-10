@@ -3,45 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 17:41:47 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/13 15:43:53 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/01/13 02:57:11 by syildiri          #+#    #+#             */
+/*   Updated: 2022/01/13 02:57:12 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
-	size_t	dstlen;
-	size_t	srclen;
+	size_t	j;
+	size_t	src_len;
+	size_t	dst_len;
 
-	i = 0;
-	dstlen = ft_strlen(dst);
-	srclen = ft_strlen(src);
-	if (size <= dstlen)
-		return (size + srclen);
-	while (src[i] != '\0' && size > (dstlen + 1))
-		dst[dstlen++] = src[i++];
-	dst[dstlen] = '\0';
-	return (dstlen + ft_strlen((char *)(src + i)));
+	j = 0;
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	i = dst_len;
+	if (dstsize == 0)
+		return (src_len);
+	if (dstsize < dst_len)
+		return (src_len + dstsize);
+	else
+	{
+		while (src[j] && (dst_len + j) < dstsize)
+			dst[i++] = src[j++];
+		if ((dst_len + j) == dstsize && dst_len < dstsize)
+			dst[--i] = '\0';
+		else
+			dst[i] = '\0';
+		return (src_len + dst_len);
+	}
 }
-
-//int main()
-//{
-//char a[7] = "selam";
-//char b[7] = "hello";
-
-////char a1[7] = "selam";
-//// 	char b2[7] = "hello";
-
-//printf("%zu\n", ft_strlcat(a, b, 7));
-//printf("%s", a);
-//// printf("%zu\n", strlcat(a1, b2, 7));
-//// printf("%s", a1);
-//// 	//if (a[7] == '\0')
-//// 	   //printf("%s", "has a null value"); 
-//// 	//
-//}

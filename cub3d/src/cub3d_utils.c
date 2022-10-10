@@ -3,19 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/17 15:44:51 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/09 15:16:50 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/10/09 17:10:54 by syildiri          #+#    #+#             */
+/*   Updated: 2022/10/10 11:01:46 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
+#include"../inc/cub3d.h"
 
-void	set_value(t_data *data)
+void	set_value(t_data2 *data)
 {
 	data->pos_x = 12;
 	data->pos_y = 5;
+	data->dir_x = -1;
+	data->dir_y = 0;
+	data->ground_x = 0;
+	data->ground_y = 0.66;
+	data->move_speed = 0.05;
+	data->rot_speed = 0.05;
 	data->ltr_arg = 0;
 	data->ltr_idx = 0;
 	data->n_cnt = 0;

@@ -3,32 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/04 11:17:56 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/10 12:31:37 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/01/13 02:56:33 by syildiri          #+#    #+#             */
+/*   Updated: 2022/01/13 03:07:05 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *ptr, int c, size_t n)
 {
-	int	idx;
+	const char	*k;
+	int			i;
 
-	idx = 0;
-	while (n-- > 0)
+	k = (const char *)ptr;
+	i = 0;
+	while (n--)
 	{
-		if (((unsigned char *)s)[idx] == (unsigned char)c)
-			return ((void *)(s + idx));
-		idx++;
+		if (k[i] == (char)c)
+		{
+			return ((void *)&ptr[i]);
+		}
+		else
+			i++;
 	}
 	return (0);
 }
-
-/*int main()
-{
-	char a[] = "ali";
-	ft_memchr(a, 'l', 2);
-	printf("%p\n", a);
-}*/

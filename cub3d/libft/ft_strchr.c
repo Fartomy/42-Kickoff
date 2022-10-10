@@ -3,32 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 18:04:21 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/12 20:28:38 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/01/13 02:57:00 by syildiri          #+#    #+#             */
+/*   Updated: 2022/01/13 03:07:45 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *str, int c)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (s[i])
+	while (str[i])
 	{
-		if (s[i] == (char)c)
-			return ((char *)(s + i));
+		if (str[i] == (char)c)
+			return ((char *)str + i);
 		i++;
 	}
-	if (s[i] == (char)c)
-		return ((char *)(s + i));
-	return (0);
+	if (str[i] == (char)c)
+		return ((char *)str + i);
+	return (NULL);
 }
-
-/*int main()
-{
-	printf("%s", ft_strchr("selam", 'h'));
-}*/

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_map_read.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 17:34:48 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/09/30 14:37:40 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/09 17:11:05 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
+#include"../inc/cub3d.h"
 
 void	*map_get_free(void *f)
 {
@@ -60,7 +60,7 @@ char	*map_get(int fd, char *arv)
 	return (map_s);
 }
 
-void	map_oprt(t_data *data, char *arv)
+void	map_oprt(t_data2 *data, char *arv)
 {
 	char	*map_s;
 	int		fd;

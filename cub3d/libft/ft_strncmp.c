@@ -3,28 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 20:28:45 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/10 13:40:23 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/01/13 02:57:22 by syildiri          #+#    #+#             */
+/*   Updated: 2022/01/13 03:08:10 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-// 24. Satırda bir problem yaşanırsa '\' sil
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	size_t			t;
-	unsigned char	*str1;
-	unsigned char	*str2;
+#include"libft.h"
 
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-	t = 0;
-	while (str1[t] != '\0' && str2[t] != '\0' \
-			&& t < n - 1 && str1[t] == str2[t])
-		t++;
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
+{
+	size_t	i;
+
+	i = 0;
 	if (n == 0)
 		return (0);
-	return (str1[t] - str2[t]);
+	while (i <= n)
+	{
+		if (str1[i] == 0 && str2[i] != 0)
+			return (-1);
+		if (n != 0)
+		{
+			while (i < (n - 1) && str1[i] != '\0'
+				&& str2[i] != '\0' && str1[i] == str2[i])
+				i++;
+			return ((unsigned char)str1[i] - (unsigned char)str2[i]);
+		}
+		i++;
+	}
+	return (0);
 }

@@ -3,33 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 15:47:03 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/01/10 12:45:17 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/01/13 02:56:39 by syildiri          #+#    #+#             */
+/*   Updated: 2022/01/13 03:07:13 by syildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t	idx;
+	unsigned char	*k ;
+	const char		*s;
+	int				i;
 
-	idx = 0;
-	if (dst == 0 && src == 0)
+	k = (unsigned char *)dest;
+	s = (const char *)src;
+	i = 0;
+	if (s == NULL && k == NULL)
 		return (NULL);
-	while (idx < n)
+	while (n--)
 	{
-		((unsigned char *)dst)[idx] = ((unsigned char *)src)[idx];
-		idx++;
+		k[i] = s[i];
+		i++;
 	}
-	return (dst);
+	dest = k;
+	return (dest);
 }
-/*int main()
-{
-	char a[5] = "ahmet";
-	char b[10] = "";
-
-	printf("%s", ft_memcpy(a, b, 2));
-}*/
