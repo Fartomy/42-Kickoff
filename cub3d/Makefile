@@ -1,6 +1,6 @@
-NAME			= cub3D
-INC				= ./inc/
-LIBFT			= libft/libft.a
+NAME			=	cub3D
+INC				=	./inc/
+LIBFT			=	libft/libft.a
 
 RESET			=	\033[0m
 GREEN			=	\033[32m
@@ -8,14 +8,15 @@ YELLOW			=	\033[33m
 BLUE			=	\033[34m
 RED				=	\033[31m
 
-SRCS			= $(shell find src -type f -name "*.c")
-OBJS			= $(SRCS:src/%.c=src/bin/%.o)
-BIN				= ./src/bin
-LIB				= ./minilibx_macos/libmlx.a
+SRCS			=	$(shell find src -type f -name "*.c")
+OBJS			=	$(SRCS:src/%.c=src/bin/%.o)
+BIN				=	./src/bin
+LIB				=	./minilibx_macos/libmlx.a
 
-CC				= @gcc #-ggdb
-RM				= @rm -rf
-CFLAGS			= -Wall -Wextra -Werror
+CC				=	@gcc
+RM				=	@rm -rf
+CFLAGS			=	-Wall -Wextra -Werror
+MLXFLAGS		=	-framework OpenGL -framework AppKit
 
 all:			$(LIB) $(LIBFT) $(NAME)
 
@@ -30,7 +31,7 @@ $(LIBFT):
 
 $(NAME):	$(BIN) $(LIBFT) $(OBJS)
 			@echo "$(YELLOW)>- Compiling... [$(NAME)] $(RESET)"
-			@$(CC) $(CFLAGS) $(LIBFT) $(OBJS) -framework OpenGL -framework AppKit -o $(NAME) $(LIB)
+			@$(CC) $(CFLAGS) $(LIBFT) $(OBJS) $(MLXFLAGS) -o $(NAME) $(LIB)
 			@echo "$(GREEN)>- Finished! $(RESET)"
 
 clean:

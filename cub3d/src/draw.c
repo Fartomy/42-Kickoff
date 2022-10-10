@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syildiri <syildiri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 17:10:50 by syildiri          #+#    #+#             */
-/*   Updated: 2022/10/10 11:02:20 by syildiri         ###   ########.fr       */
+/*   Updated: 2022/10/10 22:35:42 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	image_put_pixel(t_image *img, int x, int y, int color)
 {
-	if (x < 1 || x > img->width -4 || y < 1 || y > img->height -4)
+	if (x < 1 || x > img->width - 1 || y < 1 || y > img->height - 1)
 		return ;
 	*((int *)(img->addr + (y * img->line_len) \
 	+ (x * 4))) = color;

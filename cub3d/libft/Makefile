@@ -1,9 +1,11 @@
 NAME	= libft
-CC = gcc
-INC = libft.h
-CFLAGS = -Wall -Wextra -Werror
+
+CC		= gcc
+INC		= libft.h
+
+CFLAGS	= -Wall -Wextra -Werror
 ARFLAGS = -rcs
-RM = rm -rf
+RM		= rm -rf
 
 SRCS	= ft_isalpha.c \
 		  ft_isdigit.c \
@@ -56,19 +58,19 @@ OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 all: $(NAME).a
 
 $(NAME).a: $(OBJS)
-	ar $(ARFLAGS) $(NAME).a $(OBJS)
+	@ar $(ARFLAGS) $(NAME).a $(OBJS)
 
 %.o: %.c $(INC)
-	$(CC) -c $< -o $@ $(CFLAGS)
+	@$(CC) -c $< -o $@ $(CFLAGS)
 
 clean:
-	$(RM) $(OBJS) $(OBJS_BONUS)
+	@$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
-	$(RM) $(NAME).a
+	@$(RM) $(NAME).a
 
 bonus: $(OBJS) $(OBJS_BONUS)
-	ar $(ARFLAGS) $(NAME).a $(OBJS) $(OBJS_BONUS)
+	@ar $(ARFLAGS) $(NAME).a $(OBJS) $(OBJS_BONUS)
 
 re: fclean all
 
