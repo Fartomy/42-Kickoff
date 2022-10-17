@@ -16,3 +16,31 @@ void	HumanA::attack(void)
 {
 	cout << name << " attacks with their " << wpn->getType() << endl;
 }
+
+HumanA::HumanA(){};
+
+HumanA::HumanA(string nm, Weapon& wp)
+{
+	wpn = &wp;
+	name = nm;
+};
+
+void	HumanA::setName(string nm)
+{
+	name = nm;
+}
+
+void	HumanA::setWeapon(Weapon &wp)
+{
+	wpn = &wp;
+}
+
+string	HumanA::getName(void)
+{
+	return (name);
+}
+
+string 	HumanA::getWeapon(void)
+{
+	return (wpn->getType());
+}

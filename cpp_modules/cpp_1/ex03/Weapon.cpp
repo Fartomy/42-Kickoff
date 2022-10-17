@@ -21,3 +21,10 @@ const string& Weapon::getType(void)
 {
 	return (type);
 }
+
+Weapon::Weapon(){};
+
+Weapon::Weapon(string nm)
+{
+	setType(nm);
+};

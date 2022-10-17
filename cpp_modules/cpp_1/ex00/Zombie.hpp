@@ -25,25 +25,15 @@ using std::endl;
 class Zombie
 {
 public:
-	void	announce(void);
-	void	set_name(string str)
-	{
-		name = str;
-	}
-	string	get_name(void)
-	{
-		return (name);
-	}
-	Zombie(){}; // Default Constrctr
-	Zombie(string name)
-	{
-		this->name = name;
-	};
-	~Zombie()
-	{
-		cout << name << " destroyed" << endl;
-	};
 
+	void	announce(void);
+	void	set_name(string str);
+
+	string	get_name(void);
+
+	Zombie();
+	Zombie(string name);
+	~Zombie();
 private:
 	string	name;
 };

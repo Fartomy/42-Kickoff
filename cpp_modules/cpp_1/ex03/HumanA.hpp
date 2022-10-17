@@ -23,36 +23,18 @@ using std::string;
 class HumanA
 {
 public:
-	HumanA(){};
-	HumanA(string nm, Weapon& wp)
-	{
-		wpn = &wp;
-		name = nm;
-	};
 
+	HumanA();
+	HumanA(string nm, Weapon& wp);
 	void	attack(void);
-
-	void	setName(string nm)
-	{
-		name = nm;
-	}
-	void	setWeapon(Weapon &wp)
-	{
-		wpn = &wp;
-	}
-
-	string	getName(void)
-	{
-		return (name);
-	}
-	string 	getWeapon(void)
-	{
-		return (wpn->getType());
-	}
+	void	setName(string nm);
+	void	setWeapon(Weapon &wp);
+	string	getName(void);
+	string 	getWeapon(void);
 private:
+
 	string 	name;
 	Weapon*	wpn;
 };
-
 
 #endif

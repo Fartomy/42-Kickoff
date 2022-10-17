@@ -22,12 +22,8 @@ using std::string;
 class Weapon
 {
 public:
-	Weapon(){};
-	Weapon(string nm)
-	{
-		setType(nm);
-	};
-
+	Weapon();
+	Weapon(string nm);
 	void			setType(string nm);
 	const string&	getType(void);
 private:
