@@ -78,3 +78,11 @@ void	Harl::complain(string level)
 			cout << "[ Probably complaining about insignificant problems ]" << endl;
 	}
 }
+
+Harl::Harl()
+{
+	fncPtr[0] = &Harl::debug;
+	fncPtr[1] = &Harl::info;
+	fncPtr[2] = &Harl::warning;
+	fncPtr[3] = &Harl::error;
+};

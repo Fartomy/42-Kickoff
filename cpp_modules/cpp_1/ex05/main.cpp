@@ -16,6 +16,6 @@ int main(void)
 {
 	Harl	obj;
 
-	obj.complain("asd");
+	obj.complain("DEBUG");
 	return (0);
 }

@@ -12,6 +12,14 @@
 
 #include "Harl.hpp"
 
+Harl::Harl()
+{
+	fncPtr[0] = &Harl::debug;
+	fncPtr[1] = &Harl::info;
+	fncPtr[2] = &Harl::warning;
+	fncPtr[3] = &Harl::error;
+};
+
 void	Harl::debug(void)
 {
 	cout << "[ DEBUG ]" << endl;

@@ -19,13 +19,7 @@ using std::string;
 class Harl
 {
 public:
-	Harl()
-	{
-		fncPtr[0] = &Harl::debug;
-		fncPtr[1] = &Harl::info;
-		fncPtr[2] = &Harl::warning;
-		fncPtr[3] = &Harl::error;
-	};
+	Harl();
 	void	complain(string level);
 
 private:
