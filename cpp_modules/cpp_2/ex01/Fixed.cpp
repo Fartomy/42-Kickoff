@@ -28,13 +28,13 @@ Fixed::Fixed( const Fixed& obj )
 Fixed::Fixed( const int _fx_nbr )
 {
 	cout << "Int constructor called" << endl;
-	fx_nbr = _fx_nbr << nbr;
+	fx_nbr = _fx_nbr * 256;
 };
 
 Fixed::Fixed( const float _fx_nbr )
 {
 	cout << "Float constructor called" << endl;
-	fx_nbr = _fx_nbr >> nbr;
+	fx_nbr = _fx_nbr * 256;
 };
 
 int		Fixed::getRawBits( void ) const
@@ -49,17 +49,18 @@ void	Fixed::setRawBits( int const raw )
 
 float	Fixed::toFloat( void ) const
 {
-	return ( fx_nbr << nbr );
+	return ( fx_nbr / 256.0f);
 }
 
 int		Fixed::toInt( void ) const
 {
-	return ( fx_nbr >> nbr);
+	return ( fx_nbr / 256 );
 }
 
 Fixed&	Fixed::operator = ( const Fixed &obj )
 {
 	cout << "Copy assigment operator called" << endl;
+	fx_nbr = obj.fx_nbr;
 	return ( *this );
 }
 
@@ -68,8 +69,8 @@ Fixed::~Fixed()
 	cout << "Destructor called" << endl;
 };
 
-ostream& Fixed::operator << ( ostream& out, const Fixed& obj )
+ostream& operator << ( ostream& out, const Fixed& obj )
 {
-	out << obj.toInt();
+	out << obj.toFloat();
 	return ( out );
 }
