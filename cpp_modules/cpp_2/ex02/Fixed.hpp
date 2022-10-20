@@ -26,12 +26,17 @@ public:
 	Fixed operator * ( Fixed const &obj );
 	Fixed operator - ( Fixed const &obj );
 
-	//add increment and decrement operator
+	Fixed operator++();
+	Fixed operator++(int);
+	Fixed operator--();
+	Fixed operator--(int)
 
 	min( Fixed &obj, Fixed &obj2 );
 	min( Fixed const &obj, Fixed const &obj2 );
 	max( Fixed const &obj, Fixed const &obj2 );
 	max( Fixed &obj, Fixed &obj2 );
+
+	//Yukarida ki fonksiyonlar yazilmadi!
 
 private:
 	int	fx_nbr;
