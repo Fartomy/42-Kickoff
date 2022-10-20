@@ -24,7 +24,7 @@ using std::ifstream;
 using std::ofstream;
 using std::fstream;
 using std::stringstream;
-
+using std::cerr;
 class SedLosers
 {
 public:
