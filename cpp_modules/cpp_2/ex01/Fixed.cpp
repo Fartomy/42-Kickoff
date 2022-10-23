@@ -49,7 +49,7 @@ void	Fixed::setRawBits( int const raw )
 
 float	Fixed::toFloat( void ) const
 {
-	return ( fx_nbr / 256.0f);
+	return ( ( float )fx_nbr / 256);
 }
 
 int		Fixed::toInt( void ) const

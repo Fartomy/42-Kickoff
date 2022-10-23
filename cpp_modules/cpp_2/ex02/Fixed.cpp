@@ -56,7 +56,7 @@ Fixed	Fixed::operator + ( const Fixed &obj )
 {
 	Fixed new_obj;
 
-	new_obj.fx_nbr = fx_nbr + obj.fx_nbr;
+	new_obj.fx_nbr = this->toFloat() + obj.fx_nbr;
 	return new_obj;
 }
 
@@ -64,7 +64,7 @@ Fixed	Fixed::operator - ( const Fixed &obj )
 {
 	Fixed new_obj;
 
-	new_obj.fx_nbr = fx_nbr - obj.fx_nbr;
+	new_obj.fx_nbr = this->toFloat() - obj.fx_nbr;
 	return new_obj;
 }
 
@@ -72,7 +72,7 @@ Fixed	Fixed::operator * ( const Fixed &obj )
 {
 	Fixed new_obj;
 
-	new_obj.fx_nbr = fx_nbr * obj.fx_nbr;
+	new_obj.fx_nbr = this->toFloat() * obj.fx_nbr;
 	return new_obj;
 }
 
@@ -80,7 +80,7 @@ Fixed	Fixed::operator / ( const Fixed &obj )
 {
 	Fixed new_obj;
 
-	new_obj.fx_nbr = fx_nbr / obj.fx_nbr;
+	new_obj.fx_nbr = this->toFloat() / obj.fx_nbr;
 	return new_obj;
 }
 
@@ -92,7 +92,7 @@ Fixed	Fixed::operator ++ ( void )
 	return new_obj;
 }
 
-Fixed	Fixed::operator ++ (int)
+Fixed	Fixed::operator ++ ( int )
 {
 	Fixed new_obj;
 
@@ -100,9 +100,39 @@ Fixed	Fixed::operator ++ (int)
 	return (new_obj);
 }
 
+Fixed&	Fixed::max( Fixed& const obj1, Fixed& const obj2 )
+{
+	if ( obj1.toFloat() > obj2.toFloat() )
+		return ( obj1 );
+	return ( obj2 );
+}
+
+Fixed&	Fixed::max( Fixed& obj1, Fixed& obj2 )
+{
+	if ( obj1.toFloat() > obj2.toFloat() )
+		return ( obj1 );
+	return ( obj2 );
+	
+}
+
+Fixed&	Fixed::min( Fixed& const obj1, Fixed& const obj2 )
+{
+	if( obj1.toFloat() < obj2.toFloat() )
+		return ( obj1 );
+	return ( obj2 );
+}
+
+Fixed&	Fixed::min( Fixed& obj1, Fixed& obj2 )
+{
+	if ( obj1.toFloat() < obj2.toFloat() )
+		return ( obj1 );
+	return ( obj2 );
+	
+}
+
 float	Fixed::toFloat( void ) const
 {
-	return ( fx_nbr / 256.0f);
+	return ( ( float )fx_nbr / 256);
 }
 
 int		Fixed::toInt( void ) const

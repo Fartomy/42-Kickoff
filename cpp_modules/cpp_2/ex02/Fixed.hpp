@@ -14,7 +14,7 @@ public:
 	Fixed();
 	Fixed( const int _nbr );
 	Fixed( const float _nbr );
-	
+
 	~Fixed();
 
 	bool operator == ( const Fixed& obj );
@@ -37,12 +37,10 @@ public:
 	int		toInt( void ) const;
 	float	toFloat( void ) const;
 
-/* 	min( Fixed &obj, Fixed &obj2 );
-	min( Fixed const &obj, Fixed const &obj2 );
-	max( Fixed const &obj, Fixed const &obj2 );
-	max( Fixed &obj, Fixed &obj2 ); */
-
-	//Yukarida ki fonksiyonlar yazilmadi!
+	static Fixed& min( Fixed& obj1, Fixed& obj2 );
+	static Fixed& min( Fixed& const obj1, Fixed& const obj2 );
+	static Fixed& max( Fixed& const obj1, Fixed& const obj2 );
+	static Fixed& max( Fixed& obj1, Fixed& obj2 );
 
 private:
 	int	fx_nbr;
