@@ -100,14 +100,14 @@ Fixed	Fixed::operator ++ ( int )
 	return (new_obj);
 }
 
-Fixed&	Fixed::max( Fixed& const obj1, Fixed& const obj2 )
+Fixed const&	Fixed::max( Fixed const &obj1, Fixed const &obj2 )
 {
 	if ( obj1.toFloat() > obj2.toFloat() )
 		return ( obj1 );
 	return ( obj2 );
 }
 
-Fixed&	Fixed::max( Fixed& obj1, Fixed& obj2 )
+Fixed&			Fixed::max( Fixed& obj1, Fixed& obj2 )
 {
 	if ( obj1.toFloat() > obj2.toFloat() )
 		return ( obj1 );
@@ -115,14 +115,14 @@ Fixed&	Fixed::max( Fixed& obj1, Fixed& obj2 )
 	
 }
 
-Fixed&	Fixed::min( Fixed& const obj1, Fixed& const obj2 )
+Fixed const&	Fixed::min( Fixed const &obj1, Fixed const &obj2 )
 {
 	if( obj1.toFloat() < obj2.toFloat() )
 		return ( obj1 );
 	return ( obj2 );
 }
 
-Fixed&	Fixed::min( Fixed& obj1, Fixed& obj2 )
+Fixed&			Fixed::min( Fixed& obj1, Fixed& obj2 )
 {
 	if ( obj1.toFloat() < obj2.toFloat() )
 		return ( obj1 );

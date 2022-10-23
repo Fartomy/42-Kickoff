@@ -38,8 +38,8 @@ public:
 	float	toFloat( void ) const;
 
 	static Fixed& min( Fixed& obj1, Fixed& obj2 );
-	static Fixed& min( Fixed& const obj1, Fixed& const obj2 );
-	static Fixed& max( Fixed& const obj1, Fixed& const obj2 );
+	static Fixed const &min( Fixed const &obj1, Fixed const &obj2 );
+	static Fixed const &max( Fixed const &obj1, Fixed const &obj2 );
 	static Fixed& max( Fixed& obj1, Fixed& obj2 );
 
 private:
