@@ -31,7 +31,7 @@ public:
 
 	~Fixed();
 
-	Fixed& operator = ( const Fixed &obj );
+	Fixed&	operator = ( const Fixed &obj );
 
 	int		getRawBits( void ) const;
 	int		toInt( void ) const;
@@ -44,6 +44,6 @@ private:
 	int 				fx_nbr;
 };
 
-ostream& operator << ( ostream& out, const Fixed& obj );
+ostream&	operator << ( ostream& out, const Fixed& obj );
 
 #endif
