@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 13:36:31 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/19 13:36:32 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/24 13:37:54 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 	Fixed();
 	Fixed( const int _fx_nbr );
 	Fixed( const float _fx_nbr );
-	Fixed( const Fixed &obj );
+	Fixed( const Fixed &cpy );
 
 	~Fixed();
 

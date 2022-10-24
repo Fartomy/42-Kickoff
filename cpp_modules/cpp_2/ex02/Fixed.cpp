@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/24 13:35:13 by ftekdrmi          #+#    #+#             */
+/*   Updated: 2022/10/24 14:31:06 by ftekdrmi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 Fixed::Fixed() : fx_nbr(0)
@@ -139,6 +151,19 @@ int		Fixed::toInt( void ) const
 {
 	return ( fx_nbr / 256 );
 }
+
+Fixed&	Fixed::operator = ( const Fixed &obj )
+{
+	cout << "Copy assigment operator called" << endl;
+	fx_nbr = obj.fx_nbr;
+	return ( *this );
+}
+
+Fixed::Fixed( const Fixed& cpy )
+{
+	cout << "Copy constructor called" << endl;
+	*this = cpy;
+};
 
 ostream& operator << ( ostream& out, const Fixed& obj )
 {

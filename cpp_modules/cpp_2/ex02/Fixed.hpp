@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/24 13:35:16 by ftekdrmi          #+#    #+#             */
+/*   Updated: 2022/10/24 13:47:23 by ftekdrmi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
@@ -14,7 +26,10 @@ public:
 	Fixed();
 	Fixed( const int _nbr );
 	Fixed( const float _nbr );
+	Fixed( const Fixed &cpy );
 
+	Fixed& operator = ( const Fixed &obj );
+	
 	~Fixed();
 
 	bool operator == ( const Fixed& obj );

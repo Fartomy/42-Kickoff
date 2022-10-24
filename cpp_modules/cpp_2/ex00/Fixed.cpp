@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 13:36:02 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/19 13:36:03 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/24 13:41:30 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ Fixed::Fixed()
 	cout << "Default constructor called" << endl;
 };
 
-Fixed::Fixed( const Fixed& obj )
+Fixed::Fixed( const Fixed& cpy )
 {
 	cout << "Copy constructor called" << endl;
-	fx_nbr = obj.getRawBits();
+	fx_nbr = cpy.getRawBits();
 };
 
 Fixed::~Fixed()
