@@ -8,7 +8,7 @@ void	ClapTrap::attack(const string &target)
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	health -= amount;
-	cout << "ClapTrap deals " << amount << " damage to " << name << endl;
+	cout << "ClapTrap deals " << amount << " damaged to " << name << endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
