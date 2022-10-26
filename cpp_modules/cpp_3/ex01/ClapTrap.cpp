@@ -5,59 +5,52 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 15:24:14 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/25 15:24:15 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/10/25 15:24:51 by ftekdrmi          #+#    #+#             */
+/*   Updated: 2022/10/25 15:24:52 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-void	ClapTrap::attack(const string &target)
+void	ClapTrap::attack( const string &target )
 {
 	cout << "ClapTrap " << name << " attacks " << target << ", causing " << atckDmg << " points of damage!" << endl;
 }
 
-void	ClapTrap::takeDamage(unsigned int amount)
+void	ClapTrap::takeDamage( unsigned int amount )
 {
 	health -= amount;
 	cout << "ClapTrap deals " << amount << " damaged to " << name << endl;
 }
-̱
-void	ClapTrap::beRepaired(unsigned int amount)
+
+void	ClapTrap::beRepaired( unsigned int amount )
 {
 	engPoint -= amount;
 	health += amount;
 	cout << name << " repaired himself " << amount << endl;
 }
 
-string	ClapTrap::getName( void )
-{
-	return name;
-}
+string	ClapTrap::getName( void ) { return name; }
 
-int		ClapTrap::getHealth( void )
-{
-	return health;
-}
+int		ClapTrap::getHealth( void ) { return health; }
 
-int		ClapTrap::getEngpoint( void )
-{
-	return engPoint;
-}
+int		ClapTrap::getEngpoint( void ) { return engPoint; }
 
-int ClapTrap::getAtckDmg( void )
-{
-	return atckDmg;
-}
+int		ClapTrap::getAtckDmg( void ) { return atckDmg; }
 
-ClapTrap::ClapTrap() : health(10), engPoint(10), atckDmg(0)
-{
-	cout << "Default Constructor called" << endl;
-};
+void	ClapTrap::setName( string _name ) { name = _name; }
+
+void	ClapTrap::setHealth( int _health ) { health = _health; }
+
+void	ClapTrap::setEngPoint( int _engPoint ) { engPoint = _engPoint; }
+
+void	ClapTrap::setAtckDmg( int _atckDmg ) { atckDmg = _atckDmg; }
+
+ClapTrap::ClapTrap() : health(10), engPoint(10), atckDmg(0) { cout << "ClapTrap default constructor called" << endl; };
 
 ClapTrap::ClapTrap( string _name ) : health(10), engPoint(10), atckDmg(0)
 {
-	cout << "String constructor called" << endl;
+	cout << "ClapTrap string constructor called" << endl;
 	name = _name;
 };
 
@@ -72,11 +65,8 @@ ClapTrap&	ClapTrap::operator = ( const ClapTrap &cpy )
 
 ClapTrap::ClapTrap( const ClapTrap &cpy )
 {
-	cout << "Copy constructor called" << endl;
+	cout << "ClapTrap copy constructor called" << endl;
 	*this = cpy;
 };
 
-ClapTrap::~ClapTrap()
-{
-	cout << "Destructor called" << endl;
-};
+ClapTrap::~ClapTrap() { cout << "ClapTrap destructor called" << endl; };
