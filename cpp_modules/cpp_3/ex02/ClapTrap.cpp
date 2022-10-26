@@ -15,6 +15,7 @@
 void	ClapTrap::attack( const string &target )
 {
 	cout << "ClapTrap " << name << " attacks " << target << ", causing " << atckDmg << " points of damage!" << endl;
+	this->takeDamage( atckDmg );
 }
 
 void	ClapTrap::takeDamage( unsigned int amount )

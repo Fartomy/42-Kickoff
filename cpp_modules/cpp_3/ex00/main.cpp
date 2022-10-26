@@ -14,9 +14,9 @@
 
 int main(void)
 {
-	ClapTrap obj( "Target Puppet" );
+	ClapTrap obj("Target Puppet");
 
-	obj.attack( "Furkan" );
+	obj.attack("Pedro");
 	cout << obj.getHealth() << endl;
 	obj.takeDamage( 2 );
 	cout << obj.getHealth() << endl;

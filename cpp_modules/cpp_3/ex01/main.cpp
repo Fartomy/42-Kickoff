@@ -15,17 +15,9 @@
 
 int main(void)
 {
-	ClapTrap clp( "Target Puppet" );
-	ScavTrap scv( "Target Puppet_2" );
+	ScavTrap scv( "Target Puppet" );
 
-	clp.attack("Furkan");
-	cout << clp.getHealth() << endl;
-	clp.takeDamage( 2 );
-	cout << clp.getHealth() << endl;
-	clp.beRepaired( 2 );
-	cout << clp.getHealth() << endl << clp.getEngpoint() << endl;
-
-	scv.attack("Ali Furkan");
+	scv.attack( "Gomes" );
 	cout << scv.getHealth() << endl;
 	scv.takeDamage( 30 );
 	cout << scv.getHealth() << endl;

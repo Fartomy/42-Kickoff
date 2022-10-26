@@ -12,26 +12,19 @@
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
-	ClapTrap clp( "Target Puppet" );
-	ScavTrap scv( "Target Puppet_2" );
+	FragTrap frg( "Target Puppet" );
 
-	clp.attack("Furkan");
-	cout << clp.getHealth() << endl;
-	clp.takeDamage( 2 );
-	cout << clp.getHealth() << endl;
-	clp.beRepaired( 2 );
-	cout << clp.getHealth() << endl << clp.getEngpoint() << endl;
-
-	scv.attack("Ali Furkan");
-	cout << scv.getHealth() << endl;
-	scv.takeDamage( 30 );
-	cout << scv.getHealth() << endl;
-	scv.beRepaired( 20 );
-	cout << scv.getHealth() << endl << scv.getEngpoint() << endl;
-	scv.guardGate();
+	frg.attack( "Christopher" );
+	cout << frg.getHealth() << endl;
+	frg.takeDamage(70);
+	cout << frg.getHealth() << endl;
+	frg.beRepaired(5);
+	cout << frg.getHealth() << endl << frg.getEngpoint() << endl;
+	frg.highFivesGuys();
 
 	return 0;
 }

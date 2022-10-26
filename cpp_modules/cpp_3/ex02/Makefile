@@ -1,7 +1,7 @@
-NAME			=	scavtrap
+NAME			=	fragtrap
 
-SRCS			=	main.cpp	ClapTrap.cpp	ScavTrap.cpp
-LIB				=	ClapTrap.hpp	ScavTrap.hpp
+SRCS			=	main.cpp	ClapTrap.cpp	ScavTrap.cpp	FragTrap.cpp
+LIB				=	ClapTrap.hpp	ScavTrap.hpp	FragTrap.hpp
 
 OBJS			=	$(SRCS:%.cpp=%.o)
 
