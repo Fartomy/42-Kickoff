@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 13:36:02 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/24 13:41:30 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:50:38 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@ Fixed::Fixed( const Fixed& cpy )
 	fx_nbr = cpy.getRawBits();
 };
 
-Fixed::~Fixed()
-{
-	cout << "Destructor called" << endl;
-};
+Fixed::~Fixed() { cout << "Destructor called" << endl; };
 
 int Fixed::getRawBits( void ) const
 {
@@ -37,10 +34,7 @@ int Fixed::getRawBits( void ) const
 	return ( fx_nbr );
 }
 
-void	Fixed::setRawBits( int const raw )
-{
-	fx_nbr = raw;
-}
+void	Fixed::setRawBits( int const raw ) { fx_nbr = raw; }
 
 Fixed& Fixed::operator = ( const Fixed &obj )
 {

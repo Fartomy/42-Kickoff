@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:24:54 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/25 15:24:55 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:51:23 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class ClapTrap
 {
 public:
 	ClapTrap();
-	ClapTrap(string _name);
+	ClapTrap( string _name );
 	ClapTrap( const ClapTrap &cpy );
 
 	ClapTrap&	operator = ( const ClapTrap &obj );

@@ -5,31 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/19 13:36:33 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/26 16:50:52 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/10/25 15:24:57 by ftekdrmi          #+#    #+#             */
+/*   Updated: 2022/10/26 16:51:47 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-int main( void )
+int main(void)
 {
-	Fixed a;
-	Fixed const b( 10 );
-	Fixed const c( 42.42f );
-	Fixed const d( b );
+	ClapTrap clp( "Target Puppet" );
+	ScavTrap scv( "Target Puppet_2" );
 
-	a = Fixed( 1234.4321f );
+	clp.attack("Furkan");
+	cout << clp.getHealth() << endl;
+	clp.takeDamage( 2 );
+	cout << clp.getHealth() << endl;
+	clp.beRepaired( 2 );
+	cout << clp.getHealth() << endl << clp.getEngpoint() << endl;
 
-	cout << "a is " << a << endl;
-	cout << "b is " << b << endl;
-	cout << "c is " << c << endl;
-	cout << "d is " << d << endl;
-
-	cout << "a is " << a.toInt() << " as integer" << endl;
-	cout << "b is " << b.toInt() << " as integer" << endl;
-	cout << "c is " << c.toInt() << " as integer" << endl;
-	cout << "d is " << d.toInt() << " as integer" << endl;
+	scv.attack("Ali Furkan");
+	cout << scv.getHealth() << endl;
+	scv.takeDamage( 30 );
+	cout << scv.getHealth() << endl;
+	scv.beRepaired( 20 );
+	cout << scv.getHealth() << endl << scv.getEngpoint() << endl;
+	scv.guardGate();
 
 	return 0;
 }

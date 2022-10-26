@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 15:24:17 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/26 16:51:14 by ftekdrmi         ###   ########.fr       */
+/*   Created: 2022/10/25 15:24:54 by ftekdrmi          #+#    #+#             */
+/*   Updated: 2022/10/26 16:51:45 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,16 @@ public:
 	int 	getEngpoint( void );
 	int		getAtckDmg( void );
 
-	void	attack( const std::string& target );
+	void	setName( string _name );
+	void	setHealth( int _health );
+	void	setEngPoint( int _engPoint );
+	void	setAtckDmg( int _atckDmg );
+
+	void	attack( const string& target );
 	void	takeDamage( unsigned int amount );
 	void	beRepaired( unsigned int amount );
 
-private:
+protected:
 	string	name;
 	int		health;
 	int		engPoint;

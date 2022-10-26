@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 13:36:29 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/24 14:30:58 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:50:48 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 const int Fixed::nbr = 8;
 
-Fixed::Fixed()
-{
-	cout << "Default constructor called" << endl;
-};
+Fixed::Fixed() { cout << "Default constructor called" << endl; };
 
 Fixed::Fixed( const Fixed& cpy )
 {
@@ -37,25 +34,13 @@ Fixed::Fixed( const float _fx_nbr )
 	fx_nbr = _fx_nbr * 256;
 };
 
-int		Fixed::getRawBits( void ) const
-{
-	return ( fx_nbr );
-}
+int		Fixed::getRawBits( void ) const { return ( fx_nbr ); }
 
-void	Fixed::setRawBits( int const raw )
-{
-	fx_nbr = raw;
-}
+void	Fixed::setRawBits( int const raw ) { fx_nbr = raw; }
 
-float	Fixed::toFloat( void ) const
-{
-	return ( ( float )fx_nbr / 256);
-}
+float	Fixed::toFloat( void ) const { return ( ( float )fx_nbr / 256); }
 
-int		Fixed::toInt( void ) const
-{
-	return ( fx_nbr / 256 );
-}
+int		Fixed::toInt( void ) const { return ( fx_nbr / 256 ); }
 
 Fixed&	Fixed::operator = ( const Fixed &obj )
 {
@@ -64,10 +49,7 @@ Fixed&	Fixed::operator = ( const Fixed &obj )
 	return ( *this );
 }
 
-Fixed::~Fixed()
-{
-	cout << "Destructor called" << endl;
-};
+Fixed::~Fixed() { cout << "Destructor called" << endl; };
 
 ostream& operator << ( ostream& out, const Fixed& obj )
 {

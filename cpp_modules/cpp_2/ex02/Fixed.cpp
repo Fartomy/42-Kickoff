@@ -6,65 +6,41 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 13:35:13 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/24 14:31:06 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:50:59 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() : fx_nbr(0)
-{
-	cout << "Default constructor called" << endl;
-};
+Fixed::Fixed() : fx_nbr( 0 ) { cout << "Default constructor called" << endl; };
 
-Fixed::~Fixed()
-{
-	cout << "Destructor called" << endl;
-};
+Fixed::~Fixed() { cout << "Destructor called" << endl; };
 
-Fixed::Fixed(const int _nbr)
+Fixed::Fixed( const int _nbr )
 {
 	cout << "Int constructor called" << endl;
 	fx_nbr = _nbr * 256;
 };
 
-Fixed::Fixed(const float _nbr)
+Fixed::Fixed( const float _nbr )
 {
 	cout << "Float constructor called" << endl;
 	fx_nbr = _nbr * 256;
 };
 
-bool	Fixed::operator == ( const Fixed &obj )
-{
-	return ( this->fx_nbr == obj.fx_nbr );
-}
+bool			Fixed::operator == ( const Fixed &obj ) { return ( this->fx_nbr == obj.fx_nbr ); }
 
-bool	Fixed::operator != ( const Fixed &obj )
-{
-	return ( this->fx_nbr != obj.fx_nbr );
-}
+bool			Fixed::operator != ( const Fixed &obj ) { return ( this->fx_nbr != obj.fx_nbr ); }
 
-bool	Fixed::operator > ( const Fixed &obj )
-{
-	return ( this->fx_nbr > obj.fx_nbr );
-}
+bool			Fixed::operator > ( const Fixed &obj ) { return ( this->fx_nbr > obj.fx_nbr ); }
 
-bool	Fixed::operator < ( const Fixed &obj )
-{
-	return ( this->fx_nbr < obj.fx_nbr );
-}
+bool			Fixed::operator < ( const Fixed &obj ) { return ( this->fx_nbr < obj.fx_nbr ); }
 
-bool	Fixed::operator >= ( const Fixed &obj )
-{
-	return ( this->fx_nbr >= obj.fx_nbr );
-}
+bool			Fixed::operator >= ( const Fixed &obj ) { return ( this->fx_nbr >= obj.fx_nbr ); }
 
-bool	Fixed::operator <= ( const Fixed &obj )
-{
-	return ( this->fx_nbr <= obj.fx_nbr );
-}
+bool			Fixed::operator <= ( const Fixed &obj ) { return ( this->fx_nbr <= obj.fx_nbr ); }
 
-Fixed	Fixed::operator + ( const Fixed &obj )
+Fixed			Fixed::operator + ( const Fixed &obj )
 {
 	Fixed new_obj;
 
@@ -72,7 +48,7 @@ Fixed	Fixed::operator + ( const Fixed &obj )
 	return new_obj;
 }
 
-Fixed	Fixed::operator - ( const Fixed &obj )
+Fixed			Fixed::operator - ( const Fixed &obj )
 {
 	Fixed new_obj;
 
@@ -80,7 +56,7 @@ Fixed	Fixed::operator - ( const Fixed &obj )
 	return new_obj;
 }
 
-Fixed	Fixed::operator * ( const Fixed &obj )
+Fixed			Fixed::operator * ( const Fixed &obj )
 {
 	Fixed new_obj;
 
@@ -88,7 +64,7 @@ Fixed	Fixed::operator * ( const Fixed &obj )
 	return new_obj;
 }
 
-Fixed	Fixed::operator / ( const Fixed &obj )
+Fixed			Fixed::operator / ( const Fixed &obj )
 {
 	Fixed new_obj;
 
@@ -96,7 +72,7 @@ Fixed	Fixed::operator / ( const Fixed &obj )
 	return new_obj;
 }
 
-Fixed	Fixed::operator ++ ( void )
+Fixed			Fixed::operator ++ ( void )
 {
 	Fixed new_obj;
 
@@ -104,7 +80,7 @@ Fixed	Fixed::operator ++ ( void )
 	return new_obj;
 }
 
-Fixed	Fixed::operator ++ ( int )
+Fixed			Fixed::operator ++ ( int )
 {
 	Fixed new_obj;
 
@@ -142,17 +118,11 @@ Fixed&			Fixed::min( Fixed& obj1, Fixed& obj2 )
 	
 }
 
-float	Fixed::toFloat( void ) const
-{
-	return ( ( float )fx_nbr / 256);
-}
+float			Fixed::toFloat( void ) const { return ( ( float )fx_nbr / 256); }
 
-int		Fixed::toInt( void ) const
-{
-	return ( fx_nbr / 256 );
-}
+int				Fixed::toInt( void ) const { return ( fx_nbr / 256 ); }
 
-Fixed&	Fixed::operator = ( const Fixed &obj )
+Fixed&			Fixed::operator = ( const Fixed &obj )
 {
 	cout << "Copy assigment operator called" << endl;
 	fx_nbr = obj.fx_nbr;

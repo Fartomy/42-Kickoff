@@ -6,7 +6,7 @@
 /*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:24:57 by ftekdrmi          #+#    #+#             */
-/*   Updated: 2022/10/25 15:24:58 by ftekdrmi         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:51:26 by ftekdrmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,23 @@
 
 int main(void)
 {
-	ClapTrap obj("Target Puppet");
-	ScavTrap obj2("Taget Puppet2");
+	ClapTrap clp( "Target Puppet" );
+	ScavTrap scv( "Target Puppet_2" );
 
-	obj.attack("Furkan");
-	cout << obj.getHealth() << endl;
-	obj.takeDamage(1);
-	obj.takeDamage(1);
-	cout << obj.getHealth() << endl;
-	obj.beRepaired(2);
-	cout << obj.getHealth() << endl << obj.getEngpoint() << endl;
+	clp.attack("Furkan");
+	cout << clp.getHealth() << endl;
+	clp.takeDamage( 2 );
+	cout << clp.getHealth() << endl;
+	clp.beRepaired( 2 );
+	cout << clp.getHealth() << endl << clp.getEngpoint() << endl;
 
-	obj2.attack("Ali Furkan");
-	obj2.guardGate();
+	scv.attack("Ali Furkan");
+	cout << scv.getHealth() << endl;
+	scv.takeDamage( 30 );
+	cout << scv.getHealth() << endl;
+	scv.beRepaired( 20 );
+	cout << scv.getHealth() << endl << scv.getEngpoint() << endl;
+	scv.guardGate();
 
 	return 0;
 }
