@@ -17,16 +17,20 @@
 
 int main(void)
 {
-	DiamondTrap dmd( "Target Puppet" );
+	DiamondTrap dmd( "Angela" );
 
-	dmd.attack( "Smith" );
-	cout << dmd.getHealth() << endl;
-	dmd.takeDamage(70);
-	cout << dmd.getHealth() << endl;
-	dmd.beRepaired(5);
-	cout << dmd.getHealth() << endl << dmd.getEngpoint() << endl;
+	cout << endl;
+	cout << "Name: " << dmd.getName() << endl;
+	cout << "Health: " << dmd.getHealth() << endl;
+	cout << "Attack Damage Point: " << dmd.getAtckDmg() << endl;
+	cout << "Energy Point: " << dmd.getEngpoint() << endl;
+	cout << endl;
+
+	dmd.attack( "Mao" );
+	cout << "Health: " << dmd.getHealth() << endl;
+	dmd.beRepaired( 2 );
+	cout << "Health: " << dmd.getHealth() << endl << "Energy Point: " << dmd.getEngpoint() << endl;
 	dmd.whoAmI();
-
 
 	return 0;
 }

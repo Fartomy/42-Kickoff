@@ -14,14 +14,19 @@
 
 int main(void)
 {
-	ClapTrap obj("Target Puppet");
+	ClapTrap clp( "Pedro" );
 
-	obj.attack("Pedro");
-	cout << obj.getHealth() << endl;
-	obj.takeDamage( 2 );
-	cout << obj.getHealth() << endl;
-	obj.beRepaired( 2 );
-	cout << obj.getHealth() << endl << obj.getEngpoint() << endl;
+	cout << endl;
+	cout << "Name: " << clp.getName() << endl;
+	cout << "Health: " << clp.getHealth() << endl;
+	cout <<"Attack Damage Point: " << clp.getAtckDmg() << endl;
+	cout << "Energy Point: " << clp.getEngpoint() << endl;
+	cout << endl;
+
+	clp.attack( "Gomes" );
+	cout << "Health: " << clp.getHealth() << endl;
+	clp.beRepaired( 2 );
+	cout << "Health: " << clp.getHealth() << endl << "Energy Point: " << clp.getEngpoint() << endl;
 
 	return 0;
 }

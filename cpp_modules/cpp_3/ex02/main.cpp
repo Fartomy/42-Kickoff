@@ -16,14 +16,19 @@
 
 int main(void)
 {
-	FragTrap frg( "Target Puppet" );
+	FragTrap frg( "Adriana" );
 
-	frg.attack( "Christopher" );
-	cout << frg.getHealth() << endl;
-	frg.takeDamage(70);
-	cout << frg.getHealth() << endl;
-	frg.beRepaired(5);
-	cout << frg.getHealth() << endl << frg.getEngpoint() << endl;
+	cout << endl;
+	cout << "Name: " << frg.getName() << endl;
+	cout << "Health: " << frg.getHealth() << endl;
+	cout <<"Attack Damage Point: " << frg.getAtckDmg() << endl;
+	cout << "Energy Point: " << frg.getEngpoint() << endl;
+	cout << endl;
+
+	frg.attack( "Tenorio" );
+	cout << "Health: " << frg.getHealth() << endl;
+	frg.beRepaired( 2 );
+	cout << "Health: " << frg.getHealth() << endl << "Energy Point: " << frg.getEngpoint() << endl;
 	frg.highFivesGuys();
 
 	return 0;

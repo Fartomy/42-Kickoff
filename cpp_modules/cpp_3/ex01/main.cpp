@@ -15,14 +15,19 @@
 
 int main(void)
 {
-	ScavTrap scv( "Target Puppet" );
+	ScavTrap scv( "Christopher" );
 
-	scv.attack( "Gomes" );
-	cout << scv.getHealth() << endl;
-	scv.takeDamage( 30 );
-	cout << scv.getHealth() << endl;
-	scv.beRepaired( 20 );
-	cout << scv.getHealth() << endl << scv.getEngpoint() << endl;
+	cout << endl;
+	cout << "Name: " << scv.getName() << endl;
+	cout << "Health: " << scv.getHealth() << endl;
+	cout <<"Attack Damage Point: " << scv.getAtckDmg() << endl;
+	cout << "Energy Point: " << scv.getEngpoint() << endl;
+	cout << endl;
+
+	scv.attack( "Smith" );
+	cout << "Health: " << scv.getHealth() << endl;
+	scv.beRepaired( 2 );
+	cout << "Health: " << scv.getHealth() << endl << "Energy Point: " << scv.getEngpoint() << endl;
 	scv.guardGate();
 
 	return 0;

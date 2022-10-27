@@ -5,9 +5,9 @@ DiamondTrap::DiamondTrap()
 	cout << "Diamond default constructor called" << endl;
 	name = "";
 	ClapTrap::setName( "" );
-	FragTrap::setHealth( FragTrap::health ); // olmazsa --> bunu dene FragTrap::getHealth() o da olmazsa --> direkt sayisal deger
-	FragTrap::setAtckDmg( FragTrap::atckDmg );
-	ScavTrap::setEngPoint( ScavTrap::engPoint );
+	FragTrap::setHealth( 100 );
+	FragTrap::setAtckDmg( 30 );
+	ScavTrap::setEngPoint( 50 );
 };
 
 DiamondTrap::DiamondTrap( string _name )
@@ -15,9 +15,10 @@ DiamondTrap::DiamondTrap( string _name )
 	cout << "Diamond string constructor called" << endl;
 	name = _name;
 	ClapTrap::setName( _name + "_clap_name" );
-	FragTrap::setHealth( FragTrap::health );
-	FragTrap::setAtckDmg( FragTrap::atckDmg );
-	ScavTrap::setEngPoint( ScavTrap::engPoint );
+	FragTrap::setHealth( 100 );
+	FragTrap::setAtckDmg( 30 );
+	ScavTrap::setEngPoint( 50 );
+
 };
 
 DiamondTrap::DiamondTrap( const DiamondTrap &cpy )
