@@ -32,5 +32,6 @@ int main(void)
 	cout << "Health: " << dmd.getHealth() << endl << "Energy Point: " << dmd.getEngpoint() << endl;
 	dmd.whoAmI();
 
+	// virtual inhetaince keyword'u arastir, -WShadow vb. flag'lere bak
 	return 0;
 }

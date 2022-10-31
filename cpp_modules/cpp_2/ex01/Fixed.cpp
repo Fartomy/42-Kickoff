@@ -19,7 +19,7 @@ Fixed::Fixed() { cout << "Default constructor called" << endl; };
 Fixed::Fixed( const Fixed& cpy )
 {
 	cout << "Copy constructor called" << endl;
-	*this = cpy;
+	fx_nbr = cpy.getRawBits();
 };
 
 Fixed::Fixed( const int _fx_nbr )
@@ -40,7 +40,7 @@ void	Fixed::setRawBits( int const raw ) { fx_nbr = raw; }
 
 float	Fixed::toFloat( void ) const { return ( ( float )fx_nbr / 256); }
 
-int		Fixed::toInt( void ) const { rurn ( fx_nbr / 256 ); }
+int		Fixed::toInt( void ) const { return ( fx_nbr / 256 ); }
 
 Fixed&	Fixed::operator = ( const Fixed &obj )
 {

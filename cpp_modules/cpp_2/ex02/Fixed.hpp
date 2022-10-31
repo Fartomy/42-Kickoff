@@ -44,13 +44,15 @@ public:
 	Fixed	operator * ( Fixed const &obj );
 	Fixed	operator - ( Fixed const &obj );
 
-	Fixed	operator++();
-	Fixed	operator++(int);
-	Fixed	operator--();
-	Fixed	operator--(int);
+	Fixed	operator ++ ();
+	Fixed	operator ++ (int);
+	Fixed	operator -- ();
+	Fixed	operator -- (int);
 
 	int		toInt( void ) const;
 	float	toFloat( void ) const;
+
+	int		getRawBits( void ) const;
 
 	static	Fixed& min( Fixed& obj1, Fixed& obj2 );
 	static	Fixed const &min( Fixed const &obj1, Fixed const &obj2 );
