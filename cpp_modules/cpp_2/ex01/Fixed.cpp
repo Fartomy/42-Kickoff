@@ -31,7 +31,7 @@ Fixed::Fixed( const int _fx_nbr )
 Fixed::Fixed( const float _fx_nbr )
 {
 	cout << "Float constructor called" << endl;
-	fx_nbr = _fx_nbr * 256;
+	fx_nbr = ( int )roundf( _fx_nbr * 256 );
 };
 
 int		Fixed::getRawBits( void ) const { return ( fx_nbr ); }
@@ -40,7 +40,7 @@ void	Fixed::setRawBits( int const raw ) { fx_nbr = raw; }
 
 float	Fixed::toFloat( void ) const { return ( ( float )fx_nbr / 256); }
 
-int		Fixed::toInt( void ) const { return ( fx_nbr / 256 ); }
+int		Fixed::toInt( void ) const { rurn ( fx_nbr / 256 ); }
 
 Fixed&	Fixed::operator = ( const Fixed &obj )
 {
