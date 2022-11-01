@@ -15,7 +15,7 @@
 #include "FragTrap.hpp"
 #include "Diamond.hpp"
 
-int main(void)
+int main( void )
 {
 	DiamondTrap dmd( "Angela" );
 
