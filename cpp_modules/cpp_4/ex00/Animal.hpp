@@ -13,10 +13,11 @@ public:
 	Animal();
 	Animal( const Animal& cpy );
 
-	~Animal();
+	virtual ~Animal();
 	Animal& operator = (const Animal &obj);
 
-private:
+	virtual void makeSound( void ) const;
+	virtual string getType( void ) const;
 
 protected:
 	string type;

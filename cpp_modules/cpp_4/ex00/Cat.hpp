@@ -7,13 +7,13 @@ class Cat : public Animal
 {
 public:
 	Cat();
-	Cat(const Cat &cpy);
+	Cat( const Cat &cpy );
 
 	Cat& operator = ( const Cat &obj );
 	~Cat();
-private:
 
-protected:
+	void makeSound( void ) const;
+	string getType( void ) const;
 };
 
 #endif

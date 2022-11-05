@@ -11,9 +11,9 @@ public:
 
 	Dog& operator = ( const Dog &obj );
 	~Dog();
-private:
 
-protected:
+	void makeSound( void ) const;
+	string getType( void ) const;
 };
 
 #endif
