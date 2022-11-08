@@ -1,7 +1,7 @@
-NAME			=	animal
+NAME			=	bureaucrat
 
-SRCS			=	Animal.cpp	Cat.cpp	Dog.cpp	main.cpp WrongAnimal.cpp WrongCat.cpp
-LIB				=	Animal.hpp	Cat.hpp	Dog.hpp WrongAnimal.hpp WrongCat.hpp
+SRCS			=	Bureaucrat.cpp main.cpp
+LIB				=	Bureaucrat.hpp
 
 OBJS			=	$(SRCS:%.cpp=%.o)
 
