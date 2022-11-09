@@ -46,6 +46,6 @@ int main ( void )
 
 	delete j;
 	delete i;
-	// do not leaks control
+
 	return 0;
 }

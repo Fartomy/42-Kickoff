@@ -29,5 +29,8 @@ int main ( void )
 	cout << obj3->getType() << endl;
 	obj3->makeSound();
 
+	delete obj2;
+	delete obj3;
+
 	return 0;
 }

@@ -22,7 +22,7 @@ Brain::Brain( const Brain &cpy )
 
 Brain& Brain::operator = ( const Brain &obj )
 {
-    ideas[100] = obj.ideas[100];
+    ideas[99] = obj.ideas[99];
     return ( *this );
 }
 
