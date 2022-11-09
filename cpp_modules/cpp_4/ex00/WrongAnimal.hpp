@@ -11,12 +11,12 @@ class WrongAnimal
 {
 public:
     WrongAnimal();
-    WrongAnimal(const WrongAnimal &cpy);
+    WrongAnimal( const WrongAnimal &cpy );
 
     WrongAnimal& operator = ( const WrongAnimal &obj );
     ~WrongAnimal();
 
-    void makeSound( void ) const;
+	void makeSound( void ) const;
     string  getType( void ) const;
 
 protected:

@@ -12,7 +12,10 @@ Cat::Cat( const Cat &cpy ) : Animal()
     *this = cpy;
 }
 
-Cat::~Cat() { cout << "Cat destructor called" << endl; }
+Cat::~Cat()
+{
+	cout << "Cat destructor called" << endl;
+}
 
 Cat& Cat::operator = ( const Cat &obj )
 {
@@ -21,6 +24,5 @@ Cat& Cat::operator = ( const Cat &obj )
 }
 
 void Cat::makeSound( void ) const { cout << "Meeeooowww!" << endl; }
-
 
 string Cat::getType( void ) const { return ( type ); }

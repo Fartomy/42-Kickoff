@@ -24,6 +24,11 @@ int main ( void )
 	i->makeSound();
 	j->makeSound();
 	meta->makeSound();
+
+	delete meta;
+	delete j;
+	delete i;
+	delete x;
 	
 	return 0;
 }
