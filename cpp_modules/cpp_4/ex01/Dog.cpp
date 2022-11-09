@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/09 14:11:13 by ftekdrmi          #+#    #+#             */
+/*   Updated: 2022/11/09 14:11:14 by ftekdrmi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Dog.hpp"
 
 Dog::Dog()
@@ -13,7 +25,7 @@ Dog::Dog( const Dog &cpy ) : Animal()
     *this = cpy;
 }
 
-Dog::~Dog() 
+Dog::~Dog()
 {
     cout << "Dog destructor called" << endl;
     delete dogBrn;
