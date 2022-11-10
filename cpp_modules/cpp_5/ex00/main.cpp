@@ -16,9 +16,13 @@ int main( void )
 {
 	try
 	{
-		const Bureaucrat obj( "Furkan", 13 );
+		Bureaucrat obj( "Furkan", 13 );
+		obj.incGrade();
+		obj.incGrade();
+		cout << "Name is " << obj.getName() << " Grade is " << obj.getGrade() << endl;
+		obj.decGrade();
+		cout << "Name is " << obj.getName() << " Grade is " << obj.getGrade() << endl;
 		const Bureaucrat obj3( "Erdem", -5 );
-		const Bureaucrat obj2( "Ali", 167 );
 	}
 	catch ( exception &e )
 	{	
