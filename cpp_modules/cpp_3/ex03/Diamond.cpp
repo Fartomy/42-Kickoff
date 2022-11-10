@@ -15,7 +15,8 @@ DiamondTrap::DiamondTrap( string _name )
 	cout << "Diamond string constructor called" << endl;
 	name = _name;
 	ClapTrap::setName( _name + "_clap_name" );
-	FragTrap::setHealth( 100 );
+	FragTrap::setHealth( FragTrap::health );
+	this->health = FragTrap::setHealth;
 	FragTrap::setAtckDmg( 30 );
 	ScavTrap::setEngPoint( 50 );
 

@@ -18,7 +18,6 @@
 
 int main ( void )
 {
-
 	//const Animal *obj1 = new Animal(); // We cannot define. Because Animal class have a pure virtual function.
 	const Animal *obj2 = new Dog();
 	const Animal *obj3 = new Cat();

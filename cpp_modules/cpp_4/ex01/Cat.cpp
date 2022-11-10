@@ -19,7 +19,7 @@ Cat::Cat()
     catBrn = new Brain();
 }
 
-Cat::Cat( const Cat &cpy ) : Animal()
+Cat::Cat( const Cat &cpy )
 {
     cout << "Cat copy constructor called" << endl;
     *this = cpy;

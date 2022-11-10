@@ -18,7 +18,7 @@ Dog::Dog()
     type = "Dog";
 }
 
-Dog::Dog( const Dog &cpy ) : Animal()
+Dog::Dog( const Dog &cpy )
 {
     cout << "Dog copy constructor called" << endl;
     *this = cpy;

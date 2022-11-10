@@ -15,9 +15,9 @@
 Bureaucrat::Bureaucrat( string _name, int _grade ) : name( _name )
 {
     if ( _grade > 150 )
-        GradeTooHighException();
+        throw ( GradeTooHighException() );
     else if ( _grade < 1 )
-        GradeTooLowException();
+		throw ( GradeTooLowException() );
     grade = _grade;
     cout << name << " Created," << " " << "Grade is: " << grade << endl;;
 }
