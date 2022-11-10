@@ -15,7 +15,9 @@
 void	ClapTrap::attack( const string &target )
 {
 	cout << "ClapTrap " << name << " attacks " << target << ", causing " << atckDmg << " points of damage!" << endl;
+	cout << "Losed 1 energy point! " << endl;
 	this->takeDamage( atckDmg );
+	engPoint -= 1;
 }
 
 void	ClapTrap::takeDamage( unsigned int amount )
@@ -26,9 +28,10 @@ void	ClapTrap::takeDamage( unsigned int amount )
 
 void	ClapTrap::beRepaired( unsigned int amount )
 {
-	engPoint -= amount;
+	engPoint -= 1;
 	health += amount;
 	cout << name << " repaired himself " << amount << endl;
+	cout << "Losed 1 energy point! " << endl;
 }
 
 string	ClapTrap::getName( void ) { return name; }

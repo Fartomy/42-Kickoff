@@ -19,7 +19,7 @@ int main(void)
 	cout << endl;
 	cout << "Name: " << clp.getName() << endl;
 	cout << "Health: " << clp.getHealth() << endl;
-	cout <<"Attack Damage Point: " << clp.getAtckDmg() << endl;
+	cout << "Attack Damage Point: " << clp.getAtckDmg() << endl;
 	cout << "Energy Point: " << clp.getEngpoint() << endl;
 	cout << endl;
 

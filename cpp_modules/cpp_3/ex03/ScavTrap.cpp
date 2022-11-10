@@ -41,7 +41,9 @@ ScavTrap::~ScavTrap() { cout << "ScavTrap destructor called" << endl; };
 void	ScavTrap::attack( const string &target )
 {
 	cout << "ScavTrap " << getName() << " attacks " << target << ", causing " << getAtckDmg() << " points of damage!" << endl;
+	cout << "Losed 1 energy point! " << endl;
 	this->takeDamage( getAtckDmg() );
+	engPoint -= 1;
 }
 
 ScavTrap&	ScavTrap::operator = ( const ScavTrap &obj )
