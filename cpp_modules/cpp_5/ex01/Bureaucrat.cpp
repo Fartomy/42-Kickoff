@@ -61,11 +61,11 @@ ostream& operator << ( ostream &ost, const Bureaucrat &obj )
 }
 
 
-void Bureaucrat::signForm( Form &form )
+void Bureaucrat::signForm( Form &form, Bureaucrat &brc )
 {
     try
     {
-        form.beSigned( *this );
+        form.beSigned( brc );
         cout << name << "signed" << form.getName() << endl;
     }
     catch( exception &e )

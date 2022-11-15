@@ -44,7 +44,7 @@ public:
 	void incGrade( void );
 	void decGrade( void );
 
-	void signForm( Form &form );
+	void signForm( Form &form, Bureaucrat &brc );
 
 private:
     const string name;

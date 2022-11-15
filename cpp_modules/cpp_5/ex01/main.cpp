@@ -11,22 +11,21 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main( void )
 {
+	Bureaucrat obj("Tuncay", 60);
 	try
 	{
-		Bureaucrat obj( "Furkan", 13 );
-		obj.incGrade();
-		obj.incGrade();
-		cout << "Name is " << obj.getName() << " Grade is " << obj.getGrade() << endl;
-		obj.decGrade();
-		cout << "Name is " << obj.getName() << " Grade is " << obj.getGrade() << endl;
-		const Bureaucrat obj3( "Erdem", -5 );
+		Form frm("Test", 34, 123);
+
+		cout << frm << endl;
+		obj.signForm(frm, obj);
 	}
 	catch ( exception &e )
 	{	
-		cout << e.what() << endl;
+		cerr << e.what() << endl;
 	}
 
     return 0;
