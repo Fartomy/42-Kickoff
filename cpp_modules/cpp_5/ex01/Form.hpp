@@ -4,6 +4,8 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 using std::cout;
 using std::string;
 using std::endl;
@@ -30,7 +32,7 @@ public:
     int getExecGrade( void ) const;
     bool getIsSigned( void ) const;
 
-    void beSigned( const Bureaucrat &brc );
+    void beSigned( const Bureaucrat &obj );
 
 private:
     const string name;

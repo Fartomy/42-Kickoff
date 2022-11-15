@@ -23,6 +23,8 @@ using std::exception;
 using std::ostream;
 using std::cerr;
 
+class Form;
+
 class Bureaucrat
 {
 public:

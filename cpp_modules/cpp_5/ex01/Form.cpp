@@ -1,11 +1,12 @@
 #include "Form.hpp"
 
-Form::Form( string _name, int _exec, int _signed ) : name( _name ), exec_grade( _exec ), sign_grade( sign_grade )
+Form::Form( string _name, int _signed, int _exec ) : name( _name ),  sign_grade( _signed ), exec_grade( _exec )
 {
     if ( _exec > 150 || _signed > 150 )
         throw GradeTooHighException();
     if ( _exec < 1 || _signed < 1)
-        throw GradeTooLowException();    
+        throw GradeTooLowException();
+	cout << "Form Created, It Name is: " << name << endl;
 };
 
 Form::~Form()
@@ -41,6 +42,6 @@ void Form::beSigned( const Bureaucrat &brc )
 
 ostream& operator << ( ostream &ost, const Form &form )
 {
-    ost << "Form Informations: " << form.getName() << endl << form.getIsSigned() << endl << form.getExecGrade() << endl << form.getSignGrade() << endl; 
+    ost << endl << "Form Informations: " << form.getName() << endl << form.getIsSigned() << endl << form.getExecGrade() << endl << form.getSignGrade() << endl;
     return ( ost );
 }

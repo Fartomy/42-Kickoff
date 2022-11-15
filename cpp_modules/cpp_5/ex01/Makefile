@@ -1,7 +1,7 @@
 NAME			=	form
 
-SRCS			=	Bureaucrat.cpp main.cpp
-LIB				=	Bureaucrat.hpp
+SRCS			=	Bureaucrat.cpp main.cpp	Form.cpp
+LIB				=	Bureaucrat.hpp Form.hpp
 
 OBJS			=	$(SRCS:%.cpp=%.o)
 

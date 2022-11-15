@@ -15,10 +15,10 @@
 
 int main( void )
 {
-	Bureaucrat obj("Tuncay", 60);
+	Bureaucrat obj( "Tuncay", 60 );
 	try
 	{
-		Form frm("Test", 34, 123);
+		Form frm( "Test", 64, 123 );
 
 		cout << frm << endl;
 		obj.signForm(frm, obj);

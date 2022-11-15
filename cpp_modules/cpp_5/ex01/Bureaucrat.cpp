@@ -66,11 +66,11 @@ void Bureaucrat::signForm( Form &form, Bureaucrat &brc )
     try
     {
         form.beSigned( brc );
-        cout << name << "signed" << form.getName() << endl;
+        cout << name << " signed " << form.getName() << endl;
     }
     catch( exception &e )
     {
-        cerr << name << "not signed" << form.getName() << "reason is: " << e.what() << endl;
+        cerr << name << " not signed " << form.getName() << " reason is: " << e.what() << endl;
     }
     
 }
