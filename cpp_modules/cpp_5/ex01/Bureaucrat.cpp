@@ -70,7 +70,7 @@ void Bureaucrat::signForm( Form &form, Bureaucrat &brc )
     }
     catch( exception &e )
     {
-        cerr << name << " not signed " << form.getName() << " reason is: " << e.what() << endl;
+        cerr << name << " couldn't " << form.getName() << " because " << e.what() << endl;
     }
     
 }
