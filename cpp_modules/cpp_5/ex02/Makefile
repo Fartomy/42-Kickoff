@@ -1,7 +1,7 @@
-NAME			=	form
+NAME			=	shrubotodential
 
-SRCS			=	Bureaucrat.cpp main.cpp	Form.cpp
-LIB				=	Bureaucrat.hpp Form.hpp
+SRCS			=	Bureaucrat.cpp main.cpp	Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+LIB				=	Bureaucrat.hpp Form.hpp	PresidentialPardonForm.hpp RobotomyRequestForm.hpp ShrubberyCreationForm.hpp
 
 OBJS			=	$(SRCS:%.cpp=%.o)
 
