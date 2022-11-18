@@ -4,18 +4,20 @@ ShrubberyCreationForm::ShrubberyCreationForm( string target ) : Form( target, 13
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {};
 
-void ShrubberyCreationForm::execute( const Bureaucrat &obj )
+void ShrubberyCreationForm::execute( const Bureaucrat &obj ) const
 {
 	if ( getExecGrade() < obj.getGrade() )
 		throw GradeTooLowException();
 	if ( getIsSigned() == false )
 		throw NotSignedException();
-	exeAction();
+	exeAction( obj );
 }
 
-void ShrubberyCreationForm::exeAction( void )
+void ShrubberyCreationForm::exeAction( const Bureaucrat &obj ) const
 {
+	( void )obj;
 	string str = getName() + "_shrubbery";
+
 	ofstream file( str.c_str() );
 	file << "                C++ " << endl;
 	file << "               \\_/ " << endl;

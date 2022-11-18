@@ -38,8 +38,8 @@ public:
 
     void beSigned( const Bureaucrat &obj );
 
-	virtual void execute( Bureaucrat const &obj );
-	virtual void exeAction( void );
+	virtual void execute( Bureaucrat const &obj ) const = 0;
+	virtual void exeAction( const Bureaucrat &obj ) const;
 
 private:
     const string name;

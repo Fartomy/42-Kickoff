@@ -2,8 +2,8 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include <iostream>
-#include "Bureaucrat.hpp"
 #include <time.h>
+#include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
@@ -16,8 +16,8 @@ class RobotomyRequestForm : public Form
 public:
 	RobotomyRequestForm( string target );
 	~RobotomyRequestForm();
-	void execute( const Bureaucrat &obj );
-	void exeAction( void );
+	void execute( const Bureaucrat &obj ) const;
+	void exeAction( const Bureaucrat &obj ) const;
 };
 
 #endif

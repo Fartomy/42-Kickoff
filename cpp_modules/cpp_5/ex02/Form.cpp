@@ -9,10 +9,7 @@ Form::Form( string _name, int _signed, int _exec ) : name( _name ),  sign_grade(
 	cout << "Form Created, It Name is: " << name << endl;
 };
 
-Form::~Form()
-{
-    cout << "Destroyed Form" << endl;
-};
+Form::~Form() { cout << "Destroyed Form" << endl; };
 
 const char * Form::GradeTooHighException::what() const throw()
 {
@@ -22,6 +19,11 @@ const char * Form::GradeTooHighException::what() const throw()
 const char * Form::GradeTooLowException::what() const throw()
 {
     return ( "It's too low grade!" );
+}
+
+const char * Form::NotSignedException::what() const throw()
+{
+	return ( "Form is not signed!" );
 }
 
 string Form::getName( void ) const { return ( name ); }
@@ -46,7 +48,7 @@ ostream& operator << ( ostream &ost, const Form &form )
     return ( ost );
 }
 
-void Form::execute( const Bureaucrat &obj )
+void Form::execute( const Bureaucrat &obj ) const
 {
 	if ( getExecGrade() < obj.getGrade() )
 		throw GradeTooLowException();
@@ -55,7 +57,7 @@ void Form::execute( const Bureaucrat &obj )
 	exeAction( obj );
 }
 
-void Form::exeAction( const Bureaucrat &obj )
+void Form::exeAction( const Bureaucrat &obj ) const
 {
 	cout << obj.getName() << " executed " << getName() << endl;
 }

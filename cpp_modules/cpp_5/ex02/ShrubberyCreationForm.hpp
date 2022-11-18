@@ -17,8 +17,8 @@ class ShrubberyCreationForm : public Form
 public:
 	ShrubberyCreationForm( string target );
 	~ShrubberyCreationForm();
-	void execute( const Bureaucrat &obj );
-	void exeAction( void );
+	void execute( const Bureaucrat &obj ) const;
+	void exeAction( const Bureaucrat &obj ) const;
 };
 
 #endif

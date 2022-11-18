@@ -10,11 +10,64 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
 int main( void )
 {
+	cout << "---------------ShrubberyCreationForm---------------" << endl;
+	try
+	{
+		Bureaucrat br( "Rafet", 43 );
+		Bureaucrat br2( "Sercan", 125 );
+		Bureaucrat br3( "Sefa", 4 );
 
+		ShrubberyCreationForm shForm( "ShrubberyForm" );
+
+		br.executeForm( shForm );
+		br2.executeForm( shForm );
+		br3.executeForm( shForm );
+	}
+	catch ( exception &e )
+	{
+		cerr << e.what() << endl;
+	}
+	cout << "---------------RobotomyRequestForm---------------" << endl;
+	try
+	{
+		Bureaucrat br( "Ahmet", 34 );
+		Bureaucrat br2( "Ercan", 145 );
+		Bureaucrat br3( "Sedat", 14 );
+
+		RobotomyRequestForm rbForm( "RobotoForm" );
+
+		br.executeForm( rbForm );
+		br2.executeForm( rbForm );
+		br3.executeForm( rbForm );
+	}
+	catch ( exception &e )
+	{
+		cerr << e.what() << endl;
+	}
+	cout << "---------------PresidentialPardonForm---------------" << endl;
+	try
+	{
+		Bureaucrat br( "Erdem", 34 );
+		Bureaucrat br2( "Enes", 145 );
+		Bureaucrat br3( "Kerem", 14 );
+
+		PresidentialPardonForm prForm( "PresidentialForm" );
+
+		br.executeForm( prForm );
+		br2.executeForm( prForm );
+		br3.executeForm( prForm );
+	}
+	catch ( exception &e )
+	{
+		cerr << e.what() << endl;
+	}
 	return 0;
 }

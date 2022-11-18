@@ -4,16 +4,17 @@ PresidentialPardonForm::PresidentialPardonForm( string target ) : Form( target, 
 
 PresidentialPardonForm::~PresidentialPardonForm(){};
 
-void PresidentialPardonForm::execute( const Bureaucrat &obj )
+void PresidentialPardonForm::execute( const Bureaucrat &obj ) const
 {
 	if ( getExecGrade() < obj.getGrade() )
 		throw GradeTooLowException();
 	if ( getIsSigned() == false )
 		throw NotSignedException();
-	exeAction();
+	exeAction( obj );
 }
 
-void PresidentialPardonForm::exeAction( void )
+void PresidentialPardonForm::exeAction( const Bureaucrat &obj ) const
 {
+	( void )obj;
 	cout << getName() << " Pardoned by Zaphod Beeblebrox. :d" << endl;
 }

@@ -16,8 +16,8 @@ public:
 	PresidentialPardonForm( string target );
 	~PresidentialPardonForm();
 
-	void execute( const Bureaucrat &obj );
-	void exeAction( void );
+	void execute( const Bureaucrat &obj ) const;
+	void exeAction( const Bureaucrat &obj ) const;
 private:
 };
 
