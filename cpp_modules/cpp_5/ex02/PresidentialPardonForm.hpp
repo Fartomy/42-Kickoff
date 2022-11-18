@@ -6,17 +6,18 @@
 
 class Bureaucrat;
 
-using std::endl;
 using std::string;
+using std::endl;
 using std::cout;
 
 class PresidentialPardonForm : public Form
 {
 public:
-	PresidentialPardonForm();
+	PresidentialPardonForm( string target );
 	~PresidentialPardonForm();
 
 	void execute( const Bureaucrat &obj );
+	void exeAction( void );
 private:
 };
 

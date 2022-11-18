@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Bureaucrat.hpp"
+#include <time.h>
 
 class Bureaucrat;
 
@@ -13,11 +14,10 @@ using std::string;
 class RobotomyRequestForm : public Form
 {
 public:
-	RobotomyRequestForm();
+	RobotomyRequestForm( string target );
 	~RobotomyRequestForm();
-
 	void execute( const Bureaucrat &obj );
-private:
+	void exeAction( void );
 };
 
 #endif
