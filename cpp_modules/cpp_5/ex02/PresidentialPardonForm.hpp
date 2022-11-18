@@ -2,20 +2,21 @@
 #define PRESIDENTIALPARDONFORM_HPP
 
 #include <iostream>
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 using std::endl;
 using std::string;
 using std::cout;
 
-class PresidentialPardonForm
+class PresidentialPardonForm : public Form
 {
 public:
 	PresidentialPardonForm();
-	PresidentialPardonForm( const PresidentialPardonForm &cpy );
-
-	PresidentialPardonForm& operator = ( const PresidentialPardonForm &obj );
 	~PresidentialPardonForm();
 
+	void execute( const Bureaucrat &obj );
 private:
 };
 

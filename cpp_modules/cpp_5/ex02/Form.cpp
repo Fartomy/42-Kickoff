@@ -45,3 +45,17 @@ ostream& operator << ( ostream &ost, const Form &form )
     ost << endl << "Form Informations: " << form.getName() << endl << form.getIsSigned() << endl << form.getExecGrade() << endl << form.getSignGrade() << endl;
     return ( ost );
 }
+
+void Form::execute( const Bureaucrat &obj )
+{
+	if ( getExecGrade() < obj.getGrade() )
+		throw GradeTooLowException();
+	if ( getIsSigned() == false )
+		throw NotSignedException();
+	exeAction( obj );
+}
+
+void Form::exeAction( const Bureaucrat &obj )
+{
+	cout << obj.getName() << " executed " << getName() << endl;
+}

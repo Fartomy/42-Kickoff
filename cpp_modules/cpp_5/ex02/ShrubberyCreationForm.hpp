@@ -2,21 +2,23 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include <iostream>
+#include <fstream>
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 using std::endl;
 using std::string;
 using std::cout;
+using std::ofstream;
 
-class ShrubberyCreationForm
+class ShrubberyCreationForm : public Form
 {
 public:
-	ShrubberyCreationForm();
-	ShrubberyCreationForm( const ShrubberyCreationForm &cpy );
-
-	ShrubberyCreationForm& operator = ( const ShrubberyCreationForm &obj );
+	ShrubberyCreationForm( string target );
 	~ShrubberyCreationForm();
-
-private:
+	void execute( const Bureaucrat &obj );
+	void exeAction( void );
 };
 
 #endif

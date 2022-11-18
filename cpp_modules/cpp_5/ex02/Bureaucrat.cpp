@@ -72,5 +72,16 @@ void Bureaucrat::signForm( Form &form, Bureaucrat &brc )
     {
         cerr << name << " couldn't " << form.getName() << " because " << e.what() << endl;
     }
-    
+}
+
+void Bureaucrat::executeForm( Form &form )
+{
+	try
+	{
+		form.execute( *this );
+	}
+	catch ( exception &e )
+	{
+		cerr << getName() << " cannot executed " << form.getName() << "reason is: " << e.what() << endl;
+	}
 }

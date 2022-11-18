@@ -23,9 +23,13 @@ public:
     {
         const char * what() const throw();
     };
+	struct NotSignedException : public exception
+	{
+		const char * what() const throw();
+	};
 
     Form( string _name, int _exec, int _signed );
-    ~Form();
+    virtual ~Form();
 
     string getName( void ) const;
     int getSignGrade( void ) const;
@@ -33,6 +37,9 @@ public:
     bool getIsSigned( void ) const;
 
     void beSigned( const Bureaucrat &obj );
+
+	virtual void execute( Bureaucrat const &obj );
+	virtual void exeAction( void );
 
 private:
     const string name;

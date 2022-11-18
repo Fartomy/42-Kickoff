@@ -16,14 +16,14 @@
 #include <iostream>
 #include "Form.hpp"
 
+class Form;
+
 using std::string;
 using std::cout;
 using std::endl;
 using std::exception;
 using std::ostream;
 using std::cerr;
-
-class Form;
 
 class Bureaucrat
 {
@@ -47,6 +47,7 @@ public:
 	void decGrade( void );
 
 	void signForm( Form &form, Bureaucrat &brc );
+	void executeForm( Form const &form );
 
 private:
     const string name;
