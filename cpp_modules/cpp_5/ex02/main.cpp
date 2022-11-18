@@ -21,11 +21,15 @@ int main( void )
 	cout << "---------------ShrubberyCreationForm---------------" << endl;
 	try
 	{
-		Bureaucrat br( "Rafet", 43 );
+		Bureaucrat br( "Rafet", 147 );
 		Bureaucrat br2( "Sercan", 125 );
 		Bureaucrat br3( "Sefa", 4 );
 
 		ShrubberyCreationForm shForm( "ShrubberyForm" );
+
+		br.signForm( shForm, br );
+		br2.signForm( shForm, br2 );
+		br3.signForm( shForm, br3 );
 
 		br.executeForm( shForm );
 		br2.executeForm( shForm );
@@ -44,6 +48,10 @@ int main( void )
 
 		RobotomyRequestForm rbForm( "RobotoForm" );
 
+		br.signForm( rbForm, br );
+		br2.signForm( rbForm, br );
+		br3.signForm( rbForm, br );
+
 		br.executeForm( rbForm );
 		br2.executeForm( rbForm );
 		br3.executeForm( rbForm );
@@ -60,6 +68,10 @@ int main( void )
 		Bureaucrat br3( "Kerem", 14 );
 
 		PresidentialPardonForm prForm( "PresidentialForm" );
+
+		br.signForm( prForm, br );
+		br2.signForm( prForm, br2 );
+		br3.signForm( prForm, br3 );
 
 		br.executeForm( prForm );
 		br2.executeForm( prForm );

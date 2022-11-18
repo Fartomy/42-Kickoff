@@ -82,6 +82,6 @@ void Bureaucrat::executeForm( Form const &form )
 	}
 	catch ( exception &e )
 	{
-		cerr << getName() << " cannot executed " << form.getName() << "reason is: " << e.what() << endl;
+		cerr << getName() << " cannot executed " << form.getName() << " reason is: " << e.what() << endl;
 	}
 }

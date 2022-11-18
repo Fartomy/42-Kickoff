@@ -20,7 +20,7 @@ void ShrubberyCreationForm::exeAction( const Bureaucrat &obj ) const
 
 	ofstream file( str.c_str() );
 	file << "                C++ " << endl;
-	file << "               \\_/ " << endl;
+	file << "                \\_/ " << endl;
 	file << "                 | " << endl;
 	file << "                 * " << endl;
 	file << "                *** " << endl;
