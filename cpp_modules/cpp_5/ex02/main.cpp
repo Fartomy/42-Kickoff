@@ -65,7 +65,7 @@ int main( void )
 	{
 		Bureaucrat br( "Erdem", 34 );
 		Bureaucrat br2( "Enes", 145 );
-		Bureaucrat br3( "Kerem", 14 );
+		Bureaucrat br3( "Kerem", 2 );
 
 		PresidentialPardonForm prForm( "PresidentialForm" );
 
