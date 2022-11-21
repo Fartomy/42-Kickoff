@@ -14,72 +14,57 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "Intern.hpp"
 
 int main( void )
 {
-	cout << "---------------ShrubberyCreationForm---------------" << endl;
+	cout << "------------------------TRY SUCCESS TEST------------------------";
 	try
 	{
-		Bureaucrat br( "Rafet", 147 );
-		Bureaucrat br2( "Sercan", 125 );
-		Bureaucrat br3( "Sefa", 4 );
+		Intern anyIntern;
+		Bureaucrat brc1( "Kazim", 134 );
+		Bureaucrat brc2( "Busra", 2 );
+		Bureaucrat brc3( "Sevil", 56 );
+		AForm *frm;
 
-		ShrubberyCreationForm shForm( "ShrubberyForm" );
+		frm = anyIntern.makeForm( "ShrubberyCreationForm", "Mehmet" );
+		brc1.signForm( *frm, brc1 );
+		brc2.signForm( *frm, brc2 );
+		brc3.signForm( *frm, brc3 );
+		brc1.executeForm( *frm );
+		brc2.executeForm( *frm );
+		brc3.executeForm( *frm );
 
-		br.signForm( shForm, br );
-		br2.signForm( shForm, br2 );
-		br3.signForm( shForm, br3 );
+		delete frm;
+	}
+	catch ( exception &e)
+	{
+		cout << "Form have a exception, exception is: " << e.what() << endl;
+	}
+	cout << "------------------------TRY FAIL TEST------------------------";
+	try
+	{
+		Intern anotherIntern;
+		Bureaucrat brc1( "Tugalp", 121 );
+		Bureaucrat brc2( "Sinan", 21 );
+		Bureaucrat brc3( "Rafet", 73 );
+		AForm *frm;
 
-		br.executeForm( shForm );
-		br2.executeForm( shForm );
-		br3.executeForm( shForm );
+		frm = anotherIntern.makeForm("xdxdxdxdForm", "Erdinc");
+
+		brc1.signForm( *frm, brc1 );
+		brc2.signForm( *frm, brc2);
+		brc3.signForm( *frm, brc3 );
+		brc1.executeForm( *frm );
+		brc2.executeForm( *frm );
+		brc3.executeForm( *frm );
+
+		delete frm;
 	}
 	catch ( exception &e )
 	{
-		cerr << e.what() << endl;
-	}
-	cout << "---------------RobotomyRequestForm---------------" << endl;
-	try
-	{
-		Bureaucrat br( "Ahmet", 34 );
-		Bureaucrat br2( "Ercan", 145 );
-		Bureaucrat br3( "Sedat", 14 );
-
-		RobotomyRequestForm rbForm( "RobotoForm" );
-
-		br.signForm( rbForm, br );
-		br2.signForm( rbForm, br );
-		br3.signForm( rbForm, br );
-
-		br.executeForm( rbForm );
-		br2.executeForm( rbForm );
-		br3.executeForm( rbForm );
-	}
-	catch ( exception &e )
-	{
-		cerr << e.what() << endl;
-	}
-	cout << "---------------PresidentialPardonForm---------------" << endl;
-	try
-	{
-		Bureaucrat br( "Erdem", 34 );
-		Bureaucrat br2( "Enes", 145 );
-		Bureaucrat br3( "Kerem", 2 );
-
-		PresidentialPardonForm prForm( "PresidentialForm" );
-
-		br.signForm( prForm, br );
-		br2.signForm( prForm, br2 );
-		br3.signForm( prForm, br3 );
-
-		br.executeForm( prForm );
-		br2.executeForm( prForm );
-		br3.executeForm( prForm );
-	}
-	catch ( exception &e )
-	{
-		cerr << e.what() << endl;
+		cout << "Form have a exception, exception is: " << e.what() << endl;
 	}
 	return 0;
 }

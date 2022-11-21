@@ -1,6 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm( string target ) : Form( target, 137, 145 ) {};
+ShrubberyCreationForm::ShrubberyCreationForm( string target ) : AForm( target, 137, 145 ) {};
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {};
 

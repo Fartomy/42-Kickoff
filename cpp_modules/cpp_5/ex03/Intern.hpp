@@ -2,12 +2,13 @@
 #define INTERN_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-class Form;
+class AForm;
+
 using std::cout;
 using std::endl;
 using std::string;
@@ -18,7 +19,12 @@ public:
 	Intern();
 	~Intern();
 
-	Form* makeForm( string name, string target );
+	struct FormNotFound : public exception
+	{
+		const char * what() const throw();
+	};
+
+	AForm* makeForm( string name, string target );
 };
 
 #endif

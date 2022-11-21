@@ -14,9 +14,9 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 using std::string;
 using std::cout;
@@ -46,8 +46,8 @@ public:
 	void incGrade( void );
 	void decGrade( void );
 
-	void signForm( Form &form, Bureaucrat &brc );
-	void executeForm( Form const &form );
+	void signForm( AForm &form, Bureaucrat &brc );
+	void executeForm( AForm const &form );
 
 private:
     const string name;

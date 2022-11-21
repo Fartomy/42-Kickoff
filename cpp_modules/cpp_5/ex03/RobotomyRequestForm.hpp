@@ -11,7 +11,7 @@ using std::endl;
 using std::cout;
 using std::string;
 
-class RobotomyRequestForm : public Form
+class RobotomyRequestForm : public AForm
 {
 public:
 	RobotomyRequestForm( string target );

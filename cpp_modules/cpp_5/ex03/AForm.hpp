@@ -1,5 +1,5 @@
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include <iostream>
 #include "Bureaucrat.hpp"
@@ -12,7 +12,7 @@ using std::endl;
 using std::exception;
 using std::ostream;
 
-class Form
+class AForm
 {
 public:
     struct GradeTooHighException : public exception
@@ -28,8 +28,8 @@ public:
 		const char * what() const throw();
 	};
 
-    Form( string _name, int _exec, int _signed );
-    virtual ~Form();
+    AForm( string _name, int _exec, int _signed );
+    virtual ~AForm();
 
     string getName( void ) const;
     int getSignGrade( void ) const;
@@ -38,7 +38,7 @@ public:
 
     void beSigned( const Bureaucrat &obj );
 
-	virtual void execute( Bureaucrat const &obj ) const = 0;
+	virtual void execute( Bureaucrat const &obj ) const;
 	virtual void exeAction( const Bureaucrat &obj ) const;
 
 private:
@@ -48,6 +48,6 @@ private:
     bool is_signed;
 };
 
-ostream& operator << ( ostream &ost, const Form &form );
+ostream& operator << ( ostream &ost, const AForm &form );
 
 #endif

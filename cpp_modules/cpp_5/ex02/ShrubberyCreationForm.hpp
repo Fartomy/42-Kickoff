@@ -12,7 +12,7 @@ using std::string;
 using std::cout;
 using std::ofstream;
 
-class ShrubberyCreationForm : public Form
+class ShrubberyCreationForm : public AForm
 {
 public:
 	ShrubberyCreationForm( string target );

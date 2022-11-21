@@ -1,6 +1,6 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm( string target ) : Form(target, 45, 72) {};
+RobotomyRequestForm::RobotomyRequestForm( string target ) : AForm(target, 45, 72) {};
 
 RobotomyRequestForm::~RobotomyRequestForm() {};
 

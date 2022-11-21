@@ -1,6 +1,6 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form( string _name, int _signed, int _exec ) : name( _name ),  sign_grade( _signed ), exec_grade( _exec )
+AForm::AForm( string _name, int _signed, int _exec ) : name( _name ),  sign_grade( _signed ), exec_grade( _exec )
 {
     if ( _exec > 150 || _signed > 150 )
         throw GradeTooHighException();
@@ -9,32 +9,32 @@ Form::Form( string _name, int _signed, int _exec ) : name( _name ),  sign_grade(
 	cout << "Form Created, It Name is: " << name << endl;
 };
 
-Form::~Form() { cout << "Destroyed Form" << endl; };
+AForm::~AForm() { cout << "Destroyed Form" << endl; };
 
-const char * Form::GradeTooHighException::what() const throw()
+const char * AForm::GradeTooHighException::what() const throw()
 {
     return ( "It's too high grade!" );
 }
 
-const char * Form::GradeTooLowException::what() const throw()
+const char * AForm::GradeTooLowException::what() const throw()
 {
     return ( "It's too low grade!" );
 }
 
-const char * Form::NotSignedException::what() const throw()
+const char * AForm::NotSignedException::what() const throw()
 {
 	return ( "Form is not signed!" );
 }
 
-string Form::getName( void ) const { return ( name ); }
+string AForm::getName( void ) const { return ( name ); }
 
-int Form::getExecGrade( void ) const { return ( exec_grade ); }
+int AForm::getExecGrade( void ) const { return ( exec_grade ); }
 
-int Form::getSignGrade( void ) const { return ( sign_grade ); }
+int AForm::getSignGrade( void ) const { return ( sign_grade ); }
 
-bool Form::getIsSigned( void ) const { return ( is_signed ); }
+bool AForm::getIsSigned( void ) const { return ( is_signed ); }
 
-void Form::beSigned( const Bureaucrat &brc )
+void AForm::beSigned( const Bureaucrat &brc )
 {
     if ( getSignGrade() < brc.getGrade() )
         throw GradeTooLowException();
@@ -42,13 +42,13 @@ void Form::beSigned( const Bureaucrat &brc )
         is_signed = true;
 }
 
-ostream& operator << ( ostream &ost, const Form &form )
+ostream& operator << ( ostream &ost, const AForm &form )
 {
     ost << endl << "Form Informations: " << form.getName() << endl << form.getIsSigned() << endl << form.getExecGrade() << endl << form.getSignGrade() << endl;
     return ( ost );
 }
 
-void Form::execute( const Bureaucrat &obj ) const
+void AForm::execute( const Bureaucrat &obj ) const
 {
 	if ( getExecGrade() < obj.getGrade() )
 		throw GradeTooLowException();
@@ -57,7 +57,7 @@ void Form::execute( const Bureaucrat &obj ) const
 	exeAction( obj );
 }
 
-void Form::exeAction( const Bureaucrat &obj ) const
+void AForm::exeAction( const Bureaucrat &obj ) const
 {
 	cout << obj.getName() << " executed " << getName() << endl;
 }

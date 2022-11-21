@@ -61,7 +61,7 @@ ostream& operator << ( ostream &ost, const Bureaucrat &obj )
 }
 
 
-void Bureaucrat::signForm( Form &form, Bureaucrat &brc )
+void Bureaucrat::signForm( AForm &form, Bureaucrat &brc )
 {
     try
     {
@@ -74,7 +74,7 @@ void Bureaucrat::signForm( Form &form, Bureaucrat &brc )
     }
 }
 
-void Bureaucrat::executeForm( Form const &form )
+void Bureaucrat::executeForm( AForm const &form )
 {
 	try
 	{
