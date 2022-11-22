@@ -34,9 +34,11 @@ private:
 	string type;
 };
 
-int which_type( char *ch );
-bool is_double( char *ch );
-bool is_float( char *ch );
-bool is_int( char *ch );
+bool	is_dotZeroD( char *ch );
+bool	is_dotZeroF( char *ch );
+int		which_type( char *ch );
+bool	is_double( char *ch );
+bool	is_float( char *ch );
+bool	is_int( char *ch );
 
 #endif

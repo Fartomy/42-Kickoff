@@ -47,21 +47,42 @@ void TypeCast::display( int a, char *ch )
 			break;
 		case 3 :
 			b = ( char )stoi( str, 0 );
-			cout << "char: " << "'" << b << "'" << endl;
+			if( isprint( b ) )
+				cout << "char: " << "'" << b << "'" << endl;
+			else
+				cout << "char: Non displayable" << endl;
 			cout << "int: " << stoi( str, 0, 10 ) << endl;
-			cout << "float: " << stof( str, 0 ) << "f" << endl;
-			cout << "double: " << stod( str, 0 ) << endl;
+			if( is_dotZeroF( ch ) )
+				cout << "float: " << stof( str, 0 ) << "f" << endl;
+			else
+				cout << "float: " << stof( str, 0 ) << ".0f" << endl;
+			if( is_dotZeroF( ch ) )
+				cout << "double: " << stod( str, 0 ) << endl;
+			else
+				cout << "double: " << stod( str, 0 ) << ".0" << endl;
+			break;
 		case 4 :
 			b = ( char )stoi( str, 0 );
-			cout << "char: " << "'" << b << "'" << endl;
+			if( isprint( b ) )
+				cout << "char: " << "'" << b << "'" << endl;
+			else
+				cout << "char: Non displayable" << endl;
 			cout << "int: " << stoi( str, 0, 10 ) << endl;
-			cout << "float: " << stof( str, 0 ) << "f" << endl;
-			cout << "double: " << stod( str, 0 ) << endl;
+			if( is_dotZeroD( ch ) )
+				cout << "float: " << stof( str, 0 ) << "f" << endl;
+			else
+				cout << "float: " << stof( str, 0 ) << ".0f" << endl;
+			if( is_dotZeroD( ch ) )
+				cout << "double: " << stod( str, 0 ) << endl;
+			else
+				cout << "double: " << stod( str, 0 ) << ".0" << endl;
+			break;
 		case 5 :
 			cout << "char: impossible" << endl;
 			cout << "int: impossible" << endl;
 			cout << "float: nanf" << endl;
 			cout << "double: nan" << endl;
+			break;
 		case 0:
 			throw ErrorHandle();
 			break;

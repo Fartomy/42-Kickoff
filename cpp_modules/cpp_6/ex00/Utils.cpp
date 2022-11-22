@@ -126,16 +126,38 @@ int which_type( char *ch )
 		return 0;
 }
 
-/*#include <iostream>
-
-using namespace std;
-
-int main()
+bool is_dotZeroF( char *ch )
 {
-	string s = "123.0f";
+	int i = -1;
 
-	float xd = stof(s, 0);
+	while( ch[++i] )
+	{
+		if( ch[i] == '.' )
+		{
+			i++;
+			while( ch[i] == '0' )
+				i++;
+			if( ch[i] != 'f' && ch[i] != '0' )
+				return true;
+		}
+	}
+	return false;
+}
 
-	cout << xd << endl;
-	return 0;
-}*/
+bool is_dotZeroD( char *ch )
+{
+	int i = -1;
+
+	while( ch[++i] )
+	{
+		if( ch[i] == '.' )
+		{
+			i++;
+			while ( ch[i] == '0' )
+				i++;
+			if( ch[i] != '0' && ch[i] )
+				return true;
+		}
+	}
+	return false;
+}
