@@ -74,7 +74,13 @@ bool is_float( char *ch )
 		else
 			return false;
 	}
-	return true;
+	i = -1;
+	while ( ch[++i] )
+	{
+		if ( ch[i] == 'f' )
+			return true;
+	}
+	return false;
 }
 
 bool is_int( char *ch )
