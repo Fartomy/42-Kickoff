@@ -15,7 +15,7 @@ $(NAME):		$(OBJS) $(LIB)
 				$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
 
 clean:
-				$(RM) $(OBJS)
+				$(RM) $(OBJS) ShrubberyForm_shrubbery
 
 fclean:			clean
 				$(RM) $(NAME)

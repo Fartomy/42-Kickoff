@@ -19,7 +19,7 @@
 
 int main( void )
 {
-	cout << "------------------------TRY SUCCESS TEST------------------------";
+	cout << "------------------------TRY SUCCESS TEST------------------------" << endl;
 	try
 	{
 		Intern anyIntern;
@@ -42,7 +42,7 @@ int main( void )
 	{
 		cout << "Form have a exception, exception is: " << e.what() << endl;
 	}
-	cout << "------------------------TRY FAIL TEST------------------------";
+	cout << "------------------------TRY FAIL TEST------------------------" << endl;
 	try
 	{
 		Intern anotherIntern;
