@@ -38,10 +38,10 @@ int Bureaucrat::getGrade( void ) const { return ( grade ); }
 
 string Bureaucrat::getName( void ) const { return ( name ); }
 
-void Bureaucrat::decGrade( void )
+void Bureaucrat::decGrade( void ) // Why we increase in decGrade function? Because 1 is highest of bureacrat grade. Therefore we are checking if grade when increase what happened?
 {
     if ( grade + 1 < 1 )
-        throw ( GradeTooLowException() );
+        throw ( GradeTooHighException() );
     else
         grade++;
 }
@@ -49,7 +49,7 @@ void Bureaucrat::decGrade( void )
 void Bureaucrat::incGrade( void )
 {
     if ( grade - 1 > 150 )
-        throw ( GradeTooHighException() );
+        throw ( GradeTooLowException() );
     else
         grade--;
 }
