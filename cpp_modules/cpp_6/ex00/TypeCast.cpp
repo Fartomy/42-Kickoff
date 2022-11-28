@@ -48,46 +48,46 @@ void TypeCast::display( int a, char *ch )
 			cout << "double: " << static_cast<double>( str[0] ) << ".0" << endl;
 			break;
 		case 2 :
-			b = ( char )stoi( str, 0 ,10 );
+			b = static_cast<char>( stoi( str, 0 ,10 ) );
 			if( isprint( b ) )
 				cout << "char: " << "'" << b << "'" << endl;
 			else
 				cout << "char: Non displayable" << endl;
-			cout << "int: " << stoi( str, 0, 10 ) << endl;
-			cout << "float: " << stof( str, 0 ) << ".0f" << endl;
-			cout << "double: " << stod( str, 0 ) << ".0" << endl;
+			cout << "int: " << static_cast<int>( stoi( str, 0, 10 ) ) << endl;
+			cout << "float: " << static_cast<float>( stof( str, 0 ) ) << ".0f" << endl;
+			cout << "double: " << static_cast<double>( stod( str, 0 ) ) << ".0" << endl;
 			break;
 		case 3 :
-			b = ( char )stoi( str, 0 );
+			b = static_cast<char>( stoi( str, 0 ) );
 			if( isprint( b ) )
 				cout << "char: " << "'" << b << "'" << endl;
 			else
 				cout << "char: Non displayable" << endl;
-			cout << "int: " << stoi( str, 0, 10 ) << endl;
+			cout << "int: " << static_cast<int>( stoi( str, 0, 10 ) ) << endl;
 			if( is_dotZeroF( ch ) )
-				cout << "float: " << stof( str, 0 ) << "f" << endl;
+				cout << "float: " << static_cast<float>( stof( str, 0 ) ) << "f" << endl;
 			else
-				cout << "float: " << stof( str, 0 ) << ".0f" << endl;
+				cout << "float: " << static_cast<float>( stof( str, 0 ) ) << ".0f" << endl;
 			if( is_dotZeroF( ch ) )
-				cout << "double: " << stod( str, 0 ) << endl;
+				cout << "double: " << static_cast<double>( stod( str, 0 ) ) << endl;
 			else
-				cout << "double: " << stod( str, 0 ) << ".0" << endl;
+				cout << "double: " << static_cast<double>( stod( str, 0 ) ) << ".0" << endl;
 			break;
 		case 4 :
-			b = ( char )stoi( str, 0 );
+			b = static_cast<char>( stoi( str, 0 ) );
 			if( isprint( b ) )
 				cout << "char: " << "'" << b << "'" << endl;
 			else
 				cout << "char: Non displayable" << endl;
-			cout << "int: " << stoi( str, 0, 10 ) << endl;
+			cout << "int: " << static_cast<int>( stoi( str, 0, 10 ) )<< endl;
 			if( is_dotZeroD( ch ) )
-				cout << "float: " << stof( str, 0 ) << "f" << endl;
+				cout << "float: " << static_cast<float>( stof( str, 0 ) ) << "f" << endl;
 			else
-				cout << "float: " << stof( str, 0 ) << ".0f" << endl;
+				cout << "float: " << static_cast<float>( stof( str, 0 ) ) << ".0f" << endl;
 			if( is_dotZeroD( ch ) )
-				cout << "double: " << stod( str, 0 ) << endl;
+				cout << "double: " << static_cast<double>( stod( str, 0 ) ) << endl;
 			else
-				cout << "double: " << stod( str, 0 ) << ".0" << endl;
+				cout << "double: " << static_cast<double>( stod( str, 0 ) ) << ".0" << endl;
 			break;
 		case 5 :
 			cout << "char: impossible" << endl;

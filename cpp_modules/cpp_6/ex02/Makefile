@@ -1,6 +1,6 @@
 NAME			=	realtype
 
-SRCS			=	Base.cpp A.cpp B.cpp C.cpp utils.cpp main.cpp
+SRCS			=	Base.cpp utils.cpp main.cpp
 LIB				=	Base.hpp A.hpp B.hpp C.hpp
 
 OBJS			=	$(SRCS:%.cpp=%.o)

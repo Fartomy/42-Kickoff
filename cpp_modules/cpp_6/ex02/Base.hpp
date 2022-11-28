@@ -7,6 +7,7 @@
 using std::cout;
 using std::endl;
 using std::string;
+using std::bad_cast;
 
 class Base
 {
