@@ -30,7 +30,6 @@ void identify( Base* p )
         cout << "[ Identify Pointer Func ] - Type is [ B ] " << endl;
     else
         cout << "[ Identify Pointer Func ] - Type is [ C ]" << endl;
-    
 }
 
 void identify( Base& p )

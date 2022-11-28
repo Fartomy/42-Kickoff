@@ -1,20 +1,17 @@
 #include "Data.hpp"
 
-Data::Data() : tmp("Temp") {};
+Data::Data() : a( 10 ), ch( 'A' ), b( true ) {};
 
 Data::Data( const Data& cpy )
 {
     *this = cpy;
 };
 
-void Data::temp( void )
-{
-    cout << temp << endl;
-}
-
 Data& Data::operator = ( const Data& obj )
 {
-    this->tmp = obj.tmp;
+	this->a = obj.a;
+	this->b = obj.b;
+	this->ch = obj.ch;
     return ( *this );
 }
 

@@ -43,9 +43,9 @@ void TypeCast::display( int a, char *ch )
 	{
 		case 1 :
 			cout << "char: " << "'" << str << "'" << endl;
-			cout << "int: " << (int)str[0] << endl;
-			cout << "float: " << (float)str[0] << ".0f" << endl;
-			cout << "double: " << (double)str[0] << ".0" << endl;
+			cout << "int: " << static_cast<int>( str[0] ) << endl;
+			cout << "float: " << static_cast<float >( str[0] ) << ".0f" << endl;
+			cout << "double: " << static_cast<double>( str[0] ) << ".0" << endl;
 			break;
 		case 2 :
 			b = ( char )stoi( str, 0 ,10 );

@@ -14,10 +14,9 @@ public:
     Data( const Data &cpy );
     Data& operator = ( const Data& obj );
     ~Data();
-
-    void temp( void );
-private:
-    string tmp;
+	int a;
+	char ch;
+	bool b;
 };
 
 uintptr_t serialize( Data* ptr );
