@@ -7,6 +7,7 @@
 using std::cout;
 using std::string;
 using std::endl;
+using std::exception;
 
 template< typename T > class Array
 {
@@ -15,6 +16,11 @@ public:
 	Array( unsigned int n );
 	Array( const Array<T> &cpy );
 
+	struct OutoftoRange : public exception 
+	{
+		const char * what() const throw();
+	};
+	
 	Array& operator = ( const Array<T> &obj );
 	T& operator [] ( int a );
 
