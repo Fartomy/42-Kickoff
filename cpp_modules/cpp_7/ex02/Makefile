@@ -1,6 +1,6 @@
 NAME			=	array
 
-SRCS			=	main.cpp Array.tpp
+SRCS			=	main.cpp
 LIB				=	Array.hpp
 
 OBJS			=	$(SRCS:%.cpp=%.o)

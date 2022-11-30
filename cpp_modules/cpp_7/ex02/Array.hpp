@@ -12,24 +12,61 @@ using std::exception;
 template< typename T > class Array
 {
 public:
-	Array();
-	Array( unsigned int n );
-	Array( const Array<T> &cpy );
-
-	struct OutoftoRange : public exception 
+	Array()
 	{
-		const char * what() const throw();
+		arr = new T[1];
+		arr[0] = NULL;
+		len = 0;
 	};
-	
-	Array& operator = ( const Array<T> &obj );
-	T& operator [] ( int a );
+	Array( unsigned int n )
+	{
+		arr = new T[n];
+		len = n;
+	};
+	Array( const Array &cpy )
+	{
+		*this = cpy;
+	}
 
-	unsigned int size( void );
+	struct OutoftoRange : public exception
+	{
+		const char * what() const throw()
+		{
+			return "Out of to range!";
+		}
+	};
 
-	~Array();
+	Array& operator = ( const Array &obj )
+	{
+		if( this == &obj )
+			return *this;
+		len = obj.len;
+		arr = new T[len];
+		for ( unsigned int j = 0; j < len ; ++j )
+			arr[j] = obj.arr[j];
+		return *this;
+	}
+
+	T& operator [] ( unsigned int a )
+	{
+		if( a >= len )
+			throw OutoftoRange();
+		else
+			return arr[a];
+	}
+
+	unsigned int size( void )
+	{
+		return len;
+	}
+
+	~Array()
+	{
+		delete[] arr;
+	};
 private:
 	T* arr;
-	size_t len;
+	unsigned int len;
 
 };
 
