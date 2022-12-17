@@ -1,0 +1,53 @@
+version: '3.4'
+
+networks:
+  dcknw:
+    driver: bridge
+
+services:
+
+  mariadb:
+     container_name: mariadb
+     networks:
+      - dcknw
+     env_file:
+      - ./.env
+     build: ./requirements/mariadb/
+     ports:
+      - "3306:3306"
+     volumes:
+      - mariadb-data:/var/lib/mysql
+
+  nginx:
+    container_name: nginx
+    networks:
+      - dcknw
+    env_file:
+      - ./.env
+    volumes:
+      - wordpress-data:/var/www/html
+    build: ./requirements/nginx/
+    depends_on:
+      - wordpress
+      - mariadb
+    ports:
+      - "443:443"
+
+  wordpress:
+    container_name: wordpress
+    networks:
+      - dcknw
+    env_file:
+      - ./.env
+    depends_on:
+      - mariadb
+    build: ./requirements/wordpress/
+    ports:
+      - "9000:9000"
+    volumes:
+      - wordpress-data:/var/www/html
+
+volumes:
+  wordpress-data:
+  mariadb-data:
+  
