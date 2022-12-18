@@ -8,7 +8,7 @@ server {
     ssl_certificate_key /etc/ssl/private/nginx.key;
     ssl_protocols TLSv1.2;
 
-    index index.html;
+    index index.php;
 
     root /var/www/html;
 
