@@ -1,53 +1,53 @@
-version: '3.4'
+version: "3.5"
 
 networks:
-  dcknw:
+  nw:
+    name: my_network42
     driver: bridge
 
-services:
+volumes:
+  wp:
+  db:
 
+services:
+ 
   mariadb:
-     container_name: mariadb
-     networks:
-      - dcknw
-     env_file:
+    container_name: mariadb
+    build: ./requirements/mariadb
+    env_file:
       - ./.env
-     build: ./requirements/mariadb/
-     ports:
-      - "3306:3306"
-     volumes:
-      - mariadb-data:/var/lib/mysql
+    networks:
+      - nw
+    restart: unless-stopped
+    volumes:
+      - db:/var/lib/mysql
+      
+  wordpress:
+    container_name: wordpress
+    build: ./requirements/wordpress
+    env_file:
+      - ./.env
+    networks:
+      - nw
+    depends_on:
+      - mariadb
+    restart: unless-stopped
+    volumes:
+      - wp:/var/www/html
 
   nginx:
     container_name: nginx
-    networks:
-      - dcknw
+    build: ./requirements/nginx
     env_file:
       - ./.env
-    volumes:
-      - wordpress-data:/var/www/html
-    build: ./requirements/nginx/
-    depends_on:
-      - wordpress
-      - mariadb
     ports:
       - "443:443"
-
-  wordpress:
-    container_name: wordpress
-    networks:
-      - dcknw
-    env_file:
-      - ./.env
     depends_on:
       - mariadb
-    build: ./requirements/wordpress/
-    ports:
-      - "9000:9000"
+      - wordpress
     volumes:
-      - wordpress-data:/var/www/html
+      - wp:/var/www/html
+    networks:
+      - nw
+    restart: unless-stopped
 
-volumes:
-  wordpress-data:
-  mariadb-data:
-  
