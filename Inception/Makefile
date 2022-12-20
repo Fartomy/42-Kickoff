@@ -11,6 +11,10 @@ DATA_DB = /home/ftekdrmi/data/datab_vol
 DATA_WP = /home/ftekdrmi/data/wordpr_vol
 YML_FILE = ./srcs/docker-compose.yml
 
+# Onemli Notlar
+# 1- fclean komutunu - sudo make fclean - diyerek yap, normali 'Permission denied' veriyor.
+# 2- .yml dosyasi ayaga kalktiginda database'e hemen baglanamadigindan hata verebilir. 3 - 5 dk bekleyip oyle baglanmayi dene localhost'a. 
+
 all: data datab_vol wordpr_vol dc_up
 
 dc_up:

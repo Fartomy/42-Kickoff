@@ -8,14 +8,18 @@ volumes:
 
   wordpr_data:
     name: wordpr_vol
+    driver: local
     driver_opts:
       type: none
+      o: bind
       device: /home/ftekdrmi/data/wordpr_vol
 
   datab_data:
     name: datab_vol
+    driver: local
     driver_opts:
       type: none
+      o: bind
       device: /home/ftekdrmi/data/datab_vol
 
 services:
