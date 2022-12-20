@@ -1,42 +1,53 @@
-version: "3.5"
+version: "3.4"
 
 networks:
-  nw:
-    name: my_network42
+  dockernet:
     driver: bridge
 
 volumes:
-  wp:
-  db:
+
+  wordpr_data:
+    name: wordpr_vol
+    driver_opts:
+      type: none
+      device: /home/ftekdrmi/data/wordpr_vol
+
+  datab_data:
+    name: datab_vol
+    driver_opts:
+      type: none
+      device: /home/ftekdrmi/data/datab_vol
 
 services:
- 
+
   mariadb:
     container_name: mariadb
+    networks:
+      - dockernet
     build: ./requirements/mariadb
     env_file:
       - ./.env
-    networks:
-      - nw
-    restart: unless-stopped
     volumes:
-      - db:/var/lib/mysql
+      - datab_data:/var/lib/mysql
+    restart: always
       
   wordpress:
     container_name: wordpress
+    networks:
+      - dockernet
     build: ./requirements/wordpress
     env_file:
       - ./.env
-    networks:
-      - nw
     depends_on:
       - mariadb
-    restart: unless-stopped
     volumes:
-      - wp:/var/www/html
+      - wordpr_data:/var/www/html
+    restart: always
 
   nginx:
     container_name: nginx
+    networks:
+      - dockernet
     build: ./requirements/nginx
     env_file:
       - ./.env
@@ -46,8 +57,5 @@ services:
       - mariadb
       - wordpress
     volumes:
-      - wp:/var/www/html
-    networks:
-      - nw
-    restart: unless-stopped
-
+      - wordpr_data:/var/www/html
+    restart: always
