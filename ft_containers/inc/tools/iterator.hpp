@@ -4,8 +4,6 @@
 #include <iterator>
 #include <stddef.h>
 
-std::vector<>::iterator it;
-
 namespace ft
 {
 	template<typename Iter>	struct iterator_traits
@@ -35,7 +33,5 @@ namespace ft
 		typedef std::random_access_iterator_tag		iterator_category;
 	};
 }
-
-
 
 #endif
