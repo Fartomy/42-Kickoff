@@ -9,7 +9,6 @@ namespace ft
 	{
 		typedef T type;
 	};
-
 };
 
 // https://cplusplus.com/reference/type_traits/enable_if/
