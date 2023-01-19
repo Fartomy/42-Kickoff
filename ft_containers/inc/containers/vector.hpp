@@ -15,7 +15,7 @@
 
 namespace ft
 {
-	template < class T, class Alloc = allocator<T> > class vector
+	template < class T, class Alloc = std::allocator<T> > class vector
 	{
 		public:
 			// -*-*-*-*-*-*-*-*-*-*-*-*-*-/Member Types\-*-*-*-*-*-*-*-*-*-*-*-*-*-
@@ -281,14 +281,99 @@ namespace ft
 			insert(position, 1, val);
 			return position;
 		}
-		// insert'ler bitmedi!!!
-		private:
+		void insert (iterator position, size_type n, const value_type& val)
+		{
+			const size_type idx = position - begin();
+			if(sz + n >= cpt)
+			{
+				if(sz > 0)
+					reserve(2);
+				if(sz < 0)
+					reserve(1);
+			}
+			std::copy_backward(ary + idx, ary + sz, ary + sz + n);
+			for (size_type i = idx, count = idx + n; i < count; i++)
+				alc.construct(&ary[i], val);
+			sz += n;
+		}
+		template <class InputIterator> void insert (iterator position, InputIterator first, InputIterator last)
+		{
+			size_type idx = position - begin();
+			size_type s = last - first;
+			sz += s;
+			if(sz >= cpt)
+				reserve(sz);
+			for (size_type i = (sz - 1) - idx; i < sz; i++)
+				ary[i] = ary[i - s];
+			for (size_type i = idx, count = idx + n; i < count; i++,first++)
+				alc.construct(&ary[i], *first);
+		}
+		iterator erase (iterator position)
+		{
+			size_type idx = position - begin();
+			alc.destroy(&ary[idx]);
+			for(; idx < sz; idx++)
+				ary[idx] = ary[idx + 1];
+			sz--;
+			return position;
+		}
+		iterator erase (iterator first, iterator last)
+		{
+			size_type idx = first - begin();
+			size_type count = last - first;
+			for (size_type i = idx, size = idx + count; i < size; i++)
+				alc.destroy(&ary[i]);
+			sz -= count;
+			for(; idx < sz; idx++)
+				ary[idx] = ary[idx + count];
+			return first;
+		}
+		void swap (vector& x)
+		{
+			value_type* ary1 = x.ary;
+			size_type sz1 = x.sz;
+			size_type cpt1 = x.cpt;
+			x.ary = ary;
+			x.cpt = cpt;
+			x.sz = sz;
+			sz = sz1;
+			ary = ary1;
+			cpt = cpt1;
+		}
+
+	private:
 			allocator_type		alc;
 			size_type			cpt;
 			size_type			sz;
 			//pointer			ptr;
 			value_type 			*ary;
 
+	template <class T, class Alloc> friend bool operator== (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
+	{
+		if(lhs.size() != rhs.size())
+			return false;
+		return ft::equal(lhs.cbegin(), lhs.cend(), rhs.cbegin() );
+	}
+	template <class T, class Alloc> friend bool operator!= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
+	{
+		return !(lhs == rhs);
+	}
+	template <class T, class Alloc> friend bool operator<  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
+	{
+		return ft::lexicographical_compare(lhs.cbegin(), lhs.cend(), rhs.cbegin(), rhs.cend());
+	}
+	template <class T, class Alloc> friend bool operator<= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
+	{
+		return !(rhs < lhs);
+	}
+	template <class T, class Alloc> friend bool operator>  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
+	{
+		return rhs < lhs;
+	}
+	template <class T, class Alloc> friend bool operator>= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
+	{
+		return !(lhs < rhs);
+	}
 	};
 }
 
