@@ -1,7 +1,7 @@
 NAME    = ft_container
 CC      = c++
 FLAGS   = -Wall -Werror -Wextra -std=c++98
-SRCS    = main.cpp
+SRCS    = src/main.cpp
 
 OBJS    = $(SRCS:.cpp=.o)
 
