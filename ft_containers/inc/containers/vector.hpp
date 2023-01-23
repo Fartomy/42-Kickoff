@@ -1,8 +1,8 @@
 #ifndef VECTOR_HPP
 #define VECTOR_HPP
 
-#include "../tools/random_access_iterator.hpp"
-#include "../tools/reverse_iterator.hpp"
+#include "../tools/iterators/random_access_iterator.hpp"
+#include "../tools/iterators/reverse_iterator.hpp"
 #include "../tools/utils/enable_if.hpp"
 #include "../tools/utils/is_integral.hpp"
 #include "../tools/utils/equal.hpp"
