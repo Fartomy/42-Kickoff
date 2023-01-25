@@ -3,12 +3,10 @@
 
 #include <iterator>
 #include <stddef.h>
+#include <iostream>
 
 namespace ft
 {
-	struct bidirectional_iterator_tag : public forward_iterator_tag {};
-	struct output_iterator_tag {};
-
 	template<typename Iter>	struct iterator_traits
 	{
 	public:
@@ -39,9 +37,11 @@ namespace ft
 		typedef std::random_access_iterator_tag		iterator_category;
 	};
 
+	struct input_iterator_tag {};
+	struct output_iterator_tag {};
+	struct bidirectional_iterator_tag : public std::forward_iterator_tag {};
 	struct forward_iterator_tag : public input_iterator_tag {};
 	struct random_access_iterator_tag : public bidirectional_iterator_tag {};
-	struct input_iterator_tag {};
 }
 
 #endif

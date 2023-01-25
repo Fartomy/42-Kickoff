@@ -1,116 +1,84 @@
 #include <iostream>
 #include <string>
 #include <deque>
-#if 1 //CREATE A REAL STL EXAMPLE
-#include <map>
-#include <stack>
-#include <vector>
-namespace ft = std;
-#else
-#include <map.hpp>
-	#include <stack.hpp>
-	#include <vector.hpp>
-#endif
-
+//#include <map.hpp>
+//#include <stack.hpp>
+#include "../inc/containers/vector.hpp"
 #include <stdlib.h>
+#include <stdio.h>
 
-#define MAX_RAM 4294967296
-#define BUFFER_SIZE 4096
-struct Buffer
-{
-	int idx;
-	char buff[BUFFER_SIZE];
-};
+#include <vector>
 
-
-#define COUNT (MAX_RAM / (int)sizeof(Buffer))
+using std::cout;
+using std::endl;
 
 template<typename T>
-class MutantStack : public ft::stack<T>
+void print(ft::vector<T> v, std::vector<T> v2)
 {
-public:
-MutantStack() {}
-MutantStack(const MutantStack<T>& src) { *this = src; }
-MutantStack<T>& operator=(const MutantStack<T>& rhs)
-{
-	this->c = rhs.c;
-	return *this;
+	for(int i = 0,len = v2.size() > v.size() ? v2.size() : v.size(); i < len; i++)
+	{
+		if(i < v.size())
+			printf("v[%d] = %d ",i,v[i]);
+		if(i < v2.size())
+			printf("v2[%d] = %d ",i,v2[i]);
+		printf("\n");
+	}
 }
-~MutantStack() {}
 
-typedef typename ft::stack<T>::container_type::iterator iterator;
+int main()
+{
+	ft::vector<int> v;
+	std::vector<int> v2;
 
-iterator begin() { return this->c.begin(); }
-iterator end() { return this->c.end(); }
-};
-
-int main(int argc, char** argv) {
-	if (argc != 2)
+	for(int i = 0; i < 10000; i++)
 	{
-		std::cerr << "Usage: ./test seed" << std::endl;
-		std::cerr << "Provide a seed please" << std::endl;
-		std::cerr << "Count value:" << COUNT << std::endl;
-		return 1;
+		v.push_back(i);
+		v2.push_back(i);
 	}
-	const int seed = atoi(argv[1]);
-	srand(seed);
+	printf(v.size() == v2.size() && v.capacity() == v2.capacity() ? "OK" : "KO");
+	printf("\n");
 
-	ft::vector<std::string> vector_str;
-	ft::vector<int> vector_int;
-	ft::stack<int> stack_int;
-	ft::vector<Buffer> vector_buffer;
-	ft::stack<Buffer, std::deque<Buffer> > stack_deq_buffer;
-	ft::map<int, int> map_int;
+	v.clear();
+	v2.clear();
+	printf(v.size() == v2.size() && v.capacity() == v2.capacity() ? "OK" : "KO");
+	printf("\n");
 
-	for (int i = 0; i < COUNT; i++)
+	for(int i = 0; i < 10; i++)
 	{
-		vector_buffer.push_back(Buffer());
+		v.insert(v.begin(),i);
+		v2.insert(v2.begin(),i);
 	}
+	printf(v.size() == v2.size() && v.capacity() == v2.capacity() ? "OK" : "KO");
+	printf("\n");
+	v.clear();
+	v2.clear();
 
-	for (int i = 0; i < COUNT; i++)
-	{
-		const int idx = rand() % COUNT;
-		vector_buffer[idx].idx = 5;
-	}
-	ft::vector<Buffer>().swap(vector_buffer);
 
-	try
-	{
-		for (int i = 0; i < COUNT; i++)
-		{
-			const int idx = rand() % COUNT;
-			vector_buffer.at(idx);
-			std::cerr << "Error: THIS VECTOR SHOULD BE EMPTY!!" <<std::endl;
-		}
-	}
-	catch(const std::exception& e)
-	{
-		//NORMAL ! :P
-	}
+	std::vector<int> v3;
+	for(int i = 0; i < 10; i++)
+		v3.push_back(i);
 
-	for (int i = 0; i < COUNT; ++i)
-	{
-		map_int.insert(ft::make_pair(rand(), rand()));
-	}
+	//cout << v.size() << " " << v.capacity() << endl;
+	//cout << v2.size() << " " << v2.capacity() << endl;
 
-	int sum = 0;
-	for (int i = 0; i < 10000; i++)
-	{
-		int access = rand();
-		sum += map_int[access];
-	}
-	std::cout << "should be constant with the same seed: " << sum << std::endl;
+	v.insert(v.begin(), v3.begin(),v3.end());
+	v2.insert(v2.begin(), v3.begin(),v3.end());
+	printf(v.size() == v2.size() && v.capacity() == v2.capacity() ? "OK" : "KO");
+	printf("\n");
 
-	{
-		ft::map<int, int> copy = map_int;
-	}
-	MutantStack<char> iterable_stack;
-	for (char letter = 'a'; letter <= 'z'; letter++)
-		iterable_stack.push(letter);
-	for (MutantStack<char>::iterator it = iterable_stack.begin(); it != iterable_stack.end(); it++)
-	{
-		std::cout << *it;
-	}
-	std::cout << std::endl;
-	return (0);
+
+	v.erase(v.begin() + 5, v.begin() + 7);
+	v2.erase(v2.begin() + 5, v2.begin() + 7);
+	printf(v.size() == v2.size() && v.capacity() == v2.capacity() ? "OK" : "KO");
+	printf("\n");
+
+	print(v,v2);
+
+
+
+
+
+
+
+
 }

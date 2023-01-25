@@ -84,26 +84,26 @@ namespace ft
 			}
 			// -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-/VECTOR CONSTRUCTORS\-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
-			explicit vector (const allocator_type& alloc = allocator_type()) : ary(NULL), sz(0), cpt(0), alc(alloc)
-			{};
+			explicit vector (const allocator_type& alloc = allocator_type()) : alc(alloc), cpt(0), sz(0), ary(NULL)
+			{ };
 
-			explicit vector (size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type()) : ary(NULL), sz(0), cpt(0), alc(alloc)
+			explicit vector (size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type()) : alc(alloc), cpt(0), sz(0), ary(NULL)
 			{
 				resize(n, val);
 			};
 
-			template <class InputIterator> vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type()) : ary(NULL), sz(0), cpt(0), alc(alloc)
+			template <class InputIterator> vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type()) : alc(alloc), cpt(0), sz(0), ary(NULL)
 			{
 				assign(first, last);
 			};
 
-			vector (const vector& x) : alc(x.alc), cpt(x.cpt), sz(x.sz),
+			vector (const vector& x) : alc(x.alc), cpt(x.cpt), sz(x.sz)
 			{
 				ary = alc.allocate(cpt);
 				size_type i = 0;
 				while (i < sz)
 				{
-					alc.construct(&ary[i], x.ary[i])
+					alc.construct(&ary[i], x.ary[i]);
 					i++;
 				}
 			};
@@ -181,19 +181,6 @@ namespace ft
 				return ary[sz - 1];
 			}
 
-			const_reference front() const
-			{
-				return ary[sz - 1];
-			}
-
-			value_type* data() noexcept
-			{
-				return ary;
-			}
-			const value_type* data() const noexcept
-			{
-				return ary;
-			}
 		// -*-*-*-*-*-*-*-*-*-*-*-*-*-/Capacity\-*-*-*-*-*-*-*-*-*-*-*-*-*-
 			bool empty() const
 			{
@@ -286,9 +273,9 @@ namespace ft
 				{
 					if(sz > 0)
 					{
-						reserve(2);
+						reserve(sz * 2);
 					}
-					if(sz < 0)
+					if(sz <= 0)
 					{
 						reserve(1);
 					}
@@ -317,7 +304,6 @@ namespace ft
 
 			iterator insert (iterator position, const value_type& val)
 			{
-				const size_type idx = position - begin();
 				insert(position, 1, val);
 				return position;
 			}
@@ -328,8 +314,8 @@ namespace ft
 				if(sz + n >= cpt)
 				{
 					if(sz > 0)
-						reserve(2);
-					if(sz < 0)
+						reserve(sz * 2);
+					if(sz <= 0)
 						reserve(1);
 				}
 				std::copy_backward(ary + idx, ary + sz, ary + sz + n);
@@ -338,18 +324,24 @@ namespace ft
 				sz += n;
 			}
 
-			template <class InputIterator> void insert (iterator position, InputIterator first, InputIterator last)
+			template <class InputIterator> void insert (iterator position, InputIterator first, InputIterator last, typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type* = 0)
 			{
+				using namespace std;
 				size_type idx = position - begin();
 				size_type s = last - first;
-				sz += s;
+
+				if(idx > sz)
+					resize(idx + s,0);
+				else
+					sz += s;
 				if(sz >= cpt)
 					reserve(sz);
 				for (size_type i = (sz - 1) - idx; i < sz; i++)
 					ary[i] = ary[i - s];
-				for (size_type i = idx, count = idx + n; i < count; i++,first++)
+				for (size_type i = idx, count = idx + s; i < count; i++,first++)
 					alc.construct(&ary[i], *first);
 			}
+
 
 			iterator erase (iterator position)
 			{
@@ -386,29 +378,29 @@ namespace ft
 				cpt = cpt1;
 			}
 	};
-	template <class T, class Alloc> friend bool operator== (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
+	template <class T, class Alloc> bool operator== (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
 	{
 		if(lhs.size() != rhs.size())
 			return false;
 		return ft::equal(lhs.cbegin(), lhs.cend(), rhs.cbegin() );
 	}
-	template <class T, class Alloc> friend bool operator!= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
+	template <class T, class Alloc> bool operator!= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
 	{
 		return !(lhs == rhs);
 	}
-	template <class T, class Alloc> friend bool operator<  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
+	template <class T, class Alloc>  bool operator<  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
 	{
 		return ft::lexicographical_compare(lhs.cbegin(), lhs.cend(), rhs.cbegin(), rhs.cend());
 	}
-	template <class T, class Alloc> friend bool operator<= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
+	template <class T, class Alloc> bool operator<= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
 	{
 		return !(rhs < lhs);
 	}
-	template <class T, class Alloc> friend bool operator>  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
+	template <class T, class Alloc> bool operator>  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
 	{
 		return rhs < lhs;
 	}
-	template <class T, class Alloc> friend bool operator>= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
+	template <class T, class Alloc> bool operator>= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
 	{
 		return !(lhs < rhs);
 	}
