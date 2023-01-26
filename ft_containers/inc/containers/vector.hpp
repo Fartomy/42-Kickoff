@@ -86,7 +86,10 @@ namespace ft
 
 			explicit vector (const allocator_type& alloc = allocator_type()) : alc(alloc), cpt(0), sz(0), ary(NULL) {};
 			explicit vector (size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type()) : alc(alloc), cpt(0), sz(0), ary(NULL) { resize(n, val); };
-			template <class InputIterator> vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type()) : alc(alloc), cpt(0), sz(0), ary(NULL) { assign(first, last); };
+			template <class InputIterator> vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type(), typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type* = 0) : alc(alloc), cpt(0), sz(0), ary(NULL)
+			{
+				assign(first, last);
+			};
 			vector (const vector& x) : alc(x.alc), cpt(x.cpt), sz(x.sz)
 			{
 				ary = alc.allocate(cpt);
