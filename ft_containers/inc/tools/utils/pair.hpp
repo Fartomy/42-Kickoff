@@ -12,7 +12,7 @@ namespace ft
 		second_type scd;
 
 		pair() : frs(), scd() {};
-		pair( const T1& f, const T2& s ) : frs(), scd() {};
+		pair( const T1& f, const T2& s ) : frs(f), scd(s) {}; // Bir probleme rastlanirsa f ve s yi initilaze etme!
 
 		template<class U1, class U2> pair(const pair<U1, U2>& pr) : frs(pr.frs), scd(pr.scd){};
 
@@ -46,7 +46,7 @@ namespace ft
 
 	template<class T1, class T2> inline bool operator<(const pair<T1,T2>& f, const pair<T1,T2>& s)
 	{
-		return ( (f.frs < s.frs) || !(s.frs < f.frs) && f.scd < s.scd );
+		return ( (f.frs < s.frs) || (!(s.frs < f.frs) && f.scd < s.scd ));
 	}
 
 	template<class T1, class T2> inline bool operator<=(const pair<T1,T2>& f, const pair<T1,T2>& s)
