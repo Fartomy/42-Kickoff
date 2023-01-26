@@ -24,7 +24,6 @@ void print(ft::vector<T> v, std::vector<T> v2)
 		printf("\n");
 	}
 }
-
 int main()
 {
 	ft::vector<int> v;
