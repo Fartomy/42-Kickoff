@@ -87,7 +87,7 @@ int main()
 			cout << *orgit << ", ";
 		cout << "}" << endl << endl;
 
-		cout << "--------------------/ Original Vector Capacity Defines \\--------------------" << endl << endl;
+		cout << "--------------------/ Fake Vector Capacity Defines \\--------------------" << endl << endl;
 		ft::vector<int> ftV;
 		if( ftV.empty() == 1 )
 			cout << "ftV vector is empty." << endl;
