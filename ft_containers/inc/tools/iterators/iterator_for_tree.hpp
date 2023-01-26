@@ -14,7 +14,7 @@ namespace ft
 		public:
 			typedef std::bidirectional_iterator_tag		iterator_category;
 			typedef T									value_type;
-			typedef T&									reference
+			typedef T&									reference;
 			typedef T* 									pointer;
 			typedef DiffType							difference_type;
 			typedef const_tree_iterator<T, DiffType>	const_iterator;
@@ -26,7 +26,7 @@ namespace ft
 		public:
 			tree_for_iterator() : ptr(NULL) {};
 			tree_for_iterator(end_node_pointer enp) : ptr(enp) {};
-			tree_for_iterator(node_pointer np) : ptr(static_cast<end_node_pointer>(p)) {};
+			tree_for_iterator(node_pointer np) : ptr(static_cast<end_node_pointer>(np)) {};
 
 			end_node_pointer &base() { return ptr; }
 			const end_node_pointer &base() const { return ptr; }

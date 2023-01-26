@@ -26,7 +26,7 @@ namespace ft
 
 	template<class T1, class T2> void swap(pair<T1,T2>& f, pair<T1,T2>& s)
 	{
-		f = y;
+		f = s;
 	}
 
 	template<class T1, class T2> pair<T1,T2> make_pair(T1 f, T2 s)

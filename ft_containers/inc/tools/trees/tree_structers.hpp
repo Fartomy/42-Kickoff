@@ -1,14 +1,12 @@
-#ifndef TREE_STRUCTERS.HPP
-#define TREE_STRUCTERS.HPP
+#ifndef TREE_STRUCTERS_HPP
+#define TREE_STRUCTERS_HPP
 
 #include <cstddef>
 
 namespace ft
 {
+	template<typename T> class tree_end_node;
 	template <typename T> class tree_node;
-
-	template<typename T> tree_end_node;
-
 	template<typename T> struct tree_node_types
 	{
 		typedef tree_end_node<T> end_node_type;
