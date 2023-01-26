@@ -41,7 +41,7 @@ namespace ft
 			value_type 			*ary;
 
 		public:
-			// -*-*-*-*-*-*-*-*-*-*-*-*-*-/ITERATOR FUNCTIONS\-*-*-*-*-*-*-*-*-*-*-*-*-*-
+			// -*-*-*-*-*-*-*-*-*-*-*-*-*-/Iterator Functions\-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
 			iterator begin()
 			{
@@ -84,19 +84,9 @@ namespace ft
 			}
 			// -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-/VECTOR CONSTRUCTORS\-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
-			explicit vector (const allocator_type& alloc = allocator_type()) : alc(alloc), cpt(0), sz(0), ary(NULL)
-			{ };
-
-			explicit vector (size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type()) : alc(alloc), cpt(0), sz(0), ary(NULL)
-			{
-				resize(n, val);
-			};
-
-			template <class InputIterator> vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type()) : alc(alloc), cpt(0), sz(0), ary(NULL)
-			{
-				assign(first, last);
-			};
-
+			explicit vector (const allocator_type& alloc = allocator_type()) : alc(alloc), cpt(0), sz(0), ary(NULL) {};
+			explicit vector (size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type()) : alc(alloc), cpt(0), sz(0), ary(NULL) { resize(n, val); };
+			template <class InputIterator> vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type()) : alc(alloc), cpt(0), sz(0), ary(NULL) { assign(first, last); };
 			vector (const vector& x) : alc(x.alc), cpt(x.cpt), sz(x.sz)
 			{
 				ary = alc.allocate(cpt);
@@ -181,7 +171,7 @@ namespace ft
 				return ary[sz - 1];
 			}
 
-		// -*-*-*-*-*-*-*-*-*-*-*-*-*-/Capacity\-*-*-*-*-*-*-*-*-*-*-*-*-*-
+			// -*-*-*-*-*-*-*-*-*-*-*-*-*-/Capacity\-*-*-*-*-*-*-*-*-*-*-*-*-*-
 			bool empty() const
 			{
 				return ( sz == 0 );
@@ -331,7 +321,7 @@ namespace ft
 				size_type s = last - first;
 
 				if(idx > sz)
-					resize(idx + s,0);
+					resize(idx + s, 0);
 				else
 					sz += s;
 				if(sz >= cpt)

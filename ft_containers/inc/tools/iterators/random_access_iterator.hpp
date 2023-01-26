@@ -95,32 +95,32 @@ namespace ft
 
 			template<typename Itr1, typename Itr2> friend bool operator!=(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd)
 			{
-				return !( lftSd.ptr == rghtSd );
+				return !( lftSd.ptr == rghtSd.ptr );
 			}
 
 			template<typename Itr1, typename Itr2> friend bool operator==(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd)
 			{
-				return ( lftSd.ptr == rghtSd );
+				return ( lftSd.ptr == rghtSd.ptr );
 			}
 
 			template<typename Itr1, typename Itr2> friend bool operator<(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd)
 			{
-				return ( lftSd.ptr < rghtSd );
+				return ( lftSd.ptr < rghtSd.ptr );
 			}
 
 			template<typename Itr1, typename Itr2> friend bool operator<=(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd)
 			{
-				return ( lftSd.ptr <= rghtSd );
+				return ( lftSd.ptr <= rghtSd.ptr );
 			}
 
 			template<typename Itr1, typename Itr2> friend bool operator>(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd)
 			{
-				return ( lftSd.ptr > rghtSd );
+				return ( lftSd.ptr > rghtSd.ptr );
 			}
 
 			template<typename Itr1, typename Itr2> friend bool operator>=(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd)
 			{
-				return ( lftSd.ptr >= rghtSd );
+				return ( lftSd.ptr >= rghtSd.ptr );
 			}
 
 			template<typename Itr> friend random_access_iterator<Itr> operator+(typename random_access_iterator<Itr>::difference_type d, random_access_iterator<Itr>& c )

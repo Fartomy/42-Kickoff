@@ -36,6 +36,8 @@ namespace ft
 		template <typename Key, typename T, typename Compare = std::less<Key>, typename Allocator = std::allocator<pair<const Key, T> > > class map
 		{
 			public:
+				// -*-*-*-*-*-*-*-*-*-*-*-*-*-/Member Types\-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
 				typedef Key                                     		key_type;
 				typedef T                                        		mapped_type;
 				typedef pair<const key_type, mapped_type>        		value_type;
