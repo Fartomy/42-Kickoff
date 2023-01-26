@@ -14,7 +14,6 @@ using std::endl;
 
 int main()
 {
-		// -*-*-*-*-*-*-*-*-*-*-*-*-*-/ Constructor Test Cases \-*-*-*-*-*-*-*-*-*-*-*-*-*-
 	{
 		cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-/ CONSTRUCTOR AND ASSIGMENT OPERATOR TEST CASES [1] \\-*-*-*-*-*-*-*-*-*-*-*-*-*-" << endl;
 		cout << "--------------------/ Original Vector Constructor Defines \\--------------------" << endl << endl;
@@ -23,6 +22,7 @@ int main()
 		int arr[5] = {1, 2, 3, 4, 5};
 		std::vector<int> rangeV(arr, arr + 3);
 		std::vector<int> copyV(fillV);
+		defaultV = rangeV; // ==========> Operator Assigment
 
 		std::vector<int>::iterator orgit;
 		cout << "fillV: 			{ ";
@@ -36,6 +36,10 @@ int main()
 		cout << "copyV: 			{ ";
 		for (orgit = copyV.begin(); orgit < copyV.end() ; ++orgit)
 			cout << *orgit << ", ";
+		cout << "}" << endl;
+		cout << "defaultV: 		{ ";
+		for (orgit = defaultV.begin(); orgit < defaultV.end() ; ++orgit)
+			cout << *orgit << ", ";
 		cout << "}" << endl << endl;
 
 		cout << "--------------------/ Fake Vector Constructor Defines \\--------------------" << endl << endl;
@@ -43,6 +47,7 @@ int main()
 		ft::vector<int> ft_fillV(5, 8);
 		ft::vector<int> ft_rangeV(arr, arr + 3);
 		ft::vector<int> ft_copyV(ft_fillV);
+		ft_defaultV = ft_rangeV; // ==========> Operator Assigment
 
 		ft::vector<int>::iterator ftit;
 		cout << "ft_fillV: 		{ ";
@@ -56,10 +61,15 @@ int main()
 		cout << "ft_copyV: 		{ ";
 		for (ftit = ft_copyV.begin(); ftit < ft_copyV.end() ; ++ftit)
 			cout << *ftit << ", ";
+		cout << "}" << endl;
+		cout << "defaultV: 		{ ";
+		for (ftit = ft_defaultV.begin(); ftit < ft_defaultV.end() ; ++ftit)
+			cout << *ftit << ", ";
 		cout << "}" << endl << endl;
 
 		cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*-*" << endl;
 	}
+
 	{
 
 	}

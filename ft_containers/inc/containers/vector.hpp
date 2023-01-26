@@ -109,7 +109,14 @@ namespace ft
 
 			// -*-*-*-*-*-*-*-*-*-*-*-*-*-/Assignment Operator\-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
-			vector& operator=(const vector& vcR)
+			vector& operator=(const vector& rhs)
+			{
+				if (this != &rhs)
+					assign(rhs.cbegin(), rhs.cend());
+				return *this;
+			}
+
+/*			vector& operator=(const vector& vcR)
 			{
 				if(&vcR == this)
 				{
@@ -119,15 +126,15 @@ namespace ft
 				{
 					alc.destroy(&ary[i]);
 				}
-				sz = vcR.sz;
-				cpt = vcR.cpt;
-				ary = alc.allocate(cpt);
+				this->sz = vcR.sz;
+				this->cpt = vcR.cpt;
+				this->alc = alc.allocate(cpt);
 				for(size_type i = 0; i < sz; i++)
 				{
 					alc.construct(&ary[i], &vcR.ary[i]);
 				}
 				return ( *this );
-			}
+			}*/
 
 			// -*-*-*-*-*-*-*-*-*-*-*-*-*-/Element Access\-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
