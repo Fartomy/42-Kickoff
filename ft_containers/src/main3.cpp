@@ -71,7 +71,38 @@ int main()
 	}
 
 	{
+		cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-/ CAPACITY FUNCTIONS TEST CASES [2] \\-*-*-*-*-*-*-*-*-*-*-*-*-*-" << endl;
+		cout << "--------------------/ Original Vector Capacity Defines \\--------------------" << endl << endl;
+		std::vector<int> orgV;
+		if( orgV.empty() == 1 )
+			cout << "orgV vector is empty." << endl;
+		cout << "orgV maximum number of elements that can be stored in memory: [ " << orgV.max_size() << " ]" << endl;
+		orgV.reserve(888);
+		cout << "orgV size of allocated storage capacity is: [ " << orgV.capacity() << " ]" << endl;
+		orgV.resize(555, 3);
+		cout << "orgV size is: [ " << orgV.size() << " ]" << endl;
+		std::vector<int>::iterator orgit;
+		cout << "In orgV: { ";
+		for (orgit = orgV.begin(); orgit < orgV.end() ; ++orgit)
+			cout << *orgit << ", ";
+		cout << "}" << endl << endl;
 
+		cout << "--------------------/ Original Vector Capacity Defines \\--------------------" << endl << endl;
+		ft::vector<int> ftV;
+		if( ftV.empty() == 1 )
+			cout << "ftV vector is empty." << endl;
+		cout << "ftV maximum number of elements that can be stored in memory: [ " << ftV.max_size() << " ]" << endl;
+		ftV.reserve(888);
+		cout << "ftV size of allocated storage capacity is: [ " << ftV.capacity() << " ]" << endl;
+		ftV.resize(555, 3);
+		cout << "ftV size is: [ " << ftV.size() << " ]" << endl;
+		ft::vector<int>::iterator ftit;
+		cout << "In ftV: { ";
+		for (ftit = ftV.begin(); ftit < ftV.end() ; ++ftit)
+			cout << *ftit << ", ";
+		cout << "}" << endl << endl;
+
+		cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*-*" << endl;
 	}
 
 }
