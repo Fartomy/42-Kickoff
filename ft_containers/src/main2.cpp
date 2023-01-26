@@ -92,12 +92,12 @@ int main(int argc, char** argv) {
 	{
 		map_int.insert(ft::make_pair(rand(), rand()));
 	}
-
 	int sum = 0;
-	for (int i = 0; i < 10000; i++)
+	for (int i = 0; i < 2; i++)
 	{
-		int access = rand();
+		int access = i;
 		sum += map_int[access];
+		std::cout << "sum: " << sum << " acccess: " << access << std::endl;
 	}
 	std::cout << "should be constant with the same seed: " << sum << std::endl;
 
