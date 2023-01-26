@@ -16,8 +16,8 @@ int main()
 {
 		// -*-*-*-*-*-*-*-*-*-*-*-*-*-/ Constructor Test Cases \-*-*-*-*-*-*-*-*-*-*-*-*-*-
 	{
-		cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-/ CONSTRUCTOR TEST CASES [1] \\-*-*-*-*-*-*-*-*-*-*-*-*-*-" << endl;
-		cout << "--------------------/ Original Vector Constructor Defines \\--------------------" << endl;
+		cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-/ CONSTRUCTOR AND ASSIGMENT OPERATOR TEST CASES [1] \\-*-*-*-*-*-*-*-*-*-*-*-*-*-" << endl;
+		cout << "--------------------/ Original Vector Constructor Defines \\--------------------" << endl << endl;
 		std::vector<int> defaultV;
 		std::vector<int> fillV(5, 8);
 		int arr[5] = {1, 2, 3, 4, 5};
@@ -25,34 +25,43 @@ int main()
 		std::vector<int> copyV(fillV);
 
 		std::vector<int>::iterator orgit;
+		cout << "fillV: 			{ ";
 		for (orgit = fillV.begin(); orgit < fillV.end() ; ++orgit)
-			cout << "fillV: " << *orgit << endl;
-		cout << endl;
+			cout << *orgit << ", ";
+		cout << "}" << endl;
+		cout << "rangeV: 		{ ";
 		for (orgit = rangeV.begin(); orgit < rangeV.end() ; ++orgit)
-			cout << "rangeV: " << *orgit << endl;
-		cout << endl;
+			cout << *orgit << ", ";
+		cout << "}" << endl;
+		cout << "copyV: 			{ ";
 		for (orgit = copyV.begin(); orgit < copyV.end() ; ++orgit)
-			cout << "copyV: " << *orgit << endl;
-		cout << endl;
+			cout << *orgit << ", ";
+		cout << "}" << endl << endl;
 
-		cout << "--------------------/ Fake Vector Constructor Defines \\--------------------" << endl;
+		cout << "--------------------/ Fake Vector Constructor Defines \\--------------------" << endl << endl;
 		ft::vector<int> ft_defaultV;
 		ft::vector<int> ft_fillV(5, 8);
 		ft::vector<int> ft_rangeV(arr, arr + 3);
 		ft::vector<int> ft_copyV(ft_fillV);
 
 		ft::vector<int>::iterator ftit;
+		cout << "ft_fillV: 		{ ";
 		for (ftit = ft_fillV.begin(); ftit < ft_fillV.end() ; ++ftit)
-			cout << "ft_fillV: " << *ftit << endl;
-		cout << endl;
+			cout << *ftit << ", ";
+		cout << "}" << endl;
+		cout << "ft_rangeV: 		{ ";
 		for (ftit = ft_rangeV.begin(); ftit < ft_rangeV.end() ; ++ftit)
-			cout << "ft_rangeV: " << *ftit << endl;
-		cout << endl;
+			cout << *ftit << ", ";
+		cout << "}" << endl;
+		cout << "ft_copyV: 		{ ";
 		for (ftit = ft_copyV.begin(); ftit < ft_copyV.end() ; ++ftit)
-			cout << "ft_copyV: " << *ftit << endl;
-		cout << endl;
+			cout << *ftit << ", ";
+		cout << "}" << endl << endl;
 
 		cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*-*" << endl;
+	}
+	{
+
 	}
 
 }
