@@ -204,7 +204,7 @@ int main()
 			cout << *ftit << ", ";
 		cout << "}" << endl;
 		ftV.insert(ftV.end(), _ftV.begin(), _ftV.end());
-		cout << "Form 3 range inserted ftV: 		{ ";
+		cout << "Form 3 range inserted ftV: 		{ "; // ======================================> Have a problem!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		for (ftit = ftV.begin(); ftit < ftV.end() ; ++ftit)
 			cout << *ftit << ", ";
 		cout << "}" << endl;
