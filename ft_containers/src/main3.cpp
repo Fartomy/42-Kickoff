@@ -173,6 +173,73 @@ int main()
 			cout << *orgit << ", ";
 		cout << "}" << endl << endl;
 
+		cout << "--------------------/ Fake Vector Modifier Defines \\--------------------" << endl << endl;
+
+		ft::vector<int> ftV;
+		ft::vector<int> _ftV(3, 11);
+		ft::vector<int>::iterator ftit;
+		ftV.assign(10, 4);
+		cout << "Form 1 fill assigned ftV: 		{ ";
+		for (ftit = ftV.begin(); ftit < ftV.end() ; ++ftit)
+			cout << *ftit << ", ";
+		cout << "}" << endl;
+		ftV.assign(arr, arr + 5);
+		cout << "Form 2 range assigned ftV: 		{ ";
+		for (ftit = ftV.begin(); ftit < ftV.end() ; ++ftit)
+			cout << *ftit << ", ";
+		cout << "}" << endl;
+		ftV.push_back(6);
+		cout << "Push backed ftV: 			{ ";
+		for (ftit = ftV.begin(); ftit < ftV.end() ; ++ftit)
+			cout << *ftit << ", ";
+		cout << "}" << endl;
+		ftV.insert(ftV.begin() + 3, 8);
+		cout << "Form 1 single element inserted ftV: 	{ ";
+		for (ftit = ftV.begin(); ftit < ftV.end() ; ++ftit)
+			cout << *ftit << ", ";
+		cout << "}" << endl;
+		ftV.insert(ftV.begin(), 3, 42);
+		cout << "Form 2 fill inserted ftV: 		{ ";
+		for (ftit = ftV.begin(); ftit < ftV.end() ; ++ftit)
+			cout << *ftit << ", ";
+		cout << "}" << endl;
+		ftV.insert(ftV.end(), _ftV.begin(), _ftV.end());
+		cout << "Form 3 range inserted ftV: 		{ ";
+		for (ftit = ftV.begin(); ftit < ftV.end() ; ++ftit)
+			cout << *ftit << ", ";
+		cout << "}" << endl;
+		ftV.swap(_ftV);
+		cout << "Swaped ftV: 				{ ";
+		for (ftit = ftV.begin(); ftit < ftV.end() ; ++ftit)
+			cout << *ftit << ", ";
+		cout << "}" << endl;
+		ftV.swap(_ftV);
+		cout << "Swaped ftV again: 			{ ";
+		for (ftit = ftV.begin(); ftit < ftV.end() ; ++ftit)
+			cout << *ftit << ", ";
+		cout << "}" << endl;
+		ftV.pop_back();
+		cout << "Pop_backed ftV: 			{ ";
+		for (ftit = ftV.begin(); ftit < ftV.end() ; ++ftit)
+			cout << *ftit << ", ";
+		cout << "}" << endl;
+		ftV.erase(ftV.begin() + 6);
+		cout << "Form 1 single element erased ftV: 	{ ";
+		for (ftit = ftV.begin(); ftit < ftV.end() ; ++ftit)
+			cout << *ftit << ", ";
+		cout << "}" << endl;
+		ftV.erase(ftV.begin(), ftV.begin() + 3);
+		cout << "Form 2 range erased ftV: 		{ ";
+		for (ftit = ftV.begin(); ftit < ftV.end() ; ++ftit)
+			cout << *ftit << ", ";
+		cout << "}" << endl;
+		ftV.clear();
+		cout << "Cleared ftV: 				{ ";
+		for (ftit = ftV.begin(); ftit < ftV.end() ; ++ftit)
+			cout << *ftit << ", ";
+		cout << "}" << endl << endl;
+
+
 		cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" << endl << endl;
 	}
 }
