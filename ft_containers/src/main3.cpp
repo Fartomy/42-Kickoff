@@ -67,7 +67,7 @@ int main()
 			cout << *ftit << ", ";
 		cout << "}" << endl << endl;
 
-		cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*-*" << endl;
+		cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" << endl << endl;
 	}
 
 	{
@@ -102,7 +102,77 @@ int main()
 			cout << *ftit << ", ";
 		cout << "}" << endl << endl;
 
-		cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*-*" << endl;
+		cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" << endl << endl;
 	}
 
+	{
+		cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-/ MODIFIER FUNCTIONS TEST CASES [3] \\-*-*-*-*-*-*-*-*-*-*-*-*-*-" << endl;
+		cout << "--------------------/ Original Vector Modifier Defines \\--------------------" << endl << endl;
+		std::vector<int> orgV;
+		std::vector<int> _orgV(3, 11);
+		std::vector<int>::iterator orgit;
+		int arr[5] = {1, 2, 3, 4, 5};
+		orgV.assign(10, 4);
+		cout << "Form 1 fill assigned orgV: 		{ ";
+		for (orgit = orgV.begin(); orgit < orgV.end() ; ++orgit)
+			cout << *orgit << ", ";
+		cout << "}" << endl;
+		orgV.assign(arr, arr + 5);
+		cout << "Form 2 range assigned orgV: 		{ ";
+		for (orgit = orgV.begin(); orgit < orgV.end() ; ++orgit)
+			cout << *orgit << ", ";
+		cout << "}" << endl;
+		orgV.push_back(6);
+		cout << "Push backed orgV: 			{ ";
+		for (orgit = orgV.begin(); orgit < orgV.end() ; ++orgit)
+			cout << *orgit << ", ";
+		cout << "}" << endl;
+		orgV.insert(orgV.begin() + 3, 8);
+		cout << "Form 1 single element inserted orgV: 	{ ";
+		for (orgit = orgV.begin(); orgit < orgV.end() ; ++orgit)
+			cout << *orgit << ", ";
+		cout << "}" << endl;
+		orgV.insert(orgV.begin(), 3, 42);
+		cout << "Form 2 fill inserted orgV: 		{ ";
+		for (orgit = orgV.begin(); orgit < orgV.end() ; ++orgit)
+			cout << *orgit << ", ";
+		cout << "}" << endl;
+		orgV.insert(orgV.end(), _orgV.begin(), _orgV.end());
+		cout << "Form 3 range inserted orgV: 		{ ";
+		for (orgit = orgV.begin(); orgit < orgV.end() ; ++orgit)
+			cout << *orgit << ", ";
+		cout << "}" << endl;
+		orgV.swap(_orgV);
+		cout << "Swaped orgV: 				{ ";
+		for (orgit = orgV.begin(); orgit < orgV.end() ; ++orgit)
+			cout << *orgit << ", ";
+		cout << "}" << endl;
+		orgV.swap(_orgV);
+		cout << "Swaped orgV again: 			{ ";
+		for (orgit = orgV.begin(); orgit < orgV.end() ; ++orgit)
+			cout << *orgit << ", ";
+		cout << "}" << endl;
+		orgV.pop_back();
+		cout << "Pop_backed orgV: 			{ ";
+		for (orgit = orgV.begin(); orgit < orgV.end() ; ++orgit)
+			cout << *orgit << ", ";
+		cout << "}" << endl;
+		orgV.erase(orgV.begin() + 6);
+		cout << "Form 1 single element erased orgV: 	{ ";
+		for (orgit = orgV.begin(); orgit < orgV.end() ; ++orgit)
+			cout << *orgit << ", ";
+		cout << "}" << endl;
+		orgV.erase(orgV.begin(), orgV.begin() + 3);
+		cout << "Form 2 range erased orgV: 		{ ";
+		for (orgit = orgV.begin(); orgit < orgV.end() ; ++orgit)
+			cout << *orgit << ", ";
+		cout << "}" << endl;
+		orgV.clear();
+		cout << "Cleared orgV: 				{ ";
+		for (orgit = orgV.begin(); orgit < orgV.end() ; ++orgit)
+			cout << *orgit << ", ";
+		cout << "}" << endl << endl;
+
+		cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" << endl << endl;
+	}
 }

@@ -1,4 +1,3 @@
-/*
 #include <iostream>
 #include <string>
 #include <deque>
@@ -74,4 +73,4 @@ int main()
 
 	print(v,v2);
 
-}*/
+}

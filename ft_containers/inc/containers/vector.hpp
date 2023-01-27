@@ -116,26 +116,6 @@ namespace ft
 				return *this;
 			}
 
-/*			vector& operator=(const vector& vcR)
-			{
-				if(&vcR == this)
-				{
-					return ( *this );
-				}
-				for(size_type i = 0; i < sz; i++)
-				{
-					alc.destroy(&ary[i]);
-				}
-				this->sz = vcR.sz;
-				this->cpt = vcR.cpt;
-				this->alc = alc.allocate(cpt);
-				for(size_type i = 0; i < sz; i++)
-				{
-					alc.construct(&ary[i], &vcR.ary[i]);
-				}
-				return ( *this );
-			}*/
-
 			// -*-*-*-*-*-*-*-*-*-*-*-*-*-/Element Access\-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
 			reference operator[](size_type s)
