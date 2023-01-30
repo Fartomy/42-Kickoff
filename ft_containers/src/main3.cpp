@@ -242,4 +242,35 @@ int main()
 
 		cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" << endl << endl;
 	}
+
+    {
+        cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-/ ELEMENT ACCESS FUNCTIONS TEST CASES [3] \\-*-*-*-*-*-*-*-*-*-*-*-*-*-" << endl;
+
+        cout << "--------------------/ Original Vector Element Access Defines \\--------------------" << endl << endl;
+
+        std::vector<int> orgV;
+        orgV.push_back(21);
+        orgV.push_back(1);
+        orgV.push_back(2);
+        orgV.push_back(3);
+        orgV.push_back(42);
+        cout << "Operator[] usage: " << orgV[2] << endl;
+        cout << "function at usage: " << orgV.at(2) << endl;
+        cout << "function front usage: " << orgV.front() << endl;
+        cout << "function back usage: " << orgV.back() << endl << endl;
+
+        cout << "--------------------/ Fake Vector Element Access Defines \\--------------------" << endl << endl;
+        ft::vector<int> ftV;
+        ftV.push_back(21);
+        ftV.push_back(1);
+        ftV.push_back(2);
+        ftV.push_back(3);
+        ftV.push_back(42);
+        cout << "Operator[] usage: " << ftV[2] << endl;
+        cout << "function at usage: " << ftV.at(2) << endl;
+        cout << "function front usage: " << ftV.front() << endl;
+        cout << "function back usage: " << ftV.back() << endl << endl;
+
+        cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" << endl << endl;
+    }
 }
