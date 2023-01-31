@@ -49,7 +49,7 @@ namespace ft
         tree(const tree &other) : alloc_(other.alloc_), value_alloc_(other.value_alloc_), comp_(other.comp_), end_node_(), size_(0)
         {
             begin_iter_ = end_node();
-            insert(other.cbegin(), other.cend());
+            insert(other.begin(), other.end());
         }
 
         tree(const value_compare &comp, const allocator_type &alloc) : alloc_(node_allocator()), value_alloc_(alloc), comp_(comp), end_node_(), size_(0) { begin_iter_ = end_node(); }
@@ -71,9 +71,9 @@ namespace ft
 
 		// -*-*-*-*-*-*-*-*-*-*-*-*-*-/ Iterator Functions \-*-*-*-*-*-*-*-*-*-*-*-*-*-
         iterator begin() { return iterator(begin_iter_); }
-        const_iterator cbegin() const { return const_iterator(begin_iter_); }
+        const_iterator begin() const { return const_iterator(begin_iter_); }
         iterator end() { return iterator(end_node()); }
-        const_iterator cend() const{ return const_iterator(end_node()); }
+        const_iterator end() const { return const_iterator(end_node()); }
 
 		// -*-*-*-*-*-*-*-*-*-*-*-*-*-/ Capacity Functions \-*-*-*-*-*-*-*-*-*-*-*-*-*-
         bool empty() const { return size() == size_type(0); }
@@ -140,7 +140,7 @@ namespace ft
         template <typename Key> size_type erase(const Key &key)
         {
             const_iterator it = find(key);
-            if (it == cend())
+            if (it == end())
                 return size_type(0);
             erase(it);
             return size_type(1);
@@ -338,7 +338,7 @@ namespace ft
             if (hint == end() || value_comp()(key, *hint))
             {
                 const_iterator prev = hint;
-                if (prev == cbegin() || value_comp()(*--prev, key))
+                if (prev == begin() || value_comp()(*--prev, key))
                 {
                     if (hint.base()->left == NULL)
                     {
@@ -357,7 +357,7 @@ namespace ft
             {
                 const_iterator next = hint;
                 ++next;
-                if (next == cend() || value_comp()(key, *next))
+                if (next == end() || value_comp()(key, *next))
                 {
                     if (hint.node_ptr()->right == NULL)
                     {
