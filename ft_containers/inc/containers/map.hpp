@@ -23,9 +23,9 @@ namespace ft
 
 		public:
 			const Compare &key_comp() const { return comp_; }
-			bool operator()(const T &x, const T &y) const { return key_comp()(x.frs, y.frs); }
-			bool operator()(const Key &x, const T &y) const { return key_comp()(x, y.frs); }
-			bool operator()(const T &x, const Key &y) const { return key_comp()(x.frs, y); }
+			bool operator()(const T &x, const T &y) const { return key_comp()(x.first, y.first); }
+			bool operator()(const Key &x, const T &y) const { return key_comp()(x, y.first); }
+			bool operator()(const T &x, const Key &y) const { return key_comp()(x.first, y); }
 			void swap(map_value_type_compare &other) { std::swap(comp_, other.comp_); }
 
 		protected:
@@ -71,7 +71,7 @@ namespace ft
 						typedef bool result_type;
 
 					public:
-						bool operator()(const value_type &x, const value_type &y) const { return comp(x.frs, y.frs); }
+						bool operator()(const value_type &x, const value_type &y) const { return comp(x.first, y.first); }
 
 					protected:
 						value_compare(const key_compare &c) : comp(c) {}
@@ -113,7 +113,7 @@ namespace ft
 					return it->second;
 				}
 
-				T &operator[](const key_type &key) { return insert(ft::make_pair(key, T())).frs->scd; }
+				T &operator[](const key_type &key) { return insert(ft::make_pair(key, T())).first->second; }
 				iterator begin() { return tree_.begin(); }
 				const_iterator begin() const { return tree_.begin(); }
 				iterator end() { return tree_.end(); }

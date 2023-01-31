@@ -43,45 +43,15 @@ namespace ft
 		public:
 			// -*-*-*-*-*-*-*-*-*-*-*-*-*-/Iterator Functions\-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
-			iterator begin()
-			{
-				return ( ary );
-			}
+			iterator begin() { return ( ary ); }
+			iterator end() { return ( ary + sz ); }
+            const_iterator begin() const { return ( ary ); }
+			const_iterator end() const { return ( ary + sz ); }
+			reverse_iterator rbegin() { return reverse_iterator( end() ); }
+			reverse_iterator rend() { return reverse_iterator( begin() ); }
+			const_reverse_iterator crbegin() const { return ( const_reverse_iterator(end()) ); }
+			const_reverse_iterator crend() const { return ( const_reverse_iterator(begin()) ); }
 
-			iterator end()
-			{
-				return ( ary + sz );
-			}
-
-			const_iterator cbegin() const
-			{
-				return ( ary );
-			}
-
-			const_iterator cend() const
-			{
-				return ( ary + sz );
-			}
-
-			reverse_iterator rbegin()
-			{
-				return reverse_iterator( end() );
-			}
-
-			reverse_iterator rend()
-			{
-				return reverse_iterator( begin() );
-			}
-
-			const_reverse_iterator crbegin() const
-			{
-				return ( const_reverse_iterator(end()) );
-			}
-
-			const_reverse_iterator crend() const
-			{
-				return ( const_reverse_iterator(begin()) );
-			}
 			// -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-/VECTOR CONSTRUCTORS\-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
 			explicit vector (const allocator_type& alloc = allocator_type()) : alc(alloc), cpt(0), sz(0), ary(NULL) {};
@@ -112,21 +82,15 @@ namespace ft
 			vector& operator=(const vector& rhs)
 			{
 				if (this != &rhs)
-					assign(rhs.cbegin(), rhs.cend());
+					assign(rhs.begin(), rhs.end());
 				return *this;
 			}
 
 			// -*-*-*-*-*-*-*-*-*-*-*-*-*-/Element Access\-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
-			reference operator[](size_type s)
-			{
-				return ( ary[s] );
-			}
+			reference operator[](size_type s) { return ( ary[s] ); }
 
-			const_reference operator[](size_type s) const
-			{
-				return ( ary[s] );
-			}
+			const_reference operator[](size_type s) const { return ( ary[s] ); }
 
 			reference at(size_type s)
 			{
@@ -146,41 +110,15 @@ namespace ft
 				return ary[s];
 			}
 
-			reference front()
-			{
-				return ary[0];
-			}
-
-			const_reference front() const
-			{
-				return ary[0];
-			}
-
-			reference back()
-			{
-				return ary[sz - 1];
-			}
+			reference front() { return ary[0]; }
+			const_reference front() const { return ary[0]; }
+			reference back() { return ary[sz - 1]; }
 
 			// -*-*-*-*-*-*-*-*-*-*-*-*-*-/Capacity\-*-*-*-*-*-*-*-*-*-*-*-*-*-
-			bool empty() const
-			{
-				return ( sz == 0 );
-			}
-
-			size_type size() const
-			{
-				return sz;
-			}
-
-			size_type max_size() const
-			{
-				return alc.max_size();
-			}
-
-			size_type capacity() const
-			{
-				return cpt;
-			}
+			bool empty() const { return ( sz == 0 ); }
+			size_type size() const { return sz; }
+			size_type max_size() const { return alc.max_size(); }
+			size_type capacity() const { return cpt; }
 
 			void reserve(size_type s)
 			{
@@ -229,6 +167,7 @@ namespace ft
 			}
 
 			// -*-*-*-*-*-*-*-*-*-*-*-*-*-/Modifiers\-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
 			template <class InputIterator> void assign (InputIterator first, InputIterator last, typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type* = 0)
 			{
 				clear();
@@ -362,28 +301,13 @@ namespace ft
 	{
 		if(lhs.size() != rhs.size())
 			return false;
-		return ft::equal(lhs.cbegin(), lhs.cend(), rhs.cbegin() );
+		return ft::equal(lhs.begin(), lhs.end(), rhs.begin() );
 	}
-	template <class T, class Alloc> bool operator!= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
-	{
-		return !(lhs == rhs);
-	}
-	template <class T, class Alloc>  bool operator<  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
-	{
-		return ft::lexicographical_compare(lhs.cbegin(), lhs.cend(), rhs.cbegin(), rhs.cend());
-	}
-	template <class T, class Alloc> bool operator<= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
-	{
-		return !(rhs < lhs);
-	}
-	template <class T, class Alloc> bool operator>  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
-	{
-		return rhs < lhs;
-	}
-	template <class T, class Alloc> bool operator>= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
-	{
-		return !(lhs < rhs);
-	}
+	template <class T, class Alloc> bool operator!= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs) { return !(lhs == rhs); }
+	template <class T, class Alloc>  bool operator<  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs) { return ft::lexicographical_compare(lhs.begin(), lhs.end(), rhs.begin(), rhs.end()); }
+	template <class T, class Alloc> bool operator<= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs) { return !(rhs < lhs); }
+	template <class T, class Alloc> bool operator>  (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs) { return rhs < lhs; }
+	template <class T, class Alloc> bool operator>= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs) { return !(lhs < rhs);}
 }
 
 

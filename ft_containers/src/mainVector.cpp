@@ -1,16 +1,14 @@
 #include <iostream>
 #include <string>
 #include <deque>
-//#include <map.hpp>
-//#include <stack.hpp>
 #include "../inc/containers/vector.hpp"
+#include <vector>
 #include <stdlib.h>
 #include <stdio.h>
 
 using std::cout;
 using std::endl;
 
-#include <vector>
 
 int main()
 {
