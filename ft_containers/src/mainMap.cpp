@@ -22,21 +22,23 @@ int main()
         phoneBook["Ali"] = 5422;
         phoneBook["Faruk"] = 5671;
         phoneBook["Faruk"] = 5671; // Ayni degeri eklemiyor cunku anahtar deger ikilileri benzersizdir
-        phoneBook["Faruk"] = 42; // Fakat deger guncellenebilir
+        phoneBook["Faruk"] = 42;  // Fakat deger guncellenebilir
 
         std::map<string, int>::iterator it;
+        cout << "Phonebook Example: { ";
         for (it = phoneBook.begin(); it != phoneBook.end() ; ++it)
-            cout << it->first << " " << it->second << endl;
-
-        cout << endl;
+            cout << it->first << "-" << it->second << ", ";
+        cout << "}" << endl;
 
         circuit["Open"] = true;
         circuit["Off"] = false;
         circuit["Off"] = false; // ❌
 
         std::map<string, bool>::iterator cit;
-        for (cit = circuit.begin(); cit != circuit.end(); ++cit)
-            cout << cit->first << " " << cit->second << endl;
+        cout << "Circuit Example: { ";
+        for (it = phoneBook.begin(); it != phoneBook.end() ; ++it)
+            cout << it->first << "-" << it->second << ", ";
+        cout << "}" << endl;
     }
 
     {
@@ -44,23 +46,26 @@ int main()
         cout << "--------------------/ Original Map Constructor Defines \\--------------------" << endl << endl;
 
         std::map<int, string> orgM;
-        std::map<int, string> oprOrgM;
+        std::map<int, string> oprorgM;
         orgM[0] = "Zero";
         orgM[1] = "One";
         orgM[2] = "Second";
-        std::map<int, string> rngOrgM(orgM.begin(), orgM.end());
+        std::map<int, string> rngorgM(orgM.begin(), orgM.end());
         std::map<int, string>::iterator orgit;
-        cout << endl << "[ Range Constructor Define ]\n" << endl;
-        for (orgit = rngOrgM.begin(); orgit != rngOrgM.end() ; ++orgit)
-            cout << orgit->first << " " << orgit->second << endl;
-        std::map<int, string> copyOrgM(rngOrgM);
-        cout << endl << "[ Copy Constructor Define ]\n" << endl;
-        for (orgit = copyOrgM.begin(); orgit != copyOrgM.end(); ++orgit)
-            cout << orgit->first << " " << orgit->second << endl;
-        cout << endl << "[ Operator Assignment Define ]\n" << endl;
-        oprOrgM = copyOrgM;
-        for (orgit = oprOrgM.begin(); orgit != oprOrgM.end() ; ++orgit)
-            cout << orgit->first << " " << orgit->second << endl;
+        cout << "Range Constructor Define: { ";
+        for (orgit = rngorgM.begin(); orgit != rngorgM.end() ; ++orgit)
+            cout << orgit->first << "-" << orgit->second << ", ";
+        cout << "}" << endl;
+        std::map<int, string> copyorgM(rngorgM);
+        cout << "Copy Constructor Define: { ";
+        for (orgit = copyorgM.begin(); orgit != copyorgM.end() ; ++orgit)
+            cout << orgit->first << "-" << orgit->second << ", ";
+        cout << "}" << endl;
+        cout << "Operator Assignment Define: { ";
+        oprorgM = copyorgM;
+        for (orgit = oprorgM.begin(); orgit != oprorgM.end() ; ++orgit)
+            cout << orgit->first << "-" << orgit->second << ", ";
+        cout << "}" << endl;
 
         cout << endl << "--------------------/ Fake Map Constructor Defines \\--------------------" << endl << endl;
         ft::map<int, string> ftM;
@@ -70,20 +75,37 @@ int main()
         ftM[2] = "Second";
         ft::map<int, string> rngftM(ftM.begin(), ftM.end());
         ft::map<int, string>::iterator ftit;
-        cout << endl << "[ Range Constructor Define ]\n" << endl;
+        cout << "Range Constructor Define: { ";
         for (ftit = rngftM.begin(); ftit != rngftM.end() ; ++ftit)
-            cout << ftit->first << " " << ftit->second << endl;
+            cout << ftit->first << "-" << ftit->second << ", ";
+        cout << "}" << endl;
         ft::map<int, string> copyftM(rngftM);
-        cout << endl << "[ Copy Constructor Define ]\n" << endl;
-        for (ftit = copyftM.begin(); ftit != copyftM.end(); ++ftit)
-            cout << ftit->first << " " << ftit->second << endl;
-        cout << endl << "[ Operator Assignment Define ]\n" << endl;
+        cout << "Copy Constructor Define: { ";
+        for (ftit = copyftM.begin(); ftit != copyftM.end() ; ++ftit)
+            cout << ftit->first << "-" << ftit->second << ", ";
+        cout << "}" << endl;
+        cout << "Operator Assignment Define: { ";
         oprftM = copyftM;
         for (ftit = oprftM.begin(); ftit != oprftM.end() ; ++ftit)
-            cout << ftit->first << " " << ftit->second << endl;
-
+            cout << ftit->first << "-" << ftit->second << ", ";
+        cout << "}" << endl;
 
         cout << endl << " -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" << endl << endl;
+    }
+
+    {
+        cout << endl << " -*-*-*-*-*-*-*-*-*-*-*-*-*-/ MODIFIERS FUNCTIONS TEST CASES [2] \\-*-*-*-*-*-*-*-*-*-*-*-*-*-" << endl;
+        cout << "--------------------/ Original Map Modifiers Defines \\--------------------" << endl << endl;
+        std::map<int, string> orgM;
+        std::map<int, string>::iterator orgit;
+        orgM.insert(std::make_pair(24, "Fevzi"));
+        orgM.insert(std::make_pair(42, "Efe"));
+        orgM.insert(std::make_pair(12, "Ali"));
+        cout << "Form 1 single element insert:      { ";
+        for (orgit = orgM.begin(); orgit != orgM.end() ; ++orgit)
+            cout << orgit->first << "-" << orgit->second << ", ";
+        cout << "}" << endl;
+
 
     }
 }
