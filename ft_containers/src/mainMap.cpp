@@ -117,6 +117,33 @@ int main()
         for (orgit = orgM.begin(); orgit != orgM.end() ; ++orgit)
             cout << orgit->first << "-" << orgit->second << ", ";
         cout << "}" << endl;
+        orgit = orgM2.find(2);
+        orgM2.insert(orgit, std::make_pair(123, "Bekir"));
+        orgM.swap(orgM2);
+        cout << "Swap define:                       { ";
+        for (orgit = orgM.begin(); orgit != orgM.end() ; ++orgit)
+            cout << orgit->first << "-" << orgit->second << ", ";
+        cout << "}" << endl;
+        orgM.erase(42);
+        cout << "Form 1 erase define:               { ";
+        for (orgit = orgM.begin(); orgit != orgM.end() ; ++orgit)
+            cout << orgit->first << "-" << orgit->second << ", ";
+        cout << "}" << endl;
+        orgM.erase(orgM.begin());
+        cout << "Form 2 erase define:               { ";
+        for (orgit = orgM.begin(); orgit != orgM.end() ; ++orgit)
+            cout << orgit->first << "-" << orgit->second << ", ";
+        cout << "}" << endl;
+        orgM.erase(orgM.begin(), orgM.end());
+        cout << "Form 3 erase define:               { ";
+        for (orgit = orgM.begin(); orgit != orgM.end() ; ++orgit)
+            cout << orgit->first << "-" << orgit->second << ", ";
+        cout << "}" << endl;
+        orgM2.clear();
+        cout << "Clear function define:             { ";
+        for (orgit = orgM.begin(); orgit != orgM.end() ; ++orgit)
+            cout << orgit->first << "-" << orgit->second << ", ";
+        cout << "}" << endl;
 
         cout << endl << "--------------------/ Fake Map Modifiers Defines \\--------------------" << endl << endl;
         ft::map<int, string> ftM;
@@ -137,6 +164,33 @@ int main()
         ftit = ftM.find(2);
         ftM.insert(ftit, ft::make_pair(98, "Kâzim")); // verdigimiz iterator konumunun 1 fazlasina degeri ekler
         cout << "Form 3 with hint insert:           { ";
+        for (ftit = ftM.begin(); ftit != ftM.end() ; ++ftit)
+            cout << ftit->first << "-" << ftit->second << ", ";
+        cout << "}" << endl;
+        ftit = ftM2.find(2);
+        ftM2.insert(ftit, ft::make_pair(123, "Bekir"));
+        ftM.swap(ftM2);
+        cout << "Swap define:                       { ";
+        for (ftit = ftM.begin(); ftit != ftM.end() ; ++ftit)
+            cout << ftit->first << "-" << ftit->second << ", ";
+        cout << "}" << endl;
+        ftM.erase(42);
+        cout << "Form 1 erase define:               { ";
+        for (ftit = ftM.begin(); ftit != ftM.end() ; ++ftit)
+            cout << ftit->first << "-" << ftit->second << ", ";
+        cout << "}" << endl;
+        ftM.erase(ftM.begin());
+        cout << "Form 2 erase define:               { ";
+        for (ftit = ftM.begin(); ftit != ftM.end() ; ++ftit)
+            cout << ftit->first << "-" << ftit->second << ", ";
+        cout << "}" << endl;
+        ftM.erase(ftM.begin(), ftM.end());
+        cout << "Form 3 erase define:               { ";
+        for (ftit = ftM.begin(); ftit != ftM.end() ; ++ftit)
+            cout << ftit->first << "-" << ftit->second << ", ";
+        cout << "}" << endl;
+        ftM2.clear();
+        cout << "Clear function define:             { ";
         for (ftit = ftM.begin(); ftit != ftM.end() ; ++ftit)
             cout << ftit->first << "-" << ftit->second << ", ";
         cout << "}" << endl;
