@@ -175,7 +175,7 @@ int main()
             cout << ftit->first << "-" << ftit->second << ", ";
         cout << "}" << endl;
         ftM.erase(42);
-        cout << "Form 1 erase define:               { ";
+       cout << "Form 1 erase define:               { ";
         for (ftit = ftM.begin(); ftit != ftM.end() ; ++ftit)
             cout << ftit->first << "-" << ftit->second << ", ";
         cout << "}" << endl;
