@@ -243,7 +243,55 @@ namespace ft
 				sz += n;
 			}
 
-			template <class InputIterator> void insert (iterator position, InputIterator first, InputIterator last, typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type* = 0)
+            template<class InputIt> typename ft::enable_if<!ft::is_integral<InputIt>::value, bool>::type range_insert_helper(InputIt first, InputIt last, size_t range)
+            {
+                pointer reserved_buffer;
+                reserved_buffer = alc.allocate(range);
+                bool result = true;
+                size_t i = 0;
+                for (;first != last; ++first, ++i) {
+                    try { reserved_buffer[i] = *first; }
+                catch (...) { result = false; break; }
+            }
+                alc.deallocate(reserved_buffer, range);
+                return result;
+            }
+
+            template <class InputIterator> void insert (iterator position, InputIterator first, InputIterator last,typename ft::enable_if<!ft::is_integral<InputIterator>::value, void>::type* = 0)
+            {
+                size_t range_size = last - first;
+                if (!range_insert_helper(first, last, range_size))
+                    throw std::exception();
+                size_t new_size = sz + range_size;
+                int last_index = (position - begin()) + range_size - 1;
+                if (range_size >= cpt)
+                {
+                    reserve(cpt + range_size);
+                    sz = new_size;
+                }
+                else
+                {
+                    while (sz != new_size)
+                    {
+                        if (sz == cpt)
+                            reserve(cpt * 2);
+                        sz++;
+                    }
+            }
+            for (int i = sz - 1; i >= 0; --i)
+            {
+                if (i == last_index) {
+                    for (; range_size > 0; --range_size, --i)
+                    {
+                        ary[i] = *--last;
+                    }
+                    return;
+                }
+                ary[i] = ary[i - range_size];
+            }
+        }
+
+/*			template <class InputIterator> void insert (iterator position, InputIterator first, InputIterator last, typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type* = 0)
 			{
 				using namespace std;
 				size_type idx = position - begin();
@@ -259,7 +307,7 @@ namespace ft
 					ary[i] = ary[i - s];
 				for (size_type i = idx, count = idx + s; i < count; i++,first++)
 					alc.construct(&ary[i], *first);
-			}
+			}*/
 
 
 			iterator erase (iterator position)
