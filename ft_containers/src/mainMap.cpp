@@ -261,4 +261,58 @@ int main()
 
     }
 
+    {
+        cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-/ OPERATIONS FUNCTIONS TEST CASES [5] \\-*-*-*-*-*-*-*-*-*-*-*-*-*-" << endl;
+        cout << "--------------------/ Original Operations Functions Defines \\--------------------" << endl << endl;
+
+        std::map<char, string> orgM;
+        std::map<char, string>::iterator itlow, itup;
+        std::pair<std::map<char, string>::iterator, std::map<char, string>::iterator> eqalR;
+
+        orgM['b'] = "Batman";
+        orgM['a'] = "Arkham";
+        orgM['q'] = "Aard"; // birden fazla 'a' anahtari olsa da ikinci tanimlama da degeri ustune overwrite edilecek. Yani 'Batman' artik 'Aard' olacak.
+        orgM['j'] = "Joker";
+        orgM['n'] = "Night";
+
+        cout << "Find function define:          ";
+        cout << orgM.find('b')->first << " => " << orgM.find('b')->second << endl;
+        cout << "Count function define:         ";
+        cout << orgM.count('a') << endl; // belirtilen anahtarın map içinde kaç kez bulunduğunu döndürür.
+        cout << "Count function define again:   ";
+        cout << orgM.count('x') << endl; // 'x' olmadigi icin '0' donecek.
+        cout << "Equal range define             " << endl; // equal range verilen key degerinin ilk iterator'unu (lower) ve bir sonra ki (upper) iterator'unu dondurur. Bunlari da 'pair' nesnesine dondurur.
+        eqalR = orgM.equal_range('b');
+        cout << "Lower bound points to:         " << eqalR.first->first  << " => " << eqalR.first->second << endl;
+        cout << "Upper bound points to:         " << eqalR.second->first << " => " << eqalR.second->second << endl;
+        for (itlow = orgM.begin(); itlow != orgM.end() ; ++itlow)
+            cout << itlow->first << " => " << itlow->second << endl;
+
+        cout << "--------------------/ Fake Operations Functions Defines \\--------------------" << endl << endl;
+
+        ft::map<char, string> ftM;
+        ft::map<char, string>::iterator ftitlow, ftitup;
+        ft::pair<ft::map<char, string>::iterator, ft::map<char, string>::iterator> fteqalR;
+
+        ftM['b'] = "Batman";
+        ftM['a'] = "Arkham";
+        ftM['q'] = "Aard";
+        ftM['j'] = "Joker";
+        ftM['n'] = "Night";
+
+        cout << "Find function define:          ";
+        cout << ftM.find('b')->first << " => " << ftM.find('b')->second << endl;
+        cout << "Count function define:         ";
+        cout << ftM.count('a') << endl;
+        cout << "Count function define again:   ";
+        cout << ftM.count('x') << endl;
+        cout << "Equal range define             " << endl;
+        eqalR = orgM.equal_range('b');
+        cout << "Lower bound points to:         " << eqalR.first->first  << " => " << eqalR.first->second << endl;
+        cout << "Upper bound points to:         " << eqalR.second->first << " => " << eqalR.second->second << endl;
+        for (ftitlow = ftM.begin(); ftitlow != ftM.end() ; ++ftitlow)
+            cout << ftitlow->first << " => " << ftitlow->second << endl;
+
+    }
+
 }
