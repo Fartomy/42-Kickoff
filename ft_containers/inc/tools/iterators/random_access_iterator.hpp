@@ -17,7 +17,8 @@ namespace ft
 
 			random_access_iterator() : ptr(0) {};
 			random_access_iterator(iterType ptr) : ptr(ptr) {};
-			random_access_iterator(const random_access_iterator& c) : ptr(c.ptr) {};
+            template<class Iter>
+			random_access_iterator(const random_access_iterator<Iter>& c) : ptr(&(*c)) {};
 			~random_access_iterator() {};
 
 			random_access_iterator& operator=(const random_access_iterator& c)
@@ -29,20 +30,9 @@ namespace ft
 				return (*this);
 			}
 
-			reference operator*() const
-			{
-				return ( *ptr );
-			}
-
-			reference operator[](difference_type p) const
-			{
-				return ( ptr[p] );
-			}
-
-			pointer operator->() const
-			{
-				return &( operator*() );
-			}
+			reference operator*() const { return ( *ptr ); }
+			reference operator[](difference_type p) const { return ( ptr[p] ); }
+			pointer operator->() const { return &( operator*() ); }
 
 			random_access_iterator& operator++()
 			{
@@ -82,10 +72,7 @@ namespace ft
 				return itr;
 			}
 
-			random_access_iterator operator-(const difference_type& p) const
-			{
-				return ( *this + (-p) );
-			}
+			random_access_iterator operator-(const difference_type& p) const { return ( *this + (-p) ); }
 
 			random_access_iterator& operator-=(const difference_type& p)
 			{
@@ -93,45 +80,17 @@ namespace ft
 				return ( *this );
 			}
 
-			template<typename Itr1, typename Itr2> friend bool operator!=(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd)
-			{
-				return !( lftSd.ptr == rghtSd.ptr );
-			}
-
-			template<typename Itr1, typename Itr2> friend bool operator==(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd)
-			{
-				return ( lftSd.ptr == rghtSd.ptr );
-			}
-
-			template<typename Itr1, typename Itr2> friend bool operator<(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd)
-			{
-				return ( lftSd.ptr < rghtSd.ptr );
-			}
-
-			template<typename Itr1, typename Itr2> friend bool operator<=(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd)
-			{
-				return ( lftSd.ptr <= rghtSd.ptr );
-			}
-
-			template<typename Itr1, typename Itr2> friend bool operator>(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd)
-			{
-				return ( lftSd.ptr > rghtSd.ptr );
-			}
-
-			template<typename Itr1, typename Itr2> friend bool operator>=(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd)
-			{
-				return ( lftSd.ptr >= rghtSd.ptr );
-			}
-
+			template<typename Itr1, typename Itr2> friend bool operator!=(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd) { return !( lftSd.ptr == rghtSd.ptr ); }
+			template<typename Itr1, typename Itr2> friend bool operator==(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd) { return ( lftSd.ptr == rghtSd.ptr ); }
+			template<typename Itr1, typename Itr2> friend bool operator<(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd) { return ( lftSd.ptr < rghtSd.ptr ); }
+			template<typename Itr1, typename Itr2> friend bool operator<=(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd) { return ( lftSd.ptr <= rghtSd.ptr ); }
+			template<typename Itr1, typename Itr2> friend bool operator>(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd) { return ( lftSd.ptr > rghtSd.ptr ); }
+			template<typename Itr1, typename Itr2> friend bool operator>=(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd) { return ( lftSd.ptr >= rghtSd.ptr ); }
+			template<typename Itr1, typename Itr2> friend typename random_access_iterator<Itr1>::difference_type operator-(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd) { return lftSd.ptr - rghtSd.ptr; }
 			template<typename Itr> friend random_access_iterator<Itr> operator+(typename random_access_iterator<Itr>::difference_type d, random_access_iterator<Itr>& c )
 			{
 				c += d;
 				return ( c );
-			}
-
-			template<typename Itr1, typename Itr2> friend typename random_access_iterator<Itr1>::difference_type operator-(const random_access_iterator<Itr1>& lftSd, const random_access_iterator<Itr2>& rghtSd)
-			{
-				return lftSd.ptr - rghtSd.ptr;
 			}
 
 		private:
@@ -140,3 +99,4 @@ namespace ft
 }
 
 #endif
+

@@ -15,7 +15,7 @@ using std::endl;
 template<typename T>
 void print(ft::vector<T> v, std::vector<T> v2)
 {
-	for(int i = 0,len = v2.size() > v.size() ? v2.size() : v.size(); i < len; i++)
+    for(int i = 0,len = v2.size() > v.size() ? v2.size() : v.size(); i < len; i++)
 	{
 		if(i < v.size())
 			printf("v[%d] = %d ",i,v[i]);
@@ -26,6 +26,13 @@ void print(ft::vector<T> v, std::vector<T> v2)
 }
 int main()
 {
+
+/*    ft::vector<int> vec;
+
+    ft::vector<int>::const_iterator cit;
+
+    cit = vec.begin();*/
+
 	ft::vector<int> v;
 	std::vector<int> v2;
 
