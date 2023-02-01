@@ -312,6 +312,7 @@ int main()
         cout << "Upper bound points to:         " << eqalR.second->first << " => " << eqalR.second->second << endl;
         for (ftitlow = ftM.begin(); ftitlow != ftM.end() ; ++ftitlow)
             cout << ftitlow->first << " => " << ftitlow->second << endl;
+        cout << endl << " -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" << endl << endl;
 
     }
 
