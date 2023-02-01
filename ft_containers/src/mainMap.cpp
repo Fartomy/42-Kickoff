@@ -230,4 +230,35 @@ int main()
 
         cout << endl << " -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" << endl << endl;
     }
+
+    {
+        cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-/ ELEMENT ACCESS TEST CASES [4] \\-*-*-*-*-*-*-*-*-*-*-*-*-*-" << endl;
+        cout << "--------------------/ Original Map Element Access Defines \\--------------------" << endl << endl;
+
+        std::map<string, float> orgM;
+        orgM["first"] = 45.1f;
+        orgM["second"] = 34.12f;
+        orgM["third"] = 42.42f;
+
+        cout << "operator[] define:                 ";
+        cout << orgM["third"] << endl;
+        cout << "at define:                         ";
+        cout << orgM.at("second") << endl;
+
+        cout << endl << "--------------------/ Fake Map Element Access Defines \\--------------------" << endl << endl;
+
+        ft::map<string, float> ftM;
+        ftM["first"] = 45.1f;
+        ftM["second"] = 34.12f;
+        ftM["third"] = 42.42f;
+
+        cout << "operator[] define:                 ";
+        cout << ftM["third"] << endl;
+        cout << "at define:                         ";
+        cout << ftM.at("second") << endl;
+
+        cout << endl << " -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" << endl << endl;
+
+    }
+
 }
