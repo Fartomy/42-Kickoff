@@ -13,7 +13,7 @@ using std::string;
 int main()
 {
     {
-        cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-/ UNDERSTANDING TO MAP \\-*-*-*-*-*-*-*-*-*-*-*-*-*-" << endl;
+        cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-/ UNDERSTANDING TO MAP [0] \\-*-*-*-*-*-*-*-*-*-*-*-*-*-" << endl;
         cout << "--------------------/ Phonebook and Circuit Example \\--------------------" << endl << endl;
         std::map<string, int> phoneBook;
         std::map<string, bool> circuit;
@@ -194,6 +194,39 @@ int main()
         for (ftit = ftM.begin(); ftit != ftM.end() ; ++ftit)
             cout << ftit->first << "-" << ftit->second << ", ";
         cout << "}" << endl;
+
+        cout << endl << " -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" << endl << endl;
+    }
+
+    {
+        cout << " -*-*-*-*-*-*-*-*-*-*-*-*-*-/ CAPACITY FUNCTIONS TEST CASES [3] \\-*-*-*-*-*-*-*-*-*-*-*-*-*-" << endl;
+        cout << "--------------------/ Original Map Capacity Defines \\--------------------" << endl << endl;
+        std::map<string, int> orgM;
+        orgM["first"] = 1;
+        orgM["second"] = 2;
+        orgM["third"] = 3;
+
+        cout << "empty function define:                 ";
+        if(!orgM.empty())
+            cout << "Map array is not empty!" << endl;
+        cout << "max_size function define:              ";
+        cout << orgM.max_size() << endl;
+        cout << "size function define:                  ";
+        cout << orgM.size() << endl;
+
+        cout << endl << "--------------------/ Fake Map Capacity Defines \\--------------------" << endl << endl;
+        ft::map<string, int> ftM;
+        ftM["first"] = 1;
+        ftM["second"] = 2;
+        ftM["third"] = 3;
+
+        cout << "empty function define:                 ";
+        if(!ftM.empty())
+            cout << "Map array is not empty!" << endl;
+        cout << "max_size function define:              ";
+        cout << ftM.max_size() << endl;
+        cout << "size function define:                  ";
+        cout << ftM.size() << endl;
 
         cout << endl << " -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" << endl << endl;
     }
