@@ -1,6 +1,15 @@
-//
-// Created by Mehmet eren Akbulut on 1/8/23.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Nick.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ftekdrmi <ftekdrmi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/14 14:35:14 by ftekdrmi          #+#    #+#             */
+/*   Updated: 2023/02/14 14:35:15 by ftekdrmi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/Commands.hpp"
 
 int nickname(int id, std::vector<struct pollfd> &pfd, std::vector<Client> &usr, std::string data) {
