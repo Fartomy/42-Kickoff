@@ -2,19 +2,19 @@
 
 [![ftekdrmi's 42 stats](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/stats?cursusId=21&coalitionId=229)](https://github.com/JaeSeoKim/badge42)
 
-**LIBFT** </br> [![ftekdrmi's 42 Libft Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2449329)](https://github.com/JaeSeoKim/badge42)
+## Part 1: Junior
 
-**FT_PRINTF** </br> [![ftekdrmi's 42 ft_printf Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2502393)](https://github.com/JaeSeoKim/badge42)
+| Project Name        | Score           | Meaning  |
+| :-------------: |:-------------:| :-----|
+| **Libft**      | [![ftekdrmi's 42 Libft Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2449329)](https://github.com/JaeSeoKim/badge42) | You will need to recode a few functions of the C standard library as well as some other utility functions that you will use during your whole cursus. |
+| **ft_printf**      | [![ftekdrmi's 42 ft_printf Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2502393)](https://github.com/JaeSeoKim/badge42)      |   This project is pretty straightforward, you have to recode printf.  |
+| **get_next_line** |[![ftekdrmi's 42 get_next_line Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2459720)](https://github.com/JaeSeoKim/badge42)     |    May it be a file, stdin, or even later a network connection, you will always need a way to read content line by line.  |
+| **Born2beroot** | [![ftekdrmi's 42 Born2beroot Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2483919)](https://github.com/JaeSeoKim/badge42)      | This project aims to introduce you to the wonderful world of virtualization. |
+| **minitalk** | [![ftekdrmi's 42 minitalk Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2518205)](https://github.com/JaeSeoKim/badge42)      |    The purpose of this project is to code a small data exchange program using UNIX signals. |
+| so_long | [![ftekdrmi's 42 so_long Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2522750)](https://github.com/JaeSeoKim/badge42)      |    This project is a small 2D game with minilibx. You'll learn about textures, sprites and tiles. |
+| push_swap | [![ftekdrmi's 42 push_swap Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2590761)](https://github.com/JaeSeoKim/badge42)      |    This project involves sorting data on a stack, with a limited set of instructions, and the smallest number of moves. To make this happen, you will have to manipulate various sorting algorithms and choose the most appropriate solution(s) for optimized data sorting. |
 
-**GET_NEXT_LINE** </br> [![ftekdrmi's 42 get_next_line Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2459720)](https://github.com/JaeSeoKim/badge42)
-
-**BORN2BEROOT** </br> [![ftekdrmi's 42 Born2beroot Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2483919)](https://github.com/JaeSeoKim/badge42)
-
-**MINITALK** </br> [![ftekdrmi's 42 minitalk Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2518205)](https://github.com/JaeSeoKim/badge42)
-
-**SO_LONG** </br> [![ftekdrmi's 42 so_long Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2522750)](https://github.com/JaeSeoKim/badge42)
-
-**PUSH_SWAP** </br> [![ftekdrmi's 42 push_swap Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2590761)](https://github.com/JaeSeoKim/badge42)
+## Part 2: Mid-Level
 
 **MINISHELL** </br> [![ftekdrmi's 42 minishell Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2687795)](https://github.com/JaeSeoKim/badge42)
 
