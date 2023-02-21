@@ -4,7 +4,7 @@
 
 ## Part 1: Junior
 
-| Project Name        | Score           | Meaning  |
+| Project Name        | Score           | Description  |
 | :-------------: |:-------------:| :-----|
 | **Libft**      | [![ftekdrmi's 42 Libft Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2449329)](https://github.com/JaeSeoKim/badge42) | You will need to recode a few functions of the C standard library as well as some other utility functions that you will use during your whole cursus. |
 | **ft_printf**      | [![ftekdrmi's 42 ft_printf Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2502393)](https://github.com/JaeSeoKim/badge42)      |   This project is pretty straightforward, you have to recode printf.  |
@@ -16,51 +16,39 @@
 
 ## Part 2: Mid-Level
 
-**MINISHELL** </br> [![ftekdrmi's 42 minishell Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2687795)](https://github.com/JaeSeoKim/badge42)
+| Project Name        | Score           | Description   |
+| :-------------: |:-------------:| :-----|
+| **Philosophers**      | [![ftekdrmi's 42 Philosophers Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2623800)](https://github.com/JaeSeoKim/badge42) | Eat, Sleep, Spaghetti, repeat. This project is about learning how threads work by precisely timing a group of philosophers on when to pick up forks and eat spaghetti without dying from hunger. |
+| **minishell**     | [![ftekdrmi's 42 minishell Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2687795)](https://github.com/JaeSeoKim/badge42)      | The objective of this project is for you to create a simple shell. |
+| **NetPractice** | [![ftekdrmi's 42 NetPractice Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2773978)](https://github.com/JaeSeoKim/badge42)      |    NetPractice is a general practical exercise to let you discover networking. |
+| **cub3d**     | [![ftekdrmi's 42 cub3d Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2784896)](https://github.com/JaeSeoKim/badge42)      |    This project is inspired by the world-famous eponymous 90's game, which was the first FPS ever. It will enable you to explore ray-casting. Your goal will be to make a dynamic view inside a maze, in which you'll have to find your way. |
+| **CPP Module 00** | [![ftekdrmi's 42 CPP Module 00 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2774115)](https://github.com/JaeSeoKim/badge42)      |    This first module of C++ is designed to help you understand the specifities of the language when compared to C. Time to dive into Object Oriented Programming! |
+| **CPP Module 01** | [![ftekdrmi's 42 CPP Module 01 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2816205)](https://github.com/JaeSeoKim/badge42)      |    This module is designed to help you understand the memory allocation, reference, pointers to members and the usage of the switch in CPP. |
+| **CPP Module 02** | [![ftekdrmi's 42 CPP Module 02 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2841795)](https://github.com/JaeSeoKim/badge42)     |    This module is designed to help you understand Ad-hoc polymorphism, overloads and orthodox canonical classes in CPP. |
+| **CPP Module 03** | [![ftekdrmi's 42 CPP Module 03 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2860672)](https://github.com/JaeSeoKim/badge42)      |    This module is designed to help you understand Inheritance in CPP. |
+| **CPP Module 04** | [![ftekdrmi's 42 CPP Module 04 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2875553)](https://github.com/JaeSeoKim/badge42)      |    This module is designed to help you understand Subtype polymorphism, abstract classes and interfaces in CPP. |
+| **CPP Module 05** | [![ftekdrmi's 42 CPP Module 05 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2885035)](https://github.com/JaeSeoKim/badge42)      |   This module is designed to help you understand Try/Catch and Exceptions in CPP.  |
+| **CPP Module 06** | [![ftekdrmi's 42 CPP Module 06 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2895404)](https://github.com/JaeSeoKim/badge42)      |    This module is designed to help you understand the different casts in CPP. |
+| **CPP Module 07** | [![ftekdrmi's 42 CPP Module 07 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2899209)](https://github.com/JaeSeoKim/badge42)      |    This module is designed to help you understand Templates in CPP. |
+| **CPP Module 08** | [![ftekdrmi's 42 CPP Module 08 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2902058)](https://github.com/JaeSeoKim/badge42)      |    This module is designed to help you understand templated containers, iterators and algorithms in CPP.|
+  
+## Part 3: Senior
+| Project Name        | Score           | Description  |
+| :-------------:       |:-------------:| :-----|
+| **Inception**      | [![ftekdrmi's 42 Inception Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2904611)](https://github.com/JaeSeoKim/badge42) | This project aims to broaden your knowledge of system administration by using Docker. You will virtualize several Docker images, creating them in your new personal virtual machine. |
+| **ft_irc**      |  [![ftekdrmi's 42 ft_irc Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2922230)](https://github.com/JaeSeoKim/badge42)   | Create your own IRC server in C++, fully compatible with an official client. |
+| **ft_containers** | </br> [![ftekdrmi's 42 ft_containers Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2934297)](https://github.com/JaeSeoKim/badge42)      | The multiple available containers in C++ all have a very different usage. To make sure you understand them all, let's re-implement them! |
+| **ft_transcendence** | not done      | Surprise | 
 
-**PHILOSOPHERS** </br> [![ftekdrmi's 42 Philosophers Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2623800)](https://github.com/JaeSeoKim/badge42)
+## Exams
 
-**NETPRACTICE** </br> [![ftekdrmi's 42 NetPractice Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2773978)](https://github.com/JaeSeoKim/badge42)
-
-**CUB3D** </br> [![ftekdrmi's 42 cub3d Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2784896)](https://github.com/JaeSeoKim/badge42)
-
-**CPP MODULE 00** </br> [![ftekdrmi's 42 CPP Module 00 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2774115)](https://github.com/JaeSeoKim/badge42)
-
-**CPP MODULE 01** </br> [![ftekdrmi's 42 CPP Module 01 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2816205)](https://github.com/JaeSeoKim/badge42)
-
-**CPP MODULE 02** </br> [![ftekdrmi's 42 CPP Module 02 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2841795)](https://github.com/JaeSeoKim/badge42)
-
-**CPP MODULE 03** </br> [![ftekdrmi's 42 CPP Module 03 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2860672)](https://github.com/JaeSeoKim/badge42)
-
-**CPP MODULE 04** </br> [![ftekdrmi's 42 CPP Module 04 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2875553)](https://github.com/JaeSeoKim/badge42)
-
-**CPP MODULE 05** </br> [![ftekdrmi's 42 CPP Module 05 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2885035)](https://github.com/JaeSeoKim/badge42)
-
-**CPP MODULE 06** </br> [![ftekdrmi's 42 CPP Module 06 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2895404)](https://github.com/JaeSeoKim/badge42)
-
-**CPP MODULE 07** </br> [![ftekdrmi's 42 CPP Module 07 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2899209)](https://github.com/JaeSeoKim/badge42)
-
-**CPP MODULE 08** </br> [![ftekdrmi's 42 CPP Module 08 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2902058)](https://github.com/JaeSeoKim/badge42)
-
-**INCEPTION** </br> [![ftekdrmi's 42 Inception Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2904611)](https://github.com/JaeSeoKim/badge42)
-
-**FT_IRC** </br> [![ftekdrmi's 42 ft_irc Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2922230)](https://github.com/JaeSeoKim/badge42)
-
-**FT_CONTAINERS** </br> [![ftekdrmi's 42 ft_containers Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2934297)](https://github.com/JaeSeoKim/badge42)
-
-**FT_TRANSCENDENCE** </br> [ NOT DONE ]
-
-**[ EXAMS ]**
-
-**EXAM RANK 02** </br> [![ftekdrmi's 42 Exam Rank 02 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2515517)](https://github.com/JaeSeoKim/badge42)
-
-**EXAM RANK 03** </br> [![ftekdrmi's 42 Exam Rank 03 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2620216)](https://github.com/JaeSeoKim/badge42)
-
-**EXAM RANK 04** </br> [![ftekdrmi's 42 Exam Rank 04 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2800958)](https://github.com/JaeSeoKim/badge42)
-
-**EXAM RANK 05** </br> [![ftekdrmi's 42 Exam Rank 05 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2909525)](https://github.com/JaeSeoKim/badge42)
-
-**EXAM RANK 06** </br> [ NOT DONE ] 
+| Exam Name     | Score         | Description  |
+| :-------------: |:-------------:| :-----|
+| **Exam Rank 02**      | [![ftekdrmi's 42 Exam Rank 02 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2515517)](https://github.com/JaeSeoKim/badge42) | 🔥EXAM RANK 02🔥 |
+| **Exam Rank 03**      | [![ftekdrmi's 42 Exam Rank 03 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2620216)](https://github.com/JaeSeoKim/badge42) | 🔥EXAM RANK 03🔥 |
+| **Exam Rank 04**      | [![ftekdrmi's 42 Exam Rank 04 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2800958)](https://github.com/JaeSeoKim/badge42) | 🔥EXAM RANK 04🔥 |
+| **Exam Rank 05**      | [![ftekdrmi's 42 Exam Rank 05 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2909525)](https://github.com/JaeSeoKim/badge42) | 🔥EXAM RANK 05🔥 |
+| **Exam Rank 06**      | not done | 🔥EXAM RANK 06🔥 |
 
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/42_Logo.svg/2048px-42_Logo.svg.png" align="right" height="400">
