@@ -48,7 +48,7 @@
 | **Exam Rank 03**      | [![ftekdrmi's 42 Exam Rank 03 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2620216)](https://github.com/JaeSeoKim/badge42) | 🔥EXAM RANK 03🔥 |
 | **Exam Rank 04**      | [![ftekdrmi's 42 Exam Rank 04 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2800958)](https://github.com/JaeSeoKim/badge42) | 🔥EXAM RANK 04🔥 |
 | **Exam Rank 05**      | [![ftekdrmi's 42 Exam Rank 05 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2909525)](https://github.com/JaeSeoKim/badge42) | 🔥EXAM RANK 05🔥 |
-| **Exam Rank 06**      | not done | 🔥EXAM RANK 06🔥 |
+| **Exam Rank 06**      | [![ftekdrmi's 42 Exam Rank 06 Score](https://badge42.vercel.app/api/v2/cle46euof00060gl9wgxhrn8a/project/2997687)](https://github.com/JaeSeoKim/badge42) | 🔥EXAM RANK 06🔥 |
 
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/42_Logo.svg/2048px-42_Logo.svg.png" align="right" height="400">
