@@ -242,7 +242,7 @@ Allow incoming requests to port 4242 or deny this port:
 
 ````ufw allow 4242```` - ````ufw deny 4242````
 
-<img src="https://raw.githubusercontent.com/Fartomy/42-Kickoff/master/Born2beroot/Episode2/9.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/9.png" align="center" height="300">
 
 to delete a rule:
 
@@ -269,7 +269,7 @@ OK, we did a lot, now let's move on to the config settings: :d
 
 A screen like this should come:
 
-<img src="https://raw.githubusercontent.com/Fartomy/42-Kickoff/master/Born2beroot/Episode2/10.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/10.png" align="center" height="300">
 
  Add some strict rules here:
  
@@ -284,7 +284,7 @@ A screen like this should come:
 
 The last one should look like this:
 
-<img src="https://raw.githubusercontent.com/Fartomy/42-Kickoff/master/Born2beroot/Episode2/11.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/11.png" align="center" height="300">
 
 To confirm these, you can exit 'root' and try what can be done with the sudo command..
 
@@ -299,7 +299,7 @@ To confirm these, you can exit 'root' and try what can be done with the sudo com
 ```
 You find it 'pass aging control':
 
-<img src="https://raw.githubusercontent.com/Fartomy/42-Kickoff/master/Born2beroot/Episode2/12.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/12.png" align="center" height="300">
 
 Then do it like this:
 
@@ -318,7 +318,7 @@ To change:
 
 ````chage root```` and ````chage <user_name>````
 
-<img src="https://raw.githubusercontent.com/Fartomy/42-Kickoff/master/Born2beroot/Episode2/13.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/13.png" align="center" height="300">
 
 You know what to do..
 
@@ -335,7 +335,7 @@ Then follow this path:
 ```
 You will encounter something like this:
 
-<img src="https://raw.githubusercontent.com/Fartomy/42-Kickoff/master/Born2beroot/Episode2/14.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/14.png" align="center" height="300">
 
 Here's what you need to change:
 
@@ -381,7 +381,7 @@ and write at the bottom:
 */10 * * * * bash /your/monitoring.sh_path
 ```
 
-<img src="https://raw.githubusercontent.com/Fartomy/42-Kickoff/master/Born2beroot/Episode2/15.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/15.png" align="center" height="300">
 
 🏁 **And finally Episode 3 ends here..** 🏁
 
