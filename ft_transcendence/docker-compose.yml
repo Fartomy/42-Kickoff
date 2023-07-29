@@ -1,0 +1,45 @@
+version: '3.5'
+
+services:
+  backend: 
+    container_name: backend
+    build: ./backend
+    networks:
+      - nw
+    depends_on:
+      - postgres
+    restart: on-failure
+    ports:
+      - 3000:3000
+      - 9000:9000
+
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    networks:
+      - nw
+    restart: on-failure
+    ports:
+      - 80:4242
+
+  postgres:
+    container_name: postgres
+    image: postgres
+    networks:
+      - nw
+    volumes:
+      - database:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    env_file:
+      - ./backend/.env
+
+volumes:
+    database:
+        driver: local
+
+networks:
+  nw: 
+    name: transcendence
+    driver: bridge
+
