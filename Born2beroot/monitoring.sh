@@ -5,8 +5,8 @@ CPUUSG=$(top -b -n1 | grep "Cpu(s)" | awk '{print($4)"%"}')
 LASTBOOT=$(who -b | awk '{print $3,$4}')
 lvmrtn=$(lsblk | grep "lvm" | wc -l)
 LVMGET=$(if [ $lvmrtn -eq 0 ]; then echo no; else echo yes; fi)
-TCPCNT=$(netstat | grep ESTABLISHED | wc -l)
-TCPEST=$(netstat | grep ESTABLISHED | awk '{print($6)}')
+TCPCNT=$(netstat | grep tcp | wc -l)
+TCPEST=$(netstat | grep tcp | awk '{print($6)}')
 USRCNT=$(who | wc -l)
 NTWRKMAC=$(ip link show | grep link/ether | awk '{print($2)}')
 NTWRKIP=$(hostname -I)
@@ -26,7 +26,7 @@ wall "
         #CPU load: $CPUUSG
         #Last boot: $LASTBOOT
         #LVM use: $LVMGET
-        #Connexions TCP : $TCPCNT $TCPEST
+        #Connecions TCP : $TCPCNT $TCPEST
         #User log: $USRCNT
         #Network: "IP" $NTWRKIP ($NTWRKMAC)
         #Sudo : $SUDOCNT cmd
