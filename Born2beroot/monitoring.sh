@@ -26,7 +26,7 @@ wall "
         #CPU load: $CPUUSG
         #Last boot: $LASTBOOT
         #LVM use: $LVMGET
-        #Connecions TCP : $TCPCNT $TCPEST
+        #Connections TCP : $TCPCNT $TCPEST
         #User log: $USRCNT
         #Network: "IP" $NTWRKIP ($NTWRKMAC)
         #Sudo : $SUDOCNT cmd
