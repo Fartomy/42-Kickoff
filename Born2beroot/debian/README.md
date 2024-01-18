@@ -1,8 +1,8 @@
-<img src="https://art.pixilart.com/3e3fc9c4c42536a.gif" align="right" height="550">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/debian_gif.gif" align="right" height="400">
 
-# :robot: Born2beroot
+# Debian
 
-This project is Born2beroot directive and this directive does not include bonus tasks and CentOS.
+This installation is based on **Debian** and **bonus part** is included.
 
 
 ## 🧭 Road Map
@@ -33,48 +33,49 @@ After installing open virtualbox:
 
 Press the above will also be the new key!
 
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/1..png?raw=true" align="center" height="325">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/1.png" align="center" height="325">
 
 Next next next.. and 'Machine Folder' your machine folder path will be '/goinfre' but but be careful the hard disk file type will be vdi.
 
 And then choose **'.iso'** Debian file. Click on the virtual machine you have created and click **'settings'** above. and from there click on **'Storage'**, click on **'Empty'** and press the **CD** sign next to the **'Optical Drive'** option in the right window. From there, click on **'Choose Disk File'** and select your downloaded debian **'.iso' file.
 
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/2..png?raw=true" align="center" height="325">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/2.png" align="center" height="325">
 
 After doing these, start your virtual machine and you will see this screen:
 
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/3.png?raw=true" align="center" height="350">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/3.png" align="center" height="350">
 Select 'Grapichal' install'. (Don't worry, this option will not install Debian as UI. It will only install visually.)
 
 The next part contains all pictures:
 
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/4..png?raw=true" align="left" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/5..png?raw=true" align="right" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/6.png?raw=true" align="left" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/7.png?raw=true" align="right" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/8.png?raw=true" align="left" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/9.png?raw=true" align="right" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/10.png?raw=true" align="left" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/11.png?raw=true" align="right" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/12.png?raw=true" align="left" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/13.png?raw=true" align="right" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/14.png?raw=true" align="left" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/15.png?raw=true" align="right" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/16.png?raw=true" align="left" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/17.png?raw=true" align="right" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/18.png?raw=true" align="left" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/19.png?raw=true" align="right" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/20.png?raw=true" align="left" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/21.png?raw=true" align="right" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/22.png?raw=true" align="left" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/23.png?raw=true" align="right" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/24.png?raw=true" align="left" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/25.png?raw=true" align="right" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/26.png?raw=true" align="left" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/27.png?raw=true" align="right" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/28.png?raw=true" align="left" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/29.png?raw=true" align="right" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode1/30.png?raw=true" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/4.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/5.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/6.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/7.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/8.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/9.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/10.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/11.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/12.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/13.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/14.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/15.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/16.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/17.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/18.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/19.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/20.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/21.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/22.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/23.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/24.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/25.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/26.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/27.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/28.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/29.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/30.png" align="center" height="300">
+
 
 🏁 **And finally Episode 1 ends here..** 🏁
 
@@ -82,8 +83,8 @@ The next part contains all pictures:
 
 You will see this screen, probably this is the login screen. :d
 
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/1.png?raw=true" align="center" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/2.png?raw=true" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/31.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/32.png" align="center" height="300">
 
 You can see the partitions and encrypted partitions of your disk by running this command:
 
@@ -179,8 +180,8 @@ You should change these settings
 - And yes, remove the '#' as well, they will comment out what you wrote. :)
 - Hey! by the way just remove the '#' signs for the 2 settings I mentioned above. :d
 
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/3.png?raw=true" align="center" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/4.png?raw=true" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/33.png" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/34.png" align="center" height="300">
 
 Okay, after making these settings, restart with the command:
 
@@ -192,8 +193,8 @@ You will see a button with a green **'+'** sign on the right, yes press it and s
 table will appear. Do as in the picture in the **'Host port'** and **'Guess Port'** sections. 
 I'm already adding a picture, I don't know why I felt the need to explain. Anyway, press ok ok and it's over.
 
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/5.png?raw=true" align="center" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/6.png?raw=true" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/35.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/36.png" align="center" height="300">
 
 After doing these restart your virtual machine **(you must be root)**:
 
@@ -207,8 +208,8 @@ How Does? that's it:
 ```bash
   ssh your_42user_name@localhost -p 4242
 ```
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/7.png?raw=true" align="center" height="300">
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/8.png?raw=true" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/37.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/38.png" align="center" height="300">
 
 And you can access the virtual machine from the terminal of the physical machine by entering the password of the user in your virtual machine.
 
@@ -242,7 +243,7 @@ Allow incoming requests to port 4242 or deny this port:
 
 ````ufw allow 4242```` - ````ufw deny 4242````
 
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/9.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/39.png" align="center" height="300">
 
 to delete a rule:
 
@@ -269,7 +270,7 @@ OK, we did a lot, now let's move on to the config settings: :d
 
 A screen like this should come:
 
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/10.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/40.png" align="center" height="300">
 
  Add some strict rules here:
  
@@ -284,7 +285,7 @@ A screen like this should come:
 
 The last one should look like this:
 
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/11.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/41.png" align="center" height="300">
 
 To confirm these, you can exit 'root' and try what can be done with the sudo command..
 
@@ -299,7 +300,7 @@ To confirm these, you can exit 'root' and try what can be done with the sudo com
 ```
 You find it 'pass aging control':
 
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/12.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/42.png" align="center" height="300">
 
 Then do it like this:
 
@@ -318,7 +319,7 @@ To change:
 
 ````chage root```` and ````chage <user_name>````
 
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/13.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/43.png" align="center" height="300">
 
 You know what to do..
 
@@ -335,7 +336,7 @@ Then follow this path:
 ```
 You will encounter something like this:
 
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/14.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/44.png" align="center" height="300">
 
 Here's what you need to change:
 
@@ -381,7 +382,7 @@ and write at the bottom:
 */10 * * * * bash /your/monitoring.sh_path
 ```
 
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/Episode2/15.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/45.png" align="center" height="300">
 
 🏁 **And finally Episode 3 ends here..** 🏁
 
@@ -442,4 +443,4 @@ After that, type your friend's IPv4 address and port number and press ENTER. Let
 
 🏁**And finally README.md ends here..**🏁
 
-<img src="https://img-s1.onedio.com/id-588fe8b2433fbcd62e12507b/rev-0/w-600/h-321/f-gif/s-f7c0954a159e38b92a9d0b67684b570b9632c14b.gif" align="right" height="550">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/matrix.gif" align="right" height="550">
