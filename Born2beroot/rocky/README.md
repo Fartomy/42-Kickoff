@@ -118,7 +118,7 @@ image2
 Okay, after making these settings, restart with the command:
 
 ```
-systemctl sshd restart
+systemctl restart sshd
 ```
 
 You will probably encounter an error like this:
