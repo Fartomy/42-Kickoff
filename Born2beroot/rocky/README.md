@@ -96,7 +96,7 @@ dnf -y install openssh-server
 
 SSH activity query command and ssh start commands:
 
-`systemctl status ssh` - `systemctl start ssh` - `systemctl enable ssh`
+`systemctl status sshd` - `systemctl start sshd` - `systemctl enable sshd`
 
 ##### 🧬 SSH Port Change
 
