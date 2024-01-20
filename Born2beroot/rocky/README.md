@@ -18,12 +18,11 @@ This installation is based on **Rocky Linux** and **bonus part** is included.
 4. [Part 4 - Last Checks](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#part-4---last-checks)
 
 5. [Part Bonus - WordPress Setup and Choice of Your Service](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#part-bonus---wordpress-setup-and-choice-of-your-service)
-
-  - [Wordpress Setup](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#wordpress-setup)
-     - [For Lighttpd](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#for-lighttpd)
-     - [For MariaDB](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#for-mariadb)
-     - [For PHP](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#for-php)
-  - [Choice of Your Service](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#choice-of-your-service)
+   - [Wordpress Setup](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#wordpress-setup)
+        - [For Lighttpd](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#for-lighttpd)
+        - [For MariaDB](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#for-mariadb)
+        - [For PHP](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#for-php)
+   - [Choice of Your Service](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#choice-of-your-service)
 
 6. [Part 5 - Submission and Peer Evaluation](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#part-5---submission-and-peer-evaluation)
 7. [Resources](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#extras-and-resources)
