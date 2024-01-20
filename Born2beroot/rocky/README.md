@@ -71,6 +71,11 @@ Commands for adding and deleting groups:
 
 `groupadd <group_name>` - `groupdel <group_name>`
 
+As an example, let's add the `user42` group:
+
+```
+groupadd user42
+```
 
 🤝 Commands of groups used with users
 
@@ -81,6 +86,12 @@ First command to see which group a user is in:
 Command to add and remove a user from a group:
 
 `usermod -aG <group_name> <user_name>` - `gpasswd --delete <user_name> <group_name>`
+
+Now let's add the user under the `user42` group:
+
+```
+usermod -aG user42 <user_name>
+```
 
 ### 🛠️ Installing packages and configuring files
 
@@ -378,6 +389,7 @@ difok = 7
 minlen = 10
 dcredit= -1
 ucredit= -1
+lcredit= -1
 enforce_for_root
 enforcing= 1
 maxrepeat= 3
@@ -469,7 +481,9 @@ image
 
 ## Part Bonus - Wordpress setup and Choice of Your Service
 
-### For Lighttpd
+### Wordpress setup
+
+#### For Lighttpd
 
 The simplest way to install Lighttpd is by adding the EPEL repository and updating the software list using the following commands:
 
@@ -532,7 +546,7 @@ http://localhost:8080
 The default configuration file for Lighttpd is /etc/lighttpd/lighttpd.conf and the document root directory is /var/www/lighttpd/.
 
 
-### For MariaDB
+#### For MariaDB
 
 Install MariaDB:
 
@@ -567,7 +581,7 @@ MariaDB [(none)]> show databases;
 
 image
 
-### For PHP
+#### For PHP
 
 To install PHP with the PHP-FPM and FastCGI support, you need to install PHP along with the needed modules as shown:
 
@@ -615,7 +629,7 @@ After making changes, you need to start, enable and verify the status of php-fpm
 # systemctl status php-fpm.service
 ```
 
-#### Enabling PHP and PHP-FPM with FastCGI in Lighttpd
+##### Enabling PHP and PHP-FPM with FastCGI in Lighttpd
 
 To enable FastCGI support in PHP, you need to make the configuration changes in three files as follows.
 
@@ -715,7 +729,7 @@ For a full list of these policies:
 getsebool -a
 ```
 
-### For Wordpress
+#### For Wordpress
 
 First of all, you should install these packages:
 
@@ -789,7 +803,6 @@ We are having a problem with write permission to the `wp-config.php` file on the
 
 to Solution:
 
-
 ```
 chcon -t httpd_sys_rw_content_t /var/www/lighttpd/
 ```
@@ -805,6 +818,77 @@ image
 image
 
 image
+
+Lastly, you should rename or delete `index.html` file in the this path `/var/www/lighttpd/` :
+
+```
+# mv /var/www/lighttpd/index.html /var/www/lighttpd/d.html
+or
+# rm -rf /var/www/lighttpd/index.html
+```
+
+### Choice of Your Service
+
+My choice is to serve **Python's http server** as a service.
+
+For that install the `python3` package first:
+
+```
+dnf install -y python3
+```
+
+Give the necessary port permissions in the **firewall**:
+
+```
+firewall-cmd --permanent --zone=public --add-port=5050/tcp
+```
+
+Reload firewall:
+
+```
+firewall-cmd --reload
+```
+
+Add the _5050_ port from the **port forwarding** setting in the virtualBox's settings:
+
+image
+image
+
+To create the service, create a file named `python-http-server.service` in the `/etc/systemd/system` directory.
+
+```
+vi /etc/systemd/system/python-http-server.service
+```
+
+Write the following in it:
+
+```
+[Unit]
+Description=Python HTTP Server
+
+[Service]
+ExecStart=/usr/bin/python3 -m http.server 5050
+WorkingDirectory=/directory/path/to/be/presented/on/the/browser
+Restart=always
+User=user_name
+
+[Install]
+WantedBy=multi-user.target
+```
+
+To start the service after saving and exiting:
+
+```
+# systemctl enable python-http-server.service
+# systemctl start python-http-server.service
+# systemctl status python-http-server.service
+```
+
+If it is active, access it via browser:
+
+```
+http://localhost:5050
+```
 
 🏁 And finally Part Bonus ends here.. 🏁
 
