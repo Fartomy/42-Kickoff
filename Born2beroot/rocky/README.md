@@ -1,22 +1,65 @@
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/rocky_linux.png" align="right" height="400">
+
 # Rocky
 
 This installation is based on **Rocky Linux** and **bonus part** is included.
+
+## 🧭 Road Map
+
+1.  [Episode 1 (Install Rocky)](/)
+
+2. [Episode 2 (Downloads and Adjustments and and Configurations)](/)
+   - [For SSH](/)
+   - [For UFW](/)
+   - [For Sudo](/)
+   - [Password Policy](/)
+
+3. [Episode 3 (Monitoring.sh and Crontab Configurations)](/)
+
+4. [Episode 4 (Submission and Peer-evaluation)](/)
+
+5. [Extras and Resources](/)
 
 ## 1️⃣ Part 1 - Install Rocky Linux
 
 First download **VirtualBox** and download **Rocky's .iso** file. Here are the links:
 - [VirtualBox](https://www.virtualbox.org/)
 - [Rocky Linux](https://rockylinux.org/)
-...
 
+All setup pictures:
+
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/1.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/2.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/3.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/4.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/5.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/6.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/7.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/8.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/9.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/10.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/11.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/12.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/13.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/14.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/15.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/16.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/17.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/18.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/19.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/20.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/21.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/22.png" align="right" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/23.png" align="left" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/24.png" align="right" height="300">
 
 🏁**And finally Part 1 ends here..**🏁
 ## 2️⃣ Part 2 - Downloads and Adjustments and and Configurations
 
 After entering your disk password, you will see this screen. Probably this is the login screen. :d
 
-images1
-images2
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/25.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/26.png" align="center" height="300">
 
 You can see the partitions and encrypted partitions of your disk by running this command:
 
@@ -123,8 +166,8 @@ You should change these settings:
 - And yes, remove the '#' as well, they will comment out what you wrote. :)
 - Hey! by the way just remove the '#' signs for the 2 settings I mentioned above. :d
 
-image1
-image2
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/27.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/28.png" align="center" height="300">
 
 Okay, after making these settings, restart with the command:
 
@@ -134,7 +177,7 @@ systemctl restart sshd
 
 You will probably encounter an error like this:
 
-image1
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/29.png" align="center" height="300">
 
 To solution:
 
@@ -201,8 +244,8 @@ Okay, now that we have checked a lot of things and made ourselves sure about thi
 
 Back to your virtualbox and press 'settings' at the top, then 'network', then there will be an 'Advanced' pane at the bottom, click there and press 'Port Forwarding'. You will see a button with a green '+' sign on the right, yes press it and something like a table will appear. Do as in the picture in the 'Host port' and 'Guess Port' sections. I'm already adding a picture, I don't know why I felt the need to explain. Anyway, press ok ok and it's over.
 
-image1
-image2
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/35.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/36.png" align="center" height="300">
 
 
 Now we look like we are ready to connect via SSH via your host machine.
@@ -264,8 +307,7 @@ Let's enter the configuration file with this command:
 
 A screen like this should come:
 
-image1
-
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/30.png" align="center" height="300">
 
 Add some strict rules here:
 
@@ -280,7 +322,7 @@ Defaults     iolog_dir="/var/log/sudo/" -> path of inputs and outputs
 
 The last one should look like this:
 
-image2
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/31.png" align="center" height="300">
 
 [Intriguing Ancient Infos]
 
@@ -299,7 +341,7 @@ ssh your_username@localhost -p 4242 'echo 'your_pass' | sudo -S ls -al'
 (We can send command with ssh but it is must be between quotes (''). And for sudo password we must use '-S' option and we can send that with "echo")
 
 {secure_path}
-
+```
 What are Environment Variables (Environment Variables)?
 Environment variables are global variables that the operating system and applications use to store and share configuration information. These variables contain various settings and preferences that are valid throughout the system or session.
 
@@ -330,7 +372,7 @@ Add this directory to the PATH: export PATH=$PATH:/custom/bin
 Run the command as a normal user: /custom/bin/testcommand
 run with sudo: sudo/custom/bin/testcommand
 If the sudo command gives a "command not found" error, this indicates that secure_path is working.
-
+```
 
 To confirm these, you can exit **root** and try what can be done with the **sudo** command
 
@@ -347,7 +389,7 @@ nano /etc/login.defs
 
 You find it "**Password aging control**":
 
-image
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/32.png" align="center" height="300">
 
 Then do it like this:
 
@@ -367,7 +409,7 @@ To change:
 
 `chage root` and `chage <user_name>`
 
-image
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/33.png" align="center" height="300">
 
 You know what to do..
 
@@ -380,7 +422,7 @@ vi /etc/security/pwquality.conf
 
 You will encounter something like this:
 
-image1
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/pwquality-before.png" align="center" height="300">
 
 Here's what you need to change:
 
@@ -396,6 +438,7 @@ maxrepeat= 3
 usercheck = 1
 dictcheck = 1
 ```
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/pwquality-after.png" align="center" height="300">
 
 I'm not going to write explanations, it's already written :()
 
@@ -459,23 +502,23 @@ firewall-cmd --state
 
 For example, I did not get the expected output from the **"ss -tunlp"** command. A service named **"chronyd"** was listening on a certain port, now let's close it.
 
-image
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/34.png" align="center" height="300">
 
 To solution:
 
 `systemctl stop chronyd` then `systemctl disable chronyd`
 
-image
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/35.png" align="center" height="300">
 
 Finally, there are many services running on firewalld. 
 
-image
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/36.png" align="center" height="300">
 
 To remove them:
 
 `firewall-cmd --permanent --remove-service=cockpit` - `firewall-cmd --permanent --remove-service=dhcpv6-client` - `firewall-cmd --reload`
 
-image
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/37.png" align="center" height="300">
 
 🏁 And finally Part 4 ends here.. 🏁
 
@@ -501,7 +544,7 @@ After installing Lighttpd, you need to start, enable the service to automaticall
 
 After activating the lighttpd service, there will be some errors in the "status" output. To solve these:
 
-image
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/38.png" align="center" height="300">
 
 Enable "httpd_setrlimit" in selinux policy settings:
 ```
@@ -517,8 +560,8 @@ vi /etc/lighttpd/lighttpd.conf
 Find `server.use-ipv6 = "enable"` section and change that line to
 `server.use-ipv6 = "disable"`
 
-image
-image
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/39.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/40.png" align="center" height="300">
 
 Restart the **lighttpd** service:
 
@@ -535,7 +578,7 @@ Make sure to open HTTP traffic on your firewall:
 
 Add port in the VirtualBox's port forwarding settings:
 
-image
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/41.png" align="center" height="300">
 
 Now open your browser and navigate to the following URL to confirm that your Lighttpd web server is running:
 
@@ -570,7 +613,7 @@ mysql_secure_installation
 
 The script will ask you to create a new root password, remove anonymous users, disable root login remotely. remove test database, and reload the privilege table:
 
-image
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/42.png" align="center" height="300">
 
 Once you secured MariaDB installation, try to connect to the MariaDB shell from the terminal using the new password:
 
@@ -579,7 +622,7 @@ Once you secured MariaDB installation, try to connect to the MariaDB shell from 
 MariaDB [(none)]> show databases;
 ```
 
-image
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/43.png" align="center" height="300">
 
 #### For PHP
 
@@ -615,11 +658,11 @@ listen = 127.0.0.1:9000
 
 Before:
 
-image
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/44.png" align="center" height="300">
 
 After:
 
-image
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/45.png" align="center" height="300">
 
 After making changes, you need to start, enable and verify the status of php-fpm:
 
@@ -642,10 +685,12 @@ vi /etc/php.ini
 Un-comment the following line that says a line `cgi.fix_pathinfo=1`
 
 Before:
-image
+
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/46.png" align="center" height="300">
 
 After:
-image
+
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/47.png" align="center" height="300">
 
 Then open second file called `/etc/lighttpd/modules.conf`
 
@@ -656,10 +701,13 @@ vi /etc/lighttpd/modules.conf
 Un-comment the following line that says include `include conf_dir + "/conf.d/fastcgi.conf"`
 
 Before:
-image
+
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/48.png" align="center" height="300">
 
 After:
-image
+
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/49.png" align="center" height="300">
+
 
 Next, open third file called `/etc/lighttpd/conf.d/fastcgi.conf`
 
@@ -681,11 +729,11 @@ fastcgi.server += ( ".php" =>
 
 Before:
 
-image
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/50.png" align="center" height="300">
 
 After:
 
-image
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/51.png" align="center" height="300">
 
 Restart the Lighttpd service to reflect changes and enable PHP support:
 
@@ -793,15 +841,13 @@ Now we can go to the WordPress installation page:
 http://localhost:8080/index.php
 ```
 
-image
-
-image
-
-image
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/52.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/53.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/54.png" align="center" height="300">
 
 We are having a problem with write permission to the `wp-config.php` file on the system. 
 
-to Solution:
+To solution:
 
 ```
 chcon -t httpd_sys_rw_content_t /var/www/lighttpd/
@@ -809,15 +855,12 @@ chcon -t httpd_sys_rw_content_t /var/www/lighttpd/
 
 Try again.
 
-image
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/55.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/56.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/57.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/58.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/59.png" align="center" height="300">
 
-image
-
-image
-
-image
-
-image
 
 Lastly, you should rename or delete `index.html` file in the this path `/var/www/lighttpd/` :
 
@@ -825,6 +868,12 @@ Lastly, you should rename or delete `index.html` file in the this path `/var/www
 # mv /var/www/lighttpd/index.html /var/www/lighttpd/d.html
 or
 # rm -rf /var/www/lighttpd/index.html
+```
+
+Visit your main page:
+
+```
+http://localhost:8080
 ```
 
 ### Choice of Your Service
@@ -851,8 +900,7 @@ firewall-cmd --reload
 
 Add the _5050_ port from the **port forwarding** setting in the virtualBox's settings:
 
-image
-image
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/35.png" align="center" height="300">
 
 To create the service, create a file named `python-http-server.service` in the `/etc/systemd/system` directory.
 
@@ -920,5 +968,4 @@ When your disk signature comes, you will send it to the 'signature.txt' file and
 
 🏁**And finally README.md ends here..**🏁
 
-GIF image
-
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/matrix.gif" align="right" height="550">
