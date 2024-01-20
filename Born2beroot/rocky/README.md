@@ -6,19 +6,27 @@ This installation is based on **Rocky Linux** and **bonus part** is included.
 
 ## 🧭 Road Map
 
-1.  [Episode 1 (Install Rocky)](/)
+1. [Part 1 - Install Rocky](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#1%EF%B8%8F%E2%83%A3-part-1---install-rocky-linux)
 
-2. [Episode 2 (Downloads and Adjustments and and Configurations)](/)
-   - [For SSH](/)
-   - [For UFW](/)
-   - [For Sudo](/)
-   - [Password Policy](/)
+2. [Part 2 - Downloads and Adjustments and and Configurations](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#2%EF%B8%8F%E2%83%A3-part-2---downloads-and-adjustments-and-and-configurations)
+   - [For SSH](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#-for-ssh)
+   - [For Sudo](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#godmode-for-sudo)
+   - [Password Policy](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#%EF%B8%8F-password-policy)
 
-3. [Episode 3 (Monitoring.sh and Crontab Configurations)](/)
+3. [Part 3 - Monitoring.sh and Crontab Configurations](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#3%EF%B8%8F%E2%83%A3-part-3---monitoringsh-and-crontab-configurations)
 
-4. [Episode 4 (Submission and Peer-evaluation)](/)
+4. [Part 4 - Last Checks](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#part-4---last-checks)
 
-5. [Extras and Resources](/)
+5. [Part Bonus - WordPress Setup and Choice of Your Service](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#part-bonus---wordpress-setup-and-choice-of-your-service)
+
+  - [Wordpress Setup](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#wordpress-setup)
+     - [For Lighttpd](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#for-lighttpd)
+     - [For MariaDB](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#for-mariadb)
+     - [For PHP](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#for-php)
+  - [Choice of Your Service](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#choice-of-your-service)
+
+6. [Part 5 - Submission and Peer Evaluation](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#part-5---submission-and-peer-evaluation)
+7. [Resources](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#extras-and-resources)
 
 ## 1️⃣ Part 1 - Install Rocky Linux
 
@@ -53,12 +61,13 @@ All setup pictures:
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/23.png" align="left" height="300">
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/24.png" align="right" height="300">
 
-🏁**And finally Part 1 ends here..**🏁
+**🏁And finally Part 1 ends here..🏁**
 ## 2️⃣ Part 2 - Downloads and Adjustments and and Configurations
+
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/25.png" align="center" height="300">
 
 After entering your disk password, you will see this screen. Probably this is the login screen. :d
 
-<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/25.png" align="center" height="300">
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/26.png" align="center" height="300">
 
 You can see the partitions and encrypted partitions of your disk by running this command:
@@ -77,42 +86,56 @@ Before proceeding with the downloads and configurations, it is useful to know th
 dnf -y update
 ```
 
-🛎️ Change the hostname:
+**🛎️ Change the hostname:**
 
 To change the hostname, let's enter the file (you must be root):
 
 ```
 vi /etc/hostname
 ```
+
 Change your hostname as it needs to be changed.
 
 Restart the computer after saving and exiting:
 
-`reboot`
+```
+reboot
+```
 
-🧮 User Commands
+**🧮 User Commands**
 
 Apart from these, the command to see the users in your system:
 
-`getent passwd`
+```
+getent passwd
+```
 
 Commands for adding and deleting users:
 
-`adduser <user_name>` - `userdel <user_name>`
+```
+# adduser <user_name>
+# userdel <user_name>
+```
 
 To assign a password to the created user:
 
-`passwd <user_name>`
+```
+passwd <user_name>
+```
 
-🍇 Group Commands
+**🍇 Group Commands**
 
 The command to see the groups in your system:
-
-`getent group` or `getent group <group_name>` -> **Users under a group**
-
+```
+# getent group
+# getent group <group_name> --> Users under a group
+```
 Commands for adding and deleting groups:
 
-`groupadd <group_name>` - `groupdel <group_name>`
+```
+groupadd <group_name>
+groupdel <group_name>
+```
 
 As an example, let's add the `user42` group:
 
@@ -120,15 +143,20 @@ As an example, let's add the `user42` group:
 groupadd user42
 ```
 
-🤝 Commands of groups used with users
+**🤝 Commands of groups used with users**
 
 First command to see which group a user is in:
 
-`groups <user_name>`
+```
+groups <user_name>
+```
 
 Command to add and remove a user from a group:
 
-`usermod -aG <group_name> <user_name>` - `gpasswd --delete <user_name> <group_name>`
+```
+# usermod -aG <group_name> <user_name>
+# gpasswd --delete <user_name> <group_name>
+```
 
 Now let's add the user under the `user42` group:
 
@@ -150,7 +178,11 @@ dnf -y install openssh-server
 
 SSH activity query command and ssh start commands:
 
-`systemctl status sshd` - `systemctl start sshd` - `systemctl enable sshd`
+```
+# systemctl start sshd
+# systemctl enable sshd
+# systemctl status sshd
+```
 
 ##### 🧬 SSH Port Change
 
@@ -185,7 +217,7 @@ To solution:
 dnf install -y policycoreutils-python-utils
 ```
 
-To overcome this problem, we need to make some configurations in Selinux's security policy settings. :
+To overcome this problem, we need to make some configurations in Selinux's security policy settings:
 
 ```
 semanage port -a -t ssh_port_t -p tcp 4242
@@ -203,31 +235,31 @@ Restart SSHD service:
 systemctl restart sshd
 ```
 
-Then, we need to make another small setting for the port setting we want on the firewalld side:
+Then, we need to make another small setting for the port setting we want on the firewall side:
 
 ```
 firewall-cmd --permanent --zone=public --add-port=4242/tcp
 ```
 
-Reload Firewalld:
+Reload firewall:
 
 ```
 firewall-cmd --reload
 ```
 
-List firewalld ports:
+List firewall ports:
 
 ```
 firewall-cmd --list-port
 ```
 
-List firewalld service:
+List firewall service:
 
 ```
 firewall-cmd --list-service
 ```
 
-List firewalld all:
+List firewall all:
 
 ```
 firewall-cmd --list-all
@@ -242,7 +274,7 @@ ss -tnlp | grep ssh
 
 Okay, now that we have checked a lot of things and made ourselves sure about this, the next step will be port forwarding :d
 
-Back to your virtualbox and press 'settings' at the top, then 'network', then there will be an 'Advanced' pane at the bottom, click there and press 'Port Forwarding'. You will see a button with a green '+' sign on the right, yes press it and something like a table will appear. Do as in the picture in the 'Host port' and 'Guess Port' sections. I'm already adding a picture, I don't know why I felt the need to explain. Anyway, press ok ok and it's over.
+Back to your virtualbox and press _settings_ at the top, then _network_, then there will be an _Advanced_ pane at the bottom, click there and press _Port Forwarding_. You will see a button with a green _+_ sign on the right, yes press it and something like a table will appear. Do as in the picture in the _Host port_ and _Guess Port_ sections. I'm already adding a picture, I don't know why I felt the need to explain. Anyway, press ok ok and it's over.
 
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/35.png" align="center" height="300">
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/36.png" align="center" height="300">
@@ -254,7 +286,7 @@ Now we look like we are ready to connect via SSH via your host machine.
 ssh ruser@localhost -p 4242
 ```
 
-[Optional Problem]
+_[@@@ Optional Problem @@@]_
 
 ```
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -275,19 +307,19 @@ Host key verification failed.
 ```
 If you encounter such a situation, what you need to do is stated in the message.
 
-🚩 Yes, SSH that was it.. 🚩
+**🚩 Yes, SSH that was it.. 🚩**
 
 #### :godmode: For Sudo
 
-Configuring **sudo** according to very very strict rules
+Configuring `sudo` according to very very strict rules.
 
-If sudo is not available on the system::
+If sudo is not available on the system:
 
 ```
 dnf install -y sudo
 ```
 
-If the **sudo** group does not exist in the system, create it:
+If the `sudo` group does not exist in the system, create it:
 
 ```
 groupadd sudo
@@ -303,7 +335,9 @@ OK, we did a lot, now let's move on to the config settings: :d
 
 Let's enter the configuration file with this command:
 
-`visudo`
+```
+visudo
+```
 
 A screen like this should come:
 
@@ -324,7 +358,7 @@ The last one should look like this:
 
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/31.png" align="center" height="300">
 
-[Intriguing Ancient Infos]
+_[@@@ Intriguing Ancient Infos @@@]_
 
 {requiretty}
 
@@ -336,9 +370,9 @@ Try this command on your host machine:
 ssh your_username@localhost -p 4242 'echo 'your_pass' | sudo -S ls -al'
 ```
 
-(Or you can create a script file and paste that command and run the script file. It will not be working because require tty)
+Or you can create a script file and paste that command and run the script file. It will not be working because require tty
 
-(We can send command with ssh but it is must be between quotes (''). And for sudo password we must use '-S' option and we can send that with "echo")
+We can send command with ssh but it is must be between quotes (''). And for sudo password we must use `-S` option and we can send that with `echo`
 
 {secure_path}
 ```
@@ -374,20 +408,19 @@ run with sudo: sudo/custom/bin/testcommand
 If the sudo command gives a "command not found" error, this indicates that secure_path is working.
 ```
 
-To confirm these, you can exit **root** and try what can be done with the **sudo** command
+To confirm these, you can exit _root_ and try what can be done with the `sudo` command
 
-🚩 Yes, Sudo that was it.. 🚩
-
+**🚩 Yes, sudo that was it..🚩**
 
 #### ⛓️ Password Policy
 
-First, configure the password change frequency:
+Firstly, configure the password change frequency:
 
 ```
 nano /etc/login.defs
 ```
 
-You find it "**Password aging control**":
+You find it _Password aging control_:
 
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/32.png" align="center" height="300">
 
@@ -399,15 +432,23 @@ PASS_MIN_DAYS   2
 PASS_WARN_AGE   7
 ```
 
-**⚠️Yes, that's all, but this setting is valid for root and users after you (usr). To change your user and root's, do this⚠️**
+_**⚠️Yes, that's all, but this setting is valid for root and users after you (usr). To change your user and root's, do this⚠️**_
 
 First, let me prove it to you:
 
-`chage -l root` and `chage -l <user_name>` -> I think that's a enough proof :d
+```
+# chage -l root`
+# chage -l <user_name>
+```
+
+I think that's a enough proof :d
 
 To change:
 
-`chage root` and `chage <user_name>`
+```
+# chage root
+# chage <user_name>
+```
 
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/33.png" align="center" height="300">
 
@@ -416,6 +457,7 @@ You know what to do..
 Now let's add our password creation rules
 
 Follow this path:
+
 ```
 vi /etc/security/pwquality.conf
 ```
@@ -438,24 +480,27 @@ maxrepeat= 3
 usercheck = 1
 dictcheck = 1
 ```
+
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/pwquality-after.png" align="center" height="300">
 
 I'm not going to write explanations, it's already written :()
 
-**⚠️Yes, that's all, but after you've done these, you still need to change the passwords for root, your user, and all other users if you have created them⚠️**
+_**⚠️ Yes, that's all, but after you've done these, you still need to change the passwords for root, your user, and all other users if you have created them ⚠️**_
 
-`passwd root` and `passwd <user_name>`
+```
+# passwd root
+# passwd <user_name>
+```
 
-🏁**And finally Part 2 ends here..**🏁
-
+**🏁And finally Part 2 ends here..🏁**
 
 ## 3️⃣ Part 3 - Monitoring.sh and Crontab Configurations
 
 ### 🗒️ Monitoring.sh
 
-If you want to examine it, I shared the **monitoring.sh** file above.
+If you want to examine it, I shared the _monitoring.sh_ file above.
 
-[monitoring.sh link]
+[monitoring.sh](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/monitoring.sh)
 
 ### ⏰ Crontab (cron)
 
@@ -470,9 +515,10 @@ and write that:
 ```
 */10 * * * * bash /your/monitoring.sh_path
 ```
-🏁 And finally Part 3 ends here.. 🏁
 
-## Part 4 - Last Checks
+**🏁 And finally Part 3 ends here.. 🏁**
+
+## :four: Part 4 - Last Checks
 
 Make sure the outputs are as expected:
 
@@ -500,41 +546,48 @@ firewall-cmd --list-port
 firewall-cmd --state
 ```
 
-For example, I did not get the expected output from the **"ss -tunlp"** command. A service named **"chronyd"** was listening on a certain port, now let's close it.
+For example, I did not get the expected output from the `ss -tunlp` command. A service named _chronyd_ was listening on a certain port, now let's close it.
 
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/34.png" align="center" height="300">
 
 To solution:
 
-`systemctl stop chronyd` then `systemctl disable chronyd`
+```
+# systemctl stop chronyd
+systemctl disable chronyd
+```
 
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/35.png" align="center" height="300">
 
-Finally, there are many services running on firewalld. 
+Lastly, there are many services running on firewall
 
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/36.png" align="center" height="300">
 
 To remove them:
 
-`firewall-cmd --permanent --remove-service=cockpit` - `firewall-cmd --permanent --remove-service=dhcpv6-client` - `firewall-cmd --reload`
+```
+# firewall-cmd --permanent --remove-service=cockpit
+# firewall-cmd --permanent --remove-service=dhcpv6-client
+# firewall-cmd --reload
+```
 
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/37.png" align="center" height="300">
 
-🏁 And finally Part 4 ends here.. 🏁
+**🏁 And finally Part 4 ends here.. 🏁**
 
-## Part Bonus - Wordpress setup and Choice of Your Service
+## *️⃣ Part Bonus - Wordpress setup and Choice of Your Service
 
-### Wordpress setup
+### 🪑 Wordpress setup
 
-#### For Lighttpd
+#### 🪥 For Lighttpd 
 
-The simplest way to install Lighttpd is by adding the EPEL repository and updating the software list using the following commands:
+The simplest way to install **Lighttpd** is by adding the **EPEL** repository and updating the software list using the following commands:
 
 ```
 dnf -y install epel-release && dnf -y update && dnf -y install lighttpd
 ```
 
-After installing Lighttpd, you need to start, enable the service to automatically start at boot time, and make sure to verify the status using the following commands:
+After installing **Lighttpd**, you need to start, enable the service to automatically start at boot time, and make sure to verify the status using the following commands:
 
 ```
 # systemctl start lighttpd
@@ -542,7 +595,9 @@ After installing Lighttpd, you need to start, enable the service to automaticall
 # systemctl status lighttpd
 ```
 
-After activating the lighttpd service, there will be some errors in the "status" output. To solve these:
+After activating the **lighttpd** service, there will be some errors in the _status_ output.
+
+To solve these:
 
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/38.png" align="center" height="300">
 
@@ -557,8 +612,7 @@ Then go to **lighttpd** config file for other problem:
 vi /etc/lighttpd/lighttpd.conf
 ```
 
-Find `server.use-ipv6 = "enable"` section and change that line to
-`server.use-ipv6 = "disable"`
+Find `server.use-ipv6 = "enable"` section and change that line to `server.use-ipv6 = "disable"`
 
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/39.png" align="center" height="300">
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/40.png" align="center" height="300">
@@ -586,10 +640,9 @@ Now open your browser and navigate to the following URL to confirm that your Lig
 http://localhost:8080
 ```
 
-The default configuration file for Lighttpd is /etc/lighttpd/lighttpd.conf and the document root directory is /var/www/lighttpd/.
+The default configuration file for **Lighttpd** is `/etc/lighttpd/lighttpd.conf` and the document root directory is `/var/www/lighttpd/`
 
-
-#### For MariaDB
+#### 🧼 For MariaDB
 
 Install MariaDB:
 
@@ -597,7 +650,7 @@ Install MariaDB:
 dnf -y install mariadb mariadb-server
 ```
 
-After installing MariaDB, you need to start, enable and verify the status as shown:
+After installing **MariaDB**, you need to start, enable and verify the status as shown:
 
 ```
 # systemctl start mariadb
@@ -605,17 +658,17 @@ After installing MariaDB, you need to start, enable and verify the status as sho
 # systemctl status mariadb
 ```
 
-Once MariaDB is running, you need to secure installation by issuing the following security script command:
+Once **MariaDB** is running, you need to secure installation by issuing the following security script command:
 
 ```
 mysql_secure_installation
 ```
 
-The script will ask you to create a new root password, remove anonymous users, disable root login remotely. remove test database, and reload the privilege table:
+The script will ask you to create a new root password, remove anonymous users, disable root login remotely, remove test database, and reload the privilege table:
 
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/42.png" align="center" height="300">
 
-Once you secured MariaDB installation, try to connect to the MariaDB shell from the terminal using the new password:
+Once you secured **MariaDB** installation, try to connect to the **MariaDB** shell from the terminal using the new password:
 
 ```
 # mysql -u root -p
@@ -624,15 +677,15 @@ MariaDB [(none)]> show databases;
 
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/43.png" align="center" height="300">
 
-#### For PHP
+#### 🕯️ For PHP
 
-To install PHP with the PHP-FPM and FastCGI support, you need to install PHP along with the needed modules as shown:
+To install PHP with the **PHP-FPM** and **FastCGI** support, you need to install **PHP** along with the needed modules as shown:
 
 ```
 dnf -y install php php-mysqlnd php-pdo php-gd php-mbstring php-fpm lighttpd-fastcgi
 ```
 
-Next, open the php-fpm configuration file:
+Next, open the **php-fpm** configuration file:
 
 ```
 vi /etc/php-fpm.d/www.conf
@@ -649,7 +702,7 @@ user = lighttpd
 group = lighttpd
 ```
 
-Also, by default php-fpm uses listen = /run/php-fpm/www.sock socket, you need to make this line to listen = 127.0.0.1:9000 as TCP connection.
+Also, by default php-fpm uses `listen = /run/php-fpm/www.sock` socket, you need to make this line to `listen = 127.0.0.1:9000` as **TCP** connection.
 
 ```
 ;listen = /run/php-fpm/www.sock
@@ -664,7 +717,7 @@ After:
 
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/45.png" align="center" height="300">
 
-After making changes, you need to start, enable and verify the status of php-fpm:
+After making changes, you need to start, enable and verify the status of **php-fpm**:
 
 ```
 # systemctl start php-fpm.service
@@ -672,11 +725,11 @@ After making changes, you need to start, enable and verify the status of php-fpm
 # systemctl status php-fpm.service
 ```
 
-##### Enabling PHP and PHP-FPM with FastCGI in Lighttpd
+##### 🏮 Enabling PHP and PHP-FPM with FastCGI in Lighttpd
 
-To enable FastCGI support in PHP, you need to make the configuration changes in three files as follows.
+To enable **FastCGI** support in **PHP**, you need to make the configuration changes in three files as follows.
 
-Open first file `/etc/php.ini`
+Open first, this file `/etc/php.ini`
 
 ```
 vi /etc/php.ini
@@ -735,14 +788,13 @@ After:
 
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/51.png" align="center" height="300">
 
-Restart the Lighttpd service to reflect changes and enable PHP support:
+Restart the Lighttpd service to reflect changes and enable **PHP** support:
 
 ```
 systemctl restart lighttpd
 ```
 
-After making all the above configuration changes, you need to test the FastCGI support in PHP by creating a phpinfo.php file under /var/www/lighttpd/ directory:
-
+After making all the above configuration changes, you need to test the **FastCGI** support in **PHP** by creating a `phpinfo.php` file under `/var/www/lighttpd/` directory:
 
 ```
 vi /var/www/lighttpd/phpinfo.php
@@ -756,28 +808,28 @@ phpinfo();
 ?>
 ```
 
-Open your browser and navigate to the following URL to test the FastCGI support in PHP:
+Open your browser and navigate to the following URL to test the **FastCGI** support in **PHP**:
 
 ```
 http://localhost:8080/phpinfo.php
 ```
 
-If I'm not mistaken, you see the `503 service unavailable` error when you try to access the `phpinfo.php` page:
+If I'm not mistaken, you see the `503 Service Unavailable` error when you try to access the `phpinfo.php` page:
 
-Again, you will need to consult Selinux policies:
+Again, you will need to consult selinux policies:
 
 ```
 setsebool -P httpd_can_network_connect on
 ```
 
-[mini info]:
-For a full list of these policies:
+_[@@@ mini info @@@]_
+For a full list of these selinux policies:
 
 ```
 getsebool -a
 ```
 
-#### For Wordpress
+#### 🎬 For Wordpress
 
 First of all, you should install these packages:
 
@@ -785,7 +837,7 @@ First of all, you should install these packages:
 dnf install -y wget unzip
 ```
 
-Download WordPress packages:
+Download **WordPress** packages:
 
 ```
 wget https://wordpress.org/latest.zip
@@ -810,13 +862,14 @@ Enter wordpress dir and copy the files to `/var/www/lighttpd/`:
 cp -r * /var/www/lighttpd/
 ```
 
-Let's create a database and user for WordPress in MariaDB:
+Let's create a database and user for **WordPress** in **MariaDB**:
 
 ```
 mysql -u root -p
 ```
 
-Execute the following commands in MariaDB:
+Execute the following commands in **MariaDB**:
+
 ```
 create database example_db default character set utf8 collate utf8_unicode_ci;
 ```
@@ -833,7 +886,7 @@ grant all privileges on example_db.* TO 'example_user'@'localhost';
 flush privileges;
 ```
 
-Finally, **exit** from MariaDB.
+Finally, _exit_ from MariaDB.
 
 Now we can go to the WordPress installation page:
 
@@ -853,7 +906,7 @@ To solution:
 chcon -t httpd_sys_rw_content_t /var/www/lighttpd/
 ```
 
-Try again.
+Try again
 
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/55.png" align="center" height="300">
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/images/56.png" align="center" height="300">
@@ -876,9 +929,9 @@ Visit your main page:
 http://localhost:8080
 ```
 
-### Choice of Your Service
+### 📺 Choice of Your Service
 
-My choice is to serve **Python's http server** as a service.
+My choice is to serve _Python's http server_ as a service.
 
 For that install the `python3` package first:
 
@@ -886,7 +939,7 @@ For that install the `python3` package first:
 dnf install -y python3
 ```
 
-Give the necessary port permissions in the **firewall**:
+Give the necessary port permissions in the _firewall_:
 
 ```
 firewall-cmd --permanent --zone=public --add-port=5050/tcp
@@ -938,15 +991,17 @@ If it is active, access it via browser:
 http://localhost:5050
 ```
 
-🏁 And finally Part Bonus ends here.. 🏁
+**🏁 And finally Part Bonus ends here.. 🏁**
 
-## Part 5 - Submission and Peer-evaluation
+## 📒 Part 5 - Submission and Peer-evaluation
 
 Now that everything is finished, it's time to get your disc signature:
 
-First of all, you should go into the file we have installed in '/goinfre' and find your virtual machine. I'm assuming you went there as I wouldn't know where this is.
+First of all, you should go into the file we have installed in _/goinfre_ and find your virtual machine.
+I'm assuming you went there as I wouldn't know where this is.
 
 Type this:
+
 ```
 shasum <your_virtual_machine>.vdi.
 ```
@@ -957,7 +1012,7 @@ When your disk signature comes, you will send it to the 'signature.txt' file and
 
 🏁**And finally Episode 5 ends here..**🏁
 
-## Extras and Resources
+## 📚 Extras and Resources
 
 1. [SSH Port Policies and Configures Setup](https://serverfault.com/questions/538037/sshd-service-fails-to-start)
 2. [Linux Groups](https://www.redhat.com/sysadmin/linux-groups)
@@ -966,6 +1021,6 @@ When your disk signature comes, you will send it to the 'signature.txt' file and
 5. [Install WordPress in Virtual Machine (Video)](https://www.youtube.com/watch?v=PsMhopODLTY)
 6. [Install WordPress in Locally (Video)](https://www.youtube.com/watch?v=PhNxEZcxXV0)
 
-🏁**And finally README.md ends here..**🏁
+**🏁And finally README.md ends here..🏁**
 
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/images/matrix.gif" align="right" height="550">
