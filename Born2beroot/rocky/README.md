@@ -351,8 +351,6 @@ Or you can create a script file and paste that command and run the script file. 
 
 We can send command with ssh but it is must be between quotes (''). And for sudo password we must use `-S` option and we can send that with `echo`
 
-[mini info]
-
 {secure_path}
 ```
 What are Environment Variables (Environment Variables)?
