@@ -65,7 +65,7 @@ dnf -y update
 
 **🛎️ Change the hostname:**
 
-To change the hostname, let's enter the file (you must be root):
+To change the hostname, let's enter the file **(you must be root)**:
 
 ```
 vi /etc/hostname
@@ -351,6 +351,8 @@ Or you can create a script file and paste that command and run the script file. 
 
 We can send command with ssh but it is must be between quotes (''). And for sudo password we must use `-S` option and we can send that with `echo`
 
+[mini info]
+
 {secure_path}
 ```
 What are Environment Variables (Environment Variables)?
@@ -487,7 +489,17 @@ Type this command:
 crontab -e
 ```
 
-and write that:
+[mini info]
+
+```
+The `crontab -e` command allows you to edit a crontab file belonging to the user who performed the operation.
+
+For example, when user user1 adds a crontab task using the `crontab -e` command, that task is added to the crontab file belonging to user user1. Other users cannot see or edit this file.
+
+A special folder in the system context, such as `/var/spool/cron/crontabs` or `/var/spool/cron`, is often used to access the user's crontab file. However, these files should not be edited directly; `crontab -e` should be used instead because this command preserves the structure of the files and provides the user with a safe editing environment.
+```
+
+Anyway, write at the bottom:
 
 ```
 */10 * * * * bash /your/monitoring.sh_path
