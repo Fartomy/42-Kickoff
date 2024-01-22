@@ -232,6 +232,27 @@ ssh your_username@localhost -p 4242
 
 And you can access the virtual machine from the terminal of the host by entering the password of the user in your virtual machine.
 
+_[@@@ Optional Problem @@@]_
+
+```
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ***** key sent by the remote host is
+SHA256:*****************/********/****.
+Please contact your system administrator.
+Add correct host key in /home/your_username/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /home/your_username/.ssh/known_hosts:3
+  remove with:
+  ssh-keygen -f "/home/your_username/.ssh/known_hosts" -R "[localhost]:4242"
+Host key for [localhost]:4242 has changed and you have requested strict checking.
+Host key verification failed.
+```
+If you encounter such a situation, what you need to do is stated in the message.
+
 **🚩Yes, SSH that was it..🚩**
 
 ### 🛡️ For UFW
@@ -323,7 +344,21 @@ Add some strict rules here:
  Defaults     iolog_dir="/var/log/sudo/" -> path of inputs and outputs
 ```
 
-[mini info]
+_[@@@ Intriguing Ancient Infos @@@]_
+
+{requiretty}
+
+It prevents us from running commands and scripts remotely without fully connecting to a remote system via SSH.
+
+Try this command on your host machine:
+
+```
+ssh your_username@localhost -p 4242 'echo 'your_pass' | sudo -S ls -al'
+```
+
+Or you can create a script file and paste that command and run the script file. It will not be working because require tty
+
+We can send command with ssh but it is must be between quotes (''). And for sudo password we must use `-S` option and we can send that with `echo`
 
 {secure_path}
 ```
