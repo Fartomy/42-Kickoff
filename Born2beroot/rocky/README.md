@@ -997,9 +997,9 @@ It might take a while..
 
 When your disk signature comes, you will send it to the 'signature.txt' file and get push. That's all. If you've come this far, 🥳CONGRATULATIONS!!!🥳
 
-🏁**And finally Episode 5 ends here..**🏁
+**🏁And finally Episode 5 ends here..🏁**
 
-## 📚 Extras and Resources
+## 📚 Resources
 
 1. [SSH Port Policies and Configures Setup](https://serverfault.com/questions/538037/sshd-service-fails-to-start)
 2. [Linux Groups](https://www.redhat.com/sysadmin/linux-groups)
