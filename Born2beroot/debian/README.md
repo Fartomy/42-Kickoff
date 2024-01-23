@@ -44,7 +44,7 @@ Setup video:
 
 [Debian Setup Video](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/materials/setup_debian.mp4)
 
-**🏁And finally Episode 1 ends here..🏁**
+**🏁And finally Part 1 ends here..🏁**
 
 ## :two: Part 2 - Downloads and Adjustments and and Configurations
 
@@ -484,7 +484,7 @@ How does?
 # passwd <user_name>
 ```
 
-**🏁And finally Episode 2 ends here..🏁**
+**🏁And finally Part 2 ends here..🏁**
 
 ## 3️⃣ Part 3 - Monitoring.sh and Crontab Configurations
 
@@ -522,9 +522,349 @@ Anyway, write at the bottom:
 
 <img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/materials/45.png" align="center" height="300">
 
-**🏁And finally Episode 3 ends here..🏁**
+**🏁And finally Part 3 ends here..🏁**
 
-## :four: Part 4 - Submission and Peer-evaluation
+## *️⃣ Part Bonus - WordPress Setup and Choice of Your Service
+
+### 🪑 Wordpress setup
+
+#### 🪥 For Lighttpd
+
+Use the following command to install **Lighttpd** on Debian:
+
+```
+apt install lighttpd -y
+```
+
+Activate **Lighttpd** service:
+
+```
+# systemctl start lighttpd
+# systemctl enable lighttpd
+# systemctl status lighttpd
+```
+
+Settings of **UFW** for **Lighttpd**:
+
+```
+ufw allow 80
+```
+
+Forward port _80_ from _port forwarding_ settings on **VirtualBox**.
+
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/materials/41.png" align="center" height="300">
+
+#### 🧼 For MariaDB
+
+Install **MariaDB**:
+
+```
+apt install mariadb-server mariadb-client -y
+```
+
+Activate **MariaDB** service:
+
+```
+# systemctl start mariadb
+# systemctl enable mariadb
+# systemctl status mariadb
+```
+
+You have **MariaDB** installed on your server you need to secure your **MariaDB** by running a security script:
+
+```
+mysql_secure_installation
+```
+
+```
+Output
+Enter current password for root (enter for none): 
+You already have your root account protected, so you can safely answer 'n'. 
+Switch to unix_socket authentication [Y/n] n
+You already have your root account protected, so you can safely answer 'n'. 
+Change the root password? [Y/n] Y
+New password: 
+Re-enter new password: 
+Remove anonymous users? [Y/n] Y
+Disallow root login remotely? [Y/n] Y
+Remove test database and access to it? [Y/n] Y
+Reload privilege tables now? [Y/n] Y
+```
+
+Now you can use the command below to access your **MariaDB**:
+
+```
+mysql -u root -p
+```
+
+### 🕯️ For PHP
+
+To enable **PHP-FPM** with **FastCGI** support, first, you need to install **PHP** along with the necessary extensions. 
+To do this, you can use the command below:
+
+```
+apt install php php-cgi php-fpm php-mysql -y
+```
+
+Next, you need to edit the _php.ini_ file (where _X_ is your version of php):
+
+```
+nano /etc/php/X.X/fpm/php.ini
+```
+
+Find the following line **uncomment** it and change it to **1** as shown below:
+
+```
+cgi.fix_pathinfo=1
+```
+
+By default, **PHP** points to the UNIX socket `/var/run/php/phpX.X-fpm.sock`. So, you will need to configure the **PHP-FPM** pool to set **PHP** to listen to the **TCP** socket.
+
+You can do this by editing `/etc/php/X.X/fpm/pool.d/www.conf` file:
+
+```
+nano /etc/php/X.X/fpm/pool.d/www.conf
+```
+
+Find the following line:
+
+```
+listen = /run/php/php8.2-fpm.sock
+```
+
+And replace it with the following line:
+
+```
+listen = 127.0.0.1:9000
+```
+
+Then, restart the **PHP-FPM** service to apply the **Lighttpd** configuration changes:
+
+```
+systemctl restart phpX.X-fpm
+```
+
+Next, you will need to modify the _15-fastcgi-php.conf_ file:
+
+```
+nano /etc/lighttpd/conf-available/15-fastcgi-php.conf
+```
+
+Find the following lines in the file:
+
+```
+fastcgi.server += ( ".php" =>
+((
+"bin-path" => "/usr/bin/php-cgi",
+"socket" => "/run/lighttpd/php.socket",
+...
+))
+)
+```
+
+And replace them with the following:
+
+```
+"host" => "127.0.0.1",
+"port" => "9000",
+```
+
+Then, enable both **FastCGI** and **FastCGI-PHP** modules with the following commands:
+
+```
+# lighty-enable-mod fastcgi
+# lighty-enable-mod fastcgi-php
+```
+
+Finally, restart the **Lighttpd** service to apply the changes:
+
+```
+systemctl restart lighttpd
+```
+
+Go to this path `/var/www/html` and delete `index.html` file:
+
+```
+rm -rf index.html
+```
+
+For the **PHP** testing, create `info.php` file:
+
+```
+nano info.php
+```
+
+Write these lines in the file:
+
+```
+<?php
+phpinfo();
+?>
+```
+
+Check on your browser:
+
+```
+http://localhost:8080/info.php
+```
+
+### 🎬 For Wordpress
+
+First of all, you should install these packages:
+
+```
+apt install -y wget unzip
+```
+
+Download **WordPress** packages:
+
+```
+wget https://wordpress.org/latest.zip
+```
+
+Extract files:
+
+```
+unzip latest.zip
+```
+
+Let's adjust some permission settings to avoid problems with reading and writing:
+
+```
+# find wordpress/ -type d -exec chmod 755 {} \;
+# find wordpress/ -type f -exec chmod 644 {} \;
+```
+
+Enter wordpress dir and copy the files to `/var/www/html/`:
+
+```
+cp -r * /var/www/html/
+```
+
+Let's create a database and user for **WordPress** in **MariaDB**:
+
+```
+mysql -u root -p
+```
+
+Execute the following commands in **MariaDB**:
+
+```
+create database example_db default character set utf8 collate utf8_unicode_ci;
+```
+
+```
+create user 'example_user'@'localhost' identified by 'example_pw';
+```
+
+```
+grant all privileges on example_db.* TO 'example_user'@'localhost';
+```
+
+```
+flush privileges;
+```
+
+Finally, _exit_ from **MariaDB**.
+
+Now we can go to the WordPress installation page:
+
+```
+http://localhost:8080/index.php
+```
+
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/materials/52.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/materials/53.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/materials/54.png" align="center" height="300">
+
+
+We are having a problem with write permission to the `wp-config.php` file on the system.
+
+```
+chown -R www-data:www-data /var/www/html/
+```
+
+Try again.
+
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/materials/55.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/materials/56.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/materials/57.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/materials/58.png" align="center" height="300">
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/materials/59.png" align="center" height="300">
+
+Lastly, you should rename or delete `index.lighttpd.html` file in the this path `/var/www/html/`:
+
+```
+# mv /var/www/html/index.lighttpd.html /var/www/html/d.html
+or
+# rm -rf /var/www/html/index.lighttpd.html
+```
+
+Visit your main page:
+
+```
+http://localhost:8080
+```
+
+### 📺 Choice of Your Service
+
+My choice is to serve _Python's http server_ as a service.
+
+For that install the `python3` package first:
+
+```
+apt install -y python3
+```
+
+Give the necessary port permissions in the _UFW_:
+
+```
+ufw allow 5050
+```
+
+Add the _5050_ port from the **port forwarding** setting in the virtualBox's settings:
+
+<img src="https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/materials/35.png" align="center" height="300">
+
+To create the service, create a file named `python-http-server.service` in the `/etc/systemd/system` directory:
+
+```
+nano /etc/systemd/system/python-http-server.service
+```
+
+Write the following in it:
+
+```
+[Unit]
+Description=Python HTTP Server
+
+[Service]
+ExecStart=/usr/bin/python3 -m http.server 5050
+WorkingDirectory=/directory/path/to/be/presented/on/the/browser
+Restart=always
+User=user_name
+
+[Install]
+WantedBy=multi-user.target
+```
+
+To start the service after saving and exiting:
+
+```
+# systemctl enable python-http-server.service
+# systemctl start python-http-server.service
+# systemctl status python-http-server.service
+```
+
+If it is active, access it via browser:
+
+```
+http://localhost:5050
+```
+
+**🏁 And finally Part Bonus ends here.. 🏁**
+
+## 4️⃣ Part 4 - Submission and Peer-evaluation
 
 Now that everything is finished, it's time to get your disc signature:
 
@@ -592,6 +932,9 @@ nc <IPv4_adress> <port>
 6. [awk command](https://www.howtogeek.com/562941/how-to-use-the-awk-command-on-linux/)
 7. [sudo config](https://www.tecmint.com/sudoers-configurations-for-setting-sudo-in-linux/)
 8. [List Users Commands](https://devconnected.com/how-to-list-users-and-groups-on-linux/#:~:text=In%20order%20to%20list%20users,navigate%20within%20the%20username%20list)
+9. [Lighttpd Setup on Debian](https://orcacore.com/install-lighttpd-web-server-debian-12/)
+10. [Wordpress Setup Video](https://www.youtube.com/watch?v=PsMhopODLTY&t=565s)
+11. [Wordpress Setup Video 2](https://www.youtube.com/watch?v=PhNxEZcxXV0)
 
 **🏁And finally README.md ends here..🏁**
 
