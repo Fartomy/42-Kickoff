@@ -6,19 +6,31 @@ This installation is based on **Debian** and **bonus part** is included.
 
 ## 🧭 Road Map
 
-1.  [Episode 1 (Install Debian)](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/README.md#one-episode-1-install-debian)
+1.  [Part 1 - Install Debian](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#one-part-1---install-debian)
 
-2. [Episode 2 (Downloads and Adjustments and and Configurations)](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/README.md#two-episode-2-downloads-and-adjustments-and-and-configurations)
-   - [For SSH](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/README.md#-for-ssh)
-   - [For UFW](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/README.md#%EF%B8%8F-for-ufw)
-   - [For Sudo](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/README.md#godmode-for-sudo)
-   - [Password Policy](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/README.md#%EF%B8%8F-password-policy)
+2. [Part 2 - Downloads and Adjustments and and Configurations](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#two-part-2---downloads-and-adjustments-and-and-configurations)
+   - [For SSH](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#-for-ssh)
+   - [For UFW](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#%EF%B8%8F-for-ufw)
+   - [For Sudo](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#godmode-for-sudo)
+   - [Password Policy](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#%EF%B8%8F-password-policy)
 
-3. [Episode 3 (Monitoring.sh and Crontab Configurations)](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/README.md#3%EF%B8%8F%E2%83%A3-episode-3-monitoringsh-and-crontab-configurations)
+3. [Part 3 - Monitoring.sh and Crontab Configurations](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#3%EF%B8%8F%E2%83%A3-part-3---monitoringsh-and-crontab-configurations)
 
-4. [Episode 4 (Submission and Peer-evaluation)](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/README.md#four-episode-4-submission-and-peer-evaluation)
+4. [Part Bonus - WordPress Setup and Choice of Your Service](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#%EF%B8%8F%E2%83%A3-part-bonus---wordpress-setup-and-choice-of-your-service)
 
-5. [Extras and Resources](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/README.md#5%EF%B8%8F%E2%83%A3-extras-and-resources)
+      - [WordPress Setup](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#-wordpress-setup)
+         - [For Lighttpd](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#-for-lighttpd)
+         - [For MariaDB](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#-for-mariadb)
+         - [For PHP](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#%EF%B8%8F-for-php)
+         - [For WordPress](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#-for-wordpress)
+      - [Choice of Your Service](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#-choice-of-your-service)
+
+6. [Part 4 - Submission and Peer-evaluation](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#4%EF%B8%8F%E2%83%A3-part-4---submission-and-peer-evaluation)
+
+7. [Extras and Resources](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#5%EF%B8%8F%E2%83%A3-extras-and-resources)
+
+   - [Extras](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#-extras)
+   - [Resources](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#brain-resources)
   
 ## :one: Part 1 - Install Debian
 
