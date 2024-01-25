@@ -1,6 +1,9 @@
 # Net Practice
-## What is Subnet Mask?
+## TCP/IP Adressing
 
+## OSI Model
+
+## Subnet Mask
 
 ## About of Net Practice Project Files Errors
 > [!WARNING]
