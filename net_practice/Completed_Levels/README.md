@@ -33,3 +33,13 @@
 >
 > This is not exactly a problem, but I felt good when he solved it. The reason is that the solution is simple. Of course, if you're in that mood (Quirk).
 > The solution is written in the console tab when in inspection mode.
+
+## Resources
+1. [TCP/IP Adressing](https://www.techtarget.com/searchnetworking/definition/TCP-IP)
+2. [OSI Model](https://www.geeksforgeeks.org/open-systems-interconnection-model-osi/)
+   - [MAC Adress](https://www.geeksforgeeks.org/mac-address-in-computer-network/)
+3. [Subnet Mask Table Cheat Sheet](https://www.aelius.com/njh/subnet_sheet.html)
+6. [Subnet Mask Table Cheat Sheet 2](https://subnet.ninja/subnet-cheat-sheet/)
+4. [Subnet Mask Cheat Sheet](https://www.freecodecamp.org/news/subnet-cheat-sheet-24-subnet-mask-30-26-27-29-and-other-ip-address-cidr-network-references/)
+5. [Subnet Mask Cheat Sheet](https://www.geeksforgeeks.org/subnet-cheat-sheet/)
+6. [ChatGPT](https://chat.openai.com/)
