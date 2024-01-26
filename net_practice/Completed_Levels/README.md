@@ -42,4 +42,6 @@
 6. [Subnet Mask Table Cheat Sheet 2](https://subnet.ninja/subnet-cheat-sheet/)
 4. [Subnet Mask Cheat Sheet](https://www.freecodecamp.org/news/subnet-cheat-sheet-24-subnet-mask-30-26-27-29-and-other-ip-address-cidr-network-references/)
 5. [Subnet Mask Cheat Sheet](https://www.geeksforgeeks.org/subnet-cheat-sheet/)
-6. [ChatGPT](https://chat.openai.com/)
+6. [Subnet Mask Video 1](https://m.youtube.com/watch?v=oZGZRtaGyG86)
+7. [Subnet Mask Video 2](https://m.youtube.com/watch?v=s_Ntt6eTn94)
+8. [ChatGPT](https://chat.openai.com/)
