@@ -6,7 +6,7 @@
    - [IPv4 - IPv6](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#candy-ipv4---ipv6)
    - [Public Adress - Private Adress](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#ice_cube-public-adress---private-adress)
 2. [TCP](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#plate_with_cutlery-tcp)
-3. [TCP/IP Adressing](#)
+3. [TCP/IP Adressing](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#mag_right-tcpip-adressing)
 4. [OSI Model](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#roller_coaster-osi-model)
    - [MAC Adress (Physical Adress)](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#statue_of_liberty-mac-adress-physical-adress)
 5. [Subnet Mask](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#-subnet-mask)
