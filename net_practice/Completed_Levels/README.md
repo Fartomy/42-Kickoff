@@ -1,6 +1,13 @@
-# Net Practice
+# :globe_with_meridians: Net Practice
 
-## IP Adress: Network Layer
+##  🧭 Road Map
+
+1. []()
+2. 
+
+---
+
+## :desert_island: IP Adress: Network Layer
 
 </br>
 <p align="center">
@@ -14,7 +21,7 @@ IP addressing is a logical means of assigning addresses to devices on a network.
 
 An IP address has two parts; one part identifies the host such as a computer or other device, and the other part identifies the network it belongs to. TCP/IP uses a subnet mask to separate them.
 
-### IPv4 - IPv6
+### :candy: IPv4 - IPv6
 
 IP addresses come in 2 versions--IPv4 and IPv6: 
 
@@ -28,7 +35,7 @@ ed14:458b:d1f2:fabd:124f:ad12:da51:eb71
 
 Internet Protocol version 4 (IPv4) defines an IP address as a 32-bit number. However, because of the growth of the Internet and the depletion of available IPv4 addresses, a new version of IP (IPv6), using 128 bits for the IP address, was standardized in 1998. However, only IPv4 addresses are used in NetPractice. 
 
-### Public Adress - Private Adress
+### :ice_cube: Public Adress - Private Adress
 
 A public IP address is an IP address that can be accessed directly over the internet and is assigned to your network router by your internet service provider (ISP). A public (or external) IP address helps you connect to the internet from inside your network, to outside your network.
 
@@ -42,7 +49,7 @@ When a network is connected to the internet, it cannot use an IP address from th
 10.0.0.0 – 10.255.255.255     (16,777,216 IP addresses)
 ```
 
-## TCP
+## :plate_with_cutlery: TCP
 
 TCP stands for Transmission Control Protocol. It is a communications standard that enables application programs and devices to exchange messages over a network. It is used to send packets across the internet.
 
@@ -60,7 +67,7 @@ TCP/IP specifies how data is exchanged over the internet by providing end-to-end
 
 The two main protocols in the IP suite serve specific functions. TCP defines how applications can create channels of communication across a network. It also manages how a message is assembled into smaller packets before they are then transmitted over the internet and reassembled in the right order at the destination address.
 
-## OSI Model
+## :roller_coaster: OSI Model
 
 </br>
 <p align="center">
@@ -76,7 +83,7 @@ However, in practice, network engineers and system administrators often prefer m
 
 Nevertheless, the basic principles of the OSI model and the concepts of interlayer communication continue to provide an important theoretical representation that underpins network engineering and communications technologies. Therefore, the OSI model is still valuable for providing a theoretical basis for networking.
 
-### MAC Adress (Physical Adress)
+### :statue_of_liberty: MAC Adress (Physical Adress)
 
 </br>
 <p align="center">
@@ -115,7 +122,7 @@ As discussed above, the MAC address is represented by Colon-Hexadecimal notation
 
 _Note: Colon-Hexadecimal notation is used by Linux OS and Period-separated Hexadecimal notation is used by Cisco Systems._
 
-## Subnet Mask
+## 🤿 Subnet Mask
 
 </br>
 <p align="center">
@@ -127,9 +134,7 @@ A subnet mask is a 32 bits (4 bytes) address used to distinguish between a netwo
 
 The purpose is to reduce network traffic, provide security, and provide subnets by segmenting the network.
 
-
-
-### Finding the network address
+### :roller_skate: Finding the network address
 
 _Note: In a subnet, we can think of it as 1 bits representing the network and 0 bits representing the hosts (1 bits and 0 bits wars)_
 
@@ -163,7 +168,7 @@ Which translates to a network address of `104.198.241.0`.
 </br>
 </br>
 
-### Finding the range of host addresses
+### :fuelpump: Finding the range of host addresses
 
 To determine what host addresses we can use on our network, we have to use the bits of our IP address dedicated to the host address. Let's use our previous IP address and mask:
 
@@ -192,13 +197,13 @@ Therefore, our real IP range becomes `104.198.241.1 - 104.198.241.126`, which co
 </br>
 </br>
 
-### CIDR Notation (/24)
+### :oncoming_automobile: CIDR Notation (/24)
 
 The mask can also be represented with the Classless Inter-Domain Routing (CIDR). This form represents the mask as a slash `/`, followed by the number of bits that serve as the network address.
 
 Therefore, the mask in the example above of `255.255.255.128`, is equivalent to a mask of `/25` using the CIDR notation, since 25 bits out of 32 bits represent the network address.
 
-#### Mini Infos
+#### :canoe: Mini Infos
 
 `/24` (255.255.255.0) represents a subnet mask and is used in CIDR (Classless Inter-Domain Routing) notation. This notation indicates which part of an IP address is the network part and which part is the host part.
 
@@ -219,7 +224,7 @@ In general, `/24` is a notation used in network design and IP address management
 
 ---
 
-**Long Calculation**
+##### :ship: Long Calculation
 
 To convert the subnet mask to CIDR (Classless Inter-Domain Routing) notation, you need to determine how many bits are 1. This is done by counting the 1s. Take the example of the subnet mask `255.255.255.252`:
 
@@ -235,7 +240,7 @@ It is expressed as `/30` in CIDR notation.
 
 ---
 
-**Short Calculation**
+##### ⛴️ Short Calculation
 
 Since the IPv4 address is 32 bits long and this is divided into 4 octets, each octet can take from 0 to 255 (0 - 255), i.e. a maximum of 256 numbers from 2^8. 
 Since the first 3 of these octets (for the example above) are `255`, we get 24 bits from 3 * 8.
@@ -244,7 +249,7 @@ Since the first 3 of these octets (for the example above) are `255`, we get 24 b
 
 ---
 
-**Host Calculation - Number of Devices**
+##### :rocket: Host Calculation - Number of Devices
 
 The host section will be 32 - the length of the CIDR. For example, for `/24` the host partition will be 32 - 24 = 8 bits. From 2^8 we get the number 256. 
 It contains 256 IP addresses, but one of them is a "network address (for example, this is how we can reach the network interface of the modem)" and one is a broadcast address 
@@ -261,7 +266,7 @@ Therefore, the subnet `192.168.1.0/24` has 256 IP addresses, but the number of a
 
 ---
 
-**Subnet Calculation**
+##### :parachute: Subnet Calculation
 As the number of bits decreases, the number of devices and subnets increases and as the number of bits increases, the number of subnets and devices decreases.
 
 For example, when using the subnet mask `255.255.255.252` we get 22 bits, there is a decrease in the 3rd octet, and when we subtract 252 from 256 we get the number 4, so a network is divided into 4 subnets. If each network (for example `192.168.0.X` -> Subnet 1 - `192.168.1.X` -> Subnet 2 - `192.168.2.X` -> Subnet 3 - `192.168.3.X` -> Subnet 4) has 256 IP addresses, we have a total of 1024 IP addresses. Attention, each of the segmented networks does not have a unique broadcast and network address because the network is 1, what is being done here is actually like classifying the network. Therefore, in the same way, the first address, `192.168.0.0`, will be the network address and `192.168.3.255` will be the broadcast address, so in this case the number of assignable and usable IP addresses will be 1022.
@@ -275,10 +280,10 @@ The IP addresses `192.168.0.26` and `192.168.1.54` belong to different subnets, 
 (They can be thought of as different departments, in fact they are on the same network but on different subnets) In order to communicate between the two devices, a router, etc. must be connected between these two subnets. a router or similar device will need to route the communication between these two subnets.
 
 
-**Example**
+##### :first_quarter_moon_with_face: Example
 
-In a network, let the subnet mask be `255.255.255.224` and the IP address of one device be `192.168.113.222` and the IP address of the other device be `X`. 
-What should be the IP address of the device with IP address `X` in order to communicate with this device `192.168.113.222`?
+In a network, let the subnet mask be `255.255.255.224` and the IP address of one device be `94.54.250.222` and the IP address of the other device be `X`. 
+What should be the IP address of the device with IP address `X` in order to communicate with this device `94.54.250.222`?
 
 From the CIDR calculation (calculation of how many of them are 1 bit) it turns out that there are 27 1 bits: "/27"
 
@@ -298,17 +303,30 @@ Therefore, a network created with subnet mask `255.255.255.224` can have 8 subne
 These subnets are represented as follows:
 
 ```
-Subnet: [0-31]
-Subnet: [32-63]
-Subnet: [64-95]
-Subnet: [96-127]
-Subnet: [128-159]
-Subnet: [160-191]
-Subnet: [192-223]
-Subnet: [224-255]
+Network Adress	             Usable Host Range		       Broadcast Adress
+
+94.54.250.0		94.54.250.1 - 94.54.250.30		94.54.250.31
+94.54.250.32		94.54.250.33 - 94.54.250.62		94.54.250.63
+94.54.250.64		94.54.250.65 - 94.54.250.94		94.54.250.95
+94.54.250.96		94.54.250.97 - 94.54.250.126		94.54.250.127
+94.54.250.128		94.54.250.129 - 94.54.250.158		94.54.250.159
+94.54.250.160		94.54.250.161 - 94.54.250.190		94.54.250.191
+94.54.250.192		94.54.250.193 - 94.54.250.222		94.54.250.223
+94.54.250.224		94.54.250.225 - 94.54.250.254		94.54.250.255
 ```
 
 Each subnet contains 32 IP addresses.
+
+> [!WARNING]
+> The network address of each combination is different.
+> For example, a device with an IP address of `94.54.250.165` and a subnet mask of `255.255.255.224` has a network address of `94.54.250.160`.
+> 
+> Because a network with such a subnet address of `255.255.255.224` is divided into 8 different subnet combinations, the first address of `94.54.250.165`
+> will be the network address `94.54.250.169` and the last address will be the broadcast address `94.54.250.191`.
+>
+> Or the network address can be found by simply calculating the network address.
+
+
 
 Given a subnet mask of `255.255.255.224` (/27 in CIDR notation), there will be 8 different subnet combinations of these IP addresses and each combination will have a range of 32 levels.
 In the first three octets `255.255.255` all bits of the mask are set to 1, so these parts are fixed. But in the fourth octet `224` the first 3 bits are set to 1,  the remaining 5 bits are 0.
@@ -344,10 +362,9 @@ Since the first 3 octets (the 1s represent the network) are already 255, we get 
 
 ---
 
+## :fireworks: Devices
 
-## Devices
-
-### Switch
+### :ocean: Switch
 
 </br>
 <p align="center">
@@ -359,7 +376,7 @@ A switch connects multiple devices together in a single network. Unlike a router
 
 ---
 
-### Router
+### :snowflake: Router
 
 </br>
 <p align="center">
@@ -373,7 +390,7 @@ Since the router separates different networks, the range of possible IP addresse
 </br>
 </br>
 
-#### Routing Table
+#### :open_umbrella: Routing Table
 
 </br>
 <p align="center">
@@ -392,10 +409,10 @@ For example, in a network there is a router and 1 device each in different subne
 
 ```
               MachineB --> IP: 152.249.225.253
-	          /		         Mask: 255.255.192.0    
-	         /				                            Client B: Machine B
-	        / 	 					                            Routes:
-	       /					                         default => 152.249.225.254
+             /		   Mask: 255.255.192.0    
+            /				               Client B: Machine B
+           / 	 					     Routes:
+          /					    default => 152.249.225.254
          /
         /
       Interface R2 --> IP: 152.249.225.254
@@ -409,11 +426,11 @@ Router
            \
             \
              \
-	           MachineA --> IP: 90.15.153.125
-		                     Mask: 255.255.255.128
+              MachineA --> IP: 90.15.153.125
+                           Mask: 255.255.255.128
 
                                                    Client A: Machine A
-						                                       Routes:
+                                                        Routes:
                                             152.249.0.0/16 => 90.15.153.126
 ```
 
@@ -433,7 +450,7 @@ The destination `default` is equivalent to `0.0.0.0/0`.
 
 ---
 
-## Completed Levels
+## :zap: Completed Levels
 
 <details>
   <summary>Level 1</summary>
@@ -873,7 +890,7 @@ The only IP addresses left for the network "Router R2 to Client H3" are **70.101
 > This is not exactly a problem, but I felt good when he solved it. The reason is that the solution is simple. Of course, if you're in that mood (Quirk).
 > The solution is written in the console tab when in inspection mode.
 
-## Resources
+## 🧠 Resources
 1. [TCP/IP Adressing](https://www.techtarget.com/searchnetworking/definition/TCP-IP)
 2. [OSI Model](https://www.geeksforgeeks.org/open-systems-interconnection-model-osi/)
    - [MAC Adress](https://www.geeksforgeeks.org/mac-address-in-computer-network/)
