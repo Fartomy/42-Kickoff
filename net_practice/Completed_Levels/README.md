@@ -2,8 +2,25 @@
 
 ##  🧭 Road Map
 
-1. []()
-2. 
+1. [IP Adress: Network Layer](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#desert_island-ip-adress-network-layer)
+   - [IPv4 - IPv6](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#candy-ipv4---ipv6)
+   - [Public Adress - Private Adress](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#ice_cube-public-adress---private-adress)
+2. [TCP](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#plate_with_cutlery-tcp)
+3. [TCP/IP Adressing](#)
+4. [OSI Model](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#roller_coaster-osi-model)
+   - [MAC Adress (Physical Adress)](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#statue_of_liberty-mac-adress-physical-adress)
+5. [Subnet Mask](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#-subnet-mask)
+   - [Finding Network Adress](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#roller_skate-finding-the-network-address)
+   - [Finding the Range of Host Adress](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#fuelpump-finding-the-range-of-host-addresses)
+   - [CIDR Notation (/24)](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#oncoming_automobile-cidr-notation-24)
+     - [Mini Infos](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#canoe-mini-infos)
+6. [Devices](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#fireworks-devices)
+   - [Switch](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#ocean-switch)
+   - [Router](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#snowflake-router)
+    - [Routing Table](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#open_umbrella-routing-table)
+7. [Completed Levels](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#zap-completed-levels)
+8. [Resources](https://github.com/Fartomy/42-Kickoff/tree/master/net_practice/Completed_Levels#-resources)
+
 
 ---
 
@@ -55,7 +72,7 @@ TCP stands for Transmission Control Protocol. It is a communications standard th
 
 TCP guarantees the integrity of the data being communicated over a network. Before it transmits data, TCP establishes a connection between a source and its destination, which remains active until communication begins. It then breaks large amounts of data into smaller packets, while ensuring end-to-end delivery without loss of any data.
 
-## TCP/IP Adressing
+## :mag_right: TCP/IP Adressing
 
 </br>
 <p align="center">
