@@ -339,7 +339,7 @@ Each subnet contains 32 IP addresses.
 > For example, a device with an IP address of `94.54.250.165` and a subnet mask of `255.255.255.224` has a network address of `94.54.250.160`.
 > 
 > Because a network with such a subnet address of `255.255.255.224` is divided into 8 different subnet combinations, the first address of `94.54.250.165`
-> will be the network address `94.54.250.169` and the last address will be the broadcast address `94.54.250.191`.
+> will be the network address `94.54.250.160` and the last address will be the broadcast address `94.54.250.191`.
 >
 > Or the network address can be found by simply calculating the network address.
 
