@@ -343,7 +343,33 @@ Each subnet contains 32 IP addresses.
 >
 > Or the network address can be found by simply calculating the network address.
 
-
+> [!TIP]
+> We can obtain the binary sequence of a number by using the `echo` and `bc` commands together in bash.
+> ```
+> # Binary of a number
+> echo "obase=2; <number>" | bc
+> ```
+> Of course, it can also help find the network address.
+> Or
+> If you want to find the direct network address of a device, the following command can be used.
+> ```
+> # To find network adress
+> echo "$((<number> & <number>))"
+> ```
+> **Examples**
+> To `94.54.250.165` and subnet `255.255.255.224`:
+> ```
+> $ echo "$((165 & 224))"
+> $ 160
+> ```
+> So, network address is `94.54.250.160`
+> Or
+> CIDR calculation to `255.255.255.224`
+> ```
+> $ echo "obase=2; 224" | bc
+> $ 11100000
+> ```
+> So, CIDR is `/27`.
 
 Given a subnet mask of `255.255.255.224` (/27 in CIDR notation), there will be 8 different subnet combinations of these IP addresses and each combination will have a range of 32 levels.
 In the first three octets `255.255.255` all bits of the mask are set to 1, so these parts are fixed. But in the fourth octet `224` the first 3 bits are set to 1,  the remaining 5 bits are 0.
@@ -366,7 +392,7 @@ Subnet: 111
 
 Each combination represents a subnet. Each of these 8 subnets contains 32 range addresses. Therefore, the network created with subnet mask `255.255.255.224`, Includes 8 different subnet combinations.
 
-_**If there is a different solution:**_
+_**Different solution:**_
 
 If the last octet is 224, find the difference to add up to 256, 256 - 224 equals 32. This means that each subnet has 32 IP addresses.  
 
