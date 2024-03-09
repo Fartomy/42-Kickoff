@@ -1,0 +1,56 @@
+# İşleri kolaylaştırmak için alan adınızı yerel IP adresinizi gösterecek şekilde yapılandırmanız gerekir.
+# mariadb .sql dosyasinda .env dosyasinda ki variable'lari kullandiginda bunu algilamiyo bu yuzden docker'da .env dosyasi nasil calisiyor onu ogren
+
+
+version: '3.4'
+
+networks:
+  docker-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 182.34.0.0/24
+
+volumes:
+  wordpress-data:
+    name: wordpress-volume
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/$USER/data/wordpress
+
+  mariadb-data:
+    name: mariadb-volume
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/$USER/data/mariadb
+
+services:
+  mariadb:
+    image: mariadb:not-latest
+    container_name: mariadb
+    build: ./requirements/mariadb
+    env_file:
+      - .env
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    networks:
+      - docker-network
+    restart: always
+
+  wordpress:
+    image: wordpress:not-latest
+    container_name: wordpress
+    build: ./requirements/wordpress
+    env_file:
+      - .env
+    volumes:
+      - wordpress-data:/var/www/html
+    networks:
+      - docker-network
+    depends_on:
+      - mariadb
+    restart: always
