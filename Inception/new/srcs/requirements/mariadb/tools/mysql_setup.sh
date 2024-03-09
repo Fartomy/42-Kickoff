@@ -13,3 +13,5 @@ service mariadb start
 chmod +x /root/mysql_secure.expect
 ./root/mysql_secure.expect
 mysql < /root/db.sql
+
+mysqld

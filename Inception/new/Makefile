@@ -1,7 +1,6 @@
 # Onemli Notlar
 # 1- fclean komutunu - sudo make fclean - diyerek yap, normali 'Permission denied' veriyor. 
 # "/home/$(USER)/data" silinmiyor manuel olarak elle silmek gerek buna cozum bul.
-# 2- .yml dosyasi ayaga kalktiginda database'e hemen baglanamadigindan hata verebilir. 3 - 5 dk bekleyip oyle baglanmayi dene localhost'a. 
 
 # Colors
 RESET	= \033[0m
@@ -20,7 +19,7 @@ all: data dc_up
 
 dc_up:
 	@echo "$(BLUE)>- Getting up.. $(RESET)"
-	@docker-compose -f $(YML_FILE) up -d
+	@docker-compose -f $(YML_FILE) up -d --build
 
 dc_down:
 	@echo "$(YELLOW)>- Calm down.. $(RESET)"
