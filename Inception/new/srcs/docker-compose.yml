@@ -69,3 +69,19 @@ services:
       - mariadb
       - wordpress
     restart: always
+
+
+# BONUS
+
+# Adminer
+  adminer:
+    image: adminer:not-latest
+    container_name: adminer
+    build: ./requirements/bonus/adminer
+    networks:
+      - docker-network
+    ports:
+      - 8080:8080
+    depends_on:
+      - mariadb
+    restart: always
