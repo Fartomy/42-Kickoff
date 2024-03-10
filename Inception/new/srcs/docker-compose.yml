@@ -25,6 +25,7 @@ volumes:
       device: /home/$USER/data/mariadb
 
 services:
+
 # MariaDB
   mariadb:
     image: mariadb:not-latest

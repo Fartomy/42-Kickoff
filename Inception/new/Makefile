@@ -1,6 +1,7 @@
-# Onemli Notlar
-# 1- fclean komutunu - sudo make fclean - diyerek yap, normali 'Permission denied' veriyor. 
-# "/home/$(USER)/data" silinmiyor manuel olarak elle silmek gerek buna cozum bul.
+# [IMPORTANT NOTE]
+# The reason for doing "chown -R ftekdrmi:ftekdrmi /home/ftekdrmi/data/" in the "clean" command is that there is no "root" and "user" in the file permissions, 
+# so it cannot be deleted even if "sudo make fclean" is done. . That's why file permissions are changed and then deleted.
+# [when using fclean] you should use this way "sudo make fclean" and you should change "ftekdrmi" user name with yours.
 
 # Colors
 RESET	= \033[0m
@@ -31,7 +32,8 @@ data:
 	@echo "$(GREEN)>- The [$(DATA)] Path Created! $(RESET)"
 
 clean: dc_down
-	@sudo rm -rf /home/$(USER)/data/
+	@chown -R ftekdrmi:ftekdrmi /home/ftekdrmi/data/
+	@rm -rf /home/ftekdrmi/data/
 	@echo "$(RED)>- Everything Deleted! $(RESET)"
 
 fclean: dc_down clr_ntw clr_img clr_vlm clr_cnt clean
