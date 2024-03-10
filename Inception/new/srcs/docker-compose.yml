@@ -71,7 +71,7 @@ services:
     restart: always
 
 
-# BONUS
+## */-[ BONUS ]-\*
 
 # Adminer
   adminer:
@@ -84,4 +84,15 @@ services:
       - 8080:8080
     depends_on:
       - mariadb
+    restart: always
+
+  # Website
+  website:
+    image: website:not-latest
+    container_name: website
+    build: ./requirements/bonus/website
+    networks:
+      - docker-network
+    ports:
+      - 3000:3000
     restart: always

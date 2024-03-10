@@ -1,0 +1,201 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background: black;
+}
+
+#city{
+    position: relative;
+    transform-style: preserve-3d;
+    animation: animate 50s linear infinite;
+}
+
+@keyframes animate{
+    0%
+    {
+        transform: rotateX(-30deg) rotateY(360deg);
+    }
+    100%
+    {
+        transform: rotateX(-30deg) rotateY(0);
+    }
+}
+
+#city::before{
+    content: '';
+    position: absolute;
+    top: -150vh;
+    left: 0;
+    width: 400vh;
+    height: 400vh;
+    background: black;
+    transform: translate(-50%, 250px) rotateX(90deg);
+}
+
+.skyscrapper{
+    position: relative;
+    width: 200px;
+    height: 600px;
+    transform-style: preserve-3d;
+}
+
+.skyscrapper .top{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: var(--clr);
+    transform: rotateX(90deg) translateZ(100px);
+    box-shadow: inset 0 0 150px rgba(0,0,0,0.35), 
+    inset 0 0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+.skyscrapper div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.skyscrapper div span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    height: 100%;
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.25);
+}
+
+.skyscrapper div span:nth-child(1)
+{
+    transform: rotateY(0deg) translate3d(0,0,100px);
+    background: linear-gradient(to bottom, transparent 50%, var(--clr) 50%), linear-gradient(to right,#999 50%, var(--clr)
+    50%);
+    background-size: 6px 6px;
+}
+
+.skyscrapper div span:nth-child(2)
+{
+    transform: rotateY(90deg) translate3d(0,0,100px);
+    background: linear-gradient(to right,#999 50%, var(--clr) 50%);
+    background-size: 6px 6px;
+}
+
+.skyscrapper div span:nth-child(3)
+{
+    transform: rotateY(180deg) translate3d(0,0,100px);
+    background: linear-gradient(to bottom, transparent 50%, var(--clr) 50%), linear-gradient(to right,#999 50%, var(--clr)
+    50%);
+    background-size: 6px 6px;
+}
+
+.skyscrapper div span:nth-child(4)
+{
+    transform: rotateY(270deg) translate3d(0,0,100px);
+    background: linear-gradient(to right,#999 50%, var(--clr) 50%);
+    background-size: 6px 6px;
+}
+
+.skyscrapper .bottom{
+    position: absolute;
+    left: -25px;
+    width: 250px;
+    height: 250px;
+    background: var(--clr);
+    transform: rotateX(90deg) translateZ(-480px);
+    border: 4px solid var(--clr);
+}
+
+.skyscrapper.two{
+    position: absolute;
+    top: 0;
+    left: -300px;
+    transform-origin: bottom;
+    transform: translateZ(-100px) scaleY(1.25);
+}
+
+.skyscrapper.three{
+    position: absolute;
+    top: 0;
+    left: -300px;
+    transform-origin: bottom;
+    transform: translateZ(-400px) scaleX(0.5);
+}
+
+.skyscrapper.four{
+    position: absolute;
+    top: 0;
+    left: 500px;
+    transform-origin: bottom;
+    transform: translateZ(50px) scaleY(0.8);
+}
+
+.skyscrapper.five{
+    position: absolute;
+    top: 0;
+    left: 100px;
+    transform-origin: bottom;
+    transform: translateZ(-500px) scaleY(2);
+}
+
+.skyscrapper.six{
+    position: absolute;
+    top: 0;
+    left: 100px;
+    transform-origin: bottom;
+    transform: translateZ(600px) scaleX(2);
+}
+
+.skyscrapper.seven{
+    position: absolute;
+    top: 0;
+    left: -400px;
+    transform-origin: bottom;
+    transform: translateZ(400px) scaleY(1.3);
+}
+
+
+.skyscrapper.ten{
+    position: absolute;
+    top: 0;
+    left: -700px;
+    transform-origin: bottom;
+    transform: translateZ(-150px) scaleY(0.3);
+}
+
+/* Home Section */
+
+.home-button {
+    background-color: transparent;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .home-button:hover {
+    background-color: #ffffff10;
+    color: #fff;
+  }
