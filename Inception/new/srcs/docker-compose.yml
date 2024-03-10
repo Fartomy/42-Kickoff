@@ -1,5 +1,7 @@
 version: '3.4'
 
+
+## Network
 networks:
   docker-network:
     driver: bridge
@@ -7,6 +9,7 @@ networks:
       config:
         - subnet: 182.34.0.0/24
 
+## Volume
 volumes:
   wordpress-data:
     name: wordpress-volume
@@ -26,7 +29,7 @@ volumes:
 
 services:
 
-# MariaDB
+## MariaDB
   mariadb:
     image: mariadb:not-latest
     container_name: mariadb
@@ -39,7 +42,7 @@ services:
       - docker-network
     restart: always
 
-# Wordpress
+## Wordpress
   wordpress:
     image: wordpress:not-latest
     container_name: wordpress
@@ -54,7 +57,7 @@ services:
       - mariadb
     restart: always
 
-# Nginx 
+## Nginx 
   nginx:
     image: nginx:not-latest
     container_name: nginx
@@ -73,26 +76,41 @@ services:
 
 ## */-[ BONUS ]-\*
 
-# Adminer
-  adminer:
-    image: adminer:not-latest
-    container_name: adminer
-    build: ./requirements/bonus/adminer
-    networks:
-      - docker-network
-    ports:
-      - 8080:8080
-    depends_on:
-      - mariadb
-    restart: always
+## Adminer
+  # adminer:
+  #   image: adminer:not-latest
+  #   container_name: adminer
+  #   build: ./requirements/bonus/adminer
+  #   networks:
+  #     - docker-network
+  #   ports:
+  #     - 8080:8080
+  #   depends_on:
+  #     - mariadb
+  #   restart: always
 
-  # Website
-  website:
-    image: website:not-latest
-    container_name: website
-    build: ./requirements/bonus/website
+## Website
+  # website:
+  #   image: website:not-latest
+  #   container_name: website
+  #   build: ./requirements/bonus/website
+  #   networks:
+  #     - docker-network
+  #   ports:
+  #     - 3000:3000
+  #   restart: always
+
+## Redis
+  redis:
+    image: redis:not-latest
+    container_name: redis
+    build: ./requirements/bonus/redis
     networks:
       - docker-network
-    ports:
-      - 3000:3000
+    volumes:
+      - wordpress-data:/var/www/html
+    # ports:
+    #   - 
+    depends_on:
+      - wordpress
     restart: always
