@@ -1,6 +1,5 @@
 version: '3.4'
 
-
 ## Network
 networks:
   docker-network:
@@ -27,6 +26,7 @@ volumes:
       o: bind
       device: /home/$USER/data/mariadb
 
+## Services
 services:
 
 ## MariaDB
@@ -76,29 +76,31 @@ services:
 
 ## */-[ BONUS ]-\*
 
-## Adminer
-  # adminer:
-  #   image: adminer:not-latest
-  #   container_name: adminer
-  #   build: ./requirements/bonus/adminer
-  #   networks:
-  #     - docker-network
-  #   ports:
-  #     - 8080:8080
-  #   depends_on:
-  #     - mariadb
-  #   restart: always
+# Adminer
+  adminer:
+    image: adminer:not-latest
+    container_name: adminer
+    build: ./requirements/bonus/adminer
+    networks:
+      - docker-network
+    ports:
+      - 8080:8080
+    depends_on:
+      - mariadb
+    restart: always
 
-## Website
-  # website:
-  #   image: website:not-latest
-  #   container_name: website
-  #   build: ./requirements/bonus/website
-  #   networks:
-  #     - docker-network
-  #   ports:
-  #     - 3000:3000
-  #   restart: always
+
+# Website
+  website:
+    image: website:not-latest
+    container_name: website
+    build: ./requirements/bonus/website
+    networks:
+      - docker-network
+    ports:
+      - 3000:3000
+    restart: always
+
 
 ## Redis
   redis:
@@ -109,8 +111,28 @@ services:
       - docker-network
     volumes:
       - wordpress-data:/var/www/html
-    # ports:
-    #   - 
+    ports:
+      - 6379:6379
     depends_on:
       - wordpress
+    restart: always
+  
+## FTP-SERVER
+  ftp-server:
+    image: ftp-server:not-latest
+    container_name: ftp-server
+    build: ./requirements/bonus/ftp-server
+    networks:
+      - docker-network
+    volumes:
+      - wordpress-data:/var/www/html
+    depends_on:
+      - wordpress
+    ports:
+      - "20:20"
+      - "21:21"
+      - "22:22"
+      - "64000-64321:64000-64321"
+    env_file:
+      - .env
     restart: always
