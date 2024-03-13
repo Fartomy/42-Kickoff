@@ -1,6 +1,6 @@
 version: '3.4'
 
-## Network
+# Network
 networks:
   docker-network:
     driver: bridge
@@ -76,7 +76,7 @@ services:
 
 ## */-[ BONUS ]-\*
 
-# Adminer
+## Adminer
   adminer:
     image: adminer:not-latest
     container_name: adminer
@@ -89,8 +89,7 @@ services:
       - mariadb
     restart: always
 
-
-# Website
+## Website
   website:
     image: website:not-latest
     container_name: website
@@ -100,7 +99,6 @@ services:
     ports:
       - 3000:3000
     restart: always
-
 
 ## Redis
   redis:
@@ -116,8 +114,8 @@ services:
     depends_on:
       - wordpress
     restart: always
-  
-## FTP-SERVER
+
+## FTP-Server
   ftp-server:
     image: ftp-server:not-latest
     container_name: ftp-server
@@ -135,4 +133,31 @@ services:
       - "64000-64321:64000-64321"
     env_file:
       - .env
+    restart: always
+
+## Windows
+  windows:
+    image: windows:not-latest
+    container_name: windows
+    build: ./requirements/bonus/windows
+    depends_on:
+      - qemu
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8006:8006
+      - 3389:3389/tcp
+      - 3389:3389/udp
+    environment:
+      - VERSION=winxp
+    stop_grace_period: 2m
+    restart: on-failure
+
+## Qemu
+  qemu:
+    image: qemu:not-latest
+    container_name: qemu
+    build: ./requirements/bonus/qemu
     restart: always
