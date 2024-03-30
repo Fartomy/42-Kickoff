@@ -22,17 +22,17 @@ This installation contains **inception** and **bonus part.**
    - [Getting Config Files of Services With docker cp](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#getting-config-files-of-services-with-docker-cp)
    - [docker inspect/logs/attach Commands](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#docker-inspectlogsattach-commands)
 3. [Services](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#three-part-3---services)
-   - [For Nginx](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#for-nginx)
-   - [For WordPress](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#for-wordpress)
-   - [For MariaDB](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#for-mariadb)
+   - [For Nginx](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#yarn-for-nginx)
+   - [For WordPress](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#thread-for-wordpress)
+   - [For MariaDB](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#sewing_needle-for-mariadb)
 4. [~ B O N U S ~](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#four-part-4----b-o-n-u-s-)
-   - [For Adminer](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#for-adminer)
-   - [For Website](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#for-website)
-   - [For Redis](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#for-redis)
-   - [For FTP Server](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#for-ftp-server)
-   - [For Own Service](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#for-own-service)
-   - [For QEMU Service](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#for-qemu-service)
-5. [Sources](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#sources)
+   - [For Adminer](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#plunger-for-adminer)
+   - [For Website](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#placard-for-website)
+   - [For Redis](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#fire_extinguisher-for-redis)
+   - [For FTP Server](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#sponge-for-ftp-server)
+   - [For Own Service](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#window-for-own-service)
+   - [For QEMU Service](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#paintbrush-for-qemu-service)
+5. [Sources](https://github.com/Fartomy/42-Kickoff/blob/master/Inception/README.md#paperclip-sources)
    - [VS Code](https://github.com/Fartomy/42-Kickoff/tree/master/Inception#vs-code)
    - [Docker Essentials](https://github.com/Fartomy/42-Kickoff/tree/master/Inception#docker-essentials)
    - [Nginx](https://github.com/Fartomy/42-Kickoff/tree/master/Inception#nginx)
@@ -749,7 +749,7 @@ Windows version can be changed from `VERSION` env in dockefile:
 To run it, when you type the `IP:8006` port in the browser url, windows running in the docker container will open via the browser, thanks to noVNC.
 
 
-### For QEMU Service
+### :paintbrush: For QEMU Service
 
 Since the windows service can run thanks to the qemu service, we need to compile it too, so it is among the services.
 
