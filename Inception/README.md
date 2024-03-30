@@ -340,7 +340,7 @@ However, in some cases, especially during development or debugging, you may want
 location ~ \.php$ {
         try_files $uri =404;
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass wordpress:9000; ----------------> bu bolum wordpress container ile iliski kurulan kisim
+        fastcgi_pass wordpress:9000; ----------------> This section is the part that establishes a relationship with the WordPress container
         fastcgi_index index.php;
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
