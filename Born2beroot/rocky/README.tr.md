@@ -6,27 +6,27 @@ Bu kurulum **Rocky Linux** tabanlıdır ve **bonus bölüm** dahildir.
 
 ## 🧭 Yol Haritası
 
-1. [Kısım 1 - Rocky Yükleme](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky#1%EF%B8%8F%E2%83%A3-k%C4%B1s%C4%B1m-1---rocky-linux-y%C3%BCkleme)
+1. [Kısım 1 - Rocky Yükleme](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/README.tr.md#1%EF%B8%8F%E2%83%A3-k%C4%B1s%C4%B1m-1---rocky-linux-y%C3%BCkleme)
 
-2. [Kısım 2 - İndirmeler ve Ayarlamalar ve Yapılandırmalar](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky#2%EF%B8%8F%E2%83%A3-k%C4%B1s%C4%B1m-2---i%CC%87ndirmeler-ve-ayarlamalar-ve-yap%C4%B1land%C4%B1rmalar)
-   - [SSH için](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky#-ssh-i%C3%A7in)
-   - [Sudo için](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky#godmode-sudo-i%C3%A7in)
-   - [Şifreleme Politikası](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky#%EF%B8%8F-%C5%9Fifreleme-politikas%C4%B1)
+2. [Kısım 2 - İndirmeler ve Ayarlamalar ve Yapılandırmalar](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/README.tr.md#2%EF%B8%8F%E2%83%A3-k%C4%B1s%C4%B1m-2---i%CC%87ndirmeler-ve-ayarlamalar-ve-yap%C4%B1land%C4%B1rmalar)
+   - [SSH için](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/README.tr.md#-ssh-i%C3%A7in)
+   - [Sudo için](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/README.tr.md#godmode-sudo-i%C3%A7in)
+   - [Şifreleme Politikası](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/README.tr.md#%EF%B8%8F-%C5%9Fifreleme-politikas%C4%B1)
 
-3. [Kısım 3 - Monitoring.sh ve Crontab Yapılandırmaları](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky#3%EF%B8%8F%E2%83%A3-k%C4%B1s%C4%B1m-3---monitoringsh-ve-crontab-yap%C4%B1land%C4%B1rmalar%C4%B1)
+3. [Kısım 3 - Monitoring.sh ve Crontab Yapılandırmaları](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/README.tr.md#3%EF%B8%8F%E2%83%A3-k%C4%B1s%C4%B1m-3---monitoringsh-ve-crontab-yap%C4%B1land%C4%B1rmalar%C4%B1)
 
-4. [Kısım 4 - Son Kontroller](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky#four-k%C4%B1s%C4%B1m-4---son-kontroller)
+4. [Kısım 4 - Son Kontroller](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/README.tr.md#four-k%C4%B1s%C4%B1m-4---son-kontroller)
 
-5. [Bonus Bölüm - WordPress Kurulumu ve Hizmetinizin Seçimi](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky#%EF%B8%8F%E2%83%A3-bonus-b%C3%B6l%C3%BCm---wordpress-kurulumu-ve-hizmetinizin-se%C3%A7imi)
-   - [WordPress Kurulumu](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky#-wordpress-kurulumu)
-        - [Lighttpd için](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky#-lighttpd-i%C3%A7in)
-        - [MariaDB için](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky#-mariadb-i%C3%A7in)
-        - [PHP için](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky#%EF%B8%8F-php-i%C3%A7in)
-        - [WordPress için](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky#-wordpress-i%C3%A7in)
-   - [Hizmetinizin Seçimi](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky#-hizmetinizin-se%C3%A7imi)
+5. [Bonus Bölüm - WordPress Kurulumu ve Hizmetinizin Seçimi](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/README.tr.md#%EF%B8%8F%E2%83%A3-bonus-b%C3%B6l%C3%BCm---wordpress-kurulumu-ve-hizmetinizin-se%C3%A7imi)
+   - [WordPress Kurulumu](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/README.tr.md#-wordpress-kurulumu)
+        - [Lighttpd için](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/README.tr.md#-lighttpd-i%C3%A7in)
+        - [MariaDB için](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/README.tr.md#-mariadb-i%C3%A7in)
+        - [PHP için](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/README.tr.md#%EF%B8%8F-php-i%C3%A7in)
+        - [WordPress için](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/README.tr.md#-wordpress-i%C3%A7in)
+   - [Hizmetinizin Seçimi](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/README.tr.md#-hizmetinizin-se%C3%A7imi)
 
-6. [Kısım 5 - Gönderim ve Akran Değerlendirmesi](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky#-k%C4%B1s%C4%B1m-5---g%C3%B6nderim-ve-akran-de%C4%9Ferlendirmesi)
-7. [Kaynaklar](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky#-kaynaklar)
+6. [Kısım 5 - Gönderim ve Akran Değerlendirmesi](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/README.tr.md#-k%C4%B1s%C4%B1m-5---g%C3%B6nderim-ve-akran-de%C4%9Ferlendirmesi)
+7. [Kaynaklar](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/rocky/README.tr.md#-kaynaklar)
 
 ## 1️⃣ Kısım 1 - Rocky Linux Yükleme
 
