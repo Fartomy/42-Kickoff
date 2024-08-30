@@ -6,31 +6,30 @@ Bu kurulum için **Debian** temel alınmıştır ve **bonus bölüm** dahildir.
 
 ## 🧭 Yol Haritası
 
-1.  [Part 1 - Install Debian](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#one-part-1---install-debian)
+1.  [Kısım 1 - Debian Yükleme](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#one-k%C4%B1s%C4%B1m-1---debian-y%C3%BCkleme)
 
-2. [Part 2 - Downloads and Adjustments and and Configurations](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#two-part-2---downloads-and-adjustments-and-and-configurations)
-   - [For SSH](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#-for-ssh)
-   - [For UFW](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#%EF%B8%8F-for-ufw)
-   - [For Sudo](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#godmode-for-sudo)
-   - [Password Policy](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#%EF%B8%8F-password-policy)
+2. [Kısım 2 - İndirmeler ve Ayarlamalar ve Yapılandırmalar](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#two-k%C4%B1s%C4%B1m-2---i%CC%87ndirmeler-ve-ayarlamalar-ve-yap%C4%B1land%C4%B1rmalar)
+   - [SSH için](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#-ssh-i%C3%A7in)
+   - [UFW için](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#%EF%B8%8F-ufw-i%C3%A7in)
+   - [Sudo için](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#godmode-sudo-i%C3%A7in)
+   - [Şifreleme Politikası](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#%EF%B8%8F-%C5%9Fifreleme-politikas%C4%B1)
 
-3. [Part 3 - Monitoring.sh and Crontab Configurations](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#3%EF%B8%8F%E2%83%A3-part-3---monitoringsh-and-crontab-configurations)
+3. [Kısım 3 - Monitoring.sh and Crontab Yapılandırmaları](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#3%EF%B8%8F%E2%83%A3-k%C4%B1s%C4%B1m-3---monitoringsh-ve-crontab-yap%C4%B1land%C4%B1rmalar%C4%B1)
 
-4. [Part Bonus - WordPress Setup and Choice of Your Service](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#%EF%B8%8F%E2%83%A3-part-bonus---wordpress-setup-and-choice-of-your-service)
+4. [Bonus Kısım - WordPress Kurulumu ve Hizmetinizin Seçimi](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#%EF%B8%8F%E2%83%A3-k%C4%B1s%C4%B1m-bonus---wordpress-kurulumu-ve-hizmetinizin-se%C3%A7imi)
 
-      - [WordPress Setup](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#-wordpress-setup)
-         - [For Lighttpd](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#-for-lighttpd)
-         - [For MariaDB](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#-for-mariadb)
-         - [For PHP](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#%EF%B8%8F-for-php)
-         - [For WordPress](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#-for-wordpress)
-      - [Choice of Your Service](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#-choice-of-your-service)
+      - [WordPress Kurulumu](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#-wordpress-kurulumu)
+         - [Lighttpd için](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#-lighttpd-i%C3%A7in)
+         - [MariaDB için](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#-mariadb-i%C3%A7in)
+         - [PHP için](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#%EF%B8%8F-php-i%C3%A7in)
+         - [WordPress için](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#-wordpress-i%C3%A7in)
+      - [Hizmetinizin Seçimi](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#-hizmetinizin-se%C3%A7imi)
 
-6. [Part 4 - Submission and Peer-evaluation](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#4%EF%B8%8F%E2%83%A3-part-4---submission-and-peer-evaluation)
+6. [Kısım 4 - Gönderim ve Akran Değerlendirmesi](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#4%EF%B8%8F%E2%83%A3-k%C4%B1s%C4%B1m-4---g%C3%B6nderim-ve-akran-de%C4%9Ferlendirmesi)
 
-7. [Extras and Resources](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#5%EF%B8%8F%E2%83%A3-extras-and-resources)
-
-   - [Extras](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#-extras)
-   - [Resources](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/debian#brain-resources)
+7. [Ekstra ve Kaynaklar](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#5%EF%B8%8F%E2%83%A3-ekstralar-ve-kaynaklar)
+   - [Ekstralar](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#-ekstralar)
+   - [Kaynaklar](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#brain-kaynaklar)
   
 ## :one: Kısım 1 - Debian Yükleme
 
@@ -409,7 +408,7 @@ Bunları onaylamak için _root_'tan çıkıp `sudo` komutuyla neler yapılabilec
 
 **🚩Evet, `sudo` bu kadardı..🚩**
 
-### ⛓️ Şifre Politikası
+### ⛓️ Şifreleme Politikası
 
 Öncelikle şifre değiştirme sıklığını yapılandırın:
 
@@ -891,13 +890,13 @@ Disk imzanız geldiğinde `signature.txt` dosyasına gönderip push alacaksını
 
 ## 5️⃣ Ekstralar ve Kaynaklar
 
-### ➕ Extras
+### ➕ Ekstralar
 
 1-) Arkadaşınızın sanal makinesine SSH kullanarak bağlanabilirsiniz.
 
 2-) _netcat_ ile arkadaşlarınızla terminal üzerinden sohbet edebilirsiniz.
 
-Malzemeler
+Malzemeler:
 
 - IPv4 adresi
 ```
