@@ -22,6 +22,7 @@ This installation is based on **Rocky Linux** and **bonus part** is included.
         - [For Lighttpd](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#for-lighttpd)
         - [For MariaDB](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#for-mariadb)
         - [For PHP](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#for-php)
+        - [For WordPress](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky/README.md#-for-wordpress)
    - [Choice of Your Service](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#choice-of-your-service)
 
 6. [Part 5 - Submission and Peer Evaluation](https://github.com/Fartomy/42-Kickoff/tree/master/Born2beroot/rocky#part-5---submission-and-peer-evaluation)
