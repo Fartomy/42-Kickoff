@@ -6,30 +6,30 @@ Bu kurulum için **Debian** temel alınmıştır ve **bonus bölüm** dahildir.
 
 ## 🧭 Yol Haritası
 
-1.  [Kısım 1 - Debian Yükleme](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#one-k%C4%B1s%C4%B1m-1---debian-y%C3%BCkleme)
+1.  [Kısım 1 - Debian Yükleme](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/README.tr.md#one-k%C4%B1s%C4%B1m-1---debian-y%C3%BCkleme)
 
-2. [Kısım 2 - İndirmeler ve Ayarlamalar ve Yapılandırmalar](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#two-k%C4%B1s%C4%B1m-2---i%CC%87ndirmeler-ve-ayarlamalar-ve-yap%C4%B1land%C4%B1rmalar)
-   - [SSH için](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#-ssh-i%C3%A7in)
-   - [UFW için](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#%EF%B8%8F-ufw-i%C3%A7in)
-   - [Sudo için](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#godmode-sudo-i%C3%A7in)
-   - [Şifreleme Politikası](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#%EF%B8%8F-%C5%9Fifreleme-politikas%C4%B1)
+2. [Kısım 2 - İndirmeler ve Ayarlamalar ve Yapılandırmalar](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/README.tr.md#two-k%C4%B1s%C4%B1m-2---i%CC%87ndirmeler-ve-ayarlamalar-ve-yap%C4%B1land%C4%B1rmalar)
+   - [SSH için](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/README.tr.md#-ssh-i%C3%A7in)
+   - [UFW için](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/README.tr.md#%EF%B8%8F-ufw-i%C3%A7in)
+   - [Sudo için](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/README.tr.md#godmode-sudo-i%C3%A7in)
+   - [Şifreleme Politikası](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/README.tr.md#%EF%B8%8F-%C5%9Fifreleme-politikas%C4%B1)
 
-3. [Kısım 3 - Monitoring.sh and Crontab Yapılandırmaları](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#3%EF%B8%8F%E2%83%A3-k%C4%B1s%C4%B1m-3---monitoringsh-ve-crontab-yap%C4%B1land%C4%B1rmalar%C4%B1)
+3. [Kısım 3 - Monitoring.sh and Crontab Yapılandırmaları](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/README.tr.md#3%EF%B8%8F%E2%83%A3-k%C4%B1s%C4%B1m-3---monitoringsh-ve-crontab-yap%C4%B1land%C4%B1rmalar%C4%B1)
 
-4. [Bonus Kısım - WordPress Kurulumu ve Hizmetinizin Seçimi](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#%EF%B8%8F%E2%83%A3-k%C4%B1s%C4%B1m-bonus---wordpress-kurulumu-ve-hizmetinizin-se%C3%A7imi)
+4. [Bonus Kısım - WordPress Kurulumu ve Hizmetinizin Seçimi](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/README.tr.md#%EF%B8%8F%E2%83%A3-k%C4%B1s%C4%B1m-bonus---wordpress-kurulumu-ve-hizmetinizin-se%C3%A7imi)
 
-      - [WordPress Kurulumu](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#-wordpress-kurulumu)
-         - [Lighttpd için](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#-lighttpd-i%C3%A7in)
-         - [MariaDB için](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#-mariadb-i%C3%A7in)
-         - [PHP için](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#%EF%B8%8F-php-i%C3%A7in)
-         - [WordPress için](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#-wordpress-i%C3%A7in)
-      - [Hizmetinizin Seçimi](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#-hizmetinizin-se%C3%A7imi)
+      - [WordPress Kurulumu](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/README.tr.md#-wordpress-kurulumu)
+         - [Lighttpd için](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/README.tr.md#-lighttpd-i%C3%A7in)
+         - [MariaDB için](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/README.tr.md#-mariadb-i%C3%A7in)
+         - [PHP için](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/README.tr.md#%EF%B8%8F-php-i%C3%A7in)
+         - [WordPress için](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/README.tr.md#-wordpress-i%C3%A7in)
+      - [Hizmetinizin Seçimi](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/README.tr.md#-hizmetinizin-se%C3%A7imi)
 
-6. [Kısım 4 - Gönderim ve Akran Değerlendirmesi](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#4%EF%B8%8F%E2%83%A3-k%C4%B1s%C4%B1m-4---g%C3%B6nderim-ve-akran-de%C4%9Ferlendirmesi)
+6. [Kısım 4 - Gönderim ve Akran Değerlendirmesi](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/README.tr.md#4%EF%B8%8F%E2%83%A3-k%C4%B1s%C4%B1m-4---g%C3%B6nderim-ve-akran-de%C4%9Ferlendirmesi)
 
-7. [Ekstra ve Kaynaklar](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#5%EF%B8%8F%E2%83%A3-ekstralar-ve-kaynaklar)
-   - [Ekstralar](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#-ekstralar)
-   - [Kaynaklar](https://github.com/Fartomy/42-Kickoff/master/Born2beroot/debian/README.tr.md#brain-kaynaklar)
+7. [Ekstra ve Kaynaklar](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/README.tr.md#5%EF%B8%8F%E2%83%A3-ekstralar-ve-kaynaklar)
+   - [Ekstralar](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/README.tr.md#-ekstralar)
+   - [Kaynaklar](https://github.com/Fartomy/42-Kickoff/blob/master/Born2beroot/debian/README.tr.md#brain-kaynaklar)
   
 ## :one: Kısım 1 - Debian Yükleme
 
